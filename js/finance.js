@@ -55,6 +55,8 @@ $(window).on('load', function () {
                  if (classnamelist.includes($(this).data("field"))) {
 
                      $(".loader").css("display", "block");
+                     $("#bigcontainer1").css("opacity", "0");
+                     $("#bigcontainer2").css("opacity", "0");
                      $("#bigcontainer").css("opacity", "0");
 
                      sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
@@ -140,6 +142,8 @@ $(window).on('load', function () {
 
     $("#FTSE100But").on("click", function () {
         $(".loader").css("display", "block");
+        $("#bigcontainer1").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
         getAllData("ftse100");
 
@@ -184,6 +188,8 @@ $(window).on('load', function () {
 
      $("#FTSE250But").on("click", function () {
          $(".loader").css("display", "block");
+         $("#bigcontainer1").css("opacity", "0");
+         $("#bigcontainer2").css("opacity", "0");
          $("#bigcontainer").css("opacity", "0");
          getAllData("ftse250");
 
@@ -192,6 +198,8 @@ $(window).on('load', function () {
 
      $("#FTSEzzzBut").on("click", function () {
          $(".loader").css("display", "block");
+         $("#bigcontainer1").css("opacity", "0");
+         $("#bigcontainer2").css("opacity", "0");
          $("#bigcontainer").css("opacity", "0");
          getAllData("ftserst");
       
@@ -201,6 +209,8 @@ $(window).on('load', function () {
 
     $("#FTSEaimBut").on("click", function () {
         $(".loader").css("display", "block");
+        $("#bigcontainer1").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
         getAllData("ftseaim");
 
@@ -431,6 +441,8 @@ $(window).on('load', function () {
         $.each(rows, function (index, row) {
             $('#' + xx).children('tbody').append(row);
         });
+        $("#bigcontainer1").css("opacity", "100%");
+        $("#bigcontainer2").css("opacity", "100%");
         $("#bigcontainer").css("opacity", "100%");
         $(".loader").css("display", "none");
     }
