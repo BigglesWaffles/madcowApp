@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
 */
 app.listen(port,  () => {
  
-    debug('Express server listening on port ' + server.address().port);
+   console.log('Express server listening on port ' );
 });
 
 
