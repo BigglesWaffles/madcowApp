@@ -47,7 +47,7 @@ app.get('/', function (req, res) {
 module.exports = app;
 
 
-app.listen(process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
 //console.log('Server started at http://localhost:' + port);
 
 console.log("JOHN HAWTHORNE 22252");
@@ -57,12 +57,10 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 */
-/*var server = app.listen(app.get('port'), function () {
+app.listen(port,  () => {
  
     debug('Express server listening on port ' + server.address().port);
-});*/
+});
 
 
-
-//app.listen(process.env.PORT || 3000);
 
