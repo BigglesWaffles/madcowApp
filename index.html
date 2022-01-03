@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="Stylesheet" type="text/css" />
+    <link href="/css/finance.css" rel="Stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+
+    <script type="text/javascript" src="/js/finance.js"></script>
+
+
+
+
+
+
+    <title>Finance Data</title>
+</head>
+<body>
+
+    <h1 style="text-align:center">Investors Cookbook</h1>
+
+    <div class="loader">
+        <div class="loader-wheel"></div>
+        <div class="loader-text"></div>
+    </div>
+
+
+    <div class="container marginleft">
+
+     
+        <button style="width:110px;color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button>
+        <button style="width:110px;color:black;background-color:lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>
+        <button style="width:110px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
+        <button style="width:110px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
+        <button style="width:110px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
+        <button style="width:110px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
+
+
+    </div>
+
+
+    <div style="width:100%;" id="bigcontainer" class="container">
+    <div id="tablenetnetCon" style="width:1500px;display:none" class="container">
+        <table id="table" data-height="700">
+            <thead>
+                <tr>
+                    <th data-field="navMid">Nav to Mid</th>
+                    <th data-field="navPerShare">Nav Per Share</th>
+                    <th data-field="dividend">Dividend</th>
+                    <th data-field="exDividend">Ex Dividend</th>
+                    <th data-field="bullAdvice">Buy Sell</th>
+                    <th data-field="sector">Sector</th>
+                    <th data-field="tickerSymbol" data-formatter="tickerFormatter">Ticker</th>
+                    <th data-field="stockName">Name</th>
+                    <th data-field="profit">profit</th>
+                    <th data-field="marketCapitalisation">mrk cap</th>
+                    <th data-field="percentUp" data-formatter="upOrDownFormatter">Weekly %</th>
+                    <th data-field="netNet">Net net</th>
+                    <th data-field="percentUpToday" data-formatter="todaysFormatter">price today</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="sectorRiseCon" style="display:none" class="container">
+        <table id="sectorRise" data-height="700">
+            <thead>
+                <tr>
+                    <th data-field="sector">Sector</th>
+                    <th data-field="exchangeIndex">Index</th>
+                    <th data-field="weekPercentUp" data-formatter="upOrDownFormatter2">avg week % up</th>
+                    <th data-field="percentUp" data-formatter="upOrDownFormatter">avg percent up</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="tablesectorsCon" style="width:1500px;display:none" class="container">
+        <table id="tableSector" data-height="700">
+            <thead>
+                <tr>
+                    <th data-field="profitPercent">Profit % of MCap</th>
+                    <th data-field="percentUp">percent up</th>
+                    <th data-field="tickerSymbol" data-formatter="tickerFormatter">Ticker</th>
+                    <th data-field="stockName">Name</th>
+                    <th data-field="marketCapitalisation">mrk cap</th>
+                    <th data-field="afterTaxProfit">After Tax Profit</th>
+                    <th data-field="exchangeIndex">Index</th>
+                    <th data-field="netAssets">Net assets</th>
+                    <th data-field="peRatio">PE Ratio</th>
+                    <th data-field="dividend">Dividend</th>
+                    <th data-field="exDividend">Ex Dividend</th>
+                    <th data-field="cash">Cash</th>
+                    <th data-field="cashPercent">Cash %</th>
+                    <th data-field="percentUpToday" data-formatter="todaysFormatter">price today</th>
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="tableftseCon" style="width:1800px;display:none; border:none!important" class="container">
+        <div id="indexTitle" style="position:relative; width:100%; top:50px; font-size:20px">FTSE 100</div>
+        <table id="tableftse" data-height="700"
+               data-toolbar=".toolbar"
+               data-search="true"
+               data-show-columns="true"
+               data-show-columns-toggle-all="true">
+            <thead>
+                <tr>
+                    <th class="stockName" data-field="stockName"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="stockName tableftseCon btn btn-info">Name</button></th>
+                    <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="tickerSymbol tableftseCon btn btn-info">Ticker</button></th>
+                    <th class="sector" data-field="sector"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="sector tableftseCon btn btn-info">Sector</button></th>
+                    <th class="rsi" data-field="rsi"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="rsi tableftseCon btn btn-info">RSI</button></th>
+                    <th class="techSum" data-field="techSum"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="techSum tableftseCon btn btn-info">Tech Sum</button></th>
+                    <th class="peRatio" data-field="peRatio"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="peRatio tableftseCon btn btn-info">PE</button></th>
+                    <th class="navMid" data-field="navMid"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="navMid tableftseCon btn btn-info">Nav to Mid</button></th>
+                    <th class="dividend" data-field="dividend"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="dividend tableftseCon btn btn-info">Dividend</button></th>
+                    <th class="exDividend" data-field="exDividend"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="exDividend tableftseCon btn btn-info">Ex Dividend</button></th>
+                    <th class="bullAdvice" data-field="bullAdvice"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="bullAdvice tableftseCon btn btn-info">Bull Date</button></th>
+                    <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
+                    <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
+                    <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th>
+                    <th class="profit" data-field="profit"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="profit tableftseCon btn btn-info">Profit</button></th>
+                    <th class="hmarketCapitalisation" data-field="marketCapitalisation"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="marketCapitalisation tableftsCon btn btn-info">Mrk Cap</button></th>
+                    <th class="percentUp" data-field="percentUp" data-formatter="upOrDownFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="percentUp tableftseCon btn btn-info">Weekly %</button></th>
+                    <th class="changePercent" data-field="changePercent" data-formatter="upOrDownFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="changePercent tableftseCon btn btn-info">Prev Close</button></th>
+                    <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="percentUpToday tableftseCon btn btn-info">Price Today</button></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+    <div style="display:none" id="tableoversoldCon" class="container">
+        <table id="tableoversold" data-height="700">
+            <thead>
+                <tr>
+                    <th data-field="tickerSymbol" data-formatter="tickerbFormatter">Ticker</th>
+                    <th data-field="stockName">Name</th>
+                    <th data-field="oversoldPos">Oversold Position</th>
+                    <th data-field="sector">Business sector</th>
+                    <th data-field="cheapness">Value for money</th>
+                    <th data-field="marketCapitalisation">mrk cap</th>
+                    <th data-field="percentUp" data-formatter="upOrDownFormatter">Weekly %</th>
+                    <th data-field="changePercent" data-formatter="upOrDownFormatter">Prev Close</th>
+                    <th data-field="percentUpToday" data-formatter="todays2Formatter">price today</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+        </div>
+
+    <script>
+
+        function dayFormatter(value, row, index) {
+            return "<span> " +
+                "<img class='imagea' id='imagea" + index + "' width='40px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1D&SUBSAMPLINGGRANULARITY=60&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
+                "<img class='imagea' id='imageaBIG" + index + "' style='display:none' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1D&SUBSAMPLINGGRANULARITY=60&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
+                " &nbsp;</span>";
+        }
+
+        function weekFormatter(value, row, index) {
+            return "<span> " +
+                "<img class='imageb' id='imageb" + index + "' width='40px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
+                "<img class='imageb' id='imagebBIG" + index + "' style='display:none'  src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
+                " &nbsp;</span>";
+        }
+
+        function yearsFormatter(value, row, index) {
+            return "<span> " +
+                "<img class='imagec' id='imagec" + index + "' width='40px' height='40px' src='http://uk.advfn.com/p.php?pid=legacydaily&epic=L^" + value + "&type=4&size=3&period=4&ind_type1=1&ind1_1=&ind2_1=&ind_type2=4&ind1_2=14&ind2_2=&ind_type3=8&ind1_3=&ind2_3=&olx_1=3&ma_type1=1&o_1maday1=14&o_2maday1=&o_colour1=4&olx_2=3&ma_type2=1&o_1maday2=28&o_2maday2=&o_colour2=5&olx_3=3&ma_type3=1&o_1maday3=50&o_2maday3=&o_colour3=2&olx_4=3&ma_type4=1&o_1maday4=100&o_2maday4=&o_colour4=3&olx_5=3&ma_type5=1&o_1maday5=200&o_2maday5=&o_colour5=1&scheme=&delay_indices=1'>" +
+                "<img class='imagec' id='imagecBIG" + index + "' style='display:none'  src='http://uk.advfn.com/p.php?pid=legacydaily&epic=L^" + value + "&type=4&size=3&period=4&ind_type1=1&ind1_1=&ind2_1=&ind_type2=4&ind1_2=14&ind2_2=&ind_type3=8&ind1_3=&ind2_3=&olx_1=3&ma_type1=1&o_1maday1=14&o_2maday1=&o_colour1=4&olx_2=3&ma_type2=1&o_1maday2=28&o_2maday2=&o_colour2=5&olx_3=3&ma_type3=1&o_1maday3=50&o_2maday3=&o_colour3=2&olx_4=3&ma_type4=1&o_1maday4=100&o_2maday4=&o_colour4=3&olx_5=3&ma_type5=1&o_1maday5=200&o_2maday5=&o_colour5=1&scheme=&delay_indices=1'>" +
+                " &nbsp;</span>";
+        }
+
+        function tickerFormatter(value, row, index) {
+            return "<span id='aa" + index + "'> " + value + "</span>";
+        }
+
+        function tickerbFormatter(value, row, index) {
+            return "<span id='bb" + index + "'> " + value + "</span>";
+        }
+
+
+        function upOrDownFormatter(value) {
+
+            var string1 = "" + value + "";
+            var image = "<img src='/images/arrow_up_green.svg'>";
+            if (string1.substring(0, 1) == "-") {
+                return "<img src='/images/arrow_down_red.svg'> <span style='color:red' > " + value + "%</span>";
+            }
+            if (string1 == "0") {
+                return "&nbsp;&nbsp;&nbsp;&nbsp;" + value + "%";
+            }
+            return "<img src='/images/arrow_up_green.svg'> <span style='color:green' > " + value + "%</span>";
+        }
+
+        function upOrDownFormatter2(value) {
+
+            var string1 = "" + value + "";
+            var image = "<img src='/images/arrow_up_green.svg'>";
+            if (string1.substring(0, 1) == "-") {
+                return "<img src='/images/arrow_down_red.svg'> <span style='color:red' > " + value + "%</span>";
+            }
+            if (string1 == "0") {
+                return "&nbsp;&nbsp;&nbsp;&nbsp;" + value + "%";
+            }
+            return "<img src='/images/arrow_up_green.svg'> <span style='color:green' > " + value + "%</span>";
+        }
+
+
+        function todaysFormatter(value, row, index) {
+            return "<span id='butt" + index + "' >todays change</span>";
+        }
+        function todays2Formatter(value, row, index) {
+            return "<span id='buttt" + index + "' >todays change</span>";
+        }
+    </script>
+
+    <div><a href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
+</body>
+</html>
