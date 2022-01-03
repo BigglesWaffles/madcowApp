@@ -31,128 +31,133 @@
     </div>
 
 
-    <div class="container marginleft">
-
-     
-        <button style="width:110px;color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button>
-        <button style="width:110px;color:black;background-color:lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>
-        <button style="width:110px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
-        <button style="width:110px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
-        <button style="width:110px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
-        <button style="width:110px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
-
-
-    </div>
 
 
     <div style="width:100%;" id="bigcontainer" class="container">
-    <div id="tablenetnetCon" style="width:1500px;display:none" class="container">
-        <table id="table" data-height="700">
-            <thead>
-                <tr>
-                    <th data-field="navMid">Nav to Mid</th>
-                    <th data-field="navPerShare">Nav Per Share</th>
-                    <th data-field="dividend">Dividend</th>
-                    <th data-field="exDividend">Ex Dividend</th>
-                    <th data-field="bullAdvice">Buy Sell</th>
-                    <th data-field="sector">Sector</th>
-                    <th data-field="tickerSymbol" data-formatter="tickerFormatter">Ticker</th>
-                    <th data-field="stockName">Name</th>
-                    <th data-field="profit">profit</th>
-                    <th data-field="marketCapitalisation">mrk cap</th>
-                    <th data-field="percentUp" data-formatter="upOrDownFormatter">Weekly %</th>
-                    <th data-field="netNet">Net net</th>
-                    <th data-field="percentUpToday" data-formatter="todaysFormatter">price today</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    <div id="sectorRiseCon" style="display:none" class="container">
-        <table id="sectorRise" data-height="700">
-            <thead>
-                <tr>
-                    <th data-field="sector">Sector</th>
-                    <th data-field="exchangeIndex">Index</th>
-                    <th data-field="weekPercentUp" data-formatter="upOrDownFormatter2">avg week % up</th>
-                    <th data-field="percentUp" data-formatter="upOrDownFormatter">avg percent up</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    <div id="tablesectorsCon" style="width:1500px;display:none" class="container">
-        <table id="tableSector" data-height="700">
-            <thead>
-                <tr>
-                    <th data-field="profitPercent">Profit % of MCap</th>
-                    <th data-field="percentUp">percent up</th>
-                    <th data-field="tickerSymbol" data-formatter="tickerFormatter">Ticker</th>
-                    <th data-field="stockName">Name</th>
-                    <th data-field="marketCapitalisation">mrk cap</th>
-                    <th data-field="afterTaxProfit">After Tax Profit</th>
-                    <th data-field="exchangeIndex">Index</th>
-                    <th data-field="netAssets">Net assets</th>
-                    <th data-field="peRatio">PE Ratio</th>
-                    <th data-field="dividend">Dividend</th>
-                    <th data-field="exDividend">Ex Dividend</th>
-                    <th data-field="cash">Cash</th>
-                    <th data-field="cashPercent">Cash %</th>
-                    <th data-field="percentUpToday" data-formatter="todaysFormatter">price today</th>
 
-                </tr>
-            </thead>
-        </table>
-    </div>
-    <div id="tableftseCon" style="width:1800px;display:none; border:none!important" class="container">
-        <div id="indexTitle" style="position:relative; width:100%; top:50px; font-size:20px">FTSE 100</div>
-        <table id="tableftse" data-height="700"
-               data-toolbar=".toolbar"
-               data-search="true"
-               data-show-columns="true"
-               data-show-columns-toggle-all="true">
-            <thead>
-                <tr>
-                    <th class="stockName" data-field="stockName"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="stockName tableftseCon btn btn-info">Name</button></th>
-                    <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="tickerSymbol tableftseCon btn btn-info">Ticker</button></th>
-                    <th class="sector" data-field="sector"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="sector tableftseCon btn btn-info">Sector</button></th>
-                    <th class="rsi" data-field="rsi"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="rsi tableftseCon btn btn-info">RSI</button></th>
-                    <th class="techSum" data-field="techSum"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="techSum tableftseCon btn btn-info">Tech Sum</button></th>
-                    <th class="peRatio" data-field="peRatio"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="peRatio tableftseCon btn btn-info">PE</button></th>
-                    <th class="navMid" data-field="navMid"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="navMid tableftseCon btn btn-info">Nav to Mid</button></th>
-                    <th class="dividend" data-field="dividend"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="dividend tableftseCon btn btn-info">Dividend</button></th>
-                    <th class="exDividend" data-field="exDividend"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="exDividend tableftseCon btn btn-info">Ex Dividend</button></th>
-                    <th class="bullAdvice" data-field="bullAdvice"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="bullAdvice tableftseCon btn btn-info">Bull Date</button></th>
-                    <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
-                    <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
-                    <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th>
-                    <th class="profit" data-field="profit"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="profit tableftseCon btn btn-info">Profit</button></th>
-                    <th class="hmarketCapitalisation" data-field="marketCapitalisation"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="marketCapitalisation tableftsCon btn btn-info">Mrk Cap</button></th>
-                    <th class="percentUp" data-field="percentUp" data-formatter="upOrDownFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="percentUp tableftseCon btn btn-info">Weekly %</button></th>
-                    <th class="changePercent" data-field="changePercent" data-formatter="upOrDownFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="changePercent tableftseCon btn btn-info">Prev Close</button></th>
-                    <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="percentUpToday tableftseCon btn btn-info">Price Today</button></th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+        <div class="container marginleft">
 
 
-    <div style="display:none" id="tableoversoldCon" class="container">
-        <table id="tableoversold" data-height="700">
-            <thead>
-                <tr>
-                    <th data-field="tickerSymbol" data-formatter="tickerbFormatter">Ticker</th>
-                    <th data-field="stockName">Name</th>
-                    <th data-field="oversoldPos">Oversold Position</th>
-                    <th data-field="sector">Business sector</th>
-                    <th data-field="cheapness">Value for money</th>
-                    <th data-field="marketCapitalisation">mrk cap</th>
-                    <th data-field="percentUp" data-formatter="upOrDownFormatter">Weekly %</th>
-                    <th data-field="changePercent" data-formatter="upOrDownFormatter">Prev Close</th>
-                    <th data-field="percentUpToday" data-formatter="todays2Formatter">price today</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+            <button style="width:110px;color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button>
+            <button style="width:110px;color:black;background-color:lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>
+            <button style="width:110px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
+            <button style="width:110px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
+            <button style="width:110px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
+            <button style="width:110px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
+
+
         </div>
+
+        <div id="tablenetnetCon" style="width:1500px;display:none" class="container">
+            <table id="table" data-height="700">
+                <thead>
+                    <tr>
+                        <th data-field="navMid">Nav to Mid</th>
+                        <th data-field="navPerShare">Nav Per Share</th>
+                        <th data-field="dividend">Dividend</th>
+                        <th data-field="exDividend">Ex Dividend</th>
+                        <th data-field="bullAdvice">Buy Sell</th>
+                        <th data-field="sector">Sector</th>
+                        <th data-field="tickerSymbol" data-formatter="tickerFormatter">Ticker</th>
+                        <th data-field="stockName">Name</th>
+                        <th data-field="profit">profit</th>
+                        <th data-field="marketCapitalisation">mrk cap</th>
+                        <th data-field="percentUp" data-formatter="upOrDownFormatter">Weekly %</th>
+                        <th data-field="netNet">Net net</th>
+                        <th data-field="percentUpToday" data-formatter="todaysFormatter">price today</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="sectorRiseCon" style="display:none" class="container">
+            <table id="sectorRise" data-height="700">
+                <thead>
+                    <tr>
+                        <th data-field="sector">Sector</th>
+                        <th data-field="exchangeIndex">Index</th>
+                        <th data-field="weekPercentUp" data-formatter="upOrDownFormatter2">avg week % up</th>
+                        <th data-field="percentUp" data-formatter="upOrDownFormatter">avg percent up</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="tablesectorsCon" style="width:1500px;display:none" class="container">
+            <table id="tableSector" data-height="700">
+                <thead>
+                    <tr>
+                        <th data-field="profitPercent">Profit % of MCap</th>
+                        <th data-field="percentUp">percent up</th>
+                        <th data-field="tickerSymbol" data-formatter="tickerFormatter">Ticker</th>
+                        <th data-field="stockName">Name</th>
+                        <th data-field="marketCapitalisation">mrk cap</th>
+                        <th data-field="afterTaxProfit">After Tax Profit</th>
+                        <th data-field="exchangeIndex">Index</th>
+                        <th data-field="netAssets">Net assets</th>
+                        <th data-field="peRatio">PE Ratio</th>
+                        <th data-field="dividend">Dividend</th>
+                        <th data-field="exDividend">Ex Dividend</th>
+                        <th data-field="cash">Cash</th>
+                        <th data-field="cashPercent">Cash %</th>
+                        <th data-field="percentUpToday" data-formatter="todaysFormatter">price today</th>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="tableftseCon" style="width:1800px;display:none; border:none!important" class="container">
+            <div id="indexTitle" style="position:relative; width:100%; top:50px; font-size:20px">FTSE 100</div>
+            <table id="tableftse" data-height="700"
+                   data-toolbar=".toolbar"
+                   data-search="true"
+                   data-show-columns="true"
+                   data-show-columns-toggle-all="true">
+                <thead>
+                    <tr>
+                        <th class="stockName" data-field="stockName"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="stockName tableftseCon btn btn-info">Name</button></th>
+                        <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="tickerSymbol tableftseCon btn btn-info">Ticker</button></th>
+                        <th class="sector" data-field="sector"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="sector tableftseCon btn btn-info">Sector</button></th>
+                        <th class="rsi" data-field="rsi"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="rsi tableftseCon btn btn-info">RSI</button></th>
+                        <th class="techSum" data-field="techSum"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="techSum tableftseCon btn btn-info">Tech Sum</button></th>
+                        <th class="peRatio" data-field="peRatio"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="peRatio tableftseCon btn btn-info">PE</button></th>
+                        <th class="navMid" data-field="navMid"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="navMid tableftseCon btn btn-info">Nav to Mid</button></th>
+                        <th class="dividend" data-field="dividend"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="dividend tableftseCon btn btn-info">Dividend</button></th>
+                        <th class="exDividend" data-field="exDividend"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="exDividend tableftseCon btn btn-info">Ex Dividend</button></th>
+                        <th class="bullAdvice" data-field="bullAdvice"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="bullAdvice tableftseCon btn btn-info">Bull Date</button></th>
+                        <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
+                        <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
+                        <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th>
+                        <th class="profit" data-field="profit"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="profit tableftseCon btn btn-info">Profit</button></th>
+                        <th class="hmarketCapitalisation" data-field="marketCapitalisation"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="marketCapitalisation tableftsCon btn btn-info">Mrk Cap</button></th>
+                        <th class="percentUp" data-field="percentUp" data-formatter="upOrDownFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="percentUp tableftseCon btn btn-info">Weekly %</button></th>
+                        <th class="changePercent" data-field="changePercent" data-formatter="upOrDownFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="changePercent tableftseCon btn btn-info">Prev Close</button></th>
+                        <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><button style="width:100%;height:100%;color:black;background-color:lightblue" type="button" class="percentUpToday tableftseCon btn btn-info">Price Today</button></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+
+        <div style="display:none" id="tableoversoldCon" class="container">
+            <table id="tableoversold" data-height="700">
+                <thead>
+                    <tr>
+                        <th data-field="tickerSymbol" data-formatter="tickerbFormatter">Ticker</th>
+                        <th data-field="stockName">Name</th>
+                        <th data-field="oversoldPos">Oversold Position</th>
+                        <th data-field="sector">Business sector</th>
+                        <th data-field="cheapness">Value for money</th>
+                        <th data-field="marketCapitalisation">mrk cap</th>
+                        <th data-field="percentUp" data-formatter="upOrDownFormatter">Weekly %</th>
+                        <th data-field="changePercent" data-formatter="upOrDownFormatter">Prev Close</th>
+                        <th data-field="percentUpToday" data-formatter="todays2Formatter">price today</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div><a href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
+
+    </div>
 
     <script>
 
@@ -220,7 +225,5 @@
             return "<span id='buttt" + index + "' >todays change</span>";
         }
     </script>
-
-    <div><a href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
 </body>
 </html>
