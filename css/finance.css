@@ -15,7 +15,7 @@ html, body {
     top: 220px;
     left: 880px;
     z-index: 99 !important;
-    display:none;
+    opacity:0;
 }
 
 .loader-wheel {
@@ -66,6 +66,10 @@ html, body {
     }
 }
 
+button[control-id="ControlID-7"] {
+    display:none;
+}
+
 
 .fixed-table-body {
     height:99% !important;
@@ -91,7 +95,7 @@ ul.ui-autocomplete {
     z-index: 90;
     margin: 0 auto !important;
     position: relative;
-    bottom: -100px;
+    bottom: -70px;
 }
 .grid-item {
     width: 1440px;
@@ -106,28 +110,7 @@ ul.ui-autocomplete {
     border: solid;
     border-width: 1px;
 }
-.item1 {
-    width: 1550px;
-}
-p {
-    float: right;
-}
-#list1 {
-    list-style: none;
-    padding: 0px;
-}
-.list2 {
-}
-#list1 li {
-    width: 135px;
-    display: inline-block;
-    margin: 2px;
-    cursor: pointer;
-    line-height: 35px;
-    text-align: center;
-    border-radius: 25px;
-    border: 1px solid #73AD21;
-}
+
 .ui-helper-hidden-accessible {
     position: absolute;
     left: -999em;

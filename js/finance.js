@@ -11,9 +11,9 @@ $(window).on('load', function () {
 
     $('#tableftseCon').on('post-body.bs.table', function (e) {
         e.stopImmediatePropagation();
+        $("#tableftseCon").css("opacity", "1");
 
         $(".tickerSymbol.tableftseCon").click();
-
         [].forEach.call(document.querySelectorAll('#tableftse tr'),
             function (el) {
                 el.addEventListener('click', function () {
@@ -34,7 +34,7 @@ $(window).on('load', function () {
              $(".tickerSymbol.tableftseCon").addClass("active");
 
              $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
-             $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
+            $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
 
              if (classnamelist.includes("tableftseCon")) {
                  visibleBigTable = "#tableftseCon";
@@ -54,7 +54,7 @@ $(window).on('load', function () {
 
                  if (classnamelist.includes($(this).data("field"))) {
 
-                     $(".loader").css("display", "block");
+                     $(".loader").css("opacity", "1");
                      $("#bigcontainer1").css("opacity", "0");
                      $("#bigcontainer2").css("opacity", "0");
                      $("#bigcontainer").css("opacity", "0");
@@ -124,8 +124,8 @@ $(window).on('load', function () {
     });
 
     $("#FTSE100But").on("click", function () {
-        $(".marginleft").css("bottom", "-100px");
-        $(".loader").css("display", "block");
+        $(".marginleft").css("bottom", "-70px");
+        $(".loader").css("opacity", "1");
         $("#bigcontainer1").css("opacity", "0");
         $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
@@ -134,8 +134,8 @@ $(window).on('load', function () {
     });
 
     $("#FTSE250But").on("click", function () {
-        $(".marginleft").css("bottom", "-100px");
-         $(".loader").css("display", "block");
+        $(".marginleft").css("bottom", "-70px");
+        $(".loader").css("opacity", "1");
          $("#bigcontainer1").css("opacity", "0");
          $("#bigcontainer2").css("opacity", "0");
          $("#bigcontainer").css("opacity", "0");
@@ -145,8 +145,8 @@ $(window).on('load', function () {
      });
 
     $("#FTSEzzzBut").on("click", function () {
-        $(".marginleft").css("bottom", "-100px");
-        $(".loader").css("display", "block");
+        $(".marginleft").css("bottom", "-70px");
+        $(".loader").css("opacity", "1");
         $("#bigcontainer1").css("opacity", "0");
         $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
@@ -155,8 +155,8 @@ $(window).on('load', function () {
     });
 
     $("#FTSEzzzBut").on("click", function () {
-        $(".marginleft").css("bottom", "-100px");
-         $(".loader").css("display", "block");
+        $(".marginleft").css("bottom", "-70px");
+        $(".loader").css("opacity", "1");
          $("#bigcontainer1").css("opacity", "0");
          $("#bigcontainer2").css("opacity", "0");
          $("#bigcontainer").css("opacity", "0");
@@ -167,8 +167,8 @@ $(window).on('load', function () {
 
 
     $("#FTSEaimBut").on("click", function () {
-        $(".marginleft").css("bottom", "-100px");
-        $(".loader").css("display", "block");
+        $(".marginleft").css("bottom", "-70px");
+        $(".loader").css("opacity", "1");
         $("#bigcontainer1").css("opacity", "0");
         $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
@@ -260,7 +260,9 @@ $(window).on('load', function () {
         $("#bigcontainer1").css("opacity", "100%");
         $("#bigcontainer2").css("opacity", "100%");
         $("#bigcontainer").css("opacity", "100%");
-        $(".loader").css("display", "none");
+        $(".loader").css("opacity", "0");
+        $("button[title='Refresh']").css("display", "none");
+
     }
 
     $("#FTSE100But").click().active;
@@ -283,7 +285,7 @@ $(window).on('load', function () {
          var routerVal = "";
          if (exchange == "ftse100") {
              routerVal = "routes/ftse100"
-             $("#indexTitle").text("FTSE 100");
+            $("#indexTitle").text("FTSE 100");
          }
          if (exchange != "ftse100") {
              $("#FTSE100But").removeClass("focus");
