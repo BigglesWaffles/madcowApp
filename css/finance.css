@@ -67,7 +67,9 @@ html, body {
 }
 
 
-
+.fixed-table-body {
+    height:99% !important;
+}
 
 ul.ui-autocomplete {
     list-style: none;
@@ -81,11 +83,15 @@ ul.ui-autocomplete {
     visibility: hidden;
 }
 
+.container.inner {
+    margin: 0 auto !important;
+    width:fit-content;
+}
 .container.marginleft {
-    margin-left: 50px;
+    z-index: 90;
+    margin: 0 auto !important;
     position: relative;
-    bottom:-100px;
-    z-index:90;
+    bottom: -100px;
 }
 .grid-item {
     width: 1440px;

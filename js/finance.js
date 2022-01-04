@@ -69,92 +69,9 @@ $(window).on('load', function () {
      });
  
 
-    $("select.sectors").change(function () {
-        var selectedSector = $(this).children("option:selected").val();
-
-        $.get("/sector/" + encodeURIComponent(selectedSector), {
-        }, function (sdata) {
-
-            $('#tablesectorsCon').show();
-            $('#tableftseCon').hide();
-            $('#tableoversoldCon').hide();
-            $('#tablenetnetCon').hide();
-            $('#tableftse250Con').hide();
-            $('#tableftseaimCon').hide();
-            $('#tableftsezzzCon').hide();
-            $('#sectorRiseCon').hide();
-            $('#tableSector').bootstrapTable({
-                data: sdata
-            });
-
-
-
-            $("#netnetBut").show();
-
-
-            $("#netnetBut").on("click", function () {
-
-                $("#FTSE100But").removeClass("focus");
-                $("#FTSE100But").removeClass("active");
-
-                $('#tableSector tr').each(function (i, row) {
-
-                    if ($.trim($("#aa" + i).text()) != "") {
-                        var curIndex = i;
-
-                        var ticker = $.trim($("#aa" + i).text());
-
-                        $.post("/currentPercent", {
-                            ticker
-                        }, function (sdata) {
-
-                            //alert(JSON.stringify(sdata));
-
-                            //alert(sdata[0].percentUp);
-
-                            if (sdata[0].percentUp < 0) {
-                                $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
-                            }
-                            if (sdata[0].percentUp == 0) {
-                                $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata[0].percentUp + "%</span>");
-                            }
-                            if (sdata[0].percentUp > 0) {
-                                $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
-                            }
-
-
-
-                        });
-
-                    }
-
-
-                });
-
-
-
-            });
-
-        });
-
-    });
-
-
-    $("#FTSE100But").on("click", function () {
-        $(".loader").css("display", "block");
-        $("#bigcontainer1").css("opacity", "0");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
-        getAllData("ftse100");
-
-    });
-
-
-
-
-
 
     $("#sectorRisesBut").on("click", function () {
+        $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
         $("#FTSE100But").removeClass("active");
 
@@ -174,57 +91,14 @@ $(window).on('load', function () {
                     data: sdata
                 });
 
-
-
             });
         });
 
     });
 
-
-
-
-
-
-     $("#FTSE250But").on("click", function () {
-         $(".loader").css("display", "block");
-         $("#bigcontainer1").css("opacity", "0");
-         $("#bigcontainer2").css("opacity", "0");
-         $("#bigcontainer").css("opacity", "0");
-         getAllData("ftse250");
-
-
-    });
-
-     $("#FTSEzzzBut").on("click", function () {
-         $(".loader").css("display", "block");
-         $("#bigcontainer1").css("opacity", "0");
-         $("#bigcontainer2").css("opacity", "0");
-         $("#bigcontainer").css("opacity", "0");
-         getAllData("ftserst");
-      
-    });
-
-
-
-    $("#FTSEaimBut").on("click", function () {
-        $(".loader").css("display", "block");
-        $("#bigcontainer1").css("opacity", "0");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
-        getAllData("ftseaim");
-
-    });
-
-
-
-
-
-
-
-
     $("#netnet").on("click", function () {
 
+        $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
         $("#FTSE100But").removeClass("active");
 
@@ -243,123 +117,65 @@ $(window).on('load', function () {
                     data: sdata
                 });
 
-                $("#netnetBut").on("click", function () {
-                    $('#table tr').each(function (i, row) {
-
-
-                        if ($.trim($("#aa" + i).text()) != "") {
-                            var curIndex = i;
-
-                            var ticker = $.trim($("#aa" + i).text());
-
-                            $.post("/currentPercent", {
-                                ticker
-                            }, function (sdata) {
-
-                                //alert(JSON.stringify(sdata));
-
-                                //alert(sdata[0].percentUp);
-
-                                if (sdata[0].percentUp < 0) {
-                                    $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
-                                }
-                                if (sdata[0].percentUp == 0) {
-                                    $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata[0].percentUp + "%</span>");
-                                }
-                                if (sdata[0].percentUp > 0) {
-                                    $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
-                                }
-
-
-
-                            });
-
-                        }
-
-
-                    });
-
-
-
-                });
-
-                $("#netnetBut").show();
-
             });
 
         });
-
-
-
 
     });
 
-    $("#oversoldBut").on("click", function () {
+    $("#FTSE100But").on("click", function () {
+        $(".marginleft").css("bottom", "-100px");
+        $(".loader").css("display", "block");
+        $("#bigcontainer1").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0");
+        $("#bigcontainer").css("opacity", "0");
+        getAllData("ftse100");
 
-        $.get("/oversold", {
-        }, function (sdata) {
+    });
 
-
-            $(function () {
-                $('#tableoversoldCon').show();
-                $('#tableftseCon').hide();
-                $('#tablenetnetCon').hide();
-                $('#tableftse250Con').hide();
-                $('#tablesectorsCon').hide();
-                $('#sectorRiseCon').hide();
-                $('#tableoversold').bootstrapTable({
-                    data: sdata
-                });
-
-
-                $("#netnetBut").on("click", function () {
-                    $('#tableoversold tr').each(function (i, row) {
+    $("#FTSE250But").on("click", function () {
+        $(".marginleft").css("bottom", "-100px");
+         $(".loader").css("display", "block");
+         $("#bigcontainer1").css("opacity", "0");
+         $("#bigcontainer2").css("opacity", "0");
+         $("#bigcontainer").css("opacity", "0");
+         getAllData("ftse250");
 
 
-                        if ($.trim($("#aa" + i).text()) != "") {
-                            var curIndex = i;
+     });
 
-                            var ticker = $.trim($("#aa" + i).text());
+    $("#FTSEzzzBut").on("click", function () {
+        $(".marginleft").css("bottom", "-100px");
+        $(".loader").css("display", "block");
+        $("#bigcontainer1").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0");
+        $("#bigcontainer").css("opacity", "0");
+        getAllData("ftserst");
 
-                            $.post("/currentPercent", {
-                                ticker
-                            }, function (sdata) {
+    });
 
-  
-
-                                if (sdata[0].percentUp < 0) {
-                                    $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
-                                }
-                                if (sdata[0].percentUp == 0) {
-                                    $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata[0].percentUp + "%</span>");
-                                }
-                                if (sdata[0].percentUp > 0) {
-                                    $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
-                                }
+    $("#FTSEzzzBut").on("click", function () {
+        $(".marginleft").css("bottom", "-100px");
+         $(".loader").css("display", "block");
+         $("#bigcontainer1").css("opacity", "0");
+         $("#bigcontainer2").css("opacity", "0");
+         $("#bigcontainer").css("opacity", "0");
+         getAllData("ftserst");
+      
+    });
 
 
 
-                            });
+    $("#FTSEaimBut").on("click", function () {
+        $(".marginleft").css("bottom", "-100px");
+        $(".loader").css("display", "block");
+        $("#bigcontainer1").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0");
+        $("#bigcontainer").css("opacity", "0");
+        getAllData("ftseaim");
 
-                        }
+    });
 
-
-                    });
-
-
-
-                });
-
-                $("#netnetBut").show();
-
-            });
-
-        });
-
-
-
-
-    });  
 
     function sortTable2(xx, sortCol, tablename, colname ) {
 

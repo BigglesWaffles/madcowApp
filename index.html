@@ -31,24 +31,24 @@
     </div>
 
 
+    <div class="container marginleft" >
+        <div class="container inner">
 
+        <button style="width:110px;color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button>
+        <button style="width:110px;color:black;background-color:lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>
+        <button style="width:110px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
+        <button style="width:110px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
+        <button style="width:110px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
+        <button style="width:110px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
+            </div>
+
+    </div>
 
     <div style="width:100%;" id="bigcontainer" class="container">
 
-        <div class="container marginleft" id="bigcontainer1">
-
-
-            <button style="width:110px;color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button>
-            <button style="width:110px;color:black;background-color:lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>
-            <button style="width:110px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
-            <button style="width:110px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
-            <button style="width:110px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
-            <button style="width:110px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
-
-
-        </div>
 
         <div id="tablenetnetCon" style="width:1500px;display:none" class="container">
+            <div  style="position:relative; width:100%; top:50px; font-size:20px"></div>
             <table id="table" data-height="700">
                 <thead>
                     <tr>
@@ -70,6 +70,7 @@
             </table>
         </div>
         <div id="sectorRiseCon" style="display:none" class="container">
+            <div  style="position:relative; width:100%; top:50px; font-size:20px"></div>
             <table id="sectorRise" data-height="700">
                 <thead>
                     <tr>
@@ -81,29 +82,7 @@
                 </thead>
             </table>
         </div>
-        <div id="tablesectorsCon" style="width:1500px;display:none" class="container">
-            <table id="tableSector" data-height="700">
-                <thead>
-                    <tr>
-                        <th data-field="profitPercent">Profit % of MCap</th>
-                        <th data-field="percentUp">percent up</th>
-                        <th data-field="tickerSymbol" data-formatter="tickerFormatter">Ticker</th>
-                        <th data-field="stockName">Name</th>
-                        <th data-field="marketCapitalisation">mrk cap</th>
-                        <th data-field="afterTaxProfit">After Tax Profit</th>
-                        <th data-field="exchangeIndex">Index</th>
-                        <th data-field="netAssets">Net assets</th>
-                        <th data-field="peRatio">PE Ratio</th>
-                        <th data-field="dividend">Dividend</th>
-                        <th data-field="exDividend">Ex Dividend</th>
-                        <th data-field="cash">Cash</th>
-                        <th data-field="cashPercent">Cash %</th>
-                        <th data-field="percentUpToday" data-formatter="todaysFormatter">price today</th>
-
-                    </tr>
-                </thead>
-            </table>
-        </div>
+>
         <div id="tableftseCon" style="width:1800px;display:none; border:none!important" class="container">
             <div id="indexTitle" style="position:relative; width:100%; top:50px; font-size:20px">FTSE 100</div>
             <table id="tableftse" data-height="700"
@@ -136,26 +115,7 @@
             </table>
         </div>
 
-
-        <div style="display:none" id="tableoversoldCon" class="container">
-            <table id="tableoversold" data-height="700">
-                <thead>
-                    <tr>
-                        <th data-field="tickerSymbol" data-formatter="tickerbFormatter">Ticker</th>
-                        <th data-field="stockName">Name</th>
-                        <th data-field="oversoldPos">Oversold Position</th>
-                        <th data-field="sector">Business sector</th>
-                        <th data-field="cheapness">Value for money</th>
-                        <th data-field="marketCapitalisation">mrk cap</th>
-                        <th data-field="percentUp" data-formatter="upOrDownFormatter">Weekly %</th>
-                        <th data-field="changePercent" data-formatter="upOrDownFormatter">Prev Close</th>
-                        <th data-field="percentUpToday" data-formatter="todays2Formatter">price today</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-
-        <div><a id="bigcontainer2" href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
+        <div id="bigcontainer2"><a id="bigcontainer1" href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
 
     </div>
 
