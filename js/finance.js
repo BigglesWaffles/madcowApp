@@ -45,10 +45,9 @@ $(window).on('load', function () {
                  $(".tickerSymbol.tableftseCon").removeClass("focus");
                  $(".tickerSymbol.tableftseCon").removeClass("active");
              }
-
     
              $(visibleBigTable).find("table > thead > tr > th").each(function (index) {
-                 if (index > 18) {
+                 if (index > 17) {
                      return true;
                  }
 
@@ -58,7 +57,6 @@ $(window).on('load', function () {
                      $("#bigcontainer1").css("opacity", "0");
                      $("#bigcontainer2").css("opacity", "0");
                      $("#bigcontainer").css("opacity", "0");
-
                      sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
 
                      return true;
@@ -71,6 +69,7 @@ $(window).on('load', function () {
 
 
     $("#sectorRisesBut").on("click", function () {
+        $("#indexTitle").text("Which sectors are doing well or badly");
         $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
         $("#FTSE100But").removeClass("active");
@@ -102,6 +101,7 @@ $(window).on('load', function () {
         $("#FTSE100But").removeClass("focus");
         $("#FTSE100But").removeClass("active");
 
+        $("#indexTitle").text("Net Net stocks in order of netnet-ness as a percentage");
         $.get("/routes/netnet", {
         }, function (sdata) {
             //	alert(JSON.stringify(sdata));
@@ -124,42 +124,22 @@ $(window).on('load', function () {
     });
 
     $("#FTSE100But").on("click", function () {
-        $(".marginleft").css("bottom", "-70px");
-        $(".loader").css("opacity", "1");
-        $("#bigcontainer1").css("opacity", "0");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
         getAllData("ftse100");
 
     });
 
     $("#FTSE250But").on("click", function () {
-        $(".marginleft").css("bottom", "-70px");
-        $(".loader").css("opacity", "1");
-         $("#bigcontainer1").css("opacity", "0");
-         $("#bigcontainer2").css("opacity", "0");
-         $("#bigcontainer").css("opacity", "0");
          getAllData("ftse250");
 
 
      });
 
     $("#FTSEzzzBut").on("click", function () {
-        $(".marginleft").css("bottom", "-70px");
-        $(".loader").css("opacity", "1");
-        $("#bigcontainer1").css("opacity", "0");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
         getAllData("ftserst");
 
     });
 
     $("#FTSEzzzBut").on("click", function () {
-        $(".marginleft").css("bottom", "-70px");
-        $(".loader").css("opacity", "1");
-         $("#bigcontainer1").css("opacity", "0");
-         $("#bigcontainer2").css("opacity", "0");
-         $("#bigcontainer").css("opacity", "0");
          getAllData("ftserst");
       
     });
@@ -167,11 +147,6 @@ $(window).on('load', function () {
 
 
     $("#FTSEaimBut").on("click", function () {
-        $(".marginleft").css("bottom", "-70px");
-        $(".loader").css("opacity", "1");
-        $("#bigcontainer1").css("opacity", "0");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
         getAllData("ftseaim");
 
     });
@@ -262,6 +237,11 @@ $(window).on('load', function () {
         $("#bigcontainer").css("opacity", "100%");
         $(".loader").css("opacity", "0");
         $("button[title='Refresh']").css("display", "none");
+        $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
+            $(this).css("background-color", "lightblue");
+            $(this).css('cursor', 'pointer');
+            $(this).children("div.th-inner").css("text-align", "center");
+        });
 
     }
 
@@ -281,6 +261,11 @@ $(window).on('load', function () {
 
      function getAllData(exchange) {
 
+         $(".marginleft").css("bottom", "-70px");
+         $(".loader").css("opacity", "1");
+         $("#bigcontainer1").css("opacity", "0");
+         $("#bigcontainer2").css("opacity", "0");
+         $("#bigcontainer").css("opacity", "0");
 
          var routerVal = "";
          if (exchange == "ftse100") {
