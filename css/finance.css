@@ -5,9 +5,13 @@ html, body {
     margin: 0;
 }
 
+.tableftseCon {
+    font-weight:400;
+}
+
 #bigcontainer {
-    opacity:100%;
-    border:none;
+    opacity: 100%;
+    border: none;
 }
 .loader {
     width: 60px;
@@ -66,6 +70,10 @@ html, body {
     }
 }
 
+.makedarker
+{
+    filter: brightness(85%);
+}
 
 .fixed-table-body {
     height:99% !important;

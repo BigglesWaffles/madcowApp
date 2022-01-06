@@ -11,9 +11,11 @@ $(window).on('load', function () {
 
     $('#tableftseCon').on('post-body.bs.table', function (e) {
         e.stopImmediatePropagation();
+
+
         $("#tableftseCon").css("opacity", "1");
 
-        $(".tickerSymbol.tableftseCon").click();
+        $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
         [].forEach.call(document.querySelectorAll('#tableftse tr'),
             function (el) {
                 el.addEventListener('click', function () {
@@ -24,11 +26,11 @@ $(window).on('load', function () {
                 });
             });
 
-        $(".tableftseCon").on("click", function (e) {
+        $(".tableftseCon").parent("div").parent("th").on("click", function (e) {
             e.stopImmediatePropagation();
             let visibleBigTable = "";
             let visibleSmallTable = "";
-            var classnamelist = $(this).attr("class");
+            var classnamelist = $(this).children("div.th-inner").children("span").attr("class");
 
             $(".tickerSymbol.tableftseCon").addClass("focus");
             $(".tickerSymbol.tableftseCon").addClass("active");
@@ -51,7 +53,10 @@ $(window).on('load', function () {
                     return true;
                 }
                 $(this).mouseenter(function () {
-                    $(this).css("background-color", "lightgreen");
+                    let smallTest = $(this).attr("class");
+                    if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                        $(this).addClass("makedarker");
+                    }
                 });
                 if (classnamelist.includes($(this).data("field"))) {
 
@@ -80,7 +85,6 @@ $(window).on('load', function () {
 
         $.get("/routes/allSectors", {
         }, function (sdata) {
-            //	alert(JSON.stringify(sdata));
             $(function () {
                 $('#tableftseCon').hide();
                 $('#tableoversoldCon').hide();
@@ -108,7 +112,6 @@ $(window).on('load', function () {
         $("#indexTitle").text("Net Net stocks in order of netnet-ness as a percentage");
         $.get("/routes/netnet", {
         }, function (sdata) {
-            //	alert(JSON.stringify(sdata));
             $(function () {
 
                 $('#tableftseCon').hide();
@@ -266,9 +269,28 @@ $(window).on('load', function () {
         $(".loader").css("opacity", "0");
         $("button[title='Refresh']").css("display", "none");
         $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
-            $(this).css("background-color", "lightblue");
-            $(this).css('cursor', 'pointer');
+            let smallTest = $(this).attr("class");
+            if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                $(this).css("background-color", "lightblue");
+                $(this).css('cursor', 'pointer');
+            } else {
+                $(this).css("background-color", "lightgrey");
+            }
             $(this).children("div.th-inner").css("text-align", "center");
+
+         /*   $(this).mouseenter(function () {
+                let smallTest = $(this).attr("class");
+                if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                    $(this).css("background-color", "lightgreen");
+                }
+            })
+            $(this).mouseleave(function () {
+                let smallTest = $(this).attr("class");
+                if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                    $(this).css("background-color", "lightblue");
+                }
+            })*/
+
         });
 
 
@@ -328,7 +350,6 @@ $(window).on('load', function () {
 
          $.get(routerVal, {
          }, function (sdata) {
-             //	alert(JSON.stringify(sdata));
              $(function () {
                  $('#tableftseCon').show();
                  $('#tableoversoldCon').hide();
@@ -378,10 +399,16 @@ $(window).on('load', function () {
 
                  $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
                      $(this).mouseenter(function () {
-                         $(this).css("background-color", "lightgreen");
+                         let smallTest = $(this).attr("class");
+                         if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                             $(this).addClass("makedarker");
+                         }
                      })
                      $(this).mouseleave(function () {
-                         $(this).css("background-color", "lightblue");
+                         let smallTest = $(this).attr("class");
+                         if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                             $(this).removeClass("makedarker");
+                         }
                      })
 
                  });
