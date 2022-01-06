@@ -25,47 +25,51 @@ $(window).on('load', function () {
             });
 
         $(".tableftseCon").on("click", function (e) {
-             e.stopImmediatePropagation();
-             let visibleBigTable = "";
-             let visibleSmallTable = "";
-             var classnamelist = $(this).attr("class");
+            e.stopImmediatePropagation();
+            let visibleBigTable = "";
+            let visibleSmallTable = "";
+            var classnamelist = $(this).attr("class");
 
-             $(".tickerSymbol.tableftseCon").addClass("focus");
-             $(".tickerSymbol.tableftseCon").addClass("active");
+            $(".tickerSymbol.tableftseCon").addClass("focus");
+            $(".tickerSymbol.tableftseCon").addClass("active");
 
-             $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
+            $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
             $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
 
-             if (classnamelist.includes("tableftseCon")) {
-                 visibleBigTable = "#tableftseCon";
-                 visibleSmallTable = "tableftse";
-             }
+            if (classnamelist.includes("tableftseCon")) {
+                visibleBigTable = "#tableftseCon";
+                visibleSmallTable = "tableftse";
+            }
 
-             if (!classnamelist.includes("tickerSymbol")) {
-                 $(".tickerSymbol.tableftseCon").removeClass("focus");
-                 $(".tickerSymbol.tableftseCon").removeClass("active");
-             }
-    
-             $(visibleBigTable).find("table > thead > tr > th").each(function (index) {
-                 if (index > 17) {
-                     return true;
-                 }
+            if (!classnamelist.includes("tickerSymbol")) {
+                $(".tickerSymbol.tableftseCon").removeClass("focus");
+                $(".tickerSymbol.tableftseCon").removeClass("active");
+            }
 
-                 if (classnamelist.includes($(this).data("field"))) {
+            $(visibleBigTable).find("table > thead > tr > th").each(function (index) {
+                if (index > 18) {
+                    return true;
+                }
+                $(this).mouseenter(function () {
+                    $(this).css("background-color", "lightgreen");
+                });
+                if (classnamelist.includes($(this).data("field"))) {
 
-                     $(".loader").css("opacity", "1");
-                     $("#bigcontainer1").css("opacity", "0");
-                     $("#bigcontainer2").css("opacity", "0");
-                     $("#bigcontainer").css("opacity", "0");
-                     sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
+                    $(".loader").css("opacity", "1");
+                    $("#bigcontainer1").css("opacity", "0");
+                    $("#bigcontainer2").css("opacity", "0");
+                    $("#bigcontainer").css("opacity", "0");
 
-                     return true;
-                 }
-             });
-         });
 
-     });
- 
+                    sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
+
+                    return true;
+                }
+            });
+        });
+
+    });
+
 
 
     $("#sectorRisesBut").on("click", function () {
@@ -123,28 +127,58 @@ $(window).on('load', function () {
 
     });
 
+    $("#delayBut").on("click", function () {
+
+        $('#tableftse tr').each(function (i, row) {
+
+            if ($.trim($("#aa" + i).text()) != "") {
+                var curIndex = i;
+
+                var ticker = $.trim($("#aa" + i).text());
+
+                if (i == 10) {
+                    
+
+                    $.get('https:/www.lse.co.uk/SharePrice.asp?shareprice=' + ticker , {
+                        ticker
+                    }, function (sdata) {
+
+                        var tempLine = data.substring(data.indexOf("data-field=\"MID_PCT_CHG") + 43, data.indexOf("data-field=\"MID_PCT_CHG") + 47);
+
+                        if (tempLine < 0) {
+                            $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata[0].percentUp + "%</span>");
+                        }
+                        if (tempLine == 0) {
+                            $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata[0].percentUp + "%</span>");
+                        }
+                        if (tempLine > 0) {
+                            $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
+                        }
+
+                        alert(templine);
+
+                    });
+                }
+            
+            }
+        });
+
+    });
+
     $("#FTSE100But").on("click", function () {
         getAllData("ftse100");
 
     });
 
     $("#FTSE250But").on("click", function () {
-         getAllData("ftse250");
+        getAllData("ftse250");
 
-
-     });
+    });
 
     $("#FTSEzzzBut").on("click", function () {
         getAllData("ftserst");
 
     });
-
-    $("#FTSEzzzBut").on("click", function () {
-         getAllData("ftserst");
-      
-    });
-
-
 
     $("#FTSEaimBut").on("click", function () {
         getAllData("ftseaim");
@@ -152,32 +186,32 @@ $(window).on('load', function () {
     });
 
 
-    function sortTable2(xx, sortCol, tablename, colname ) {
+    function sortTable2(xx, sortCol, tablename, colname) {
 
-  
+
         var rows = $('#' + xx + ' tbody  tr').get();
-    
+
         rows.sort(function (a, b) {
 
-            
+
 
             $(a).children('td').each(function (index) {
-                    $(this).css({ 'background-color': '', 'opacity': '' });
+                $(this).css({ 'background-color': '', 'opacity': '' });
             });
 
-             $(b).children('td').each(function (index) {
-                 $(this).css({ 'background-color': '', 'opacity': '' });
-             });
-           
+            $(b).children('td').each(function (index) {
+                $(this).css({ 'background-color': '', 'opacity': '' });
+            });
+
             $(a).children('td').eq(sortCol).css("background-color", "lightgreen");
             $(b).children('td').eq(sortCol).css("background-color", "lightgreen");
 
 
-            if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname=="tickerSymbol") {
+            if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname == "tickerSymbol") {
 
                 var A = $(a).children('td').eq(sortCol).text().toUpperCase();
                 var B = $(b).children('td').eq(sortCol).text().toUpperCase();
-          
+
                 if (colname != "bullAdvice") {
                     if (A < B) {
                         return -1;
@@ -243,6 +277,15 @@ $(window).on('load', function () {
             $(this).children("div.th-inner").css("text-align", "center");
         });
 
+        $("ul.dropdown-menu").children("li.dropdown-item-marker").each(function (index) {
+         //   if (index == 18) {
+         //       $(this).find("input").click();
+        //    }
+       //     if (index == 19) {
+       //         $(this).find("input").click();
+        //    }
+        });
+
     }
 
     $("#FTSE100But").click().active;
@@ -270,7 +313,7 @@ $(window).on('load', function () {
          var routerVal = "";
          if (exchange == "ftse100") {
              routerVal = "routes/ftse100"
-            $("#indexTitle").text("FTSE 100");
+             $("#indexTitle").text(" current list: FTSE 100, current sort order: ticker");
          }
          if (exchange != "ftse100") {
              $("#FTSE100But").removeClass("focus");
@@ -278,15 +321,15 @@ $(window).on('load', function () {
          }
          if (exchange == "ftse250") {
              routerVal = "routes/ftse250";
-             $("#indexTitle").text("FTSE 250");
+             $("#indexTitle").text(" current list: FTSE 250, current sort order: ticker");
          }
          if (exchange == "ftserst") {
              routerVal = "routes/ftserst";
-             $("#indexTitle").text("FTSE REST (small cap etc)");
+             $("#indexTitle").text(" current list: FTSE rest, current sort order: ticker");
          }
          if (exchange == "ftseaim") {
              routerVal = "routes/ftseaim";
-             $("#indexTitle").text("AIM");
+             $("#indexTitle").text(" current list: AIM, current sort order: ticker");
          }
 
          $('#tableftse').bootstrapTable('refresh', {
@@ -341,7 +384,18 @@ $(window).on('load', function () {
                  $(".tickerSymbol.tableftseCon").addClass("focus");
                  $(".tickerSymbol.tableftseCon").addClass("active");
                  sortTable2("tableftse",1, "#tableftseCon", "tickerSymbol");
-             
+
+
+                 $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
+                     $(this).mouseenter(function () {
+                         $(this).css("background-color", "lightgreen");
+                     })
+                 });
+                 $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
+                     $(this).mouseleave(function () {
+                         $(this).css("background-color", "lightblue");
+                     })
+                 });
                  setToolTip();
 
              });

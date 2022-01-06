@@ -66,10 +66,6 @@ html, body {
     }
 }
 
-button[control-id="ControlID-7"] {
-    display:none;
-}
-
 
 .fixed-table-body {
     height:99% !important;

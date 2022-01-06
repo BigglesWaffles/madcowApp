@@ -24,21 +24,21 @@
 <body style="max-height:95%">
 
     <h1 style="text-align:center;padding-top:30px">Investors Cookbook</h1>
-
+    <h2 id="indexTitle" style="font-size:20px; text-align:center">
+        current list: FTSE 100, current sort order: ticker
+    </h2>
     <div class="container" style="position:relative;width:96%">
 
         <div class="container" style="position:absolute;width:70%;top:40px">
             <div class="row">
-                <div id="indexTitle" style="font-size:20px" class="col-xs-2">
-                    FTSE 100
-                </div>
-                <div class="col-xs-10" style="z-index:90" >
+                <div class="col-xs-12" style="z-index:90">
                     <button style="width:115px; color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button>
                     <button style="width: 115px; color: black; background-color: lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>
                     <button style="width: 115px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey" id="delayBut" type="button" class="btn btn-info">delayed price</button>
                 </div>
             </div>
         </div>
@@ -56,28 +56,29 @@
                         <tr>
                             <th class="stockName" data-field="stockName"><span class="stockName tableftseCon">Name</span></th>
                             <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
-                            <th class="sector" data-field="sector"><span  class="sector tableftseCon">Sector</span></th>
-                            <th class="rsi" data-field="rsi"><span   class="rsi tableftseCon ">RSI</span></th>
-                            <th class="techSum" data-field="techSum"><span  class="techSum tableftseCon ">Tech Sum</span></th>
+                            <th class="sector" data-field="sector"><span class="sector tableftseCon">Sector</span></th>
+                            <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th>
+                            <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th>
                             <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
-                            <th class="navMid" data-field="navMid"><span  class="navMid tableftseCon ">Nav to Mid</span></th>
+                            <th class="navMid" data-field="navMid"><span class="navMid tableftseCon ">Nav to Mid</span></th>
                             <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
-                            <th class="exDividend" data-field="exDividend"><span  class="exDividend tableftseCon ">Ex Dividend</span></th>
-                            <th class="bullAdvice" data-field="bullAdvice"><span  class="bullAdvice tableftseCon ">Bull Date</span></th>
+                            <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th>
+                            <th class="bullAdvice" data-field="bullAdvice"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
                             <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
                             <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
                             <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th>
-                            <th class="profit" data-field="profit"><span  class="profit tableftseCon ">Profit</span></th>
-                            <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span  class="marketCapitalisation tableftsCon ">Mrk Cap</span></th>
-                            <th class="percentUp" data-field="percentUp" data-formatter="upOrDownFormatter"><span  class="percentUp tableftseCon ">Weekly %</span></th>
-                            <th class="changePercent" data-field="changePercent" data-formatter="upOrDownFormatter"><span  class="changePercent tableftseCon ">Prev Close</span></th>
+                            <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
+                            <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftsCon ">Mrk Cap</span></th>
+                            <th class="percentUp" data-field="percentUp" data-formatter="upOrDownFormatter"><span class="percentUp tableftseCon ">Weekly %</span></th>
+                            <th class="changePercent" data-field="changePercent" data-formatter="upOrDownFormatter"><span class="changePercent tableftseCon ">Prev Close</span></th>
                             <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><span class="percentUpToday tableftseCon ">Price Today</span></th>
+                            <th class="comments" id="comments" data-field="comments" data-formatter="todaysFormatter"><span class="comments tableftseCon ">Psst!</span></th>
                         </tr>
                     </thead>
                 </table>
             </div>
 
-            <div id="bigcontainer2" style="display:none"><a id="bigcontainer1" href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
+            <div id="bigcontainer2" style="opacity:1"><a id="bigcontainer1" href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
 
         </div>
 
