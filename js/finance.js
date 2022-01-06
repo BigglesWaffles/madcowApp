@@ -200,8 +200,8 @@ $(window).on('load', function () {
                 $(this).css({ 'background-color': '', 'opacity': '' });
             });
 
-            $(a).children('td').eq(sortCol).css("background-color", "lightgreen");
-            $(b).children('td').eq(sortCol).css("background-color", "lightgreen");
+            $(a).children('td').eq(sortCol).css("background-color", "lavender");
+            $(b).children('td').eq(sortCol).css("background-color", "lavender");
 
 
             if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname == "tickerSymbol") {
@@ -277,19 +277,10 @@ $(window).on('load', function () {
                 $(this).css("background-color", "lightgrey");
             }
             $(this).children("div.th-inner").css("text-align", "center");
-
-         /*   $(this).mouseenter(function () {
-                let smallTest = $(this).attr("class");
-                if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-                    $(this).css("background-color", "lightgreen");
-                }
-            })
-            $(this).mouseleave(function () {
-                let smallTest = $(this).attr("class");
-                if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-                    $(this).css("background-color", "lightblue");
-                }
-            })*/
+            if (index == sortCol) {
+                $(this).css("background-color", "lavender");
+                alert(sortCol);
+            }
 
         });
 
