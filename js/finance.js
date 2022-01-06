@@ -279,7 +279,6 @@ $(window).on('load', function () {
             $(this).children("div.th-inner").css("text-align", "center");
             if (index == sortCol) {
                 $(this).css("background-color", "lavender");
-                alert(sortCol);
             }
 
         });
