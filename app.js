@@ -15,6 +15,10 @@ var netnet = require('./routes/netnet');
 var current = require('./routes/currentPercent');
 var allSectors = require('./routes/allSectors');
 
+var cors = require('cors')
+
+const https = require('https')
+
 var app = express();
 
 app.use(logger('dev'));

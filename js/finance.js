@@ -59,7 +59,7 @@ $(window).on('load', function () {
                     $("#bigcontainer1").css("opacity", "0");
                     $("#bigcontainer2").css("opacity", "0");
                     $("#bigcontainer").css("opacity", "0");
-
+                    $("#indexTitleSort").text('current sort order: ' + $(this).data("field"));
 
                     sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
 
@@ -136,29 +136,23 @@ $(window).on('load', function () {
 
                 var ticker = $.trim($("#aa" + i).text());
 
-                if (i == 10) {
-                    
-
-                    $.get('https:/www.lse.co.uk/SharePrice.asp?shareprice=' + ticker , {
+                    $.post("/routes/currentPercent", {
                         ticker
                     }, function (sdata) {
 
-                        var tempLine = data.substring(data.indexOf("data-field=\"MID_PCT_CHG") + 43, data.indexOf("data-field=\"MID_PCT_CHG") + 47);
-
-                        if (tempLine < 0) {
-                            $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata[0].percentUp + "%</span>");
+                        if (sdata.percentUp < 0) {
+                            $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
                         }
-                        if (tempLine == 0) {
-                            $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata[0].percentUp + "%</span>");
+                        if (sdata.percentUp == 0) {
+                            $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
                         }
-                        if (tempLine > 0) {
-                            $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata[0].percentUp + "%</span>");
+                        if (sdata.percentUp > 0) {
+                            $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
                         }
 
-                        alert(templine);
+
 
                     });
-                }
             
             }
         });
@@ -277,14 +271,6 @@ $(window).on('load', function () {
             $(this).children("div.th-inner").css("text-align", "center");
         });
 
-        $("ul.dropdown-menu").children("li.dropdown-item-marker").each(function (index) {
-         //   if (index == 18) {
-         //       $(this).find("input").click();
-        //    }
-       //     if (index == 19) {
-       //         $(this).find("input").click();
-        //    }
-        });
 
     }
 
@@ -313,7 +299,8 @@ $(window).on('load', function () {
          var routerVal = "";
          if (exchange == "ftse100") {
              routerVal = "routes/ftse100"
-             $("#indexTitle").text(" current list: FTSE 100, current sort order: ticker");
+             $("#indexTitle").text(" current list: FTSE 100");
+             $("#indexTitleSort").text('current sort order: ticker' );
          }
          if (exchange != "ftse100") {
              $("#FTSE100But").removeClass("focus");
@@ -321,15 +308,18 @@ $(window).on('load', function () {
          }
          if (exchange == "ftse250") {
              routerVal = "routes/ftse250";
-             $("#indexTitle").text(" current list: FTSE 250, current sort order: ticker");
+             $("#indexTitle").text(" current list: FTSE 250");
+             $("#indexTitleSort").text('current sort order: ticker' );
          }
          if (exchange == "ftserst") {
              routerVal = "routes/ftserst";
-             $("#indexTitle").text(" current list: FTSE rest, current sort order: ticker");
+             $("#indexTitle").text(" current list: FTSE rest");
+             $("#indexTitleSort").text('current sort order: ticker' );
          }
          if (exchange == "ftseaim") {
              routerVal = "routes/ftseaim";
-             $("#indexTitle").text(" current list: AIM, current sort order: ticker");
+             $("#indexTitle").text(" current list: AIM");
+             $("#indexTitleSort").text('current sort order: ticker' );
          }
 
          $('#tableftse').bootstrapTable('refresh', {
@@ -390,11 +380,10 @@ $(window).on('load', function () {
                      $(this).mouseenter(function () {
                          $(this).css("background-color", "lightgreen");
                      })
-                 });
-                 $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
                      $(this).mouseleave(function () {
                          $(this).css("background-color", "lightblue");
                      })
+
                  });
                  setToolTip();
 
