@@ -244,6 +244,22 @@ $(window).on('load', function () {
             var x = parseFloat(AA).toFixed(2);
             var y = parseFloat(BB).toFixed(2);
 
+            if (colname == "peRatio") {
+                if (x < 0) {
+                    x = (x * -1) * 1000;
+                }
+                if (y < 0) {
+                    y = (y * -1) * 1000;
+                }
+                if (y == 0) {
+                    y = 1000;
+                }
+                if (x == 0) {
+                    x = 1000;
+                }
+                return x - y;
+             }
+
             if (x === 0 && y === 0)
                 return 1 / y - 1 / x || 0;
 
@@ -278,7 +294,8 @@ $(window).on('load', function () {
             }
             $(this).children("div.th-inner").css("text-align", "center");
             if (index == sortCol) {
-                $(this).css("background-color", "lavender");
+                $(this).css("background-color", "#cfe0f2");
+
             }
 
         });
