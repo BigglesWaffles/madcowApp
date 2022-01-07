@@ -14,6 +14,7 @@ $(window).on('load', function () {
 
 
         $("#tableftseCon").css("opacity", "1");
+        $("#bigcontainer2").css("opacity", "1");
 
         $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
         [].forEach.call(document.querySelectorAll('#tableftse tr'),
@@ -78,6 +79,8 @@ $(window).on('load', function () {
 
 
     $("#sectorRisesBut").on("click", function () {
+
+        $("#bigcontainer2").css("opacity", "0");
         $("#indexTitle").text("Which sectors are doing well or badly");
         $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
@@ -104,7 +107,7 @@ $(window).on('load', function () {
     });
 
     $("#netnet").on("click", function () {
-
+        $("#bigcontainer2").css("opacity", "0");
         $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
         $("#FTSE100But").removeClass("active");
