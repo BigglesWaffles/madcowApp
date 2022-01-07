@@ -294,7 +294,7 @@ $(window).on('load', function () {
                     $(this).css("background-color", "#cfe0f2");
 
                 } else {
-                    $(this).css("background-color", "WhiteSmoke");
+                    $(this).css("background-color", "lightblue");
                 }
                 $(this).css('cursor', 'pointer');
             } else {
