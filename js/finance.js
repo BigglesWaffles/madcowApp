@@ -12,11 +12,10 @@ $(window).on('load', function () {
     $('#tableftseCon').on('post-body.bs.table', function (e) {
         e.stopImmediatePropagation();
 
-
+        $(".tableftseCon").parent("div").parent("th").off("click");
         $("#tableftseCon").css("opacity", "1");
         $("#bigcontainer2").css("opacity", "1");
 
-        $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
         [].forEach.call(document.querySelectorAll('#tableftse tr'),
             function (el) {
                 el.addEventListener('click', function () {
@@ -32,7 +31,6 @@ $(window).on('load', function () {
             let visibleBigTable = "";
             let visibleSmallTable = "";
             var classnamelist = $(this).children("div.th-inner").children("span").attr("class");
-
             $(".tickerSymbol.tableftseCon").addClass("focus");
             $(".tickerSymbol.tableftseCon").addClass("active");
 
@@ -73,6 +71,7 @@ $(window).on('load', function () {
                 }
             });
         });
+        $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
 
     });
 
@@ -142,24 +141,24 @@ $(window).on('load', function () {
 
                 var ticker = $.trim($("#aa" + i).text());
 
-                    $.post("/routes/currentPercent", {
-                        ticker
-                    }, function (sdata) {
+                $.post("/routes/currentPercent", {
+                    ticker
+                }, function (sdata) {
 
-                        if (sdata.percentUp < 0) {
-                            $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
-                        }
-                        if (sdata.percentUp == 0) {
-                            $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
-                        }
-                        if (sdata.percentUp > 0) {
-                            $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
-                        }
+                    if (sdata.percentUp < 0) {
+                        $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
+                    }
+                    if (sdata.percentUp == 0) {
+                        $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
+                    }
+                    if (sdata.percentUp > 0) {
+                        $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
+                    }
 
 
 
-                    });
-            
+                });
+
             }
         });
 
@@ -261,7 +260,7 @@ $(window).on('load', function () {
                     x = 1000;
                 }
                 return x - y;
-             }
+            }
 
             if (x === 0 && y === 0)
                 return 1 / y - 1 / x || 0;
@@ -290,16 +289,18 @@ $(window).on('load', function () {
         $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
             let smallTest = $(this).attr("class");
             if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-                $(this).css("background-color", "lightblue");
+               
+                if ($(this).attr("class") == colname) {
+                    $(this).css("background-color", "#cfe0f2");
+
+                } else {
+                    $(this).css("background-color", "lightblue");
+                }
                 $(this).css('cursor', 'pointer');
             } else {
                 $(this).css("background-color", "lightgrey");
             }
             $(this).children("div.th-inner").css("text-align", "center");
-            if (index == sortCol) {
-                $(this).css("background-color", "#cfe0f2");
-
-            }
 
         });
 
