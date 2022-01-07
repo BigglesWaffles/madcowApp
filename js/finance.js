@@ -290,7 +290,7 @@ $(window).on('load', function () {
             let smallTest = $(this).attr("class");
             if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
                
-                if ($(this).attr("class") == colname) {
+                if ($(this).attr("class").trim() == colname || index == sortCol) {
                     $(this).css("background-color", "#cfe0f2");
 
                 } else {
