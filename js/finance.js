@@ -80,6 +80,7 @@ $(window).on('load', function () {
     $("#sectorRisesBut").on("click", function () {
 
         $("#bigcontainer2").css("opacity", "0");
+        $("#bigcontainer").css("opacity", "0");
         $("#indexTitle").text("Which sectors are doing well or badly");
         $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
@@ -107,6 +108,7 @@ $(window).on('load', function () {
 
     $("#netnet").on("click", function () {
         $("#bigcontainer2").css("opacity", "0");
+        $("#bigcontainer").css("opacity", "0");
         $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
         $("#FTSE100But").removeClass("active");
@@ -283,7 +285,11 @@ $(window).on('load', function () {
         });
         $("#bigcontainer1").css("opacity", "100%");
         $("#bigcontainer2").css("opacity", "100%");
-        $("#bigcontainer").css("opacity", "100%");
+        if (tablename == "#tableftseCon") {
+            $("#bigcontainer").css("opacity", "100%");
+        } else {
+            $("#bigcontainer").css("opacity", "0");
+        }
         $(".loader").css("opacity", "0");
         $("button[title='Refresh']").css("display", "none");
         $("#tableftseCon").find("table > thead > tr > th").each(function (index) {

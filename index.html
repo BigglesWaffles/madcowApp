@@ -87,9 +87,13 @@
         </div>
 
 
-        <div id="tablenetnetCon" style="width:1500px;display:none;position:absolute; top:100px" class="container">
+        <div id="tablenetnetCon" style="width: 1500px; display: none; position: relative; top: 100px; margin: 0 auto !important" class="container">
             <div style=" width:100%; font-size:20px "></div>
-            <table id="table" >
+            <table id="table" 
+                       data-toolbar=".toolbar"
+                       data-search="true"
+                       data-show-columns="true"
+                       data-show-columns-toggle-all="true">
                 <thead>
                     <tr>
                         <th data-field="navMid">Nav to Mid</th>
@@ -108,9 +112,13 @@
                 </thead>
             </table>
         </div>
-        <div id="sectorRiseCon" style="display: none;position:absolute; top: 100px" class="container">
+        <div id="sectorRiseCon" style="display: none; position: relative; top: 100px; margin: 0 auto !important" class="container">
             <div style="width:100%; font-size:20px"></div>
-            <table id="sectorRise">
+            <table id="sectorRise" 
+                       data-toolbar=".toolbar"
+                       data-search="true"
+                       data-show-columns="true"
+                       data-show-columns-toggle-all="true">
                 <thead>
                     <tr>
                         <th data-field="sector">Sector</th>
