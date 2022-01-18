@@ -2,21 +2,19 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
+    <link href="/css/finance.css" rel="Stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="Stylesheet" type="text/css" />
-    <link href="/css/finance.css" rel="Stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
 
+
     <script type="text/javascript" src="/js/finance.js"></script>
-
-
-
-
 
 
     <title>Finance Data</title>
@@ -32,25 +30,45 @@
     </h2>
     <div class="container" style="position:relative;width:96%">
 
-        <div class="container" style="position:absolute;width:70%;top:40px">
+        <div class="container" style="position:absolute;width:80%;top:40px">
             <div class="row">
                 <div class="col-xs-12" style="z-index:90">
-                    <button style="width:115px; color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button>
-                    <button style="width: 115px; color: black; background-color: lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>
+                   <!-- <button style="width:115px; color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button> -->
+                    <!-- <button style="width: 115px; color: black; background-color: lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>  -->
                     <button style="width: 115px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
                     <button style="width: 115px; color: black; background-color: lightgrey" id="delayBut" type="button" class="btn btn-info">delayed price</button>
+                    <div class="btn-group form-select-lg mb-3">
+                        <button style="width: 115px; color: black; background-color: lightgrey; border-color: #46b8da;" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Shares
+                        </button>
+                        <div style="width:25rem" class="dropdown-menu form-select-lg mb-3">
+                            <div style="border-width:0.1rem; background:lightgrey; padding-left:0;text-align:center;border-color:grey; border-top-style:solid" class="dropdown-divider">Index</div>
+                            <a class="dropdown-item FTSE100But" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem">ftse 100</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item FTSE250But" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">ftse 250</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item FTSEzzzBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">ftse rest</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item FTSEaimBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">AIM</span></a>
+                            <div style="border-width:0.1rem; border-color:grey; border-top-style:solid" class="dropdown-divider"></div>
+                            <a class="dropdown-item netnetBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">netnet (or near) stocks</span></a>
+                            <div style="border-width:0.1rem; background:lightgrey; padding-left:0;text-align:center;border-color:grey; border-top-style:solid" class="dropdown-divider">Sector</div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">storage REIT</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Travel</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div style="width: 100%; position: absolute;" id="bigcontainer" class="container">
 
 
             <div id="tableftseCon" style="width:1800px;opacity:0; border:none!important;" class="container">
-                <table id="tableftse"
+                <table class="table" id="tableftse"
                        data-toolbar=".toolbar"
                        data-search="true"
                        data-show-columns="true"
@@ -59,11 +77,10 @@
                         <tr>
                             <th class="stockName" data-field="stockName"><span class="stockName tableftseCon">Name</span></th>
                             <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
-                            <th class="sector" data-field="sector"><span class="sector tableftseCon">Sector</span></th>
+                            <th class="sector" data-field="sector" data-formatter="dataFormatter" ><span class="sector tableftseCon">Sector</span></th>
                             <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th>
                             <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th>
                             <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
-                            <th class="navMid" data-field="navMid"><span class="navMid tableftseCon ">Nav to Mid</span></th>
                             <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
                             <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th>
                             <th class="bullAdvice" data-field="bullAdvice"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
@@ -72,28 +89,32 @@
                             <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th>
                             <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
                             <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
-                            <th class="percentUp" data-field="percentUp" data-formatter="upOrDownFormatter"><span class="percentUp tableftseCon ">Weekly %</span></th>
-                            <th class="changePercent" data-field="changePercent" data-formatter="upOrDownFormatter"><span class="changePercent tableftseCon ">Prev Close</span></th>
                             <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><span class="percentUpToday tableftseCon ">Price Today</span></th>
-                            <th class="comments" id="comments" data-field="comments" data-formatter="todaysFormatter"><span class="comments tableftseCon ">Psst!</span></th>
+                            <th class="totalAssets" id="totalAssets" data-field="totalAssets"><span class="totalAssets tableftseCon ">Assets</span></th>
+                            <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
+                            <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
+                            <th class="nav" id="nav" data-field="nav"><span class="nav tableftseCon ">NAV</span></th>
+                            <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">NAV/Mrk Cap</span></th>
+                            <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
                         </tr>
                     </thead>
                 </table>
             </div>
 
             <div id="bigcontainer2" style="opacity:1">
-            <a id="bigcontainer1" href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
+                <a id="bigcontainer1" href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+            </div>
 
         </div>
 
 
         <div id="tablenetnetCon" style="width: 1500px; display: none; position: relative; top: 100px; margin: 0 auto !important" class="container">
             <div style=" width:100%; font-size:20px "></div>
-            <table id="table" 
-                       data-toolbar=".toolbar"
-                       data-search="true"
-                       data-show-columns="true"
-                       data-show-columns-toggle-all="true">
+            <table id="table"
+                   data-toolbar=".toolbar"
+                   data-search="true"
+                   data-show-columns="true"
+                   data-show-columns-toggle-all="true">
                 <thead>
                     <tr>
                         <th data-field="navMid">Nav to Mid</th>
@@ -114,11 +135,11 @@
         </div>
         <div id="sectorRiseCon" style="display: none; position: relative; top: 100px; margin: 0 auto !important" class="container">
             <div style="width:100%; font-size:20px"></div>
-            <table id="sectorRise" 
-                       data-toolbar=".toolbar"
-                       data-search="true"
-                       data-show-columns="true"
-                       data-show-columns-toggle-all="true">
+            <table id="sectorRise"
+                   data-toolbar=".toolbar"
+                   data-search="true"
+                   data-show-columns="true"
+                   data-show-columns-toggle-all="true">
                 <thead>
                     <tr>
                         <th data-field="sector">Sector</th>
@@ -201,6 +222,18 @@
         function todays2Formatter(value, row, index) {
             return "<span id='buttt" + index + "' >todays change</span>";
         }
+
+        function dataFormatter(value, row, index) {
+
+            if (value.length > 20) {
+                value = value.substring(0, 20) + "....";
+            }
+            return value;
+            
+      }
+
+
+
     </script>
 </body>
 </html>

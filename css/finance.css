@@ -119,9 +119,6 @@ ul.ui-autocomplete {
     position: absolute;
     left: -999em;
 }
-
-
-
     .tooltiptext {
         visibility: hidden;
         width: 120px;

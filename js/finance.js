@@ -2,15 +2,16 @@ $(window).on('load', function () {
     // code here
 
 
-
     $('#tableftseCon').bootstrapTable({
         showRefresh: true
     });
 
+    //$('#tableftse').bootstrapTable('hideColumn', 'netNet');
 
-
-    $('#tableftseCon').on('post-body.bs.table', function (e) {
+    $('#tableftse').on('post-body.bs.table', function (e) {
         e.stopImmediatePropagation();
+
+       // $('#tableftse').bootstrapTable('hideColumn', 'sector');
 
         $(".tableftseCon").parent("div").parent("th").off("click");
         $("#tableftseCon").css("opacity", "1");
@@ -48,7 +49,7 @@ $(window).on('load', function () {
             }
 
             $(visibleBigTable).find("table > thead > tr > th").each(function (index) {
-                if (index > 18) {
+                if (index > 21) {
                     return true;
                 }
                 $(this).mouseenter(function () {
@@ -75,7 +76,16 @@ $(window).on('load', function () {
 
     });
 
-
+    $(".fixed-table-toolbar").find("button").on("click", function(){
+        $(".loader").css("opacity", "0");
+        $("#bigcontainer1").css("opacity", "100%");
+        $("#bigcontainer2").css("opacity", "100%");
+        if (tablename == "#tableftseCon") {
+            $("#bigcontainer").css("opacity", "100%");
+        } else {
+            $("#bigcontainer").css("opacity", "0");
+        }
+    });
 
     $("#sectorRisesBut").on("click", function () {
 
@@ -106,6 +116,8 @@ $(window).on('load', function () {
 
     });
 
+
+         
     $("#netnet").on("click", function () {
         $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
@@ -116,6 +128,7 @@ $(window).on('load', function () {
         $("#indexTitle").text("Net Net stocks in order of netnet-ness as a percentage");
         $.get("/routes/netnet", {
         }, function (sdata) {
+ 
             $(function () {
 
                 $('#tableftseCon').hide();
@@ -133,6 +146,11 @@ $(window).on('load', function () {
         });
 
     });
+
+
+
+
+
 
     $("#delayBut").on("click", function () {
 
@@ -168,23 +186,32 @@ $(window).on('load', function () {
 
     $("#FTSE100But").on("click", function () {
         getAllData("ftse100");
-
     });
-
+    $(".FTSE100But").on("click", function () {
+        getAllData("ftse100");
+    });
     $("#FTSE250But").on("click", function () {
         getAllData("ftse250");
-
     });
-
+    $(".FTSE250But").on("click", function () {
+        getAllData("ftse250");
+    });
     $("#FTSEzzzBut").on("click", function () {
         getAllData("ftserst");
-
     });
-
+    $(".FTSEzzzBut").on("click", function () {
+        getAllData("ftserst");
+    });
     $("#FTSEaimBut").on("click", function () {
         getAllData("ftseaim");
-
     });
+    $(".FTSEaimBut").on("click", function () {
+        getAllData("ftseaim");
+    });
+    $(".netnetBut").on("click", function () {
+        getAllData("netnet");
+    });
+
 
 
     function sortTable2(xx, sortCol, tablename, colname) {
@@ -295,7 +322,6 @@ $(window).on('load', function () {
         $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
             let smallTest = $(this).attr("class");
             if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-               
                 if ($(this).attr("class").trim() == colname || index == sortCol) {
                     $(this).css("background-color", "#cfe0f2");
 
@@ -317,13 +343,13 @@ $(window).on('load', function () {
 
 
     function setToolTip() {
-        $("th.techsum").children('div.th-inner').attr("data-toggle", "tooltip");
-        $("th.techsum").children('div.th-inner').attr("title", "Tech Summary was derived by adding technical signals (ocillators and moving averages) together. The higher the number the more BUY signals there are. So a 2 is a strong buy. A zero is a sell. However I've noticed that sometimes, because this is a day behind, the STRONG BUY can be the time to SELL and a STRONG SELL can be time to BUY. So the meaning is not clear, best used in conjuntion with other info (if use at all)");
-        $("th.rsi").children('div.th-inner').attr("data-toggle", "tooltip");
-        $("th.rsi").children('div.th-inner').attr("title", "Relative Strength Indicator. A low number indicates that stock is oversold and high is overbought. This indicator in conjunction with others is interesting");
-        $("th.peRatio").children('div.th-inner').attr("data-toggle", "tooltip");
-        $("th.peRatio").children('div.th-inner').attr("title", "Price Earnings ratio. A low pe means that the company makes a lot of money but the market is currently not putting enough value on that profit. So interesting stocks");
-        $('[data-toggle="tooltip"]').tooltip();
+     //   $("th.techsum").children('div.th-inner').attr("data-toggle", "tooltip");
+     //   $("th.techsum").children('div.th-inner').attr("title", "Tech Summary was derived by adding technical signals (ocillators and moving averages) together. The higher the number the more BUY signals there are. So a 2 is a strong buy. A zero is a sell. However I've noticed that sometimes, because this is a day behind, the STRONG BUY can be the time to SELL and a STRONG SELL can be time to BUY. So the meaning is not clear, best used in conjuntion with other info (if use at all)");
+     //   $("th.rsi").children('div.th-inner').attr("data-toggle", "tooltip");
+     //   $("th.rsi").children('div.th-inner').attr("title", "Relative Strength Indicator. A low number indicates that stock is oversold and high is overbought. This indicator in conjunction with others is interesting");
+      //  $("th.peRatio").children('div.th-inner').attr("data-toggle", "tooltip");
+      //  $("th.peRatio").children('div.th-inner').attr("title", "Price Earnings ratio. A low pe means that the company makes a lot of money but the market is currently not putting enough value on that profit. So interesting stocks");
+      //  $('[data-toggle="tooltip"]').tooltip();
      }
 
 
@@ -349,6 +375,11 @@ $(window).on('load', function () {
              routerVal = "routes/ftse250";
              $("#indexTitle").text(" current list: FTSE 250");
              $("#indexTitleSort").text('current sort order: ticker' );
+         }
+         if (exchange == "netnet") {
+             routerVal = "routes/netnet";
+             $("#indexTitle").text(" current list: Netnet stocks");
+             $("#indexTitleSort").text('current sort order: ticker');
          }
          if (exchange == "ftserst") {
              routerVal = "routes/ftserst";
@@ -409,8 +440,6 @@ $(window).on('load', function () {
 
                  $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
                  $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
-                 $(".tickerSymbol.tableftseCon").addClass("focus");
-                 $(".tickerSymbol.tableftseCon").addClass("active");
                  sortTable2("tableftse",1, "#tableftseCon", "tickerSymbol");
 
 
@@ -435,6 +464,86 @@ $(window).on('load', function () {
 
          });
 
-     }
+    }
+
+
+    $(".searchBut").on("click", function () {
+        var sector = $(this).text();
+        $("#indexTitle").text(" current sector (across all indexs): " +sector);
+        $.ajax({
+            url: "/routes/search",
+            type: "POST",
+            data: { "search": sector },
+            dataType: "json",
+            success: function (sdata) {
+                $(function () {
+                    $('#tableftseCon').show();
+                    $('#tableoversoldCon').hide();
+                    $('#tablenetnetCon').hide();
+                    $('#sectorRiseCon').hide();
+                    $("#netnetBut").hide();
+
+                    $('#tableftse').bootstrapTable('destroy');
+
+                    $('#tableftse').bootstrapTable({
+                        data: sdata
+                    });
+
+
+
+
+                    var abc = ["a", "b", "c"];
+                    for (let i = 0; i < abc.length; ++i) {
+                        $(".image" + abc[i]).mouseover(function () {
+                            $(".image" + abc[i]).css("cursor", "pointer");
+                            $(".image" + abc[i] + "BIG").css("cursor", "pointer");
+                        });
+                        $(".image" + abc[i]).on("click", function (event) {
+                            var indexVal = event.target.id;
+                            if (indexVal.includes("image" + abc[i] + "BIG")) {
+                                indexVal = indexVal.replace("image" + abc[i] + "BIG", "");
+                                $('#image' + abc[i] + indexVal).show();
+                                $('#' + event.target.id).hide();
+                                $('#' + event.target.id).blur();
+                                $('#image' + abc[i] + indexVal).focus();
+                            } else {
+                                indexVal = indexVal.replace("image" + abc[i], "");
+                                $('#image' + abc[i] + 'BIG' + indexVal).show();
+                                $('#' + event.target.id).hide();
+                                $('#' + event.target.id).blur();
+                                $('#image' + abc[i] + 'BIG' + indexVal).focus();
+                            }
+                        });
+                    }
+
+                    $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
+                    $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
+                    sortTable2("tableftse", 1, "#tableftseCon", "tickerSymbol");
+
+
+                    $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
+                        $(this).mouseenter(function () {
+                            let smallTest = $(this).attr("class");
+                            if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                                $(this).addClass("makedarker");
+                            }
+                        })
+                        $(this).mouseleave(function () {
+                            let smallTest = $(this).attr("class");
+                            if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                                $(this).removeClass("makedarker");
+                            }
+                        })
+
+                    });
+
+                    setToolTip();
+
+                });
+
+            }
+        });
+
+    });
 
 });

@@ -11,6 +11,7 @@ var ftse100 = require('./routes/ftse100');
 var ftse250 = require('./routes/ftse250');
 var ftserst = require('./routes/ftserst');
 var ftseaim = require('./routes/ftseaim');
+var search = require('./routes/search');
 var netnet = require('./routes/netnet');
 var current = require('./routes/currentPercent');
 var allSectors = require('./routes/allSectors');
@@ -29,12 +30,14 @@ app.use(cookieParser());
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/images', express.static(__dirname + '/images'));
+app.use('/files', express.static(__dirname + '/files'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'routes')));
 
 
 
 app.use('/routes/ftseTest', routes);
+app.use('/routes/search', search);
 app.use('/routes/ftse100', ftse100);
 app.use('/routes/ftse250', ftse250);
 app.use('/routes/ftserst', ftserst);
