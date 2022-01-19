@@ -52,9 +52,7 @@ router.post('/', (req, res) => {
     for (let index = 0; index < search.length; ++index) {
 
         let company = search[index];
-        if (company.tickerSymbol == "CRST") {
-            console.log("hh3")
-        }
+
 
         if (company.sector.includes(req.body.search)) {
             ftseSearch.push(company);
