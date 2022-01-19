@@ -475,7 +475,7 @@ $(window).on('load', function () {
 
     $(".searchBut").on("click", function () {
         var sector = $(this).text();
-        $("#indexTitle").text(" current sector (across all indexs): " +sector);
+        $("#indexTitle").text(" current sector (across all indexes): " +sector);
         $.ajax({
             url: "/routes/search",
             type: "POST",
