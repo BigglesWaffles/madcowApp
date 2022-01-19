@@ -75,9 +75,9 @@
                        data-show-columns-toggle-all="true">
                     <thead>
                         <tr>
-                            <th class="stockName" data-field="stockName"><span class="stockName tableftseCon">Name</span></th>
+                            <th class="stockName" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
                             <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
-                            <th class="sector" data-field="sector" data-formatter="dataFormatter" ><span class="sector tableftseCon">Sector</span></th>
+                            <th class="sector" data-field="sector" data-formatter="dataFormatter"><span class="sector tableftseCon">Sector</span></th>
                             <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th>
                             <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th>
                             <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
@@ -221,6 +221,14 @@
         }
         function todays2Formatter(value, row, index) {
             return "<span id='buttt" + index + "' >todays change</span>";
+        }
+
+        function stockFormatter(value, row, index) {
+            const myArray = value.split("|");
+            if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
+                return myArray[0];
+            }
+            return "<a target='_blank' href='" + myArray[1] + "'> " + myArray[0] + "</a>";
         }
 
         function dataFormatter(value, row, index) {

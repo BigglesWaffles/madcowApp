@@ -440,7 +440,13 @@ $(window).on('load', function () {
 
                  $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
                  $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
-                 sortTable2("tableftse",1, "#tableftseCon", "tickerSymbol");
+                 let defaultCol = 1;
+                 let defaultName = "tickerSymbol"
+                 if (exchange == "netnet") {
+                     defaultCol = 20;
+                     defaultName = "netNet";
+                 }
+                 sortTable2("tableftse",defaultCol, "#tableftseCon", defaultName);
 
 
                  $("#tableftseCon").find("table > thead > tr > th").each(function (index) {

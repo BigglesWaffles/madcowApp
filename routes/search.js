@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
     for (let index = 0; index < search.length; ++index) {
 
         let company = search[index];
-        if (company.tickerSymbol == "888") {
+        if (company.tickerSymbol == "CRST") {
             console.log("hh1")
         }
 
@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     for (let index = 0; index < search.length; ++index) {
 
         let company = search[index];
-        if (company.tickerSymbol == "888") {
+        if (company.tickerSymbol == "CRST") {
             console.log("hh2")
         }
 
@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
     for (let index = 0; index < search.length; ++index) {
 
         let company = search[index];
-        if (company.tickerSymbol == "888") {
+        if (company.tickerSymbol == "CRST") {
             console.log("hh3")
         }
 
@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
     for (let index = 0; index < search.length; ++index) {
 
         let company = search[index];
-        if (company.tickerSymbol == "888") {
+        if (company.tickerSymbol == "CRST") {
             console.log("hh4")
         }
 
