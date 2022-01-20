@@ -907,7 +907,7 @@
     "cashPercent": null,
     "changePercent": -1.23,
     "bullAdvice": "2022-01-14 BUY",
-    "sector": "Software and Computer Services"
+    "sector": "Software and Computer Services blockchain"
   },
   {
     "navMid": 1.15,
@@ -4207,7 +4207,7 @@
     "midPrice": null,
     "dividend": 2.86,
     "tickerSymbol": "MORE",
-    "stockName": "Hostmore PLC|https://www.hostmoregroup.com/",
+    "stockName": "HOSTMORE PLC|https://www.hostmoregroup.com/",
     "profit": -7.97,
     "cash": 36.17,
     "exDividend": "-",
@@ -5458,6 +5458,41 @@
     "changePercent": -2.18,
     "bullAdvice": "2022-01-14 SELL",
     "sector": "Household Goods and Home Construction"
+  },
+  {
+    "navMid": 0,
+    "navPerShare": null,
+    "website": "https://www.modeplc.com/",
+    "rsi": 73,
+    "midPrice": null,
+    "dividend": 2.86,
+    "tickerSymbol": "MODE",
+    "stockName": "MODE GLOBAL H|https://www.modeplc.com/",
+    "profit": 0,
+    "cash": 0,
+    "exDividend": "-",
+    "netNet": 0,
+    "peRatio": 0,
+    "techSum": 1,
+    "nav": 0,
+    "navPercent": 0,
+    "totalAssets": 0,
+    "totalLiabilities": 0,
+    "percentUp": null,
+    "weekPercentUp": null,
+    "marketCapitalisation": 14.84,
+    "day": "BKX8NT0",
+    "week": "BKX8NT0",
+    "years": "MODE",
+    "sedol": "BKX8NT0",
+    "exchangeIndex": null,
+    "afterTaxProfit": null,
+    "netAssets": null,
+    "profitPercent": null,
+    "cashPercent": null,
+    "changePercent": -5.08,
+    "bullAdvice": "2021-12-01 BUY",
+    "sector": " blockchain"
   },
   {
     "navMid": 0.03,
@@ -8852,7 +8887,7 @@
     "cashPercent": null,
     "changePercent": -5.08,
     "bullAdvice": "2021-12-01 BUY",
-    "sector": "Software and Computer Services Software House"
+    "sector": "Software and Computer Services Software House blockchain"
   },
   {
     "navMid": 0.4,

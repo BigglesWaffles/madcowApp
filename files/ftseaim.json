@@ -4407,7 +4407,7 @@
     "cashPercent": null,
     "changePercent": 0,
     "bullAdvice": "2022-01-13 BUY",
-    "sector": "Media"
+    "sector": "Media blockchain"
   },
   {
     "navMid": 0.41,
@@ -15747,7 +15747,7 @@
     "cashPercent": null,
     "changePercent": -1.13,
     "bullAdvice": "2022-01-13 BUY",
-    "sector": "Software and Computer Services"
+    "sector": "Software and Computer Services blockchain"
   },
   {
     "navMid": 0,
@@ -17743,6 +17743,41 @@
     "changePercent": 0,
     "bullAdvice": null,
     "sector": "Chemicals"
+  },
+  {
+    "navMid": 0,
+    "navPerShare": null,
+    "website": null,
+    "rsi": 73,
+    "midPrice": null,
+    "dividend": 2.86,
+    "tickerSymbol": "QBT",
+    "stockName": "QUANTUM BLOCK|null",
+    "profit": 0,
+    "cash": 0,
+    "exDividend": "-",
+    "netNet": 0,
+    "peRatio": 0,
+    "techSum": 1,
+    "nav": 0,
+    "navPercent": 0,
+    "totalAssets": 0,
+    "totalLiabilities": 0,
+    "percentUp": null,
+    "weekPercentUp": null,
+    "marketCapitalisation": 27.05,
+    "day": "B50P5B5",
+    "week": "B50P5B5",
+    "years": "QBT",
+    "sedol": "B50P5B5",
+    "exchangeIndex": null,
+    "afterTaxProfit": null,
+    "netAssets": null,
+    "profitPercent": null,
+    "cashPercent": null,
+    "changePercent": -5.08,
+    "bullAdvice": "2021-12-01 BUY",
+    "sector": " blockchain"
   },
   {
     "navMid": 0.03,
