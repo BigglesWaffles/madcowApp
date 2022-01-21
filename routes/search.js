@@ -9,8 +9,8 @@ const fs = require('fs');
 
 
 
-router.post('/', (req, res) => {
-    console.log(req.body.search)
+router.get('/:name', (req, res) => {
+    console.log("john "+req.params.name)
 
     req.header("Content-Type", "application/json");
 
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
             console.log("hh1")
         }
 
-        if (company.sector.includes(req.body.search)) {
+        if (company.sector.includes(req.params.name)) {
             ftseSearch.push(company);
         }
     }
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
             console.log("hh2")
         }
 
-        if (company.sector.includes(req.body.search)) {
+        if (company.sector.includes(req.params.name)) {
             ftseSearch.push(company);
         }
     }
@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
         let company = search[index];
 
 
-        if (company.sector.includes(req.body.search)) {
+        if (company.sector.includes(req.params.name)) {
             ftseSearch.push(company);
         }
     }
@@ -69,15 +69,14 @@ router.post('/', (req, res) => {
             console.log("hh4")
         }
 
-        if (company.sector.includes(req.body.search)) {
+        if (company.sector.includes(req.params.name)) {
             ftseSearch.push(company);
         }
     }
 
 
-    console.log(req.path);
     console.log(req.params);
-    console.log(req.params.useridname);
+    console.log(req.params.name);
     // app.use('/pthv/:useridname', pthv);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(

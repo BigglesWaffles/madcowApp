@@ -72,7 +72,7 @@ $(window).on('load', function () {
                 }
             });
         });
-        $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
+      //  $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
 
     });
 
@@ -339,7 +339,14 @@ $(window).on('load', function () {
 
     }
 
-    $("#FTSE100But").click().active;
+    var hash = window.location.hash;
+    hash = hash.replace("#", "");
+    hash = hash.replace("%20", " ");
+    if (hash.length > 1) {
+        getSectorData(hash);
+    } else {
+        $("#FTSE100But").click().active;
+    }
 
 
     function setToolTip() {
@@ -352,6 +359,86 @@ $(window).on('load', function () {
       //  $('[data-toggle="tooltip"]').tooltip();
      }
 
+    function getSectorData(sector) {
+        $("#indexTitle").text(" current sector (across all indexes): " + sector);
+        $.ajax({
+            url: "/routes/search/"+sector,
+            type: "GET",
+            //  data: { "search": sector },
+            dataType: "json",
+            success: function (sdata) {
+                $(function () {
+                    $('#tableftseCon').show();
+                    $('#tableoversoldCon').hide();
+                    $('#tablenetnetCon').hide();
+                    $('#sectorRiseCon').hide();
+                    $("#netnetBut").hide();
+
+                    $('#tableftse').bootstrapTable('destroy');
+
+                    $('#tableftse').bootstrapTable({
+                        data: sdata
+                    });
+
+
+
+
+                    var abc = ["a", "b", "c"];
+                    for (let i = 0; i < abc.length; ++i) {
+                        $(".image" + abc[i]).mouseover(function () {
+                            $(".image" + abc[i]).css("cursor", "pointer");
+                            $(".image" + abc[i] + "BIG").css("cursor", "pointer");
+                        });
+                        $(".image" + abc[i]).on("click", function (event) {
+                            var indexVal = event.target.id;
+                            if (indexVal.includes("image" + abc[i] + "BIG")) {
+                                indexVal = indexVal.replace("image" + abc[i] + "BIG", "");
+                                $('#image' + abc[i] + indexVal).show();
+                                $('#' + event.target.id).hide();
+                                $('#' + event.target.id).blur();
+                                $('#image' + abc[i] + indexVal).focus();
+                            } else {
+                                indexVal = indexVal.replace("image" + abc[i], "");
+                                $('#image' + abc[i] + 'BIG' + indexVal).show();
+                                $('#' + event.target.id).hide();
+                                $('#' + event.target.id).blur();
+                                $('#image' + abc[i] + 'BIG' + indexVal).focus();
+                            }
+                        });
+                    }
+
+                    $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
+                    $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
+                    sortTable2("tableftse", 1, "#tableftseCon", "tickerSymbol");
+
+
+                    $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
+                        $(this).mouseenter(function () {
+                            let smallTest = $(this).attr("class");
+                            if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                                $(this).addClass("makedarker");
+                            }
+                        })
+                        $(this).mouseleave(function () {
+                            let smallTest = $(this).attr("class");
+                            if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                                $(this).removeClass("makedarker");
+                            }
+                        })
+
+                    });
+
+              //      var url_ob = new URL(document.URL);
+               //     url_ob.hash = '#blockchain';
+                //    var new_url = url_ob.href;
+                //    document.location.href = new_url;
+                    setToolTip();
+
+                });
+
+            }
+        });
+    }
 
      function getAllData(exchange) {
 
@@ -473,83 +560,18 @@ $(window).on('load', function () {
     }
 
 
+
+    http://localhost:3000/#blockchain
+
+
+
+
     $(".searchBut").on("click", function () {
-        var sector = $(this).text();
-        $("#indexTitle").text(" current sector (across all indexes): " +sector);
-        $.ajax({
-            url: "/routes/search",
-            type: "POST",
-            data: { "search": sector },
-            dataType: "json",
-            success: function (sdata) {
-                $(function () {
-                    $('#tableftseCon').show();
-                    $('#tableoversoldCon').hide();
-                    $('#tablenetnetCon').hide();
-                    $('#sectorRiseCon').hide();
-                    $("#netnetBut").hide();
+        getSectorData($(this).text());
 
-                    $('#tableftse').bootstrapTable('destroy');
-
-                    $('#tableftse').bootstrapTable({
-                        data: sdata
-                    });
-
-
-
-
-                    var abc = ["a", "b", "c"];
-                    for (let i = 0; i < abc.length; ++i) {
-                        $(".image" + abc[i]).mouseover(function () {
-                            $(".image" + abc[i]).css("cursor", "pointer");
-                            $(".image" + abc[i] + "BIG").css("cursor", "pointer");
-                        });
-                        $(".image" + abc[i]).on("click", function (event) {
-                            var indexVal = event.target.id;
-                            if (indexVal.includes("image" + abc[i] + "BIG")) {
-                                indexVal = indexVal.replace("image" + abc[i] + "BIG", "");
-                                $('#image' + abc[i] + indexVal).show();
-                                $('#' + event.target.id).hide();
-                                $('#' + event.target.id).blur();
-                                $('#image' + abc[i] + indexVal).focus();
-                            } else {
-                                indexVal = indexVal.replace("image" + abc[i], "");
-                                $('#image' + abc[i] + 'BIG' + indexVal).show();
-                                $('#' + event.target.id).hide();
-                                $('#' + event.target.id).blur();
-                                $('#image' + abc[i] + 'BIG' + indexVal).focus();
-                            }
-                        });
-                    }
-
-                    $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
-                    $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
-                    sortTable2("tableftse", 1, "#tableftseCon", "tickerSymbol");
-
-
-                    $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
-                        $(this).mouseenter(function () {
-                            let smallTest = $(this).attr("class");
-                            if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-                                $(this).addClass("makedarker");
-                            }
-                        })
-                        $(this).mouseleave(function () {
-                            let smallTest = $(this).attr("class");
-                            if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-                                $(this).removeClass("makedarker");
-                            }
-                        })
-
-                    });
-
-                    setToolTip();
-
-                });
-
-            }
-        });
 
     });
+
+
 
 });
