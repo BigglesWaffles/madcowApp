@@ -339,6 +339,17 @@ $(window).on('load', function () {
 
     }
 
+    function funcRef() {
+        var hash = window.location.hash;
+        hash = hash.replace("#", "");
+        hash = hash.replace("%20", " ");
+        if (hash.length > 1) {
+            getSectorData(hash);
+        } 
+    }
+    window.addEventListener("hashchange", funcRef, false);
+
+
     var hash = window.location.hash;
     hash = hash.replace("#", "");
     hash = hash.replace("%20", " ");
