@@ -102,8 +102,9 @@
                             <th class="stockName" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
                             <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
                             <th class="sector" data-field="sector" data-formatter="dataFormatter"><span class="sector tableftseCon">Sector</span></th>
+                            <th class="news" data-field="news" data-formatter="newsFormatter"><span class="news tableftseCon">News</span></th>
                             <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th>
-                            <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th>
+                         <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
                             <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
                             <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
                             <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th>
@@ -253,6 +254,17 @@
                 return myArray[0];
             }
             return "<a target='_blank' href='" + myArray[1] + "'>" + myArray[0] + "</a>";
+        }
+
+        function newsFormatter(value, row, index) {
+            if (value == null) {
+                return null;
+            }
+            const myArray = value.split("|");
+            if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
+                return myArray[0];
+            }
+            return "<a target='_blank' href='" + myArray[0] + "'>" + myArray[1] + "</a>";
         }
 
         function dataFormatter(value, row, index) {

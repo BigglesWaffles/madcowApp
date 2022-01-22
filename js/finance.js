@@ -235,12 +235,12 @@ $(window).on('load', function () {
             $(b).children('td').eq(sortCol).css("background-color", "lavender");
 
 
-            if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname == "tickerSymbol") {
+            if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname == "tickerSymbol" || colname=="news") {
 
                 var A = $(a).children('td').eq(sortCol).text().toUpperCase();
                 var B = $(b).children('td').eq(sortCol).text().toUpperCase();
 
-                if (colname != "bullAdvice") {
+                if (colname != "bullAdvice" && colname !="news") {
                     if (A < B) {
                         return -1;
 
