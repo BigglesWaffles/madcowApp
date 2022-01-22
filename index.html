@@ -107,7 +107,7 @@
                          <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
                             <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
                             <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
-                            <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th>
+                         <!--   <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th> -->
                             <th class="bullAdvice" data-field="bullAdvice"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
                             <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
                             <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
@@ -264,7 +264,15 @@
             if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
                 return myArray[0];
             }
-            return "<a target='_blank' href='" + myArray[0] + "'>" + myArray[1] + "</a>";
+            let bishbashbosh = myArray[1];
+            let position = bishbashbosh.lastIndexOf(" ");
+            let position2 = bishbashbosh.indexOf(" ");
+            let billy = bishbashbosh.slice(position2);
+            billy = billy.toLowerCase();
+            if (billy.length > 25) {
+                billy = billy.substring(0, 26);
+            }
+            return "<a target='_blank' href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br/>", billy].join('') + "</a>";
         }
 
         function dataFormatter(value, row, index) {
