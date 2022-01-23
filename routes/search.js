@@ -119,7 +119,7 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
             }
             break;
         case "assets - intangibles":
-            if (company.navPercentIt > 1) {
+            if (company.naVPercentIt > 1) {
                 if (indexType == "aim") {
                     company.tickerSymbol = "aim" + company.tickerSymbol;
                 }
