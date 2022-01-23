@@ -38,7 +38,7 @@
                     <button style="width: 115px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
-                    <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button><br/>
+                    <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button><br />
 
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="delayBut" type="button" class="btn btn-info">delayed price</button>
                     <div class="btn-group form-select-lg mb-3">
@@ -109,13 +109,14 @@
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">blockchain</span></a>
                         </div>
                         &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeAim" type="checkbox" id="excludeAim" name="excludeAim" value="excludeAim">
-                        <label class="excludeAim" style="display:none" for="excludeAim"> Exclude AIM shares from search list</label>
+                        <label class="excludeAim" style="background-color: #FFF5EE; font-weight: 200; font-size: 14px;display: none " for="excludeAim"> Exclude AIM shares from search list</label>
                         &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeRst" type="checkbox" id="excludeRst" name="excludeRst" value="excludeRst">
-                        <label class="excludeRst" style="display:none" for="excludeRst"> Show only BIG FTSE companies</label>
+                        <label class="excludeRst" style="background-color:#e0ffdd; font-weight:200;font-size:14px;display: none" for="excludeRst"> Exclude smaller FTSE companies</label>
                     </div>
                 </div>
             </div>
         </div>
+
         <div style="width: 100%; position: absolute;" id="bigcontainer" class="container">
 
 
@@ -148,7 +149,7 @@
                             <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
                             <th class="nav" id="nav" data-field="nav"><span class="nav tableftseCon ">NAV</span></th>
                             <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">A-L/M</span></th>
-                            <th class="navPercentIt" id="navPercentIt"  data-field="navPercentIt"><span class="navPercentIt tableftseCon ">A-I-L/M</span></th>
+                            <th class="navPercentIt" id="navPercentIt" data-field="navPercentIt"><span class="navPercentIt tableftseCon ">A-I-L/M</span></th>
                             <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
                         </tr>
                     </thead>
