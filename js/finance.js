@@ -377,7 +377,12 @@ $(window).on('load', function () {
      }
 
     function getSectorData(sector) {
-       
+
+        $(".loader").css("opacity", "1");
+        $("#bigcontainer1").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0");
+        $("#bigcontainer").css("opacity", "0");
+
         $("#indexTitle").text(" current sector (across all indexes): " + sector);
         sector = sector.replace("/", "%2F");
         $.ajax({
