@@ -119,6 +119,22 @@ ul.ui-autocomplete {
     position: absolute;
     left: -999em;
 }
+
+
+.tooltip  {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+
     .tooltiptext {
         visibility: hidden;
         width: 120px;
@@ -145,7 +161,7 @@ ul.ui-autocomplete {
             border-color: black transparent transparent transparent;
         }
 
-    .tooltip:hover .tooltiptext {
+    .tooltip:hover {
         visibility: visible;
     }
 

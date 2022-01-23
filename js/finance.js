@@ -225,9 +225,13 @@ $(window).on('load', function () {
 
             $(a).children('td').each(function (index) {
                 $(this).css({ 'background-color': '', 'opacity': '' });
+                $(this).children("span.aim").parent("td").parent("tr").css("background-color", "#FFF5EE");
+                $(this).children("span.ftserst").parent("td").parent("tr").css("background-color", "#e0ffdd");
             });
 
             $(b).children('td').each(function (index) {
+                $(this).children("span.aim").parent("td").parent("tr").css("background-color", "#FFF5EE");
+                $(this).children("span.ftserst").parent("td").parent("tr").css("background-color", "#e0ffdd");
                 $(this).css({ 'background-color': '', 'opacity': '' });
             });
 
@@ -361,17 +365,21 @@ $(window).on('load', function () {
 
 
     function setToolTip() {
-     //   $("th.techsum").children('div.th-inner').attr("data-toggle", "tooltip");
-     //   $("th.techsum").children('div.th-inner').attr("title", "Tech Summary was derived by adding technical signals (ocillators and moving averages) together. The higher the number the more BUY signals there are. So a 2 is a strong buy. A zero is a sell. However I've noticed that sometimes, because this is a day behind, the STRONG BUY can be the time to SELL and a STRONG SELL can be time to BUY. So the meaning is not clear, best used in conjuntion with other info (if use at all)");
+     //   $("th.navPercentIt").children('div.th-inner').attr("class", "tooltip");
+    //    $("th.navPercentIt").children('div.th-inner').attr("data-toggle", "tooltip");
+        $("th.navPercentIt").attr("title", " A-I-L/M = Assets - Intangibles - Liabilities / Mrk Cap ");
+        $("th.navPercent").attr("title", " A-L/M = Assets - Liabilities / Mrk Cap ");
      //   $("th.rsi").children('div.th-inner').attr("data-toggle", "tooltip");
      //   $("th.rsi").children('div.th-inner').attr("title", "Relative Strength Indicator. A low number indicates that stock is oversold and high is overbought. This indicator in conjunction with others is interesting");
       //  $("th.peRatio").children('div.th-inner').attr("data-toggle", "tooltip");
       //  $("th.peRatio").children('div.th-inner').attr("title", "Price Earnings ratio. A low pe means that the company makes a lot of money but the market is currently not putting enough value on that profit. So interesting stocks");
-      //  $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip();
      }
 
     function getSectorData(sector) {
+       
         $("#indexTitle").text(" current sector (across all indexes): " + sector);
+        sector = sector.replace("/", "%2F");
         $.ajax({
             url: "/routes/search/"+sector,
             type: "GET",
@@ -393,6 +401,27 @@ $(window).on('load', function () {
 
 
 
+                    $(".excludeRst").css("display","");
+                    $(".excludeAim").css("display", "");
+
+                    $(".excludeRst").on("click", function () {
+                        if (this.checked) {
+                            //   $(".aim").parent("td").parent("tr").css("display", "none");
+                            $(".ftserst").parent("td").parent("tr").hide();
+                        } else {
+                            //    $(".aim").parent("td").parent("tr").css("display", "");
+                            $(".ftserst").parent("td").parent("tr").show();
+                        }
+                    });
+                    $(".excludeAim").on("click", function () {
+                        if (this.checked) {
+                         //   $(".aim").parent("td").parent("tr").css("display", "none");
+                            $(".aim").parent("td").parent("tr").hide();
+                        } else {
+                        //    $(".aim").parent("td").parent("tr").css("display", "");
+                            $(".aim").parent("td").parent("tr").show();
+                        }
+                     });
 
                     var abc = ["a", "b", "c"];
                     for (let i = 0; i < abc.length; ++i) {
@@ -541,7 +570,7 @@ $(window).on('load', function () {
                  let defaultCol = 1;
                  let defaultName = "tickerSymbol"
                  if (exchange == "netnet") {
-                     defaultCol = 20;
+                     defaultCol = 21;
                      defaultName = "netNet";
                  }
                  sortTable2("tableftse",defaultCol, "#tableftseCon", defaultName);
@@ -570,12 +599,15 @@ $(window).on('load', function () {
 
     }
 
+    $("#selectBox").on("click", function () {
 
-
-    http://localhost:3000/#blockchain
-
-
-
+        $(".excludeRst").css("display", "hidden");
+        $(".excludeAim").css("display", "hidden");
+        $("#excludeRst").prop("checked", false);
+        $("#excludeAim").prop("checked", false);
+        $(".ftserst").parent("td").parent("tr").show();
+        $(".aim").parent("td").parent("tr").show();
+    });
 
     $(".searchBut").on("click", function () {
         getSectorData($(this).text());

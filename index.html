@@ -33,19 +33,20 @@
         <div class="container" style="position:absolute;width:80%;top:40px">
             <div class="row">
                 <div class="col-xs-12" style="z-index:90">
-                   <!-- <button style="width:115px; color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button> -->
+                    <!-- <button style="width:115px; color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button> -->
                     <!-- <button style="width: 115px; color: black; background-color: lightgrey" id="sectorRisesBut" type="button" class="btn btn-info">Sector Rises</button>  -->
                     <button style="width: 115px;" id="FTSE100But" type="button" class="btn btn-info focus active" aria-pressed="true">FTSE 100</button>
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
+
                     <button style="width: 115px; color: black; background-color: lightgrey" id="delayBut" type="button" class="btn btn-info">delayed price</button>
                     <div class="btn-group form-select-lg mb-3">
-                        <button style="width: 115px; color: black; background-color: lightgrey; border-color: #46b8da;" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button style="width: 115px; color: black; background-color: lightgrey; border-color: #46b8da;" id="selectBox" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Shares
                         </button>
-                        <div style="width:25rem" class="dropdown-menu form-select-lg mb-3">
-                            <div style="border-width:0.1rem; background:lightgrey; padding-left:0;text-align:center;border-color:grey; border-top-style:solid" class="dropdown-divider">Index</div>
+                        <div style="width:35rem" class="dropdown-menu form-select-lg mb-3">
+                            <div style="border-width:0.1rem; background:lightgrey; font-size:large;padding-left:0;text-align:center;border-color:grey; border-top-style:solid" class="dropdown-divider">Index</div>
                             <a class="dropdown-item FTSE100But" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem">ftse 100</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item FTSE250But" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">ftse 250</span></a>
@@ -53,10 +54,33 @@
                             <a class="dropdown-item FTSEzzzBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">ftse rest</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item FTSEaimBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">AIM</span></a>
-                            <div style="border-width:0.1rem; border-color:grey; border-top-style:solid" class="dropdown-divider"></div>
+                            <div style="border-width: 0.1rem; background: lightgrey; font-size: large; padding-left: 0; text-align: center; border-color: grey; border-top-style: solid" class="dropdown-divider">Potential Value</div>
                             <a class="dropdown-item netnetBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">netnet (or near) stocks</span></a>
-                            <div style="border-width:0.1rem; background:lightgrey; padding-left:0;text-align:center;border-color:grey; border-top-style:solid" class="dropdown-divider">Sector</div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Top NAV (assets - liabilites / mrk cap)</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Top (assets - intangibles - liabilites / mrk cap)</span></a>
+                            <div style="border-width: 0.1rem; background: lightgrey; font-size: large; padding-left: 0; text-align: center; border-color: grey; border-top-style: solid" class="dropdown-divider">RNS News Items</div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">trading update</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">results</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">transaction in own shares</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">director news</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">holding in company</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">other</span></a>
+                            <div class="dropdown-divider"></div>
+                            <div style="border-width: 0.1rem; background: lightgrey; font-size: large; padding-left: 0; text-align: center; border-color: grey; border-top-style: solid" class="dropdown-divider">Sector</div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">storage REIT</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">insurance</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">investment bank</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">bank</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">airline</span></a>
                             <div class="dropdown-divider"></div>
@@ -84,6 +108,10 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">blockchain</span></a>
                         </div>
+                        &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeAim" type="checkbox" id="excludeAim" name="excludeAim" value="excludeAim">
+                        <label class="excludeAim" style="display:none" for="excludeAim"> Exclude AIM shares from search list</label>
+                        &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeRst" type="checkbox" id="excludeRst" name="excludeRst" value="excludeRst">
+                        <label class="excludeRst" style="display:none" for="excludeRst"> Show only BIG FTSE companies</label>
                     </div>
                 </div>
             </div>
@@ -104,10 +132,10 @@
                             <th class="sector" data-field="sector" data-formatter="dataFormatter"><span class="sector tableftseCon">Sector</span></th>
                             <th class="news" data-field="news" data-formatter="newsFormatter"><span class="news tableftseCon">News</span></th>
                             <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th>
-                         <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
+                            <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
                             <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
                             <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
-                         <!--   <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th> -->
+                            <!--   <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th> -->
                             <th class="bullAdvice" data-field="bullAdvice"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
                             <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
                             <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
@@ -119,7 +147,8 @@
                             <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
                             <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
                             <th class="nav" id="nav" data-field="nav"><span class="nav tableftseCon ">NAV</span></th>
-                            <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">NAV/Mrk Cap</span></th>
+                            <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">A-L/M</span></th>
+                            <th class="navPercentIt" id="navPercentIt"  data-field="navPercentIt"><span class="navPercentIt tableftseCon ">A-I-L/M</span></th>
                             <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
                         </tr>
                     </thead>
@@ -206,13 +235,16 @@
         }
 
         function tickerFormatter(value, row, index) {
+            if (value.substring(0, 3) == "aim") {
+                value = value.replace("aim", "");
+                return "<span class='aim' id='aa" + index + "'> " + value + "</span>";
+            }
+            if (value.substring(0, 7) == "ftserst") {
+                value = value.replace("ftserst", "");
+                return "<span class='ftserst' id='aa" + index + "'> " + value + "</span>";
+            }
             return "<span id='aa" + index + "'> " + value + "</span>";
         }
-
-        function tickerbFormatter(value, row, index) {
-            return "<span id='bb" + index + "'> " + value + "</span>";
-        }
-
 
         function upOrDownFormatter(value) {
 
