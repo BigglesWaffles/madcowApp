@@ -29,6 +29,12 @@ $(window).on('load', function () {
 
         $(".tableftseCon").parent("div").parent("th").on("click", function (e) {
             e.stopImmediatePropagation();
+
+
+
+            $("#indexTitleSort").text('current sort order: ' + $(this).data("field"));
+
+
             let visibleBigTable = "";
             let visibleSmallTable = "";
             var classnamelist = $(this).children("div.th-inner").children("span").attr("class");
@@ -48,9 +54,9 @@ $(window).on('load', function () {
                 $(".tickerSymbol.tableftseCon").removeClass("active");
             }
 
-            $(visibleBigTable).find("table > thead > tr > th").each(function (index) {
+            $(visibleBigTable).find("#tableftse > thead > tr > th").each(function (index) {
                 if (index > 21) {
-                    return true;
+                    return;
                 }
                 $(this).mouseenter(function () {
                     let smallTest = $(this).attr("class");
@@ -66,15 +72,21 @@ $(window).on('load', function () {
                     $("#bigcontainer").css("opacity", "0");
                     $("#indexTitleSort").text('current sort order: ' + $(this).data("field"));
 
-                    sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
+                    setTimeout(function () {
+                        sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
+                    }, 1000); // update about every second
 
-                    return true;
+
+                  //  sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
+
                 }
             });
         });
       //  $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
 
     });
+
+
 
     $(".fixed-table-toolbar").find("button").on("click", function(){
         $(".loader").css("opacity", "0");
@@ -215,6 +227,11 @@ $(window).on('load', function () {
 
 
     function sortTable2(xx, sortCol, tablename, colname) {
+
+        $(".loader").css("opacity", "1");
+        $("#bigcontainer1").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0");
+        $("#bigcontainer").css("opacity", "0");
 
 
         var rows = $('#' + xx + ' tbody  tr').get();
@@ -367,7 +384,7 @@ $(window).on('load', function () {
     function setToolTip() {
      //   $("th.navPercentIt").children('div.th-inner').attr("class", "tooltip");
     //    $("th.navPercentIt").children('div.th-inner').attr("data-toggle", "tooltip");
-        $("th.navPercentIt").attr("title", " A-I-L/M = Assets - Intangibles - Liabilities / Mrk Cap ");
+        $("th.naVPercentIt").attr("title", " A-I-L/M = Assets - Intangibles - Liabilities / Mrk Cap ");
         $("th.navPercent").attr("title", " A-L/M = Assets - Liabilities / Mrk Cap ");
      //   $("th.rsi").children('div.th-inner').attr("data-toggle", "tooltip");
      //   $("th.rsi").children('div.th-inner').attr("title", "Relative Strength Indicator. A low number indicates that stock is oversold and high is overbought. This indicator in conjunction with others is interesting");
