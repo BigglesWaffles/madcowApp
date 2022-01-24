@@ -273,11 +273,10 @@ $(window).on('load', function () {
 
 
     function sortTable2(xx, sortCol, tablename, colname) {
-
         $(".loader").css("opacity", "1");
-        $("#bigcontainer1").css("opacity", "0");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
+    //    $("#bigcontainer1").css("opacity", "0");
+     //   $("#bigcontainer2").css("opacity", "0");
+    //    $("#bigcontainer").css("opacity", "0");
 
 
         var rows = $('#' + xx + ' tbody  tr').get();
@@ -361,12 +360,10 @@ $(window).on('load', function () {
                 return 1 / y - 1 / x || 0;
 
             else {
-                if (sortCol == 0) {
+                if (sortCol == 0 ) {
                     return x - y;
                 }
                 return y - x;
-
-
             }
 
 
@@ -441,9 +438,9 @@ $(window).on('load', function () {
     function getSectorData(sector) {
 
         $(".loader").css("opacity", "1");
-        $("#bigcontainer1").css("opacity", "0");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
+        $("#bigcontainer1").css("opacity", "0.4");
+        $("#bigcontainer2").css("opacity", "0.4");
+        $("#bigcontainer").css("opacity", "0.4");
         $("#activebutt").text("search");
 
         $('#tableftse').bootstrapTable('destroy');
@@ -515,10 +512,28 @@ $(window).on('load', function () {
                             }
                         });
                     }
-
+                    var columnSelected = 1;
+                    var columnSelectedText = "tickerSymbol";
+                    if (sector.toLowerCase().includes("pe ratio")) {
+                        columnSelected = 5;
+                        columnSelectedText = "peRatio";
+                    }
+                    if (sector.toLowerCase().includes("intangibles")) {
+                        columnSelected = 19;
+                        columnSelectedText = "navPercentIt";
+                    }
+                    if (sector.toLowerCase().includes("assets - liabilites")) {
+                        columnSelected = 18;
+                        columnSelectedText = "navPercent";
+                    }
                     $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
                     $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
-                    sortTable2("tableftse", 1, "#tableftseCon", "tickerSymbol");
+
+
+                    setTimeout(function () {
+                        sortTable2("tableftse", columnSelected, "#tableftseCon", columnSelectedText);
+                    }, 500); // update about every second
+                  //  sortTable2("tableftse", columnSelected, "#tableftseCon", "tickerSymbol");
 
 
                     $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
