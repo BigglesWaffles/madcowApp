@@ -14,6 +14,7 @@ var ftseaim = require('./routes/ftseaim');
 var search = require('./routes/search');
 var netnet = require('./routes/netnet');
 var current = require('./routes/currentPercent');
+var currentNews = require('./routes/currentNews');
 var allSectors = require('./routes/allSectors');
 
 var cors = require('cors')
@@ -43,6 +44,7 @@ app.use('/routes/ftse250', ftse250);
 app.use('/routes/ftserst', ftserst);
 app.use('/routes/ftseaim', ftseaim);
 app.use('/routes/currentPercent', current);
+app.use('/routes/currentNews', currentNews);
 app.use('/routes/netnet', netnet);
 app.use('/routes/allSectors', allSectors);
 

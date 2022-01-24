@@ -71,9 +71,9 @@ $(window).on('load', function () {
                     $("#bigcontainer2").css("opacity", "0");
                     $("#bigcontainer").css("opacity", "0");
                     $("#indexTitleSort").text('current sort order: ' + $(this).data("field"));
-
+                    var fred = $(this).data("field");
                     setTimeout(function () {
-                        sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
+                        sortTable2(visibleSmallTable, index, visibleBigTable, fred);
                     }, 1000); // update about every second
 
 
@@ -100,7 +100,7 @@ $(window).on('load', function () {
     });
 
     $("#sectorRisesBut").on("click", function () {
-
+        $("#activebutt").text("search");
         $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
         $("#indexTitle").text("Which sectors are doing well or badly");
@@ -131,6 +131,7 @@ $(window).on('load', function () {
 
          
     $("#netnet").on("click", function () {
+        $("#activebutt").text("search");
         $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
         $(".marginleft").css("bottom", "5px");
@@ -186,6 +187,51 @@ $(window).on('load', function () {
                     if (sdata.percentUp > 0) {
                         $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
                     }
+
+
+
+                });
+
+            }
+        });
+
+    });
+
+    $("#newsBut").on("click", function () {
+
+        $('#tableftse tr').each(function (i, row) {
+
+            if ($.trim($("#aa" + i).text()) != "") {
+                var curIndex = i;
+
+                var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text();
+
+                $.post("/routes/currentNews", {
+                    ticker
+                }, function (sdata) {
+
+
+                    if (sdata == null) {
+                        return null;
+                    }
+
+                    const myArray = sdata.currentnews.split("|");
+                    if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
+                        return myArray[0];
+                    }
+                    let bishbashbosh = myArray[1];
+                    let position = bishbashbosh.lastIndexOf(" ");
+                    let position2 = bishbashbosh.indexOf(" ");
+                    let billy = bishbashbosh.slice(position2);
+                    billy = billy.toLowerCase();
+                    if (billy.length > 25) {
+                        billy = billy.substring(0, 26);
+                    }
+
+                  //  return "<a target='_blank'  id='news" + index + "' href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br/>", billy].join('') + "</a>";
+
+                    $("#news" + curIndex).parent().html("<a target='_blank'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br />", billy].join('') + "</a>");
+
 
 
 
@@ -255,13 +301,12 @@ $(window).on('load', function () {
             $(a).children('td').eq(sortCol).css("background-color", "lavender");
             $(b).children('td').eq(sortCol).css("background-color", "lavender");
 
-
             if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname == "tickerSymbol" || colname=="news") {
 
                 var A = $(a).children('td').eq(sortCol).text().toUpperCase();
                 var B = $(b).children('td').eq(sortCol).text().toUpperCase();
 
-                if (colname != "bullAdvice" && colname !="news") {
+                if (colname != "bullAdvice" && colname != "news") {
                     if (A < B) {
                         return -1;
 
@@ -509,6 +554,7 @@ $(window).on('load', function () {
          $("#bigcontainer1").css("opacity", "0");
          $("#bigcontainer2").css("opacity", "0");
          $("#bigcontainer").css("opacity", "0");
+         $("#activebutt").text(exchange);
 
          var routerVal = "";
          if (exchange == "ftse100") {
