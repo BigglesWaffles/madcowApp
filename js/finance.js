@@ -444,6 +444,7 @@ $(window).on('load', function () {
         $("#bigcontainer1").css("opacity", "0");
         $("#bigcontainer2").css("opacity", "0");
         $("#bigcontainer").css("opacity", "0");
+        $("#activebutt").text("search");
 
         $("#indexTitle").text(" current sector (across all indexes): " + sector);
         sector = sector.replace("/", "%2F");
