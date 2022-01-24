@@ -447,8 +447,7 @@ $(window).on('load', function () {
         $("#activebutt").text("search");
 
         $('#tableftse').bootstrapTable('destroy');
-
-        $("#indexTitle").text(" current shares selected (across all indexes): " + sector);
+        $("#indexTitle").text(" Share selection criteria (across all indexes): " + sector.replaceAll("%20"," "));
         sector = sector.replace("/", "%2F");
         $.ajax({
             url: "/routes/search/"+sector,
