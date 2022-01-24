@@ -77,7 +77,9 @@ module.exports = router;
 
 function createReturnJSON(parm, company,ftseSearch, indexType) {
     let expression = parm;
-
+    if (parm.toLowerCase().includes("pe ratio")) {
+        expression = "peratio";
+    }
     if (parm.toLowerCase().includes("assets - liabilites")) {
         expression = "assets - liabilites";
     }
@@ -107,6 +109,17 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     }
 
     switch (expression) {
+        case "peratio":
+            if (company.peRatio < 18 && company.peRatio > 0) {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
         case "assets - liabilites":
             if (company.navPercent > 1) {
                 if (indexType == "aim") {
