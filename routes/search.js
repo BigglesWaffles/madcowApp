@@ -107,8 +107,21 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     if (parm.toLowerCase().includes("transaction in own")) {
         expression =  "transaction in own";
     }
-
+    if (parm.toLowerCase().includes("good nav (excluding intangibles) relative to market cap, good pe and gives a dividend")) {
+        expression = "good nav and good pe";
+    }
     switch (expression) {
+        case "good nav and good pe":
+            if (company.peRatio < 18 && company.peRatio > 0 && company.naVPercentIt > 1 && company.dividend > 0) {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
         case "peratio":
             if (company.peRatio < 18 && company.peRatio > 0) {
                 if (indexType == "aim") {
