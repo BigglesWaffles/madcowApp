@@ -526,6 +526,10 @@ $(window).on('load', function () {
                         columnSelected = 18;
                         columnSelectedText = "navPercent";
                     }
+                    if (sector.toLowerCase().includes("netnet")) {
+                        columnSelected = 20;
+                        columnSelectedText = "netNet";
+                    }
                     $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
                     $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
 
