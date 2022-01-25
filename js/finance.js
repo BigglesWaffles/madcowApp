@@ -197,6 +197,42 @@ $(window).on('load', function () {
 
     });
 
+
+
+
+    $("#techieBut").on("click", function () {
+
+        $('#tableftse tr').each(function (i, row) {
+
+            if ($.trim($("#aa" + i).text()) != "") {
+                var curIndex = i;
+                var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text();
+             
+                $.post("/routes/buySellOne", {
+                    ticker
+                }, function (sdata) {
+
+                    console.log("im in here");
+                    /*
+                    if (sdata.percentUp < 0) {
+                        $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
+                    }
+                    if (sdata.percentUp == 0) {
+                        $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
+                    }
+                    if (sdata.percentUp > 0) {
+                        $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
+                    }
+                    */
+
+
+                });
+
+            }
+        });
+
+    });
+
     $("#newsBut").on("click", function (event) {
 
         event.preventDefault();
