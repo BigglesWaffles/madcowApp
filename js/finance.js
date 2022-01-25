@@ -67,9 +67,9 @@ $(window).on('load', function () {
                 if (classnamelist.includes($(this).data("field"))) {
 
                     $(".loader").css("opacity", "1");
-                    $("#bigcontainer1").css("opacity", "0");
-                    $("#bigcontainer2").css("opacity", "0");
-                    $("#bigcontainer").css("opacity", "0");
+                    $("#bigcontainer1").css("opacity", "0.4");
+                    $("#bigcontainer2").css("opacity", "0.4");
+                    $("#bigcontainer").css("opacity", "0.4");
                     $("#indexTitleSort").text('current sort order: ' + $(this).data("field"));
                     var fred = $(this).data("field");
                     setTimeout(function () {
@@ -101,8 +101,8 @@ $(window).on('load', function () {
 
     $("#sectorRisesBut").on("click", function () {
         $("#activebutt").text("search");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0.4");
+        $("#bigcontainer").css("opacity", "0.4");
         $("#indexTitle").text("Which sectors are doing well or badly");
         $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
@@ -132,8 +132,8 @@ $(window).on('load', function () {
          
     $("#netnet").on("click", function () {
         $("#activebutt").text("search");
-        $("#bigcontainer2").css("opacity", "0");
-        $("#bigcontainer").css("opacity", "0");
+        $("#bigcontainer2").css("opacity", "0.4");
+        $("#bigcontainer").css("opacity", "0.4");
         $(".marginleft").css("bottom", "5px");
         $("#FTSE100But").removeClass("focus");
         $("#FTSE100But").removeClass("active");
@@ -197,50 +197,93 @@ $(window).on('load', function () {
 
     });
 
-    $("#newsBut").on("click", function () {
+    $("#newsBut").on("click", function (event) {
 
-        $('#tableftse tr').each(function (i, row) {
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
 
-            if ($.trim($("#aa" + i).text()) != "") {
-                var curIndex = i;
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
 
-                var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text();
+    
+        loopTickers();
 
-                $.post("/routes/currentNews", {
-                    ticker
-                }, function (sdata) {
+        setTimeout(function () {
+            $(".loader").css("opacity", "0");
+            $("#bigcontainer1").css("opacity", "1");
+            $("#bigcontainer2").css("opacity", "1");
+            $("#bigcontainer").css("opacity", "1");
+            $("#newsBut").prop('disabled', false);
+        }, 20000); // up
 
-
-                    if (sdata == null) {
-                        return null;
-                    }
-
-                    const myArray = sdata.currentnews.split("|");
-                    if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
-                        return myArray[0];
-                    }
-                    let bishbashbosh = myArray[1];
-                    let position = bishbashbosh.lastIndexOf(" ");
-                    let position2 = bishbashbosh.indexOf(" ");
-                    let billy = bishbashbosh.slice(position2);
-                    billy = billy.toLowerCase();
-                    if (billy.length > 25) {
-                        billy = billy.substring(0, 26);
-                    }
-
-                  //  return "<a target='_blank'  id='news" + index + "' href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br/>", billy].join('') + "</a>";
-
-                    $("#news" + curIndex).parent().html("<a target='_blank'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br />", billy].join('') + "</a>");
-
-
-
-
-                });
-
-            }
-        });
+;
 
     });
+
+
+
+
+    function waitforme(milisec) {
+        return new Promise(resolve => {
+            setTimeout(() => { resolve('') }, milisec);
+        })
+    }
+
+
+    async function loopTickers() {
+
+
+        for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+
+            await waitforme(200);
+            if ($.trim($("#aa" + j).text()) != "") {
+               var curIndex = j;
+
+                var ticker = $.trim($("#aa" + j).text()) + "|" + $("#activebutt").text();
+
+                demo(ticker, curIndex);
+
+            }
+        };
+        console.log("Loop execution finished!)");
+    }
+
+  
+    async function demo(ticker, curIndex) {
+        console.log("demo getting called");
+
+        $.post("/routes/currentNews", {
+            ticker
+        }, function (sdata) {
+
+
+            if (sdata == null) {
+                return;
+            }
+            if (sdata.currentnews == "error") {
+                return;
+            }
+            const myArray = sdata.currentnews.split("|");
+            if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
+                return;
+            }
+            let bishbashbosh = myArray[1];
+            let position2 = bishbashbosh.indexOf(" ");
+            let billy = bishbashbosh.slice(position2);
+            billy = billy.toLowerCase();
+            if (billy.length > 25) {
+                billy = billy.substring(0, 26);
+            }
+
+            $("#news" + curIndex).parent().html("<a target='_blank'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br />", billy].join('') + "</a>");
+            
+        });
+    }
 
     $("#FTSE100But").on("click", function () {
         getAllData("ftse100");
@@ -572,9 +615,9 @@ $(window).on('load', function () {
 
          $(".marginleft").css("bottom", "-70px");
          $(".loader").css("opacity", "1");
-         $("#bigcontainer1").css("opacity", "0");
-         $("#bigcontainer2").css("opacity", "0");
-         $("#bigcontainer").css("opacity", "0");
+         $("#bigcontainer1").css("opacity", "0.4");
+         $("#bigcontainer2").css("opacity", "0.4");
+         $("#bigcontainer").css("opacity", "0.4");
          $("#activebutt").text(exchange);
 
          var routerVal = "";

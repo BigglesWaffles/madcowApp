@@ -8,14 +8,27 @@ const axios = require('axios');
 
 
 
+
     router.post('/', (req, res) => {
 
+       
+
         const myArray = req.body.ticker.split("|");
-        try {
+    
+        var obj = { "currentnews": "error" };
+
+
             axios.get('https://api.londonstockexchange.com/api/gw/lse/instruments/alldata/' + myArray[0])
+
                 .then(response => {
 
                     var dateBit = "";
+                    var marketcapitalization = "";
+                    var bid = "";
+                    var offer = "";
+                    var volume = "";
+
+
                     if (response.data.datepreviousnews == null) {
                         if (response.data.presentnews == true) {
                             dateBit = new Date().toJSON().slice(0, 10);
@@ -23,7 +36,13 @@ const axios = require('axios');
                     } else {
                         dateBit = response.data.datepreviousnews;
                     }
-                    var obj = { "currentnews": "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews };
+                    marketcapitalization = response.data.marketcapitalization;
+                    bid = response.data.bid;
+                    offer = response.data.offer;
+                    volume = response.data.volume;
+
+                    obj = { "currentnews": "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews };
+
 
                     var rawdata = "";
                     var search = "";
@@ -49,6 +68,11 @@ const axios = require('axios');
 
                             if (search[index].tickerSymbol == myArray[0]) {
                                 search[index].news = "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews;
+                                search[index].marketcapitalization = marketcapitalization;
+                                search[index].bid = bid;
+                                search[index].ask = offer;
+                                search[index].volume = volume;
+
                                 break;
                             }
                         }
@@ -60,7 +84,9 @@ const axios = require('axios');
                                 console.log('Error writing file', err)
                             }
                         })
-                    }
+                        }
+ 
+
                     res.setHeader('Content-Type', 'application/json');
                     res.end(JSON.stringify(
                         obj
@@ -68,12 +94,13 @@ const axios = require('axios');
 
                 })
                 .catch(error => {
-                    console.log("ticker not found "+myArray[0]);
-                   // console.log(error);
+                    console.log("ticker not found " + myArray[0]);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.end(JSON.stringify(
+                        obj
+                    ));
+                    console.log(error);
                 });
-        } catch (error) {
-            console.log("not found " + myArray[0])
-        }
     });
 
 
