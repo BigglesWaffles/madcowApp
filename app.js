@@ -63,6 +63,8 @@ app.get('/', function (req, res) {
 
 module.exports = app;
 
+process.env['PUPPETEER_SKIP_DOWNLOAD'] = true;
+process.env.PUPPETEER_SKIP_DOWNLOAD = true;
 
 const port = process.env.PORT || 3000;
 
