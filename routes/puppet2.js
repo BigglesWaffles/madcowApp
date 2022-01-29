@@ -4,18 +4,18 @@ var router = express.Router();
 var app = express();
 var path = require('path');
 const fs = require('fs');
-const puppeteer = require('puppeteer');
-//const axios = require('axios');
 
 
+
+/*const puppeteer = require('puppeteer');
 
 
 var myJsonString = "";
 
-
+*/
 
 router.get('/', (req, res) => {
-
+    /*
     
     console.log("In correct file ");
     var rawdata = "";
@@ -90,7 +90,7 @@ router.get('/', (req, res) => {
 
            await browser.close();
         })();
-
+        */
                 var tempLine = "carrort";
                 var obj = { "percentUp": tempLine };
                 res.setHeader('Content-Type', 'application/json');
