@@ -11,6 +11,12 @@ $(window).on('load', function () {
     $('#tableftse').on('post-body.bs.table', function (e) {
         e.stopImmediatePropagation();
 
+
+        $(".donothing").on("click", function (e) {
+            e.stopPropagation();
+            return false;
+        });
+
        // $('#tableftse').bootstrapTable('hideColumn', 'sector');
 
         $(".tableftseCon").parent("div").parent("th").off("click");
@@ -128,7 +134,10 @@ $(window).on('load', function () {
 
     });
 
-
+    $(".donothing").on("click", function (e) {
+        e.stopPropagation();
+        return false;
+    });
          
     $("#netnet").on("click", function () {
         $("#activebutt").text("search");
@@ -197,33 +206,107 @@ $(window).on('load', function () {
 
     });
 
+    $("#puppetBut").on("click", function (event) {
+
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
 
 
 
-    $("#techieBut").on("click", function () {
+                $.get("/routes/puppet", {}, function (sdata) {
+
+                    console.log("im in here");
+
+
+                    setTimeout(function () {
+                        $(".loader").css("opacity", "0");
+                        $("#bigcontainer1").css("opacity", "1");
+                        $("#bigcontainer2").css("opacity", "1");
+                        $("#bigcontainer").css("opacity", "1");
+                        $("#puppetBut").prop('disabled', false);
+                    }, 20000); // up
+
+
+                });
+
+    });
+
+
+    $("#puppet2But").on("click", function (event) {
+
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
+
+
+
+        $.get("/routes/puppet2", {}, function (sdata) {
+
+                    console.log("im in here");
+
+            setTimeout(function () {
+                $(".loader").css("opacity", "0");
+                $("#bigcontainer1").css("opacity", "1");
+                $("#bigcontainer2").css("opacity", "1");
+                $("#bigcontainer").css("opacity", "1");
+                $("#puppet2But").prop('disabled', false);
+            }, 20000); // up
+
+
+                });
+
+
+
+    });
+
+
+
+    $("#techieBut").on("click", function (event) {
+
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
 
         $('#tableftse tr').each(function (i, row) {
 
             if ($.trim($("#aa" + i).text()) != "") {
                 var curIndex = i;
                 var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text();
-             
                 $.post("/routes/buySellOne", {
                     ticker
                 }, function (sdata) {
 
                     console.log("im in here");
-                    /*
-                    if (sdata.percentUp < 0) {
-                        $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
-                    }
-                    if (sdata.percentUp == 0) {
-                        $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
-                    }
-                    if (sdata.percentUp > 0) {
-                        $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
-                    }
-                    */
+
+                    setTimeout(function () {
+                        $(".loader").css("opacity", "0");
+                        $("#bigcontainer1").css("opacity", "1");
+                        $("#bigcontainer2").css("opacity", "1");
+                        $("#bigcontainer").css("opacity", "1");
+                        $("#techieBut").prop('disabled', false);
+                    }, 20000); // up
 
 
                 });
@@ -324,27 +407,27 @@ $(window).on('load', function () {
     $("#FTSE100But").on("click", function () {
         getAllData("ftse100");
     });
-    $(".FTSE100But").on("click", function () {
-        getAllData("ftse100");
-    });
+//    $(".FTSE100But").on("click", function () {
+ //       getAllData("ftse100");
+ //   });
     $("#FTSE250But").on("click", function () {
         getAllData("ftse250");
     });
-    $(".FTSE250But").on("click", function () {
-        getAllData("ftse250");
-    });
+//    $(".FTSE250But").on("click", function () {
+ //       getAllData("ftse250");
+//    });
     $("#FTSEzzzBut").on("click", function () {
         getAllData("ftserst");
     });
-    $(".FTSEzzzBut").on("click", function () {
-        getAllData("ftserst");
-    });
+ //   $(".FTSEzzzBut").on("click", function () {
+ //       getAllData("ftserst");
+ //   });
     $("#FTSEaimBut").on("click", function () {
         getAllData("ftseaim");
     });
-    $(".FTSEaimBut").on("click", function () {
-        getAllData("ftseaim");
-    });
+ //   $(".FTSEaimBut").on("click", function () {
+ //       getAllData("ftseaim");
+ //   });
     $(".netnetBut").on("click", function () {
         getAllData("netnet");
     });
@@ -662,7 +745,7 @@ $(window).on('load', function () {
              $("#indexTitle").text(" current list: FTSE 100");
              $("#indexTitleSort").text('current sort order: ticker' );
          }
-         if (exchange != "ftse100") {
+         if (exchange == "ftse100") {
              $("#FTSE100But").removeClass("focus");
              $("#FTSE100But").removeClass("active");
          }
@@ -687,9 +770,8 @@ $(window).on('load', function () {
              $("#indexTitleSort").text('current sort order: ticker' );
          }
 
-         $('#tableftse').bootstrapTable('refresh', {
-             url: routerVal
-         });
+         $('#tableftse').bootstrapTable('destroy');
+      //   alert("stop");
 
          $.get(routerVal, {
          }, function (sdata) {

@@ -19,7 +19,8 @@ const axios = require('axios');
 
 
         newTicker = myArray[0].replace(".A", "-A");
-        console.log(newTicker);
+        newTicker = newTicker.replace(/\./g,"");
+        console.log("SO WHAT IS NEW TICKER "+newTicker);
 
         axios.get('https://www.britishbulls.com/SignalPage.aspx?lang=en&Ticker=' + newTicker + ".L")
             .then(response => {
@@ -35,7 +36,12 @@ const axios = require('axios');
                         if (splitted[i].includes("SELL")) {
                             buySell = "SELL";
                         } else {
-                            buySell = "BUY";
+                            if (splitted[i].includes("SHORT")) {
+                                buySell = "SHORT";
+
+                            } else {
+                                buySell = "BUY";
+                            }
                         }
 
                         splitted[i] = splitted[i].substring(splitted[i].indexOf(";\">") + 3, splitted[i].length -1);
@@ -60,7 +66,7 @@ const axios = require('axios');
                 console.log("buysell " + buySell+"77")
 
 
-                if (buySell == "BUY" || buySell =="SELL") {
+                if (buySell == "BUY" || buySell == "SELL" || buySell == "SHORT") {
                     console.log("updating ticker " + myArray[0]);
                     var rawdata = "";
                     var search = "";

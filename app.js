@@ -15,6 +15,8 @@ var search = require('./routes/search');
 var netnet = require('./routes/netnet');
 var current = require('./routes/currentPercent');
 var buySellOne = require('./routes/buySellOne');
+var puppet = require('./routes/puppet');
+var puppet2 = require('./routes/puppet2');
 var currentNews = require('./routes/currentNews');
 var allSectors = require('./routes/allSectors');
 
@@ -48,6 +50,8 @@ app.use('/routes/currentPercent', current);
 app.use('/routes/buySellOne', buySellOne);
 app.use('/routes/currentNews', currentNews);
 app.use('/routes/netnet', netnet);
+app.use('/routes/puppet', puppet);
+app.use('/routes/puppet2', puppet2);
 app.use('/routes/allSectors', allSectors);
 
 

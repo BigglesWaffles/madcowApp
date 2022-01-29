@@ -113,7 +113,35 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     if (parm.toLowerCase().includes("good nav (excluding intangibles) relative to market cap, good pe and gives a dividend")) {
         expression = "good nav and good pe";
     }
+    if (parm.toLowerCase().includes("strong buy")) {
+        expression = "strong buy";
+    }
+    if (parm.toLowerCase().includes("rsi buy")) {
+        expression = "rsi buy";
+    }
     switch (expression) {
+        case "strong buy":
+            if (company.summary != null && company.summary.toLowerCase() == "strong buy") {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "rsi buy":
+            if (company.rsiText != null && company.rsiText != undefined && company.rsiText.toLowerCase() == "buy") {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
         case "good nav and good pe":
             if (company.peRatio < 18 && company.peRatio > 0 && company.naVPercentIt > 1 && company.dividend > 0) {
                 if (indexType == "aim") {

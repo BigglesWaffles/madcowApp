@@ -40,8 +40,10 @@
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
-                    <button style="display:none;width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="techieBut" type="button" class="btn btn-info">update techie</button>
-                    <button style="display:none;width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="newsBut" type="button" class="btn btn-info">Current News</button>
+                    <!--  <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppetBut" type="button" class="btn btn-info">PUP SECOND</button>-->
+                    <!-- <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet2But" type="button" class="btn btn-info">PUP FIRST</button>-->
+                    <!--<button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="techieBut" type="button" class="btn btn-info">update techie</button>-->
+    <!--  <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="newsBut" type="button" class="btn btn-info">Current News</button>-->
                     <button style="width: 150px; color: black; background-color: lightgrey; border-color: #46b8da; margin-top:1px" id="selectBox1" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pre-done Recipes
                     </button>
@@ -56,6 +58,10 @@
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">sensible PE ratio (under 18)</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Top (assets - intangibles - liabilites / mrk cap)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say summary: strong buy</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say rsi buy</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">BUY signal from BritishBulls.com (today) and Tradingview.com buy</span></a>
                     </div><br />
@@ -130,47 +136,47 @@
                         <label class="excludeRst" style="background-color:#e0ffdd; font-weight:200;font-size:14px;display: none" for="excludeRst"> Exclude smaller FTSE companies</label>
                     </div>
                 </div>
-                </div>
-        </div>
-
-        <div style="width: 100%; position: absolute;" id="bigcontainer" class="container">
-
-
-            <div id="tableftseCon" style="width:1800px;opacity:0; border:none!important;" class="container">
-                <table class="table" id="tableftse"
-                       data-toolbar=".toolbar"
-                       data-search="true"
-                       data-show-columns="true"
-                       data-show-columns-toggle-all="true">
-                    <thead>
-                        <tr>
-                            <th class="stockName" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
-                            <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
-                            <th class="sector" data-field="sector" data-formatter="dataFormatter"><span class="sector tableftseCon">Sector</span></th>
-                            <th class="news" data-field="news" data-formatter="newsFormatter"><span class="news tableftseCon">News</span></th>
-                            <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th>
-                            <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
-                            <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
-                            <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
-                            <!--   <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th> -->
-                            <th class="bullAdvice" data-field="bullAdvice"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
-                            <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
-                            <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
-                            <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th>
-                            <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
-                            <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
-                            <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><span class="percentUpToday tableftseCon ">Price Today</span></th>
-                            <th class="totalAssets" id="totalAssets" data-field="totalAssets"><span class="totalAssets tableftseCon ">Assets</span></th>
-                            <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
-                            <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
-                            <th class="nvv" id="nvv" data-field="nvv"><span class="nvv tableftseCon ">NAV</span></th>
-                            <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">A-L/M</span></th>
-                            <th class="naVPercentIt" id="naVPercentIt" data-field="naVPercentIt"><span class="naVPercentIt tableftseCon ">A-I-L/M</span></th>
-                            <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
-                        </tr>
-                    </thead>
-                </table>
             </div>
+    </div>
+
+    <div style="width: 100%; position: absolute;" id="bigcontainer" class="container">
+
+
+        <div id="tableftseCon" style="width:1800px;opacity:0; border:none!important;" class="container">
+            <table class="table" id="tableftse"
+                   data-toolbar=".toolbar"
+                   data-search="true"
+                   data-show-columns="true"
+                   data-show-columns-toggle-all="true">
+                <thead>
+                    <tr>
+                        <th class="stockName" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
+                        <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
+                        <th class="sector" data-field="sector" data-formatter="dataFormatter"><span class="sector tableftseCon">Sector</span></th>
+                        <th class="news" data-field="news" data-formatter="newsFormatter"><span class="news tableftseCon">News</span></th>
+                        <!-- <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th> -->
+                    <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
+                    <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
+                    <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
+                    <!--   <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th> -->
+                    <th class="bullAdvice" data-field="bullAdvice" data-formatter="techFormatter"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
+                    <!--  <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
+    <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
+    <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th> -->
+                    <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
+                    <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
+                    <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><span class="percentUpToday tableftseCon ">Price Today</span></th>
+                    <th class="totalAssets" id="totalAssets" data-field="totalAssets"><span class="totalAssets tableftseCon ">Assets</span></th>
+                    <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
+                    <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
+                    <th class="nvv" id="nvv" data-field="nvv"><span class="nvv tableftseCon ">NAV</span></th>
+                    <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">A-L/M</span></th>
+                    <th class="naVPercentIt" id="naVPercentIt" data-field="naVPercentIt"><span class="naVPercentIt tableftseCon ">A-I-L/M</span></th>
+                    <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
+                    </tr>
+                    </thead>
+                    </table>
+                </div>
 
             <div id="bigcontainer2" style="opacity:1">
                 <a id="bigcontainer1" href="https://info.flagcounter.com/OFcs"><img src="https://s01.flagcounter.com/count/OFcs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
@@ -229,6 +235,23 @@
 
     </div>
     <script>
+
+        function techFormatter(value, row, index) {
+            var title = "";
+                try {
+                    title = row.summary.toUpperCase() + "\n--------------------\n";
+                    title = title + "MACD: " + row.macd + " " + row.macdText.toUpperCase() + "\n";
+                    title = title + "momentum: " + row.momentum + " " + row.momentumText.toUpperCase() + "\n";
+                    title = title + "RSI: " + row.rsi + " " + row.rsiText.toUpperCase() + "\n";
+                } catch (err) {
+
+                }
+          
+            if (value == null) {
+                value = "";
+            }
+            return "<a class='donothing' target='_blank' title='Day Summary: " + title +"' href='javascript:void(0)'>" + value + "</a>";
+        }
 
         function dayFormatter(value, row, index) {
             return "<span> " +

@@ -18,6 +18,8 @@ const axios = require('axios');
 
 
         newTicker = myArray[0].replace(".A", "-A");
+        newTicker = newTicker.replace(/\./g, "");
+        console.log("SO WHAT IS NEW TICKER " + newTicker);
 
         axios.get('https://www.britishbulls.com/SignalPage.aspx?lang=en&Ticker=' + newTicker + ".L")
             .then(response => {
