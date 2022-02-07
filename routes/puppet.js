@@ -46,6 +46,10 @@ function loadData(myFile) {
                     myFileParsed[index].rsiText = techie[index2].rsiText;
                     myFileParsed[index].macd = techie[index2].macd;
                     myFileParsed[index].macdText = techie[index2].macdText;
+                    myFileParsed[index].ichimoku = techie[index2].ichimoku;
+                    myFileParsed[index].ichimokuText = techie[index2].ichimokuText;
+                myFileParsed[index].stochastic = techie[index2].stochastic;
+                myFileParsed[index].stochasticText = techie[index2].stochasticText;
                     myFileParsed[index].summary = techie[index2].summary;
                     nothingFound = false;
                     break;

@@ -11,27 +11,33 @@ router.get('/', (req, res) => {
 
     let rawdata = fs.readFileSync('files/ftseaim.json');
     let ftseaim = JSON.parse(rawdata);
-    /*
-    let rawdata2 = fs.readFileSync('files/technicals.json');
-    var technicals = JSON.parse(rawdata2);
 
-    console.log("at very top");
     for (var index = 0; index < ftseaim.length; ++index) {
-        for (let index2 = 0; index2 < technicals.length; ++index2) {
-            if (ftseaim[index].tickerSymbol == technicals[index2].ticker) {
-                ftseaim[index].summary = technicals[index2].summary;
-                ftseaim[index].momentum = technicals[index2].momentum;
-                ftseaim[index].momentumText = technicals[index2].momentumText;
-                ftseaim[index].rsi = technicals[index2].rsi;
-                ftseaim[index].rsiText = technicals[index2].rsiText;
-                ftseaim[index].macd = technicals[index2].macd;
-                ftseaim[index].macdText = technicals[index2].macdText;
-                break;
+
+        if ((ftseaim[index].totalAssets - ftseaim[index].totalLiabilities) != 0 && ftseaim[index].marketCapitalisation != 0) {
+
+            ftseaim[index].navPercent = (ftseaim[index].totalAssets - ftseaim[index].totalLiabilities) / ftseaim[index].marketCapitalisation;
+            ftseaim[index].navPercent = roundToTwo(ftseaim[index].navPercent);
+
+            if (ftseaim[index].totalAssets - ftseaim[index].totalLiabilities - ftseaim[index].intangibleAssets != 0) {
+
+                ftseaim[index].navPercentIt = (ftseaim[index].totalAssets - ftseaim[index].totalLiabilities - ftseaim[index].intangibleAssets) / ftseaim[index].marketCapitalisation;
+                ftseaim[index].navPercentIt = roundToTwo(ftseaim[index].navPercentIt);
+            }
+            if (ftseaim[index].totalCurrentAssets != NaN && ftseaim[index].totalCurrentAssets != null && ftseaim[index].totalCurrentAssets != 0 && ftseaim[index].totalCurrentAssets - ftseaim[index].totalLiabilities != 0) {
+                ftseaim[index].netNet = (ftseaim[index].totalCurrentAssets - ftseaim[index].totalLiabilities) / ftseaim[index].marketCapitalisation;
+                ftseaim[index].netNet = roundToTwo(ftseaim[index].netNet);
+            } else {
+                ftseaim[index].netNet = 0;
             }
         }
-
+        ftseaim[index].nvv = roundToTwo(ftseaim[index].nvv);
+        if (ftseaim[index].marketCapitalisation == 0) {
+            ftseaim[index].navPercentIt = 0;
+            ftseaim[index].navPercent = 0;
+            ftseaim[index].netNet = 0;
+        }
     }
-    */
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(
       ftseaim
@@ -39,6 +45,10 @@ router.get('/', (req, res) => {
     ));
     //  return next();
 });
+
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
 
 
 module.exports = router;

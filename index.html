@@ -40,10 +40,13 @@
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
-                    <!--  <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppetBut" type="button" class="btn btn-info">PUP SECOND</button>-->
-                    <!-- <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet2But" type="button" class="btn btn-info">PUP FIRST</button>-->
-                    <!--<button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="techieBut" type="button" class="btn btn-info">update techie</button>-->
-    <!--  <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="newsBut" type="button" class="btn btn-info">Current News</button>-->
+                <!--    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="isinBut" type="button" class="btn btn-info">ISIN</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppetBut" type="button" class="btn btn-info">PUP SECOND</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet2But" type="button" class="btn btn-info">PUP FIRST</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet0But" type="button" class="btn btn-info">PUP BAL</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="techieBut" type="button" class="btn btn-info">update techie</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="googleBut" type="button" class="btn btn-info">Google</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="newsBut" type="button" class="btn btn-info">Current News</button> -->
                     <button style="width: 150px; color: black; background-color: lightgrey; border-color: #46b8da; margin-top:1px" id="selectBox1" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pre-done Recipes
                     </button>
@@ -61,7 +64,11 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say summary: strong buy</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say rsi buy</span></a>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say buy rsi</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say buy momentum</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say rsi momentum buy</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">BUY signal from BritishBulls.com (today) and Tradingview.com buy</span></a>
                     </div><br />
@@ -118,6 +125,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">takeaway restaurant</span></a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">pharmaceutical</span></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">cruise</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Software House</span></a>
@@ -155,24 +164,26 @@
                         <th class="sector" data-field="sector" data-formatter="dataFormatter"><span class="sector tableftseCon">Sector</span></th>
                         <th class="news" data-field="news" data-formatter="newsFormatter"><span class="news tableftseCon">News</span></th>
                         <!-- <th class="rsi" data-field="rsi"><span class="rsi tableftseCon ">RSI</span></th> -->
-                    <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
-                    <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
-                    <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
-                    <!--   <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th> -->
-                    <th class="bullAdvice" data-field="bullAdvice" data-formatter="techFormatter"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
-                    <!--  <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
+                        <!--  <th class="techSum" data-field="techSum"><span class="techSum tableftseCon ">Tech Sum</span></th> -->
+                        <th class="peRatio" data-field="peRatio"><span class="peRatio tableftseCon ">PE</span></th>
+                        <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
+                        <!--   <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th> -->
+                        <th class="bullAdvice" data-field="bullAdvice" data-formatter="techFormatter"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
+                        <!--  <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
     <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
     <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th> -->
-                    <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
-                    <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
-                    <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><span class="percentUpToday tableftseCon ">Price Today</span></th>
-                    <th class="totalAssets" id="totalAssets" data-field="totalAssets"><span class="totalAssets tableftseCon ">Assets</span></th>
-                    <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
-                    <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
-                    <th class="nvv" id="nvv" data-field="nvv"><span class="nvv tableftseCon ">NAV</span></th>
-                    <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">A-L/M</span></th>
-                    <th class="naVPercentIt" id="naVPercentIt" data-field="naVPercentIt"><span class="naVPercentIt tableftseCon ">A-I-L/M</span></th>
-                    <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
+                        <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
+                        <th class="revenue" data-field="revenue"><span class="revenue tableftseCon ">Turnover</span></th>
+
+                        <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
+                        <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><span class="percentUpToday tableftseCon ">Price Today</span></th>
+                        <th class="totalAssets" id="totalAssets" data-field="totalAssets"><span class="totalAssets tableftseCon ">Assets</span></th>
+                        <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
+                        <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
+                        <th class="nvv" id="nvv" data-field="nvv"><span class="nvv tableftseCon ">NAV</span></th>
+                        <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">A-L/M</span></th>
+                        <!--   <th class="naVPercentIt" id="naVPercentIt" data-field="naVPercentIt"><span class="naVPercentIt tableftseCon ">A-I-L/M</span></th> -->
+                        <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
                     </tr>
                     </thead>
                     </table>

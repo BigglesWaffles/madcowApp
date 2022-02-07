@@ -7,6 +7,7 @@ var logger = require('morgan');
 //const mysql = require('mysql');
 
 var routes = require('./routes/ftseTest');
+var isin = require('./routes/isin');
 var ftse100 = require('./routes/ftse100');
 var ftse250 = require('./routes/ftse250');
 var ftserst = require('./routes/ftserst');
@@ -17,6 +18,8 @@ var current = require('./routes/currentPercent');
 var buySellOne = require('./routes/buySellOne');
 var puppet = require('./routes/puppet');
 var puppet2 = require('./routes/puppet2');
+var puppetBalance = require('./routes/puppetBalance');
+var puppetGoogle = require('./routes/puppetGoogle');
 var currentNews = require('./routes/currentNews');
 var allSectors = require('./routes/allSectors');
 
@@ -41,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'routes')));
 
 
 app.use('/routes/ftseTest', routes);
+app.use('/routes/isin', isin);
 app.use('/routes/search', search);
 app.use('/routes/ftse100', ftse100);
 app.use('/routes/ftse250', ftse250);
@@ -52,6 +56,8 @@ app.use('/routes/currentNews', currentNews);
 app.use('/routes/netnet', netnet);
 app.use('/routes/puppet', puppet);
 app.use('/routes/puppet2', puppet2);
+app.use('/routes/puppetBalance', puppetBalance);
+app.use('/routes/puppetGoogle', puppetGoogle);
 app.use('/routes/allSectors', allSectors);
 
 
@@ -63,8 +69,6 @@ app.get('/', function (req, res) {
 
 module.exports = app;
 
-process.env['PUPPETEER_SKIP_DOWNLOAD'] = true;
-process.env.PUPPETEER_SKIP_DOWNLOAD = true;
 
 const port = process.env.PORT || 3000;
 

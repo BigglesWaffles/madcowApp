@@ -12,34 +12,44 @@ router.get('/', (req, res) => {
 
     let rawdata = fs.readFileSync('files/ftse250.json');
     let ftse250 = JSON.parse(rawdata);
-    /*
-    let rawdata2 = fs.readFileSync('files/technicals.json');
-    var technicals = JSON.parse(rawdata2);
 
-    console.log("at very top");
     for (var index = 0; index < ftse250.length; ++index) {
-        for (let index2 = 0; index2 < technicals.length; ++index2) {
-            if (ftse250[index].tickerSymbol == technicals[index2].ticker) {
-                ftse250[index].summary = technicals[index2].summary;
-                ftse250[index].momentum = technicals[index2].momentum;
-                ftse250[index].momentumText = technicals[index2].momentumText;
-                ftse250[index].rsi = technicals[index2].rsi;
-                ftse250[index].rsiText = technicals[index2].rsiText;
-                ftse250[index].macd = technicals[index2].macd;
-                ftse250[index].macdText = technicals[index2].macdText;
-                break;
+
+        if ((ftse250[index].totalAssets - ftse250[index].totalLiabilities) != 0 && ftse250[index].marketCapitalisation != 0) {
+
+            ftse250[index].navPercent = (ftse250[index].totalAssets - ftse250[index].totalLiabilities) / ftse250[index].marketCapitalisation;
+            ftse250[index].navPercent = roundToTwo(ftse250[index].navPercent);
+
+            if (ftse250[index].totalAssets - ftse250[index].totalLiabilities - ftse250[index].intangibleAssets != 0) {
+
+                ftse250[index].navPercentIt = (ftse250[index].totalAssets - ftse250[index].totalLiabilities - ftse250[index].intangibleAssets) / ftse250[index].marketCapitalisation;
+                ftse250[index].navPercentIt = roundToTwo(ftse250[index].navPercentIt);
+            }
+            if (ftse250[index].totalCurrentAssets != NaN && ftse250[index].totalCurrentAssets != null && ftse250[index].totalCurrentAssets != 0 && ftse250[index].totalCurrentAssets - ftse250[index].totalLiabilities != 0) {
+                ftse250[index].netNet = (ftse250[index].totalCurrentAssets - ftse250[index].totalLiabilities) / ftse250[index].marketCapitalisation;
+                ftse250[index].netNet = roundToTwo(ftse250[index].netNet);
+            } else {
+                ftse250[index].netNet = 0;
             }
         }
-
+        ftse250[index].nvv = roundToTwo(ftse250[index].nvv);
+        if (ftse250[index].marketCapitalisation == 0) {
+            ftse250[index].navPercentIt = 0;
+            ftse250[index].navPercent = 0;
+            ftse250[index].netNet = 0;
+        }
     }
-    */
 
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(
-        ftse250
+       ftse250
+    //    [{"hello":"world"}]
     ));
     //  return next();
 });
 
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
 
 module.exports = router;

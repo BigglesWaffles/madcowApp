@@ -116,8 +116,14 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     if (parm.toLowerCase().includes("strong buy")) {
         expression = "strong buy";
     }
-    if (parm.toLowerCase().includes("rsi buy")) {
-        expression = "rsi buy";
+    if (parm.toLowerCase().includes("buy rsi")) {
+        expression = "buy rsi";
+    }
+    if (parm.toLowerCase().includes("rsi momentum buy")) {
+        expression = "rsi momentum buy";
+    }
+    if (parm.toLowerCase().includes("buy momentum")) {
+        expression = "buy momentum";
     }
     switch (expression) {
         case "strong buy":
@@ -131,8 +137,31 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
                 ftseSearch.push(company);
             }
             break;
-        case "rsi buy":
+        case "buy rsi":
             if (company.rsiText != null && company.rsiText != undefined && company.rsiText.toLowerCase() == "buy") {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "buy momentum":
+            if (company.momentumText != null && company.momentumText != undefined && company.momentumText.toLowerCase() == "buy") {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "rsi momentum buy":
+            if (company.momentumText != null && company.momentumText != undefined && company.momentumText.toLowerCase() == "buy" && 
+                company.rsiText.toLowerCase() == "buy"  ) {
                 if (indexType == "aim") {
                     company.tickerSymbol = "aim" + company.tickerSymbol;
                 }

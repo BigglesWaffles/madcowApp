@@ -27,6 +27,8 @@ const axios = require('axios');
                     var bid = "";
                     var offer = "";
                     var volume = "";
+                    var isin = "";
+                    var sedol = "";
 
 
                     if (response.data.datepreviousnews == null) {
@@ -40,6 +42,8 @@ const axios = require('axios');
                     bid = response.data.bid;
                     offer = response.data.offer;
                     volume = response.data.volume;
+                    isin = response.data.isin;
+                    sedol= response.data.sedol;
 
                     obj = { "currentnews": "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews };
 
@@ -63,16 +67,33 @@ const axios = require('axios');
                         }
                         rawdata = fs.readFileSync(fileToReadWrite);
                         search = JSON.parse(rawdata);
-
+                        console.log(myArray[0]);
                         for (let index = 0; index < search.length; ++index) {
 
                             if (search[index].tickerSymbol == myArray[0]) {
                                 search[index].news = "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews;
-                                search[index].marketcapitalization = marketcapitalization;
+                                search[index].marketCapitalisation = marketcapitalization;
+                                if (search[index].marketCapitalisation != null && search[index].marketCapitalisation > 0) {
+                                    search[index].marketCapitalisation = parseFloat((search[index].marketCapitalisation / 1000000)||"").toFixed(2);;
+
+                              
+
+                                /*    totalAssets
+                                    totalLiabilities
+                                   
+                                    currentAssets
+                                    navPercent
+                                    navPercentIt*/
+
+                                }
+
+
+                                search[index].isin = isin;
+                                search[index].sedol = sedol;
                                 search[index].bid = bid;
                                 search[index].ask = offer;
                                 search[index].volume = volume;
-
+                                console.log("this is what it thinks it is: " + search[index].marketCapitalisation + " " + "for ticker " + search[index].tickerSymbol);
                                 break;
                             }
                         }

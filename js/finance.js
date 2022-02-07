@@ -206,6 +206,113 @@ $(window).on('load', function () {
 
     });
 
+
+    $("#isinBut").on("click", function (event) {
+
+        /*
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
+        */
+
+        var timeout = 0;
+        $.get("/routes/ftse100", {}, function (sdata) {
+            for (let i = 0; i < sdata.length; i++) {
+            
+                timeout = timeout + 4000;
+                console.log(timeout);
+
+                    setTimeout(function () {
+                        getProfits(sdata[i].isin, "ftse100");
+
+                }, timeout);
+
+            }
+        });
+
+
+        /*
+        setTimeout(function () {
+            getProfits("0", "ftse250", "");
+        }, 10);
+
+        setTimeout(function () {
+            getProfits("50", "ftse250", "");
+        }, 20000);
+
+        setTimeout(function () {
+            getProfits("100", "ftse250", "length");
+        }, 40000);
+        */
+
+        /*
+
+        getProfits("50", "ftse100", "length");
+
+
+        getProfits("0", "ftse250", "");
+        getProfits("50", "ftse250", "");
+        getProfits("100", "ftse250", "length");
+
+        getProfits("0", "ftserst", "");
+        getProfits("50", "ftserst", "");
+        getProfits("100", "ftserst", "");
+        getProfits("150", "ftserst", "");
+        getProfits("200", "ftserst", "");
+        getProfits("250", "ftserst", "length");
+
+
+        getProfits("0", "ftseaim", "");
+        getProfits("50", "ftseaim", "");
+        getProfits("100", "ftseaim", "");
+        getProfits("150", "ftseaim", "");
+        getProfits("200", "ftseaim", "");
+        getProfits("250", "ftseaim", "");
+        getProfits("300", "ftseaim", "");
+        getProfits("350", "ftseaim", "");
+        getProfits("400", "ftseaim", "");
+        getProfits("450", "ftseaim", "");
+        getProfits("500", "ftseaim", "");
+        getProfits("550", "ftseaim", "length");
+        */
+        /*
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
+
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "0");
+            $("#bigcontainer1").css("opacity", "1");
+            $("#bigcontainer2").css("opacity", "1");
+            $("#bigcontainer").css("opacity", "1");
+            $("#puppetBut").prop('disabled', false);
+        }, 20000); // up
+        */
+    });
+
+    function getProfits(myIsin, myFile) {
+
+            $.get("/routes/isin?x=" + myIsin + "&y=" + myFile, {}, function (sdata) {
+                console.log("im in here");
+            });
+
+    }
+
     $("#puppetBut").on("click", function (event) {
 
         event.preventDefault();
@@ -239,6 +346,75 @@ $(window).on('load', function () {
 
     });
 
+
+    $("#puppet0But").on("click", function (event) {
+
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
+
+
+
+        $.get("/routes/puppetBalance", {}, function (sdata) {
+
+            console.log("im in here");
+
+            setTimeout(function () {
+                $(".loader").css("opacity", "0");
+                $("#bigcontainer1").css("opacity", "1");
+                $("#bigcontainer2").css("opacity", "1");
+                $("#bigcontainer").css("opacity", "1");
+                $("#puppet0But").prop('disabled', false);
+            }, 20000); // up
+
+
+        });
+
+
+
+    });
+
+
+    $("#googleBut").on("click", function (event) {
+
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
+
+
+
+        $.get("/routes/puppetGoogle", {}, function (sdata) {
+
+            console.log("im in here");
+
+            setTimeout(function () {
+                $(".loader").css("opacity", "0");
+                $("#bigcontainer1").css("opacity", "1");
+                $("#bigcontainer2").css("opacity", "1");
+                $("#bigcontainer").css("opacity", "1");
+                $("#puppet0But").prop('disabled', false);
+            }, 20000); // up
+
+
+        });
+
+
+
+    });
 
     $("#puppet2But").on("click", function (event) {
 

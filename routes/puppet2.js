@@ -6,16 +6,15 @@ var path = require('path');
 const fs = require('fs');
 
 
-
-/*const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');
 
 
 var myJsonString = "";
 
-*/
+
 
 router.get('/', (req, res) => {
-    /*
+
     
     console.log("In correct file ");
     var rawdata = "";
@@ -62,6 +61,24 @@ router.get('/', (req, res) => {
                     let t9 = await page.$x('/html/body/div[2]/div[4]/div[3]/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/tbody/tr[8]/td[3]');
                     let macd_text = await page.evaluate(el => el.textContent, t9[0]);
 
+                    let t10 = await page.$x('//html/body/div[2]/div[4]/div[3]/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[3]/div[2]/div[2]/table/tbody/tr[14]/td[2]');
+                    let ichimoku_value = await page.evaluate(el => el.textContent, t10[0]);
+                    let t11 = await page.$x('//html/body/div[2]/div[4]/div[3]/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[3]/div[2]/div[2]/table/tbody/tr[14]/td[3]');
+                    let ichimoku_text = await page.evaluate(el => el.textContent, t11[0]);
+
+                    let t12 = await page.$x('//html/body/div[2]/div[4]/div[3]/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/tbody/tr[3]/td[2]');
+                    let stochastic_value = await page.evaluate(el => el.textContent, t12[0]);
+                    let t13 = await page.$x('//html/body/div[2]/div[4]/div[3]/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/tbody/tr[3]/td[3]');
+                    let stochastic_text = await page.evaluate(el => el.textContent, t13[0]);
+
+
+                    technical.ichimoku = ichimoku_value;
+                    technical.ichimokuText = ichimoku_text
+
+                   
+                    technical.stochasticText = stochastic_text;
+                    technical.stochastic = stochastic_value;
+
                     technical.momentum = momentum_value;
                     technical.momentumText = momentum_text;
                     technical.rsi = rsi_value;
@@ -71,7 +88,7 @@ router.get('/', (req, res) => {
                     technical.summary = summary;
                     technicals.push(technical);
                   //  break;
-                    console.log(technical.ticker+" "+technical.summary + " " + technical.rsi + " " + technical.rsiText + " " + technical.momentum + " " + technical.momentumText + " " + technical.macd + " " + technical.macdText);
+                    console.log(technical.ticker + " " + technical.summary + " " + technical.rsi + " " + technical.rsiText + " " + technical.momentum + " " + technical.momentumText + " " + technical.macd + " " + technical.macdText + " " + technical.ichimoku+ " " + technical.ichimokuText);
                  //   break;
                 } catch (error) {
                     console.log("failing ticker: " + search[index].ticker);
@@ -90,7 +107,7 @@ router.get('/', (req, res) => {
 
            await browser.close();
         })();
-        */
+
                 var tempLine = "carrort";
                 var obj = { "percentUp": tempLine };
                 res.setHeader('Content-Type', 'application/json');
