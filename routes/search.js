@@ -95,6 +95,21 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     if (parm.toLowerCase().includes("director")) {
         expression = "director";
     }
+    if (parm.toLowerCase().includes("funtech")) {
+        expression = "funtech";
+    }
+    if (parm.toLowerCase().includes("badtech")) {
+        expression = "badtech";
+    }
+    if (parm.toLowerCase().includes("capnavturn")) {
+        expression = "capnavturn";
+    }
+    if (parm.toLowerCase().includes("itsgoingup")) {
+        expression = "itsgoingup";
+    }
+    if (parm.toLowerCase().includes("capturn")) {
+        expression = "capturn";
+    }
     if (parm.toLowerCase().includes("results")) {
         expression = "results";
     }
@@ -139,6 +154,64 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
             break;
         case "buy rsi":
             if (company.rsiText != null && company.rsiText != undefined && company.rsiText.toLowerCase() == "buy") {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "itsgoingup":
+            if (company.percentUp > 2.49) {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "capturn":
+            if (company.marketCapitalisation > 0 && company.revenue > 0 && company.marketCapitalisation / company.revenue  < 0.3)
+                 {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "capnavturn":
+            if (company.marketCapitalisation > 0 && company.revenue > 0 && company.marketCapitalisation / company.revenue < 0.3 && company.navPercent > 0.9) {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "funtech":
+            if (company.summary.toLowerCase().includes("buy")  && 
+                company.peRatio < 18 && company.peRatio > 0 && company.naVPercentIt > 1 && company.dividend > 0) {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "badtech":
+            if (company.rsiText.toLowerCase() == "buy" &&
+                company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 0) {
                 if (indexType == "aim") {
                     company.tickerSymbol = "aim" + company.tickerSymbol;
                 }

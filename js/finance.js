@@ -176,40 +176,52 @@ $(window).on('load', function () {
 
     $("#delayBut").on("click", function () {
 
+
+
+        var bigTickers = [];
+        var timer = 0;
         $('#tableftse tr').each(function (i, row) {
 
             if ($.trim($("#aa" + i).text()) != "") {
                 var curIndex = i;
-
-                var ticker = $.trim($("#aa" + i).text());
-
-                $.post("/routes/currentPercent", {
-                    ticker
-                }, function (sdata) {
-
-                    if (sdata.percentUp < 0) {
-                        $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
-                    }
-                    if (sdata.percentUp == 0) {
-                        $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
-                    }
-                    if (sdata.percentUp > 0) {
-                        $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
-                    }
-
-
-
-                });
-
+                var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text()+ "|" + curIndex;
+                var tickera = { "ticker": ticker };
+                bigTickers.push(tickera);
             }
         });
+
+        $('#tableftse tr').each(function (i, row) {
+            if ($.trim($("#aa" + i).text()) != "") {
+                timer = timer + 1500;
+                setTimeout(function () {
+                    let ticker = bigTickers[0].ticker;
+                    let curIndex = ticker.split("|")[2];
+                    bigTickers.shift();
+                    $.post("/routes/currentPercent", {
+                        ticker
+                    }, function (sdata) {
+                        if (sdata.percentUp < 0) {
+                            $("#butt" + curIndex).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
+                        }
+                        if (sdata.percentUp == 0) {
+                            $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
+                        }
+                        if (sdata.percentUp > 0) {
+                            $("#butt" + curIndex).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
+                        }
+                    });
+                }, timer, bigTickers);
+            }
+        });
+
+
 
     });
 
 
     $("#isinBut").on("click", function (event) {
 
-        /*
+        
         event.preventDefault();
         //do something
         $(this).prop('disabled', true);
@@ -220,79 +232,24 @@ $(window).on('load', function () {
             $("#bigcontainer2").css("opacity", "0.4");
             $("#bigcontainer").css("opacity", "0.4");
         }, 100); // up
-        */
+        
 
         var timeout = 0;
-        $.get("/routes/ftse100", {}, function (sdata) {
+    //    $.get("/routes/"+$("#activebutt").text()+"?x=err", {}, function (sdata) {
+        $.get("/routes/"+$("#activebutt").text()+"?x=NOPE", {}, function (sdata) {
             for (let i = 0; i < sdata.length; i++) {
             
                 timeout = timeout + 4000;
                 console.log(timeout);
 
                     setTimeout(function () {
-                        getProfits(sdata[i].isin, "ftse100");
+                        getProfits(sdata[i].isin, $("#activebutt").text());
 
                 }, timeout);
 
             }
         });
 
-
-        /*
-        setTimeout(function () {
-            getProfits("0", "ftse250", "");
-        }, 10);
-
-        setTimeout(function () {
-            getProfits("50", "ftse250", "");
-        }, 20000);
-
-        setTimeout(function () {
-            getProfits("100", "ftse250", "length");
-        }, 40000);
-        */
-
-        /*
-
-        getProfits("50", "ftse100", "length");
-
-
-        getProfits("0", "ftse250", "");
-        getProfits("50", "ftse250", "");
-        getProfits("100", "ftse250", "length");
-
-        getProfits("0", "ftserst", "");
-        getProfits("50", "ftserst", "");
-        getProfits("100", "ftserst", "");
-        getProfits("150", "ftserst", "");
-        getProfits("200", "ftserst", "");
-        getProfits("250", "ftserst", "length");
-
-
-        getProfits("0", "ftseaim", "");
-        getProfits("50", "ftseaim", "");
-        getProfits("100", "ftseaim", "");
-        getProfits("150", "ftseaim", "");
-        getProfits("200", "ftseaim", "");
-        getProfits("250", "ftseaim", "");
-        getProfits("300", "ftseaim", "");
-        getProfits("350", "ftseaim", "");
-        getProfits("400", "ftseaim", "");
-        getProfits("450", "ftseaim", "");
-        getProfits("500", "ftseaim", "");
-        getProfits("550", "ftseaim", "length");
-        */
-        /*
-        event.preventDefault();
-        //do something
-        $(this).prop('disabled', true);
-
-        setTimeout(function () {
-            $(".loader").css("opacity", "1");
-            $("#bigcontainer1").css("opacity", "0.4");
-            $("#bigcontainer2").css("opacity", "0.4");
-            $("#bigcontainer").css("opacity", "0.4");
-        }, 100); // up
 
 
         setTimeout(function () {
@@ -302,7 +259,7 @@ $(window).on('load', function () {
             $("#bigcontainer").css("opacity", "1");
             $("#puppetBut").prop('disabled', false);
         }, 20000); // up
-        */
+        
     });
 
     function getProfits(myIsin, myFile) {
@@ -465,30 +422,85 @@ $(window).on('load', function () {
             $("#bigcontainer").css("opacity", "0.4");
         }, 100); // up
 
-        $('#tableftse tr').each(function (i, row) {
 
-            if ($.trim($("#aa" + i).text()) != "") {
-                var curIndex = i;
-                var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text();
-                $.post("/routes/buySellOne", {
-                    ticker
-                }, function (sdata) {
 
-                    console.log("im in here");
+
+        //Fix errors  - MAKE FALSE WHEN YOU DONT WANT TO PROCESS
+        var errorsFound = "false";
+        ///// END OF FIX
+
+        if (errorsFound == "true") {
+            var timeout = 0;
+            $.get("/routes/" + $("#activebutt").text() + "?x=errBull", {}, function (sdata) {
+                for (let i = 0; i < sdata.length; i++) {
+
+                    timeout = timeout + 4000;
+                    console.log(timeout);
+
 
                     setTimeout(function () {
-                        $(".loader").css("opacity", "0");
-                        $("#bigcontainer1").css("opacity", "1");
-                        $("#bigcontainer2").css("opacity", "1");
-                        $("#bigcontainer").css("opacity", "1");
-                        $("#techieBut").prop('disabled', false);
-                    }, 20000); // up
+                        var localTicker = sdata[0].ticker;
+                        localTicker = localTicker + "|" + $("#activebutt").text();
+                        sdata.shift();
+
+                        $.post("/routes/buySellOne", {
+                            localTicker 
+                        }, function (sdata) {
+
+                            console.log("im in here");
 
 
-                });
 
-            }
-        });
+                        })
+
+                    }, timeout, sdata);
+
+                }
+            });
+        }
+
+        if (errorsFound != "true") {
+
+            //END OF ERROR CHANGE
+
+            var bigTickers = [];
+            var timer = 0;
+            $('#tableftse tr').each(function (i, row) {
+                
+                if ($.trim($("#aa" + i).text()) != "") {
+                    var curIndex = i;
+                    var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text();
+                    var tickera = { "ticker": ticker };
+                    bigTickers.push(tickera);
+                }
+            });
+
+            $('#tableftse tr').each(function (i, row) {
+                if ($.trim($("#aa" + i).text()) != "") {
+                    timer = timer + 4000;
+                    setTimeout(function () {
+                        let ticker = bigTickers[0].ticker;
+                        bigTickers.shift();
+                        $.post("/routes/buySellOne", {
+                            ticker
+                        }, function (sdata) {
+                            console.log("im in here");
+                        });
+                    }, timer, bigTickers);
+                 }
+            });
+   
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "0");
+            $("#bigcontainer1").css("opacity", "1");
+            $("#bigcontainer2").css("opacity", "1");
+            $("#bigcontainer").css("opacity", "1");
+            $("#techieBut").prop('disabled', false);
+        }, 20000); // up
+
+
+        }
 
     });
 
@@ -505,8 +517,33 @@ $(window).on('load', function () {
             $("#bigcontainer").css("opacity", "0.4");
         }, 100); // up
 
-    
-        loopTickers();
+         //Fix errors  - MAKE FALSE WHEN YOU DONT WANT TO PROCESS
+        var errorsFound = "false";
+                ///// END OF FIX
+
+        if (errorsFound == "true") {
+            var timeout = 0;
+            $.get("/routes/" + $("#activebutt").text() + "?x=errNews", {}, function (sdata) {
+                for (let i = 0; i < sdata.length; i++) {
+
+                    timeout = timeout + 4000;
+                    console.log(timeout);
+                  
+
+                    setTimeout(function () {
+                        var localTicker = sdata[0].ticker;
+                        sdata.shift();
+                        demo(localTicker + "|" + $("#activebutt").text(), 0, "errorFix");
+
+                    }, timeout, sdata);
+
+                }
+            });
+        }
+
+        if (errorsFound != "true") {
+            loopTickers();
+        }
 
         setTimeout(function () {
             $(".loader").css("opacity", "0");
@@ -532,50 +569,50 @@ $(window).on('load', function () {
 
     async function loopTickers() {
 
+            for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
 
-        for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+                await waitforme(200);
+                if ($.trim($("#aa" + j).text()) != "") {
+                    var curIndex = j;
 
-            await waitforme(200);
-            if ($.trim($("#aa" + j).text()) != "") {
-               var curIndex = j;
+                    var ticker = $.trim($("#aa" + j).text()) + "|" + $("#activebutt").text();
 
-                var ticker = $.trim($("#aa" + j).text()) + "|" + $("#activebutt").text();
+                    demo(ticker, curIndex);
 
-                demo(ticker, curIndex);
-
-            }
-        };
+                }
+            };
         console.log("Loop execution finished!)");
     }
 
   
-    async function demo(ticker, curIndex) {
+    async function demo(ticker, curIndex, errorFix) {
         console.log("demo getting called");
 
         $.post("/routes/currentNews", {
             ticker
         }, function (sdata) {
 
-
-            if (sdata == null) {
-                return;
+            if (errorFix != "errorFix") {
+                if (sdata == null) {
+                    return;
+                }
+                if (sdata.currentnews == "error") {
+                    return;
+                }
+                const myArray = sdata.currentnews.split("|");
+                if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
+                    return;
+                }
+                let bishbashbosh = myArray[1];
+                let position2 = bishbashbosh.indexOf(" ");
+                let billy = bishbashbosh.slice(position2);
+                billy = billy.toLowerCase();
+                if (billy.length > 25) {
+                    billy = billy.substring(0, 26);
+                }
+                i
+                $("#news" + curIndex).parent().html("<a target='_blank'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br />", billy].join('') + "</a>");
             }
-            if (sdata.currentnews == "error") {
-                return;
-            }
-            const myArray = sdata.currentnews.split("|");
-            if (myArray[1] == null || myArray[1].length < 2 || myArray[1] == "null") {
-                return;
-            }
-            let bishbashbosh = myArray[1];
-            let position2 = bishbashbosh.indexOf(" ");
-            let billy = bishbashbosh.slice(position2);
-            billy = billy.toLowerCase();
-            if (billy.length > 25) {
-                billy = billy.substring(0, 26);
-            }
-
-            $("#news" + curIndex).parent().html("<a target='_blank'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br />", billy].join('') + "</a>");
             
         });
     }
@@ -770,6 +807,7 @@ $(window).on('load', function () {
      //   $("th.rsi").children('div.th-inner').attr("title", "Relative Strength Indicator. A low number indicates that stock is oversold and high is overbought. This indicator in conjunction with others is interesting");
       //  $("th.peRatio").children('div.th-inner').attr("data-toggle", "tooltip");
       //  $("th.peRatio").children('div.th-inner').attr("title", "Price Earnings ratio. A low pe means that the company makes a lot of money but the market is currently not putting enough value on that profit. So interesting stocks");
+
         $('[data-toggle="tooltip"]').tooltip();
      }
 

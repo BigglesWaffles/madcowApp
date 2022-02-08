@@ -105,7 +105,7 @@ router.get('/', (req, res) => {
                 var nvv = "0"; /* nav */
 
                 for (let i = 0; i < data.length; i++) {
-                    if (data[i] == "Total Assets") {
+             /*       if (data[i] == "Total Assets") {
                         totalAssets = data[i + 1].replace(/,/g, "");
                         if (totalAssets == "-") {
                             totalAssets = "0";
@@ -132,7 +132,7 @@ router.get('/', (req, res) => {
                         if (totalCurrentAssets != "0") {
                             totalCurrentAssets = (totalCurrentAssets / millionsOrThousands).toFixed(2);
                         }
-                    }
+                    }*/
                     if (data[i] == "Intangible Assets") {
                         intangibleAssets = data[i + 1].replace(/,/g, "");
                         if (intangibleAssets == "-") {
@@ -145,15 +145,15 @@ router.get('/', (req, res) => {
 
                 }
 
-                console.log("values " + totalAssets + " " + currentCash + " " + totalCurrentAssets + " " + intangibleAssets);
+               console.log("intangible values " +  intangibleAssets);
 
-                const data2 = await page.evaluate(() => {
+         /*       const data2 = await page.evaluate(() => {
 
                     const tds = Array.from(document.querySelectorAll('#cr_cashflow > div.collapsed > div.cr_cashflow_table > table > tbody > tr > td'))
                     return tds.map(td => td.innerText)
-                });
+                });*/
 
-
+/*
                 for (let i = 0; i < data2.length; i++) {
                     if (data2[i] == "Total Liabilities") {
                         totalLiabilities = data2[i + 1].replace(/,/g, "");
@@ -166,31 +166,31 @@ router.get('/', (req, res) => {
                         break;
                     }
                 }
+                */
 
+             /*   console.log("totalLiabilities " + totalLiabilities);
 
-                console.log("totalLiabilities " + totalLiabilities);
+                nvv = (totalAssets - totalLiabilities).toFixed(2);*/
 
-                nvv = (totalAssets - totalLiabilities).toFixed(2);
-
-                if (totalAssets != 0 && totalLiabilities != 0 && search[index].marketCapitalisation != 0) {
-                    navPercent = ((totalAssets - totalLiabilities) / search[index].marketCapitalisation).toFixed(2);
-                    navPercentIt = ((totalAssets - totalLiabilities - intangibleAssets) / search[index].marketCapitalisation).toFixed(2);
+                if (search[index].totalAssets != 0 && search[index].totalLiabilities != 0 && search[index].marketCapitalisation != 0) {
+                //    navPercent = ((totalAssets - totalLiabilities) / search[index].marketCapitalisation).toFixed(2);
+                    navPercentIt = ((search[index].totalAssets - search[index].totalLiabilities - intangibleAssets) / search[index].marketCapitalisation).toFixed(2);
                 }
 
-                if (totalCurrentAssets != 0 && search[index].marketCapitalisation != 0) {
+            /*    if (totalCurrentAssets != 0 && search[index].marketCapitalisation != 0) {
                     netNet = ((totalCurrentAssets - totalLiabilities) / search[index].marketCapitalisation).toFixed(2);
                 }
+                */
 
-
-                search[index].navPercent = roundToTwo(navPercent);
+            //    search[index].navPercent = roundToTwo(navPercent);
                 search[index].navPercentIt = roundToTwo(navPercentIt);
-                search[index].nvv = roundToTwo(nvv);
-                search[index].netNet = roundToTwo(netNet);
+            //    search[index].nvv = roundToTwo(nvv);
+             //   search[index].netNet = roundToTwo(netNet);
                 search[index].intangibleAssets = roundToTwo(intangibleAssets);
-                search[index].totalCurrentAssets = roundToTwo(totalCurrentAssets);
-                search[index].cash = roundToTwo(currentCash);
-                search[index].totalAssets = roundToTwo(totalAssets);
-                search[index].totalLiabilities = roundToTwo(totalLiabilities);
+            //   search[index].totalCurrentAssets = roundToTwo(totalCurrentAssets);
+            //    search[index].cash = roundToTwo(currentCash);
+             //   search[index].totalAssets = roundToTwo(totalAssets);
+             //   search[index].totalLiabilities = roundToTwo(totalLiabilities);
 
 
     

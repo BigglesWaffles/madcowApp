@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
 
     let myInputIsin = query.x;
     let myFileName = query.y;
+    let myErrors = [];
    // let myLength = query.z;
 
    
@@ -205,7 +206,7 @@ router.get('/', (req, res) => {
                 }
 
                 totalCurrentAssets = myProfit.props.pageProps.initialState.fund
-                    .financials.yearData[0].totalCurrentAsset;
+                    .financials.yearData[0].currentAsset;
 
                 if (totalCurrentAssets != null && totalCurrentAssets != "" && totalCurrentAssets != 0) {
                     totalCurrentAssets = totalCurrentAssets / 1000000;
@@ -230,7 +231,6 @@ router.get('/', (req, res) => {
                     nvv = roundToTwo(nvv);
                 }
 
-                navPercent 
 
                 let myFinalProfit = myProfit.props.pageProps.initialState.fund
                     .financials.yearData[0].netIncomeShareHolders;
@@ -294,10 +294,43 @@ router.get('/', (req, res) => {
                 console.log(error);
                 console.log("my error isin: " + myInputIsin);
 
+                var myFileParsed2 = [];
+
+                try {
+                    if (fs.existsSync("files/" + myFileName + "ISIN-Errs.json" )) {
+                        let rawdata2 = fs.readFileSync("files/" + myFileName + "ISIN-Errs.json");
+                        myFileParsed2 = JSON.parse(rawdata2);
+                        myFileParsed2.push({ "isin": myInputIsin });
+
+                        const jsonStringErr = JSON.stringify(myFileParsed2);
+
+                        fs.writeFile("files/" +myFileName + "ISIN-Errs.json", jsonStringErr, err => {
+                            if (err) {
+                                console.log('Error writing file', err)
+                            }
+                        })
+
+                    } else {
+                        myFileParsed2.push({ "isin": myInputIsin });
+                        const jsonStringErr = JSON.stringify(myFileParsed2);
+
+                        fs.writeFile("files/" +myFileName + "ISIN-Errs.json", jsonStringErr, err => {
+                            if (err) {
+                                console.log('Error writing file', err)
+                            }
+                        })
+                    }
+                } catch (err) {
+                    console.error(err)
+                }
+
             })
 
 
     }
+
+
+
     var tempLine = "carrort";
     var obj = { "percentUp": tempLine };
     res.setHeader('Content-Type', 'application/json');

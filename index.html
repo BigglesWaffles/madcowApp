@@ -16,7 +16,6 @@
 
     <script type="text/javascript" src="/js/finance.js"></script>
 
-
     <title>Finance Data</title>
 </head>
 <body style="max-height:95%">
@@ -40,7 +39,7 @@
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
-                <!--    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="isinBut" type="button" class="btn btn-info">ISIN</button>
+               <!--     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="isinBut" type="button" class="btn btn-info">ISIN</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppetBut" type="button" class="btn btn-info">PUP SECOND</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet2But" type="button" class="btn btn-info">PUP FIRST</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet0But" type="button" class="btn btn-info">PUP BAL</button>
@@ -69,6 +68,16 @@
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say buy momentum</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">technical websites say rsi momentum buy</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">funTech (fundamentals and signals)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">badTech (fundamentals and rsi)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">capturn (markCap / turnover small)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">capnavturn (markCap / turnover small and goodish nav)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">itsgoingup (significant rises today)</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">BUY signal from BritishBulls.com (today) and Tradingview.com buy</span></a>
                     </div><br />
@@ -159,7 +168,7 @@
                    data-show-columns-toggle-all="true">
                 <thead>
                     <tr>
-                        <th class="stockName" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
+                        <th class="stockName" id="dddd" title="" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
                         <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
                         <th class="sector" data-field="sector" data-formatter="dataFormatter"><span class="sector tableftseCon">Sector</span></th>
                         <th class="news" data-field="news" data-formatter="newsFormatter"><span class="news tableftseCon">News</span></th>
@@ -176,7 +185,7 @@
                         <th class="revenue" data-field="revenue"><span class="revenue tableftseCon ">Turnover</span></th>
 
                         <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
-                        <th class="percentUpToday" id="percentuptoday" data-field="percentUpToday" data-formatter="todaysFormatter"><span class="percentUpToday tableftseCon ">Price Today</span></th>
+                        <th class="percentUp" id="percentup" data-field="percentUp" data-formatter="todaysFormatter"><span class="percentUp tableftseCon ">Price Today</span></th>
                         <th class="totalAssets" id="totalAssets" data-field="totalAssets"><span class="totalAssets tableftseCon ">Assets</span></th>
                         <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
                         <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
@@ -323,10 +332,20 @@
             return "<img src='/images/arrow_up_green.svg'> <span style='color:green' > " + value + "%</span>";
         }
 
-
+        
         function todaysFormatter(value, row, index) {
-            return "<span id='butt" + index + "' >todays change</span>";
+            if (value == null) {
+                return "<span id='butt" + index + "' >  &nbsp;  &nbsp;  &nbsp; &nbsp; " + 0 + "%</span>";
+            }
+            if (value < 0) {
+                return "<span  id='butt" + index + "'style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + value + "%</span>";
+            }
+            if (value > 0) {
+                return "<span   id='butt" + index + "'style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + value + "%</span>";
+            }
+            return "<span id='butt" + index + "' >  &nbsp;  &nbsp;  &nbsp; &nbsp; " + value + "%</span>";
         }
+
         function todays2Formatter(value, row, index) {
             return "<span id='buttt" + index + "' >todays change</span>";
         }

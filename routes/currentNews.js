@@ -115,7 +115,43 @@ const axios = require('axios');
 
                 })
                 .catch(error => {
-                    console.log("ticker not found " + myArray[0]);
+                    console.log("ticker not found " + myArray[0] +" and file name is "+myArray[1]);
+
+
+                    var myFileParsed2 = [];
+
+                    try {
+                        if (fs.existsSync("files/" + myArray[1] + "NEWS-Errs.json")) {
+                            let rawdata2 = fs.readFileSync("files/" + myArray[1] + "NEWS-Errs.json");
+                            myFileParsed2 = JSON.parse(rawdata2);
+                            myFileParsed2.push({ "ticker": myArray[0] });
+
+                            const jsonStringErr = JSON.stringify(myFileParsed2);
+
+                            fs.writeFile("files/" + myArray[1] + "NEWS-Errs.json", jsonStringErr, err => {
+                                if (err) {
+                                    console.log('Error writing file', err)
+                                }
+                            })
+
+                        } else {
+                            myFileParsed2.push({ "ticker": myArray[0] });
+                            const jsonStringErr = JSON.stringify(myFileParsed2);
+
+                            fs.writeFile("files/" + myArray[1] + "NEWS-Errs.json", jsonStringErr, err => {
+                                if (err) {
+                                    console.log('Error writing file', err)
+                                }
+                            })
+                        }
+                    } catch (err) {
+                        console.error(err)
+                    }
+
+
+
+
+
                     res.setHeader('Content-Type', 'application/json');
                     res.end(JSON.stringify(
                         obj
