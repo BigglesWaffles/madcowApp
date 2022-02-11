@@ -6,7 +6,8 @@ var path = require('path');
 const fs = require('fs');
 
 
-const puppeteer = require('puppeteer')
+//const puppeteer = require('puppeteer');
+const puppeteer = "";
 
 var myJsonString = "";
 
