@@ -6,7 +6,7 @@ var path = require('path');
 const fs = require('fs');
 
 
-//const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer')
 
 var myJsonString = "";
 
@@ -34,9 +34,10 @@ router.get('/', (req, res) => {
      //   const browser = await puppeteer.launch();
             const page = await browser.newPage();
 
-            fileToReadWrite = "files/ftseaim.json";
+            fileToReadWrite = "files/ftserst.json";
             rawdata = fs.readFileSync(fileToReadWrite);
-            search = JSON.parse(rawdata);
+        search = JSON.parse(rawdata);
+        search = [{ "tickerSymbol": "SHOE" }, { "tickerSymbol": "TRD" }, { "tickerSymbol": "BT.A" }, { "tickerSymbol": "ADV" }];
         var ticker2 = "";
             for (let index = 0; index < search.length; ++index) {
                 try {
@@ -50,6 +51,10 @@ router.get('/', (req, res) => {
                     var peRatio = "";
                     var dividend = "";
                     var exDividend = "";
+
+                    var eps = "";
+                    var numberOfShares = "";
+
                     await page.goto("https://www.wsj.com/market-data/quotes/uk/"+ticker2);
 
                     await page.waitForTimeout(1000);
@@ -82,9 +87,10 @@ router.get('/', (req, res) => {
                     }
                     // 08/12/21  2022-12-08
                     let t3 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[8] ');
+                                 //            /html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div / div[1] / div[1] / div[2] / div / div[2] / div[1] / ul / li[8]
                     if (typeof t3 === 'object') {
                         exDividend = await page.evaluate(el => el.textContent, t3[0]);
-                        console.log("exdiv: " + exDividend);
+                    //    console.log("exdiv: " + exDividend);
                         if (exDividend.includes("N/A")) {
                             exDividend = "-";
                         } else {
@@ -94,6 +100,20 @@ router.get('/', (req, res) => {
                         console.log("exDividend is " + exDividend);
                     }
 
+                    let t4 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[2]');
+                    if (typeof t4 === 'object') {
+                        eps = await page.evaluate(el => el.textContent, t4[0]);
+                        eps = eps.replace("EPS (TTM)", "");
+  
+                        if (eps.includes("N/A")) {
+                            eps = "0";
+                        } else {
+                            if (eps.length > 1) {
+                                eps = eps.substring(1, eps.length);
+                            }
+                        }
+                        console.log("eps is " + eps + " length: "+eps.length);
+                    }
 
                 } catch (error) {
                     console.log("failing ticker: " + search[index].tickerSymbol);

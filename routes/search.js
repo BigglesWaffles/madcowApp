@@ -98,6 +98,9 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     if (parm.toLowerCase().includes("funtech")) {
         expression = "funtech";
     }
+    if (parm.toLowerCase().includes("mcdonalds")) {
+        expression = "mcdonalds";
+    }
     if (parm.toLowerCase().includes("badtech")) {
         expression = "badtech";
     }
@@ -153,7 +156,7 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
             }
             break;
         case "buy rsi":
-            if (company.rsiText != null && company.rsiText != undefined && company.rsiText.toLowerCase() == "buy") {
+            if (company.rsiText != null && company.rsiText != undefined && company.rsiText.toLowerCase.includes("buy")) {
                 if (indexType == "aim") {
                     company.tickerSymbol = "aim" + company.tickerSymbol;
                 }
@@ -210,7 +213,19 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
             }
             break;
         case "badtech":
-            if (company.rsiText.toLowerCase() == "buy" &&
+            if (company.rsiText.toLowerCase().includes("buy") &&
+                company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 0) {
+                if (indexType == "aim") {
+                    company.tickerSymbol = "aim" + company.tickerSymbol;
+                }
+                if (indexType == "ftserst") {
+                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
+                }
+                ftseSearch.push(company);
+            }
+            break;
+        case "mcdonalds":
+            if (company.macdText.toLowerCase().includes("buy") &&
                 company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 0) {
                 if (indexType == "aim") {
                     company.tickerSymbol = "aim" + company.tickerSymbol;

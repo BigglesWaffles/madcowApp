@@ -6,7 +6,7 @@ var path = require('path');
 const fs = require('fs');
 
 
-//const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');
 
 
 var myJsonString = "";
@@ -25,7 +25,14 @@ router.get('/', (req, res) => {
    
     (async () => {
 
-       
+
+        fs.unlink("files/technicals.json", function (err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Successfully deleted the file.")
+            }
+        });
             console.log("in async");
             const browser = await puppeteer.launch();
             const page = await browser.newPage();

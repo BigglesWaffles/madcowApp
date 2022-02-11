@@ -521,6 +521,10 @@ $(window).on('load', function () {
         var errorsFound = "false";
                 ///// END OF FIX
 
+        if ($(".errorsOn")[0].checked) {
+            errorsFound = "true";
+        }
+
         if (errorsFound == "true") {
             var timeout = 0;
             $.get("/routes/" + $("#activebutt").text() + "?x=errNews", {}, function (sdata) {
