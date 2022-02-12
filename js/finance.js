@@ -715,11 +715,14 @@ $(window).on('load', function () {
             var BB = B.replace("%", "");
             var AA = A.replace("%", "");
 
+            var BB = BB.replace(",", "");
+            var AA = AA.replace(",", "");
+
 
             var x = parseFloat(AA).toFixed(2);
             var y = parseFloat(BB).toFixed(2);
 
-            if (colname == "peRatio") {
+            if (colname == "peRatio") { 
                 if (x < 0) {
                     x = (x * -1) * 1000;
                 }
