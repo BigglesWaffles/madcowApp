@@ -10,6 +10,8 @@
   { "ticker": "HSBA" },
   { "ticker": "NWG" },
   { "ticker": "BARC" },
+  { "ticker": "FDM" },
+  { "ticker": "FNX" },
   { "ticker": "STAN" },
   { "ticker": "CCH" },
   { "ticker": "DGE" },

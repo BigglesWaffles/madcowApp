@@ -13,7 +13,7 @@ var myJsonString = "";
 
 
 
-router.get('/', (req, res) => {
+router.get('/:name', (req, res) => {
 
     
     console.log("In correct file ");
@@ -23,7 +23,8 @@ router.get('/', (req, res) => {
     var maxNum = parseInt("0");
     var saveTicker = "";
 
-    var technicals = [];
+    var fileName = req.params.name;
+
    
     (async () => {
 
@@ -35,10 +36,13 @@ router.get('/', (req, res) => {
      //   const browser = await puppeteer.launch();
             const page = await browser.newPage();
 
-            fileToReadWrite = "files/ftserst.json";
+        var fileName = req.params.name;
+            console.log("john " + req.params.name);
+
+            fileToReadWrite = "files/"+fileName+".json";
             rawdata = fs.readFileSync(fileToReadWrite);
         search = JSON.parse(rawdata);
-        search = [{ "tickerSymbol": "SHOE" }, { "tickerSymbol": "TRD" }, { "tickerSymbol": "BT.A" }, { "tickerSymbol": "ADV" }];
+      //  search = [{ "tickerSymbol": "SHOE" }, { "tickerSymbol": "TRD" }, { "tickerSymbol": "BT.A" }, { "tickerSymbol": "ADV" }];
         var ticker2 = "";
             for (let index = 0; index < search.length; ++index) {
                 try {

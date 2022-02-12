@@ -354,7 +354,7 @@ $(window).on('load', function () {
 
 
 
-        $.get("/routes/puppetGoogle", {}, function (sdata) {
+        $.get("/routes/puppetGoogle/"+$("#activebutt").text(), {}, function (sdata) {
 
             console.log("im in here");
 
