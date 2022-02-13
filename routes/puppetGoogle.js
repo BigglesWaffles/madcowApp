@@ -42,7 +42,7 @@ router.get('/:name', (req, res) => {
             fileToReadWrite = "files/"+fileName+".json";
             rawdata = fs.readFileSync(fileToReadWrite);
         search = JSON.parse(rawdata);
-      //  search = [{ "tickerSymbol": "SHOE" }, { "tickerSymbol": "TRD" }, { "tickerSymbol": "BT.A" }, { "tickerSymbol": "ADV" }];
+    //    search = [{ "tickerSymbol": "SHOE" }, { "tickerSymbol": "TRD" }, { "tickerSymbol": "BT.A" }, { "tickerSymbol": "ADV" }];
         var ticker2 = "";
             for (let index = 0; index < search.length; ++index) {
                 try {
@@ -59,7 +59,9 @@ router.get('/:name', (req, res) => {
 
                     var eps = "";
                     var numberOfShares = "";
-
+                    //
+                    // ALTERNATIVE SOURCE: https://markets.ft.com/data/equities/tearsheet/summary?s=trd:lse
+                    //
                     await page.goto("https://www.wsj.com/market-data/quotes/uk/"+ticker2);
 
                     await page.waitForTimeout(1000);
@@ -76,7 +78,7 @@ router.get('/:name', (req, res) => {
 
                         }
                         search[index].peRatio = peRatio;
-                        console.log("peRatio " + peRatio);
+              //          console.log("peRatio " + peRatio);
                     }
                     let t2 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[6] ');
                     if (typeof t2 === 'object') {
@@ -88,7 +90,7 @@ router.get('/:name', (req, res) => {
                             dividend = dividend.substring(0, dividend.indexOf("%"));
                         }
                         search[index].dividend = dividend;
-                        console.log("dividend is " + dividend);
+                //        console.log("dividend is " + dividend);
                     }
                     // 08/12/21  2022-12-08
                     let t3 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[8] ');
@@ -102,7 +104,7 @@ router.get('/:name', (req, res) => {
                             exDividend = "20" + exDividend.substring(22, 25) + "-" + exDividend.substring(16, 18) + "-" + exDividend.substring(19, 21);
                         }
                         search[index].exDividend = exDividend;
-                        console.log("exDividend is " + exDividend);
+              //          console.log("exDividend is " + exDividend);
                     }
 
                     let t4 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[2]');
@@ -117,7 +119,38 @@ router.get('/:name', (req, res) => {
                                 eps = eps.substring(1, eps.length);
                             }
                         }
-                        console.log("eps is " + eps + " length: "+eps.length);
+                        search[index].eps = eps;
+                 //       console.log("eps is " + eps + " length: "+eps.length);
+                    }
+
+                    let t5 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[4]');
+                    if (typeof t5 === 'object') {
+                        numberOfShares = await page.evaluate(el => el.textContent, t5[0]);
+                        numberOfShares = numberOfShares.replace("Shares Outstanding", "");
+
+                        if (numberOfShares.includes(" M")) {
+                            numberOfShares = numberOfShares.replace(" M","");
+                        } else {
+                            if (numberOfShares.includes(" B")) {
+                                numberOfShares = numberOfShares.replace(" B", "0").replace("\.", "");;
+                            } else {
+                                let t6 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[5]');
+                                if (typeof t6 === 'object') {
+                                    numberOfShares = await page.evaluate(el => el.textContent, t6[0]);
+                                    numberOfShares = numberOfShares.replace("Public Float", "");
+
+                                    if (numberOfShares.includes(" M")) {
+                                        numberOfShares = numberOfShares.replace(" M", "");
+                                    } else {
+                                        if (numberOfShares.includes(" B")) {
+                                            numberOfShares = numberOfShares.replace(" B", "0").replace("\.","");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        search[index].numberOfShares = numberOfShares;
+                    //    console.log("numberOfShares is " + numberOfShares + " length: " + numberOfShares.length);
                     }
 
                 } catch (error) {
@@ -137,6 +170,7 @@ router.get('/:name', (req, res) => {
                         search[index].exDividend = "-";
                         search[index].dividend = "0";
                         search[index].peRatio = "0";
+                        search[index].numberOfShares = "0";
                     }
                
                 }

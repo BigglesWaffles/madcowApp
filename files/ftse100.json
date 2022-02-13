@@ -53,7 +53,9 @@
     "intangibleAssets": 2871,
     "totalCurrentAssets": 274.8,
     "isin": "GB00BL6NGV24",
-    "revenue": 773
+    "revenue": 773,
+    "eps": "0.05",
+    "numberOfShares": "1000"
   },
   {
     "navMid": 1.16,
@@ -109,7 +111,9 @@
     "intangibleAssets": 2871,
     "totalCurrentAssets": 7840,
     "isin": "ES0177542018",
-    "revenue": 7806
+    "revenue": 7806,
+    "eps": "-0.93",
+    "numberOfShares": "4960"
   },
   {
     "navMid": -0.08,
@@ -165,7 +169,9 @@
     "intangibleAssets": 15045,
     "totalCurrentAssets": 1461.1,
     "isin": "IE00BWT6H894",
-    "revenue": 4413.9
+    "revenue": 4413.9,
+    "eps": "-0.40",
+    "numberOfShares": "175.65"
   },
   {
     "navMid": 0,
@@ -221,7 +227,9 @@
     "intangibleAssets": 946,
     "totalCurrentAssets": 2243,
     "isin": "GB00BHJYC057",
-    "revenue": 2394
+    "revenue": 2394,
+    "eps": "-0.02",
+    "numberOfShares": "184.02"
   },
   {
     "navMid": 0.9,
@@ -277,7 +285,9 @@
     "intangibleAssets": 159,
     "totalCurrentAssets": 1369.5,
     "isin": "GB00B1KJJ408",
-    "revenue": 589.4
+    "revenue": 589.4,
+    "eps": "-1.41",
+    "numberOfShares": "202.00"
   },
   {
     "navMid": -0.07,
@@ -333,7 +343,9 @@
     "intangibleAssets": 7822,
     "totalCurrentAssets": 822,
     "isin": "NL0012015705",
-    "revenue": 2042
+    "revenue": 2042,
+    "eps": "-3.27",
+    "numberOfShares": "212.62"
   },
   {
     "navMid": 0,
@@ -389,7 +401,9 @@
     "intangibleAssets": 5145,
     "totalCurrentAssets": 14619,
     "isin": "GB00B63H8491",
-    "revenue": 11824
+    "revenue": 11824,
+    "eps": "0.31",
+    "numberOfShares": "8370"
   },
   {
     "navMid": 1.05,
@@ -398,14 +412,14 @@
     "news": "https://www.londonstockexchange.com/stock/LLOY/xxx/analysis|2022-02-10 Director/PDMR Shareholding",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "2.32",
+    "dividend": "2.30",
     "tickerSymbol": "LLOY",
     "stockName": "LLOYDS GRP.|http://www.lloydsbankinggroup.com/",
     "profit": 865,
     "cash": 73556,
     "exDividend": "2021-08-05",
     "netNet": 0,
-    "peRatio": "8.13",
+    "peRatio": "8.20",
     "techSum": 0,
     "nvv": 49184,
     "navPercent": 1.31,
@@ -445,7 +459,9 @@
     "intangibleAssets": 6460,
     "totalCurrentAssets": null,
     "isin": "GB0008706128",
-    "revenue": 15133
+    "revenue": 15133,
+    "eps": "0.07",
+    "numberOfShares": "71040"
   },
   {
     "navMid": 1.76,
@@ -454,14 +470,14 @@
     "news": "https://www.londonstockexchange.com/stock/HSBA/xxx/analysis|2022-02-10 Overseas Regulatory Announcement - Board Meeting",
     "rsi": "73.0",
     "midPrice": null,
-    "dividend": "2.86",
+    "dividend": "2.85",
     "tickerSymbol": "HSBA",
     "stockName": "HSBC HLDGS.UK|http://www.hsbc.com/",
     "profit": 3898,
     "cash": 225740,
     "exDividend": "2021-08-19",
     "netNet": 0,
-    "peRatio": "14.11",
+    "peRatio": "14.12",
     "techSum": 1,
     "nvv": 196443,
     "navPercent": 1.77,
@@ -501,7 +517,9 @@
     "intangibleAssets": 14955,
     "totalCurrentAssets": null,
     "isin": "GB0005405286",
-    "revenue": 50228
+    "revenue": 50228,
+    "eps": "0.40",
+    "numberOfShares": "20270"
   },
   {
     "navMid": 1.34,
@@ -517,7 +535,7 @@
     "cash": 124489,
     "exDividend": "2021-08-12",
     "netNet": 0,
-    "peRatio": "12.33",
+    "peRatio": "12.40",
     "techSum": -1,
     "nvv": 43860,
     "navPercent": 1.54,
@@ -557,7 +575,9 @@
     "intangibleAssets": 6655,
     "totalCurrentAssets": null,
     "isin": "GB00B7T77214",
-    "revenue": 11153
+    "revenue": 11153,
+    "eps": "0.20",
+    "numberOfShares": "11260"
   },
   {
     "navMid": 1.76,
@@ -613,7 +633,9 @@
     "intangibleAssets": 7948,
     "totalCurrentAssets": null,
     "isin": "GB0031348658",
-    "revenue": 21615
+    "revenue": 21615,
+    "eps": "0",
+    "numberOfShares": "16760"
   },
   {
     "navMid": 2.91,
@@ -622,14 +644,14 @@
     "news": "https://www.londonstockexchange.com/stock/STAN/xxx/analysis|2022-02-08 Total Voting Rights",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "1.55",
+    "dividend": "1.56",
     "tickerSymbol": "STAN",
     "stockName": "STAND.CHART.|http://www.sc.com/",
     "profit": 329,
     "cash": 57404,
     "exDividend": "2021-08-12",
     "netNet": 0,
-    "peRatio": "20.72",
+    "peRatio": "20.67",
     "techSum": 1,
     "nvv": 50404,
     "navPercent": 2.97,
@@ -669,7 +691,9 @@
     "intangibleAssets": 3704,
     "totalCurrentAssets": null,
     "isin": "GB0004082847",
-    "revenue": 14915
+    "revenue": 14915,
+    "eps": "0.27",
+    "numberOfShares": "3080"
   },
   {
     "navMid": 0.07,
@@ -678,14 +702,14 @@
     "news": "https://www.londonstockexchange.com/stock/CCH/xxx/analysis|2022-02-02 Notice of Results",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "2.13",
+    "dividend": "2.14",
     "tickerSymbol": "CCH",
     "stockName": "COCACOLA HBC |http://www.coca-colahellenic.com/",
     "profit": 414.9,
     "cash": 1088,
     "exDividend": "2021-07-08",
     "netNet": -0.26,
-    "peRatio": "19.74",
+    "peRatio": "19.59",
     "techSum": -2,
     "nvv": 2630.7,
     "navPercent": 0.29,
@@ -725,7 +749,9 @@
     "intangibleAssets": 1778,
     "totalCurrentAssets": 2527.1,
     "isin": "CH0198251305",
-    "revenue": 6131.8
+    "revenue": 6131.8,
+    "eps": "1.28",
+    "numberOfShares": "365.91"
   },
   {
     "navMid": -0.04,
@@ -741,7 +767,7 @@
     "cash": 2749,
     "exDividend": "2022-02-24",
     "netNet": -0.15,
-    "peRatio": "28.62",
+    "peRatio": "28.59",
     "techSum": -1,
     "nvv": 6897,
     "navPercent": 0.08,
@@ -781,7 +807,9 @@
     "intangibleAssets": 10764,
     "totalCurrentAssets": 11445,
     "isin": "GB0002374006",
-    "revenue": 12733
+    "revenue": 12733,
+    "eps": "1.30",
+    "numberOfShares": "2320"
   },
   {
     "navMid": -0.03,
@@ -797,7 +825,7 @@
     "cash": 45.7,
     "exDividend": "2022-01-06",
     "netNet": 0,
-    "peRatio": "31.52",
+    "peRatio": "31.43",
     "techSum": -1,
     "nvv": 458.7,
     "navPercent": 0.07,
@@ -837,7 +865,9 @@
     "intangibleAssets": 358.2,
     "totalCurrentAssets": 105.6,
     "isin": "GB00BVYVFW23",
-    "revenue": 262.8
+    "revenue": 262.8,
+    "eps": "0.20",
+    "numberOfShares": "945.65"
   },
   {
     "navMid": 0.05,
@@ -853,7 +883,7 @@
     "cash": 107,
     "exDividend": "2021-09-09",
     "netNet": -0.07,
-    "peRatio": "40.36",
+    "peRatio": "40.38",
     "techSum": -2,
     "nvv": 1585.8,
     "navPercent": 0.14,
@@ -893,7 +923,9 @@
     "intangibleAssets": 1312,
     "totalCurrentAssets": 699,
     "isin": "GB00BJFFLV09",
-    "revenue": 1390.3
+    "revenue": 1390.3,
+    "eps": "1.81",
+    "numberOfShares": "131.79"
   },
   {
     "navMid": 0.51,
@@ -902,14 +934,14 @@
     "news": "https://www.londonstockexchange.com/stock/JMAT/xxx/analysis|2022-02-10 Appointment of joint corporate broker",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "4.06",
+    "dividend": "4.05",
     "tickerSymbol": "JMAT",
     "stockName": "JOHNSON MATTH|http://www.matthey.com/",
     "profit": 205,
     "cash": 581,
     "exDividend": "2021-12-02",
     "netNet": -0.05,
-    "peRatio": "22.37",
+    "peRatio": "22.45",
     "techSum": -2,
     "nvv": 2685,
     "navPercent": 0.74,
@@ -949,7 +981,9 @@
     "intangibleAssets": 913,
     "totalCurrentAssets": 4874,
     "isin": "GB00BZ4BQC70",
-    "revenue": 15673
+    "revenue": 15673,
+    "eps": "0.79",
+    "numberOfShares": "190.04"
   },
   {
     "navMid": 0.3,
@@ -965,7 +999,7 @@
     "cash": 5648,
     "exDividend": "2021-09-09",
     "netNet": -0.35,
-    "peRatio": "26.80",
+    "peRatio": "26.77",
     "techSum": -2,
     "nvv": 19656,
     "navPercent": 0.66,
@@ -1005,7 +1039,9 @@
     "intangibleAssets": 6857,
     "totalCurrentAssets": 14977,
     "isin": "IE0001827041",
-    "revenue": 27587
+    "revenue": 27587,
+    "eps": "1.41",
+    "numberOfShares": "768.06"
   },
   {
     "navMid": -0.05,
@@ -1021,7 +1057,7 @@
     "cash": 1840,
     "exDividend": "2022-01-20",
     "netNet": -0.17,
-    "peRatio": "90.58",
+    "peRatio": "90.33",
     "techSum": -1,
     "nvv": 4891,
     "navPercent": 0.17,
@@ -1061,7 +1097,9 @@
     "intangibleAssets": 6167,
     "totalCurrentAssets": 4952,
     "isin": "GB00BD6K4575",
-    "revenue": 17908
+    "revenue": 17908,
+    "eps": "0.20",
+    "numberOfShares": "1780"
   },
   {
     "navMid": 0.24,
@@ -1077,7 +1115,7 @@
     "cash": 1603,
     "exDividend": "2022-01-13",
     "netNet": -0.61,
-    "peRatio": "6.29",
+    "peRatio": "6.30",
     "techSum": -2,
     "nvv": 6681.1,
     "navPercent": 0.39,
@@ -1117,7 +1155,9 @@
     "intangibleAssets": 841,
     "totalCurrentAssets": 4520.9,
     "isin": "GB0007908733",
-    "revenue": 6826.4
+    "revenue": 6826.4,
+    "eps": "2.46",
+    "numberOfShares": "1070"
   },
   {
     "navMid": 0,
@@ -1126,14 +1166,14 @@
     "news": "https://www.londonstockexchange.com/stock/HLMA/xxx/analysis|2022-01-17 2021 AGM – Voting Results Update Statement",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "0.76",
+    "dividend": "0.77",
     "tickerSymbol": "HLMA",
     "stockName": "HALMA|http://www.halma.com/",
     "profit": 203.4,
     "cash": 134,
     "exDividend": "2021-12-23",
     "netNet": -0.01,
-    "peRatio": "34.29",
+    "peRatio": "34.13",
     "techSum": -2,
     "nvv": 1167,
     "navPercent": 0.12,
@@ -1173,7 +1213,9 @@
     "intangibleAssets": 1099,
     "totalCurrentAssets": 574.1,
     "isin": "GB0004052071",
-    "revenue": 1318.2
+    "revenue": 1318.2,
+    "eps": "0.69",
+    "numberOfShares": "373.91"
   },
   {
     "navMid": 0.5,
@@ -1182,14 +1224,14 @@
     "news": "https://www.londonstockexchange.com/stock/ABF/xxx/analysis|2022-02-10 Issue of Debut Public Bond",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "1.39",
+    "dividend": "1.38",
     "tickerSymbol": "ABF",
     "stockName": "A.B.FOOD|http://www.abf.co.uk/",
     "profit": 478,
     "cash": 2275,
     "exDividend": "2021-12-16",
     "netNet": -0.06,
-    "peRatio": "31.76",
+    "peRatio": "31.90",
     "techSum": -1,
     "nvv": 9921,
     "navPercent": 0.64,
@@ -1229,7 +1271,9 @@
     "intangibleAssets": 1581,
     "totalCurrentAssets": 6105,
     "isin": "GB0006731235",
-    "revenue": 13884
+    "revenue": 13884,
+    "eps": "0.61",
+    "numberOfShares": "347.33"
   },
   {
     "navMid": 0.32,
@@ -1238,7 +1282,7 @@
     "news": "https://www.londonstockexchange.com/stock/NG./xxx/analysis|2022-02-08 Director/PDMR Shareholding",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "4.50",
+    "dividend": "4.51",
     "tickerSymbol": "NG.",
     "stockName": "NATIONAL GRID|null",
     "profit": 1640,
@@ -1285,7 +1329,9 @@
     "intangibleAssets": 6031,
     "totalCurrentAssets": 9938,
     "isin": "GB00BDR05C01",
-    "revenue": 14779
+    "revenue": 14779,
+    "eps": "0.43",
+    "numberOfShares": "3640"
   },
   {
     "navMid": 0.38,
@@ -1341,7 +1387,9 @@
     "intangibleAssets": 44,
     "totalCurrentAssets": 3142.9,
     "isin": "GB00BNNTLN49",
-    "revenue": 624.1
+    "revenue": 624.1,
+    "eps": "0.07",
+    "numberOfShares": "267.83"
   },
   {
     "navMid": 0.39,
@@ -1357,7 +1405,7 @@
     "cash": 744,
     "exDividend": "2021-12-16",
     "netNet": -1.37,
-    "peRatio": "97.44",
+    "peRatio": "97.48",
     "techSum": -1,
     "nvv": 3031,
     "navPercent": 0.41,
@@ -1397,7 +1445,9 @@
     "intangibleAssets": 181,
     "totalCurrentAssets": 1012.9,
     "isin": "GB00B39J2M42",
-    "revenue": 1808
+    "revenue": 1808,
+    "eps": "0.11",
+    "numberOfShares": "670.26"
   },
   {
     "navMid": 0.15,
@@ -1453,7 +1503,9 @@
     "intangibleAssets": 255,
     "totalCurrentAssets": 606,
     "isin": "GB00B1FH8J72",
-    "revenue": 1827.2
+    "revenue": 1827.2,
+    "eps": "-0.27",
+    "numberOfShares": "250.29"
   },
   {
     "navMid": -0.06,
@@ -1462,14 +1514,14 @@
     "news": "https://www.londonstockexchange.com/stock/BNZL/xxx/analysis|2022-02-03 Director/PDMR Shareholding",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "2.02",
+    "dividend": "2.03",
     "tickerSymbol": "BNZL",
     "stockName": "BUNZL|http://www.bunzl.com/",
     "profit": 430,
     "cash": 944,
     "exDividend": "2021-11-18",
     "netNet": -0.12,
-    "peRatio": "19.87",
+    "peRatio": "19.78",
     "techSum": -1,
     "nvv": 1919.1,
     "navPercent": 0.2,
@@ -1509,7 +1561,9 @@
     "intangibleAssets": 2442,
     "totalCurrentAssets": 3791.5,
     "isin": "GB00B0744B38",
-    "revenue": 10111.1
+    "revenue": 10111.1,
+    "eps": "1.36",
+    "numberOfShares": "337.40"
   },
   {
     "navMid": 0.14,
@@ -1518,14 +1572,14 @@
     "news": "https://www.londonstockexchange.com/stock/SMIN/xxx/analysis|2022-02-11 Share Buyback Programme",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "2.43",
+    "dividend": "2.44",
     "tickerSymbol": "SMIN",
     "stockName": "SMITHS GROUP|http://www.smiths.com/",
     "profit": 284,
     "cash": 405,
     "exDividend": "2021-10-21",
     "netNet": -0.03,
-    "peRatio": "21.76",
+    "peRatio": "21.71",
     "techSum": -1,
     "nvv": 2402,
     "navPercent": 0.39,
@@ -1565,7 +1619,9 @@
     "intangibleAssets": 1498,
     "totalCurrentAssets": 2736,
     "isin": "GB00B1WY2338",
-    "revenue": 2406
+    "revenue": 2406,
+    "eps": "0.71",
+    "numberOfShares": "388.25"
   },
   {
     "navMid": 0.04,
@@ -1574,14 +1630,14 @@
     "news": "https://www.londonstockexchange.com/stock/SMDS/xxx/analysis|2022-02-02 Director/PDMR Shareholding",
     "rsi": "49.42",
     "midPrice": null,
-    "dividend": "3.42",
+    "dividend": "3.40",
     "tickerSymbol": "SMDS",
     "stockName": "SMITH(DS)|http://www.dssmith.com/",
     "profit": 194,
     "cash": 378,
     "exDividend": "2022-04-07",
     "netNet": -0.56,
-    "peRatio": "21.41",
+    "peRatio": "21.52",
     "techSum": -2,
     "nvv": 3533,
     "navPercent": 0.68,
@@ -1621,7 +1677,9 @@
     "intangibleAssets": 2995,
     "totalCurrentAssets": 2296,
     "isin": "GB0008220112",
-    "revenue": 5976
+    "revenue": 5976,
+    "eps": "0.18",
+    "numberOfShares": "1370"
   },
   {
     "navMid": 0.04,
@@ -1637,7 +1695,7 @@
     "cash": 69,
     "exDividend": "2021-09-23",
     "netNet": -0.31,
-    "peRatio": "18.23",
+    "peRatio": "18.16",
     "techSum": -2,
     "nvv": 3770,
     "navPercent": 0.36,
@@ -1677,7 +1735,9 @@
     "intangibleAssets": 2284,
     "totalCurrentAssets": 3258,
     "isin": "IE00B1RR8406",
-    "revenue": 8530
+    "revenue": 8530,
+    "eps": "2.24",
+    "numberOfShares": "259.03"
   },
   {
     "navMid": -0.31,
@@ -1733,7 +1793,9 @@
     "intangibleAssets": 9198,
     "totalCurrentAssets": 3165,
     "isin": "GB00BNR5MZ78",
-    "revenue": 8770
+    "revenue": 8770,
+    "eps": "-0.04",
+    "numberOfShares": "4370"
   },
   {
     "navMid": 0.41,
@@ -1789,7 +1851,9 @@
     "intangibleAssets": 182,
     "totalCurrentAssets": 4244.8,
     "isin": "GB0006825383",
-    "revenue": 3328.3
+    "revenue": 3328.3,
+    "eps": "2.47",
+    "numberOfShares": "319.22"
   },
   {
     "navMid": 0.63,
@@ -1798,14 +1862,14 @@
     "news": "https://www.londonstockexchange.com/stock/BDEV/xxx/analysis|2022-02-10 Director/PDMR Shareholding",
     "rsi": "39.06",
     "midPrice": null,
-    "dividend": "4.70",
+    "dividend": "5.29",
     "tickerSymbol": "BDEV",
     "stockName": "BARRATT DEVEL|http://www.barrattdevelopments.co.uk/",
     "profit": 659.8,
     "cash": 1519,
     "exDividend": "2022-04-07",
     "netNet": 0.67,
-    "peRatio": "9.76",
+    "peRatio": "9.77",
     "techSum": -2,
     "nvv": 5451,
     "navPercent": 0.85,
@@ -1845,7 +1909,9 @@
     "intangibleAssets": 906,
     "totalCurrentAssets": 6343.7,
     "isin": "GB0000811801",
-    "revenue": 4811.7
+    "revenue": 4811.7,
+    "eps": "0.64",
+    "numberOfShares": "1020"
   },
   {
     "navMid": 0.6,
@@ -1861,7 +1927,7 @@
     "cash": 1428,
     "exDividend": "2021-03-04",
     "netNet": 0.58,
-    "peRatio": "9.89",
+    "peRatio": "9.91",
     "techSum": -2,
     "nvv": 3175.4,
     "navPercent": 0.66,
@@ -1901,7 +1967,9 @@
     "intangibleAssets": 17,
     "totalCurrentAssets": 5164,
     "isin": "GB00BLJNXL82",
-    "revenue": 2202.2
+    "revenue": 2202.2,
+    "eps": "4.16",
+    "numberOfShares": "112.08"
   },
   {
     "navMid": 0.69,
@@ -1917,7 +1985,7 @@
     "cash": 823,
     "exDividend": "2021-10-07",
     "netNet": 0.68,
-    "peRatio": "11.43",
+    "peRatio": "11.44",
     "techSum": -2,
     "nvv": 4016.8,
     "navPercent": 0.72,
@@ -1957,7 +2025,9 @@
     "intangibleAssets": 8,
     "totalCurrentAssets": 5546.8,
     "isin": "GB0008782301",
-    "revenue": 2790.2
+    "revenue": 2790.2,
+    "eps": "0.13",
+    "numberOfShares": "3650"
   },
   {
     "navMid": 0.02,
@@ -1973,7 +2043,7 @@
     "cash": 246,
     "exDividend": "2021-10-14",
     "netNet": -0.02,
-    "peRatio": "43.61",
+    "peRatio": "43.81",
     "techSum": -1,
     "nvv": 855,
     "navPercent": 0.09,
@@ -2013,7 +2083,9 @@
     "intangibleAssets": 703,
     "totalCurrentAssets": 692.5,
     "isin": "GB00BWFGQN14",
-    "revenue": 1193.4
+    "revenue": 1193.4,
+    "eps": "2.78",
+    "numberOfShares": "73.61"
   },
   {
     "navMid": 0.35,
@@ -2022,14 +2094,14 @@
     "news": "https://www.londonstockexchange.com/stock/MNDI/xxx/analysis|2022-02-09 Director/PDMR Shareholding",
     "rsi": "62.8",
     "midPrice": null,
-    "dividend": "2.75",
+    "dividend": "2.76",
     "tickerSymbol": "MNDI",
     "stockName": "MONDI|http://www.mondigroup.com/",
     "profit": 582,
     "cash": 342,
     "exDividend": "2021-08-26",
     "netNet": -0.23,
-    "peRatio": "18.11",
+    "peRatio": "18.07",
     "techSum": -2,
     "nvv": 4002,
     "navPercent": 0.44,
@@ -2069,7 +2141,9 @@
     "intangibleAssets": 889,
     "totalCurrentAssets": 2260,
     "isin": "GB00B1CRLC47",
-    "revenue": 6663
+    "revenue": 6663,
+    "eps": "1.06",
+    "numberOfShares": "485.55"
   },
   {
     "navMid": 0.65,
@@ -2078,14 +2152,14 @@
     "news": "https://www.londonstockexchange.com/stock/GLEN/xxx/analysis|2022-02-10 Holding(s) in Company",
     "rsi": "62.79",
     "midPrice": null,
-    "dividend": "2.12",
+    "dividend": "2.11",
     "tickerSymbol": "GLEN",
     "stockName": "GLENCORE|http://www.glencore.com/",
     "profit": -1903,
     "cash": 1096,
     "exDividend": "2021-09-02",
     "netNet": -0.71,
-    "peRatio": "38.24",
+    "peRatio": "38.22",
     "techSum": -1,
     "nvv": 37637,
     "navPercent": 0.71,
@@ -2125,7 +2199,9 @@
     "intangibleAssets": 4731,
     "totalCurrentAssets": 43212,
     "isin": "JE00B4T3BW64",
-    "revenue": 142338
+    "revenue": 142338,
+    "eps": "0.11",
+    "numberOfShares": "13190"
   },
   {
     "navMid": 0.54,
@@ -2134,14 +2210,14 @@
     "news": "https://www.londonstockexchange.com/stock/ANTO/xxx/analysis|2022-01-19 Q4 2021 PRODUCTION REPORT",
     "rsi": "37.5",
     "midPrice": null,
-    "dividend": "3.89",
+    "dividend": "3.88",
     "tickerSymbol": "ANTO",
     "stockName": "ANTOFAGASTA|http://www.antofagasta.co.uk/",
     "profit": 506.4,
     "cash": 912,
     "exDividend": "2021-09-02",
     "netNet": -0.28,
-    "peRatio": "17.81",
+    "peRatio": "17.78",
     "techSum": -2,
     "nvv": 7750.6,
     "navPercent": 0.61,
@@ -2181,7 +2257,9 @@
     "intangibleAssets": 110,
     "totalCurrentAssets": 5333.3,
     "isin": "GB0000456144",
-    "revenue": 5129.3
+    "revenue": 5129.3,
+    "eps": "0.77",
+    "numberOfShares": "338.37"
   },
   {
     "navMid": 0.5,
@@ -2197,7 +2275,7 @@
     "cash": 5502,
     "exDividend": "2021-08-19",
     "netNet": -0.43,
-    "peRatio": "9.02",
+    "peRatio": "9.03",
     "techSum": 0,
     "nvv": 25824,
     "navPercent": 0.58,
@@ -2237,7 +2315,9 @@
     "intangibleAssets": 2270,
     "totalCurrentAssets": 17495,
     "isin": "GB00B1XZS820",
-    "revenue": 30902
+    "revenue": 30902,
+    "eps": "3.96",
+    "numberOfShares": "1340"
   },
   {
     "navMid": 0.57,
@@ -2246,14 +2326,14 @@
     "news": "https://www.londonstockexchange.com/stock/RIO/xxx/analysis|2022-02-02 Rio Tinto notes ERA update on Ranger mine",
     "rsi": "62",
     "midPrice": null,
-    "dividend": "10.91",
+    "dividend": "10.93",
     "tickerSymbol": "RIO",
     "stockName": "RIO TINTO|http://www.riotinto.com/",
     "profit": 9769,
     "cash": 7594,
     "exDividend": "2021-08-12",
     "netNet": -0.44,
-    "peRatio": "6.77",
+    "peRatio": "6.75",
     "techSum": 1,
     "nvv": 47054,
     "navPercent": 0.7,
@@ -2293,7 +2373,9 @@
     "intangibleAssets": 2509,
     "totalCurrentAssets": 20855,
     "isin": "GB0007188757",
-    "revenue": 44611
+    "revenue": 44611,
+    "eps": "8.48",
+    "numberOfShares": "1250"
   },
   {
     "navMid": 0.25,
@@ -2302,14 +2384,14 @@
     "news": "https://www.londonstockexchange.com/stock/EVR/xxx/analysis|2022-02-08 Demerger Update",
     "rsi": "36.3",
     "midPrice": null,
-    "dividend": "15.81",
+    "dividend": "15.70",
     "tickerSymbol": "EVR",
     "stockName": "EVRAZ|http://www.evraz.com/",
     "profit": 848,
     "cash": 1192,
     "exDividend": "2021-12-23",
     "netNet": -0.6,
-    "peRatio": "5.77",
+    "peRatio": "5.79",
     "techSum": -2,
     "nvv": 791,
     "navPercent": 0.11,
@@ -2349,7 +2431,9 @@
     "intangibleAssets": 435,
     "totalCurrentAssets": 3406,
     "isin": "GB00B71N6K86",
-    "revenue": 9754
+    "revenue": 9754,
+    "eps": "0.77",
+    "numberOfShares": "1460"
   },
   {
     "navMid": 0.4,
@@ -2365,7 +2449,7 @@
     "cash": 11036,
     "exDividend": "-",
     "netNet": -0.61,
-    "peRatio": "15.50",
+    "peRatio": "15.44",
     "techSum": 1,
     "nvv": 51264,
     "navPercent": 1.01,
@@ -2405,7 +2489,9 @@
     "intangibleAssets": 1040,
     "totalCurrentAssets": 26693,
     "isin": "AU000000BHP4",
-    "revenue": 60817
+    "revenue": 60817,
+    "eps": "1.64",
+    "numberOfShares": "2000"
   },
   {
     "navMid": -0.02,
@@ -2421,7 +2507,7 @@
     "cash": 204,
     "exDividend": "2021-09-16",
     "netNet": -0.09,
-    "peRatio": "31.67",
+    "peRatio": "31.59",
     "techSum": -2,
     "nvv": 975,
     "navPercent": 0.11,
@@ -2461,7 +2547,9 @@
     "intangibleAssets": 1116,
     "totalCurrentAssets": 865.1,
     "isin": "GB0031638363",
-    "revenue": 2741.7
+    "revenue": 2741.7,
+    "eps": "1.65",
+    "numberOfShares": "158.44"
   },
   {
     "navMid": 0.11,
@@ -2477,7 +2565,7 @@
     "cash": 1787,
     "exDividend": "2021-11-18",
     "netNet": -0.19,
-    "peRatio": "21.18",
+    "peRatio": "21.20",
     "techSum": 0,
     "nvv": 2647.43,
     "navPercent": 0.43,
@@ -2517,7 +2605,9 @@
     "intangibleAssets": 2207,
     "totalCurrentAssets": 4202.06,
     "isin": "IE0002424939",
-    "revenue": 13412.45
+    "revenue": 13412.45,
+    "eps": "3.03",
+    "numberOfShares": "98.62"
   },
   {
     "navMid": -0.12,
@@ -2533,7 +2623,7 @@
     "cash": 130,
     "exDividend": "2022-01-06",
     "netNet": -0.19,
-    "peRatio": "37.28",
+    "peRatio": "37.36",
     "techSum": -2,
     "nvv": 3081,
     "navPercent": 0.1,
@@ -2573,7 +2663,9 @@
     "intangibleAssets": 5238,
     "totalCurrentAssets": 1431,
     "isin": "GB00B19NLV48",
-    "revenue": 5372
+    "revenue": 5372,
+    "eps": "0.78",
+    "numberOfShares": "922.13"
   },
   {
     "navMid": 0.09,
@@ -2582,14 +2674,14 @@
     "news": "https://www.londonstockexchange.com/stock/FERG/xxx/analysis|2022-02-11 Transaction in Own Shares",
     "rsi": "35",
     "midPrice": null,
-    "dividend": "1.59",
+    "dividend": "1.60",
     "tickerSymbol": "FERG",
     "stockName": "FERGUSON|http://www.fergusonplc.com/",
     "profit": 1508,
     "cash": 960,
     "exDividend": "2021-10-28",
     "netNet": -0.02,
-    "peRatio": "18.14",
+    "peRatio": "18.08",
     "techSum": -1,
     "nvv": 4810,
     "navPercent": 0.19,
@@ -2629,7 +2721,9 @@
     "intangibleAssets": 1656,
     "totalCurrentAssets": 8104,
     "isin": "JE00BJVNSS43",
-    "revenue": 22792
+    "revenue": 22792,
+    "eps": "6.10",
+    "numberOfShares": "219.25"
   },
   {
     "navMid": -0.06,
@@ -2638,14 +2732,14 @@
     "news": "https://www.londonstockexchange.com/stock/RTO/xxx/analysis|2021-12-22 Director/PDMR Shareholding",
     "rsi": "40.7",
     "midPrice": null,
-    "dividend": "1.49",
+    "dividend": "1.50",
     "tickerSymbol": "RTO",
     "stockName": "RENTOKIL INIT|http://www.rentokil-initial.com/",
     "profit": 185.9,
     "cash": 2226,
     "exDividend": "2021-08-05",
     "netNet": -0.17,
-    "peRatio": "36.38",
+    "peRatio": "36.13",
     "techSum": -1,
     "nvv": 1129.7,
     "navPercent": 0.12,
@@ -2685,7 +2779,9 @@
     "intangibleAssets": 1922,
     "totalCurrentAssets": 3093.9,
     "isin": "GB00B082RF11",
-    "revenue": 2823.5
+    "revenue": 2823.5,
+    "eps": "0.14",
+    "numberOfShares": "1860"
   },
   {
     "navMid": 0.06,
@@ -2701,7 +2797,7 @@
     "cash": 19,
     "exDividend": "2022-01-13",
     "netNet": -0.3,
-    "peRatio": "28.09",
+    "peRatio": "27.90",
     "techSum": -1,
     "nvv": 4559.49,
     "navPercent": 0.19,
@@ -2741,7 +2837,9 @@
     "intangibleAssets": 1577,
     "totalCurrentAssets": 1240.06,
     "isin": "GB0000536739",
-    "revenue": 7017.85
+    "revenue": 7017.85,
+    "eps": "1.78",
+    "numberOfShares": "445.08"
   },
   {
     "navMid": 0.93,
@@ -2757,7 +2855,7 @@
     "cash": 1519,
     "exDividend": "2021-08-19",
     "netNet": 0,
-    "peRatio": "3.76",
+    "peRatio": "3.77",
     "techSum": -2,
     "nvv": 6810,
     "navPercent": 1.27,
@@ -2797,7 +2895,9 @@
     "intangibleAssets": 501,
     "totalCurrentAssets": null,
     "isin": "GB00BF8Q6K64",
-    "revenue": 3507
+    "revenue": 3507,
+    "eps": "0.65",
+    "numberOfShares": "2180"
   },
   {
     "navMid": 0,
@@ -2806,14 +2906,14 @@
     "news": "https://www.londonstockexchange.com/stock/MNG/xxx/analysis|2022-02-10 Director/PDMR Shareholding",
     "rsi": "60.02",
     "midPrice": null,
-    "dividend": "8.50",
+    "dividend": "8.51",
     "tickerSymbol": "MNG",
     "stockName": "M&G PLC|http://www.mandgplc.com/",
     "profit": 1138,
     "cash": 6776,
     "exDividend": "2021-08-19",
     "netNet": 0,
-    "peRatio": "90.59",
+    "peRatio": "90.55",
     "techSum": 0,
     "nvv": 5577,
     "navPercent": 0.99,
@@ -2853,7 +2953,9 @@
     "intangibleAssets": 1495,
     "totalCurrentAssets": null,
     "isin": "GB00BKFB1C65",
-    "revenue": 13357
+    "revenue": 13357,
+    "eps": "0.02",
+    "numberOfShares": "2580"
   },
   {
     "navMid": 0.25,
@@ -2862,14 +2964,14 @@
     "news": "https://www.londonstockexchange.com/stock/ICP/xxx/analysis|2022-01-27 ICG:  Q3 Trading Statement for the nine months ended 31 December 2021",
     "rsi": "41.86",
     "midPrice": null,
-    "dividend": "3.12",
+    "dividend": "3.13",
     "tickerSymbol": "ICP",
     "stockName": "INT.CAP.GRP|http://www.icgam.com/",
     "profit": 457.1,
     "cash": 581,
     "exDividend": "2021-12-09",
     "netNet": 0,
-    "peRatio": "10.60",
+    "peRatio": "10.56",
     "techSum": -2,
     "nvv": 1617.2,
     "navPercent": 0.28,
@@ -2909,7 +3011,9 @@
     "intangibleAssets": 22,
     "totalCurrentAssets": null,
     "isin": "GB00BYT1DJ19",
-    "revenue": 672.4
+    "revenue": 672.4,
+    "eps": "1.74",
+    "numberOfShares": "290.55"
   },
   {
     "navMid": 0.08,
@@ -2918,14 +3022,14 @@
     "news": "https://www.londonstockexchange.com/stock/HL./xxx/analysis|2022-02-02 Notice of Results",
     "rsi": "48.6",
     "midPrice": null,
-    "dividend": "3.74",
+    "dividend": "3.75",
     "tickerSymbol": "HL.",
     "stockName": "HARGREAVES LA|null",
     "profit": 296.7,
     "cash": 445,
     "exDividend": "2021-09-23",
     "netNet": 0.08,
-    "peRatio": "21.59",
+    "peRatio": "21.55",
     "techSum": -1,
     "nvv": 593.5,
     "navPercent": 0.09,
@@ -2965,7 +3069,9 @@
     "intangibleAssets": 35,
     "totalCurrentAssets": 1316.9,
     "isin": "GB00B1VZ0M25",
-    "revenue": 631
+    "revenue": 631,
+    "eps": "0.63",
+    "numberOfShares": "351.47"
   },
   {
     "navMid": 0.62,
@@ -2974,14 +3080,14 @@
     "news": "https://www.londonstockexchange.com/stock/III/xxx/analysis|2022-02-04 Director/PDMR Shareholding",
     "rsi": "48.1",
     "midPrice": null,
-    "dividend": "2.97",
+    "dividend": "2.96",
     "tickerSymbol": "III",
     "stockName": "3I GRP.|http://www.3i.com/",
     "profit": 1855,
     "cash": 216,
     "exDividend": "2021-12-02",
     "netNet": 0,
-    "peRatio": "4.69",
+    "peRatio": "4.71",
     "techSum": -2,
     "nvv": 9164,
     "navPercent": 0.68,
@@ -3020,7 +3126,9 @@
     "navPercentIt": 0.68,
     "intangibleAssets": 8,
     "totalCurrentAssets": 0,
-    "isin": "GB00B1YW4409"
+    "isin": "GB00B1YW4409",
+    "eps": "2.89",
+    "numberOfShares": "973.23"
   },
   {
     "navMid": 0.29,
@@ -3036,7 +3144,7 @@
     "cash": 3470,
     "exDividend": "2021-08-19",
     "netNet": -1.34,
-    "peRatio": "16.96",
+    "peRatio": "16.93",
     "techSum": -2,
     "nvv": 4002.8,
     "navPercent": 0.52,
@@ -3076,7 +3184,9 @@
     "intangibleAssets": 1208,
     "totalCurrentAssets": 7342.9,
     "isin": "GB0002405495",
-    "revenue": 2512.7
+    "revenue": 2512.7,
+    "eps": "1.98",
+    "numberOfShares": "117.13"
   },
   {
     "navMid": -0.03,
@@ -3085,14 +3195,14 @@
     "news": "https://www.londonstockexchange.com/stock/LSEG/xxx/analysis|2021-12-29 Director/PDMR Shareholding",
     "rsi": "49.42",
     "midPrice": null,
-    "dividend": "1.10",
+    "dividend": "1.09",
     "tickerSymbol": "LSEG",
     "stockName": "LON.STK.EXCH|http://www.londonstockexchange.com/",
     "profit": 421,
     "cash": 1785,
     "exDividend": "2021-08-19",
     "netNet": -0.04,
-    "peRatio": "66.88",
+    "peRatio": "67.22",
     "techSum": 0,
     "nvv": 3711,
     "navPercent": 0.1,
@@ -3132,7 +3242,9 @@
     "intangibleAssets": 4324,
     "totalCurrentAssets": 844069,
     "isin": "GB00B0SWJX34",
-    "revenue": 2443
+    "revenue": 2443,
+    "eps": "1.05",
+    "numberOfShares": "506.24"
   },
   {
     "navMid": 0.74,
@@ -3141,14 +3253,14 @@
     "news": "https://www.londonstockexchange.com/stock/AV./xxx/analysis|2022-02-10 Transaction in Own Shares",
     "rsi": "63.8",
     "midPrice": null,
-    "dividend": "4.81",
+    "dividend": "4.80",
     "tickerSymbol": "AV.",
     "stockName": "AVIVA|null",
     "profit": 2754,
     "cash": 16900,
     "exDividend": "2021-08-26",
     "netNet": 0,
-    "peRatio": "7.79",
+    "peRatio": "7.80",
     "techSum": 0,
     "nvv": 19554,
     "navPercent": 1.19,
@@ -3188,7 +3300,9 @@
     "intangibleAssets": 2497,
     "totalCurrentAssets": null,
     "isin": "GB0002162385",
-    "revenue": 45796
+    "revenue": 45796,
+    "eps": "0.57",
+    "numberOfShares": "3740"
   },
   {
     "navMid": 0.04,
@@ -3197,7 +3311,7 @@
     "news": "https://www.londonstockexchange.com/stock/PRU/xxx/analysis|2022-02-10 Director/PDMR Shareholding",
     "rsi": "45.5",
     "midPrice": null,
-    "dividend": "0.95",
+    "dividend": "0.96",
     "tickerSymbol": "PRU",
     "stockName": "PRUDENTIAL|https://www.prudentialplc.com/",
     "profit": 2118,
@@ -3244,7 +3358,9 @@
     "intangibleAssets": 3724,
     "totalCurrentAssets": null,
     "isin": "GB0007099541",
-    "revenue": 57948
+    "revenue": 57948,
+    "eps": "-0.64",
+    "numberOfShares": "2750"
   },
   {
     "navMid": 0.28,
@@ -3300,7 +3416,9 @@
     "intangibleAssets": 228,
     "totalCurrentAssets": null,
     "isin": "GB00BGXQNP29",
-    "revenue": 21760
+    "revenue": 21760,
+    "eps": "-0.45",
+    "numberOfShares": "999.54"
   },
   {
     "navMid": 0.06,
@@ -3316,7 +3434,7 @@
     "cash": 255,
     "exDividend": "2021-08-26",
     "netNet": 0,
-    "peRatio": "40.90",
+    "peRatio": "40.98",
     "techSum": -2,
     "nvv": 1113,
     "navPercent": 0.13,
@@ -3356,7 +3474,9 @@
     "intangibleAssets": 55,
     "totalCurrentAssets": null,
     "isin": "GB0007669376",
-    "revenue": 8061
+    "revenue": 8061,
+    "eps": "0.38",
+    "numberOfShares": "540.68"
   },
   {
     "navMid": 0.55,
@@ -3365,14 +3485,14 @@
     "news": "https://www.londonstockexchange.com/stock/LGEN/xxx/analysis|2022-02-02 Director/PDMR Shareholding",
     "rsi": "46.3",
     "midPrice": null,
-    "dividend": "6.37",
+    "dividend": "6.34",
     "tickerSymbol": "LGEN",
     "stockName": "LEGAL&GEN.|http://www.legalandgeneralgroup.com/",
     "profit": 1607,
     "cash": 3616,
     "exDividend": "2021-08-12",
     "netNet": 0,
-    "peRatio": "7.39",
+    "peRatio": "7.43",
     "techSum": -1,
     "nvv": 9997,
     "navPercent": 0.57,
@@ -3412,7 +3532,9 @@
     "intangibleAssets": 397,
     "totalCurrentAssets": null,
     "isin": "GB0005603997",
-    "revenue": 49405
+    "revenue": 49405,
+    "eps": "0.38",
+    "numberOfShares": "5970"
   },
   {
     "navMid": 0.31,
@@ -3421,14 +3543,14 @@
     "news": "https://www.londonstockexchange.com/stock/PSON/xxx/analysis|2022-02-01 Total Voting Rights",
     "rsi": "51.87",
     "midPrice": null,
-    "dividend": "3.11",
+    "dividend": "3.10",
     "tickerSymbol": "PSON",
     "stockName": "PEARSON|http://www.pearson.com/",
     "profit": 310,
     "cash": 599,
     "exDividend": "2021-08-12",
     "netNet": 0,
-    "peRatio": "17.18",
+    "peRatio": "17.23",
     "techSum": 0,
     "nvv": 4125,
     "navPercent": 0.88,
@@ -3449,7 +3571,7 @@
     "cashPercent": null,
     "changePercent": -9.09,
     "bullAdvice": "2022-02-01 BUY",
-    "sector": "Media",
+    "sector": "Media online learning education",
     "momentum": "9.40",
     "momentumText": "Buy",
     "rsiText": "Neutral",
@@ -3468,7 +3590,9 @@
     "intangibleAssets": 2742,
     "totalCurrentAssets": 3340,
     "isin": "GB0006776081",
-    "revenue": 3397
+    "revenue": 3397,
+    "eps": "0.37",
+    "numberOfShares": "757.24"
   },
   {
     "navMid": -0.24,
@@ -3505,7 +3629,7 @@
     "cashPercent": null,
     "changePercent": -3.63,
     "bullAdvice": "2022-02-01 BUY",
-    "sector": "Media",
+    "sector": "Media advertising marketing",
     "momentum": "51.00",
     "momentumText": "Buy",
     "rsiText": "Neutral",
@@ -3524,7 +3648,9 @@
     "intangibleAssets": 8778,
     "totalCurrentAssets": 24004.5,
     "isin": "JE00B8KF9B49",
-    "revenue": 12002.8
+    "revenue": 12002.8,
+    "eps": "-0.08",
+    "numberOfShares": "1140"
   },
   {
     "navMid": -0.64,
@@ -3561,7 +3687,7 @@
     "cashPercent": null,
     "changePercent": -6.5,
     "bullAdvice": "2022-01-26 BUY",
-    "sector": "Media",
+    "sector": "Media events marketing education",
     "momentum": "25.40",
     "momentumText": "Buy",
     "rsiText": "Neutral",
@@ -3580,7 +3706,9 @@
     "intangibleAssets": 8671,
     "totalCurrentAssets": 695.2,
     "isin": "GB00BMJ6DW54",
-    "revenue": 1660.8
+    "revenue": 1660.8,
+    "eps": "-0.25",
+    "numberOfShares": "1500"
   },
   {
     "navMid": 0.47,
@@ -3589,14 +3717,14 @@
     "news": "https://www.londonstockexchange.com/stock/REL/xxx/analysis|2022-02-10 Transaction in Own Shares",
     "rsi": "53.68",
     "midPrice": null,
-    "dividend": "2.10",
+    "dividend": "2.19",
     "tickerSymbol": "REL",
     "stockName": "RELX|http://www.relx.com/",
     "profit": 1224,
     "cash": 88,
-    "exDividend": "2021-08-05",
+    "exDividend": "2022-04-28",
     "netNet": -0.22,
-    "peRatio": "32.89",
+    "peRatio": "29.97",
     "techSum": -1,
     "nvv": 2099,
     "navPercent": 0.05,
@@ -3617,7 +3745,7 @@
     "cashPercent": null,
     "changePercent": -1.45,
     "bullAdvice": "2022-02-04 SELL",
-    "sector": "Media",
+    "sector": "Media publishing marketing",
     "momentum": "62.46",
     "momentumText": "Buy",
     "rsiText": "Neutral",
@@ -3636,7 +3764,9 @@
     "intangibleAssets": 10649,
     "totalCurrentAssets": 2274,
     "isin": "GB00B2B0DG97",
-    "revenue": 7110
+    "revenue": 7110,
+    "eps": "0.76",
+    "numberOfShares": "1930"
   },
   {
     "navMid": 0.08,
@@ -3652,7 +3782,7 @@
     "cash": 1289,
     "exDividend": "2021-09-30",
     "netNet": -0.1,
-    "peRatio": "25.95",
+    "peRatio": "25.86",
     "techSum": -2,
     "nvv": 5279,
     "navPercent": 0.48,
@@ -3692,7 +3822,9 @@
     "intangibleAssets": 3229,
     "totalCurrentAssets": 4664,
     "isin": "GB0009223206",
-    "revenue": 4560
+    "revenue": 4560,
+    "eps": "0.47",
+    "numberOfShares": "879.87"
   },
   {
     "navMid": 0.1,
@@ -3701,14 +3833,14 @@
     "news": "https://www.londonstockexchange.com/stock/ADM/xxx/analysis|2022-02-09 Holding(s) in Company",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "9.63",
+    "dividend": "9.59",
     "tickerSymbol": "ADM",
     "stockName": "ADMIRAL GRP|http://admiralgroup.co.uk/",
     "profit": 528.8,
     "cash": 298,
     "exDividend": "2021-09-02",
     "netNet": 0,
-    "peRatio": "13.12",
+    "peRatio": "13.16",
     "techSum": 0,
     "nvv": 1112.7,
     "navPercent": 0.12,
@@ -3748,7 +3880,9 @@
     "intangibleAssets": 139,
     "totalCurrentAssets": null,
     "isin": "GB00B02J6398",
-    "revenue": 1304.7
+    "revenue": 1304.7,
+    "eps": "2.32",
+    "numberOfShares": "299.55"
   },
   {
     "navMid": 0.97,
@@ -3764,7 +3898,7 @@
     "cash": 22759,
     "exDividend": "2021-11-11",
     "netNet": -1.61,
-    "peRatio": "15.43",
+    "peRatio": "15.40",
     "techSum": 0,
     "nvv": 71250,
     "navPercent": 0.93,
@@ -3804,7 +3938,9 @@
     "intangibleAssets": 10578,
     "totalCurrentAssets": 72982,
     "isin": "GB0007980591",
-    "revenue": 180366
+    "revenue": 180366,
+    "eps": "0.27",
+    "numberOfShares": "19590"
   },
   {
     "navMid": 1.19,
@@ -3820,7 +3956,7 @@
     "cash": 23285,
     "exDividend": "2021-08-12",
     "netNet": -0.9,
-    "peRatio": "10.81",
+    "peRatio": "10.77",
     "techSum": 0,
     "nvv": 155310,
     "navPercent": 1.05,
@@ -3860,7 +3996,9 @@
     "intangibleAssets": 16696,
     "totalCurrentAssets": 90694,
     "isin": "GB00BP6MXD84",
-    "revenue": 180543
+    "revenue": 180543,
+    "eps": "1.89",
+    "numberOfShares": "7630"
   },
   {
     "navMid": 1.08,
@@ -3869,14 +4007,14 @@
     "news": "https://www.londonstockexchange.com/stock/SBRY/xxx/analysis|2022-02-01 Block listing Interim Review",
     "rsi": "40.32",
     "midPrice": null,
-    "dividend": "3.79",
+    "dividend": "3.78",
     "tickerSymbol": "SBRY",
     "stockName": "SAINSBURY(J)|http://www.about.sainsburys.co.uk/",
     "profit": -287,
     "cash": 1477,
     "exDividend": "2021-11-11",
     "netNet": -1.69,
-    "peRatio": "23.58",
+    "peRatio": "23.66",
     "techSum": 0,
     "nvv": 6604,
     "navPercent": 0.97,
@@ -3916,7 +4054,9 @@
     "intangibleAssets": 914,
     "totalCurrentAssets": 7073,
     "isin": "GB00B019KW72",
-    "revenue": 29048
+    "revenue": 29048,
+    "eps": "0.12",
+    "numberOfShares": "2330"
   },
   {
     "navMid": 0.16,
@@ -3972,7 +4112,9 @@
     "intangibleAssets": 244,
     "totalCurrentAssets": 2381.1,
     "isin": "GB00B3MBS747",
-    "revenue": 2331.8
+    "revenue": 2331.8,
+    "eps": "-0.30",
+    "numberOfShares": "751.60"
   },
   {
     "navMid": 0.26,
@@ -3981,14 +4123,14 @@
     "news": "https://www.londonstockexchange.com/stock/TSCO/xxx/analysis|2022-02-10 Transaction in Own Shares",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "3.08",
+    "dividend": "3.07",
     "tickerSymbol": "TSCO",
     "stockName": "TESCO|http://www.tescoplc.com/",
     "profit": 6143,
     "cash": 2510,
     "exDividend": "2021-10-14",
     "netNet": -0.98,
-    "peRatio": "18.74",
+    "peRatio": "18.79",
     "techSum": 0,
     "nvv": 12343,
     "navPercent": 0.53,
@@ -4028,7 +4170,9 @@
     "intangibleAssets": 5393,
     "totalCurrentAssets": 10807,
     "isin": "GB00BLGZ9862",
-    "revenue": 57887
+    "revenue": 57887,
+    "eps": "0.16",
+    "numberOfShares": "7640"
   },
   {
     "navMid": -0.17,
@@ -4037,14 +4181,14 @@
     "news": "https://www.londonstockexchange.com/stock/ULVR/xxx/analysis|2022-02-10 Final Results",
     "rsi": "53.00",
     "midPrice": null,
-    "dividend": "3.77",
+    "dividend": "3.73",
     "tickerSymbol": "ULVR",
     "stockName": "UNILEVER|http://www.unilever.com/",
     "profit": 5581,
     "cash": 4966,
-    "exDividend": "2021-11-04",
+    "exDividend": "2022-02-24",
     "netNet": -0.37,
-    "peRatio": "21.54",
+    "peRatio": "19.62",
     "techSum": 1,
     "nvv": 15266,
     "navPercent": 0.16,
@@ -4084,7 +4228,9 @@
     "intangibleAssets": 31276,
     "totalCurrentAssets": 16157,
     "isin": "GB00B10RZP78",
-    "revenue": 50724
+    "revenue": 50724,
+    "eps": "2.00",
+    "numberOfShares": "2560"
   },
   {
     "navMid": -0.32,
@@ -4140,7 +4286,9 @@
     "intangibleAssets": 22942,
     "totalCurrentAssets": 5314,
     "isin": "GB00B24CGK77",
-    "revenue": 13993
+    "revenue": 13993,
+    "eps": "-2.26",
+    "numberOfShares": "714.45"
   },
   {
     "navMid": 0.13,
@@ -4149,14 +4297,14 @@
     "news": "https://www.londonstockexchange.com/stock/BRBY/xxx/analysis|2022-02-01 Total Voting Rights",
     "rsi": "64.6",
     "midPrice": null,
-    "dividend": "2.73",
+    "dividend": "2.74",
     "tickerSymbol": "BRBY",
     "stockName": "BURBERRY GRP|http://www.burberryplc.com/",
     "profit": 375.7,
     "cash": 1261,
     "exDividend": "2021-12-16",
     "netNet": 0,
-    "peRatio": "17.04",
+    "peRatio": "17.00",
     "techSum": 1,
     "nvv": 1556.6,
     "navPercent": 0.2,
@@ -4196,7 +4344,9 @@
     "intangibleAssets": 237,
     "totalCurrentAssets": 1982.2,
     "isin": "GB0031743007",
-    "revenue": 2343.9
+    "revenue": 2343.9,
+    "eps": "1.16",
+    "numberOfShares": "399.69"
   },
   {
     "navMid": -0.37,
@@ -4252,7 +4402,9 @@
     "intangibleAssets": 40421,
     "totalCurrentAssets": 20247,
     "isin": "GB0009252882",
-    "revenue": 34099
+    "revenue": 34099,
+    "eps": "0.87",
+    "numberOfShares": "5030"
   },
   {
     "navMid": 0.27,
@@ -4268,7 +4420,7 @@
     "cash": 239,
     "exDividend": "2021-08-19",
     "netNet": -0.02,
-    "peRatio": "13.25",
+    "peRatio": "13.20",
     "techSum": -2,
     "nvv": 2135,
     "navPercent": 0.45,
@@ -4308,7 +4460,9 @@
     "intangibleAssets": 641,
     "totalCurrentAssets": 1922,
     "isin": "GB00B0LCW083",
-    "revenue": 2341
+    "revenue": 2341,
+    "eps": "1.49",
+    "numberOfShares": "231.50"
   },
   {
     "navMid": -0.15,
@@ -4317,14 +4471,14 @@
     "news": "https://www.londonstockexchange.com/stock/AZN/xxx/analysis|2022-02-10 AZN: Full year and Q4 2021 results",
     "rsi": "44",
     "midPrice": null,
-    "dividend": "2.37",
+    "dividend": "2.47",
     "tickerSymbol": "AZN",
     "stockName": "ASTRAZENECA|http://www.astrazeneca.com/",
     "profit": 3196,
     "cash": 5730,
-    "exDividend": "2021-08-12",
+    "exDividend": "2022-02-24",
     "netNet": -0.24,
-    "peRatio": "90.81",
+    "peRatio": "450.74",
     "techSum": -2,
     "nvv": 15622,
     "navPercent": 0.12,
@@ -4364,7 +4518,9 @@
     "intangibleAssets": 23989,
     "totalCurrentAssets": 19544,
     "isin": "GB0009895292",
-    "revenue": 26617
+    "revenue": 26617,
+    "eps": "0.19",
+    "numberOfShares": "1550"
   },
   {
     "navMid": 0.54,
@@ -4373,14 +4529,14 @@
     "news": "https://www.londonstockexchange.com/stock/FRES/xxx/analysis|2022-02-04 Death of our Honorary Chairman ",
     "rsi": "27.6",
     "midPrice": null,
-    "dividend": "3.80",
+    "dividend": "3.81",
     "tickerSymbol": "FRES",
     "stockName": "FRESNILLO|http://www.fresnilloplc.com/",
     "profit": 374.12,
     "cash": 783,
     "exDividend": "2021-08-12",
     "netNet": -0.04,
-    "peRatio": "10.11",
+    "peRatio": "10.09",
     "techSum": -2,
     "nvv": 3479.05,
     "navPercent": 0.74,
@@ -4420,7 +4576,9 @@
     "intangibleAssets": 0,
     "totalCurrentAssets": 2000.87,
     "isin": "GB00B2QPKJ12",
-    "revenue": 2430.06
+    "revenue": 2430.06,
+    "eps": "0.62",
+    "numberOfShares": "179.76"
   },
   {
     "navMid": 1.69,
@@ -4429,14 +4587,14 @@
     "news": "https://www.londonstockexchange.com/stock/BLND/xxx/analysis|2022-02-10 Holding(s) in Company",
     "rsi": "—",
     "midPrice": null,
-    "dividend": "3.12",
+    "dividend": "3.11",
     "tickerSymbol": "BLND",
     "stockName": "BR.LAND|http://www.britishland.com/",
     "profit": -1031,
     "cash": 154,
     "exDividend": "2021-11-25",
     "netNet": -0.54,
-    "peRatio": "74.47",
+    "peRatio": "74.68",
     "techSum": -1,
     "nvv": 5924,
     "navPercent": 1.17,
@@ -4476,7 +4634,9 @@
     "intangibleAssets": 12,
     "totalCurrentAssets": 236,
     "isin": "GB0001367019",
-    "revenue": 468
+    "revenue": 468,
+    "eps": "0.07",
+    "numberOfShares": "926.84"
   },
   {
     "navMid": 1.52,
@@ -4532,7 +4692,9 @@
     "intangibleAssets": 8,
     "totalCurrentAssets": 406,
     "isin": "GB00BYW0PQ60",
-    "revenue": 635
+    "revenue": 635,
+    "eps": "-0.38",
+    "numberOfShares": "741.48"
   },
   {
     "navMid": 0.55,
@@ -4588,7 +4750,9 @@
     "intangibleAssets": 2,
     "totalCurrentAssets": 425.7,
     "isin": "GB00B5ZN1N88",
-    "revenue": 431.7
+    "revenue": 431.7,
+    "eps": "2.12",
+    "numberOfShares": "1200"
   },
   {
     "navMid": 0.45,
@@ -4604,7 +4768,7 @@
     "cash": 964,
     "exDividend": "2021-06-24",
     "netNet": -0.21,
-    "peRatio": "21.12",
+    "peRatio": "21.09",
     "techSum": -2,
     "nvv": 1238.7,
     "navPercent": 0.13,
@@ -4644,7 +4808,9 @@
     "intangibleAssets": 820,
     "totalCurrentAssets": 1919.3,
     "isin": "GB00BM8Q5M07",
-    "revenue": 6167.3
+    "revenue": 6167.3,
+    "eps": "0.08",
+    "numberOfShares": "5160"
   },
   {
     "navMid": 0.46,
@@ -4660,7 +4826,7 @@
     "cash": 1142,
     "exDividend": "2021-10-07",
     "netNet": -0.25,
-    "peRatio": "8.20",
+    "peRatio": "8.22",
     "techSum": -1,
     "nvv": 6571,
     "navPercent": 0.96,
@@ -4700,7 +4866,9 @@
     "intangibleAssets": 2747,
     "totalCurrentAssets": 3957,
     "isin": "GB0033195214",
-    "revenue": 12343
+    "revenue": 12343,
+    "eps": "0.39",
+    "numberOfShares": "2060"
   },
   {
     "navMid": -0.03,
@@ -4709,14 +4877,14 @@
     "news": "https://www.londonstockexchange.com/stock/BME/xxx/analysis|2022-01-18 Holding(s) in Company",
     "rsi": "44.08",
     "midPrice": null,
-    "dividend": "7.55",
+    "dividend": "7.53",
     "tickerSymbol": "BME",
     "stockName": "B&M EUROPEAN|http://www.bandmretail.com/",
     "profit": 428.1,
     "cash": 218,
     "exDividend": "2020-11-19",
     "netNet": null,
-    "peRatio": "13.22",
+    "peRatio": "13.27",
     "techSum": -1,
     "nvv": 732.97,
     "navPercent": 0.13,
@@ -4755,7 +4923,9 @@
     "navPercentIt": -0.05,
     "intangibleAssets": 1039,
     "totalCurrentAssets": null,
-    "isin": "LU1072616219"
+    "isin": "LU1072616219",
+    "eps": "0.43",
+    "numberOfShares": "1000"
   },
   {
     "navMid": -0.17,
@@ -4771,7 +4941,7 @@
     "cash": 128,
     "exDividend": "2021-09-09",
     "netNet": -0.19,
-    "peRatio": "30.61",
+    "peRatio": "30.60",
     "techSum": 0,
     "nvv": 1195.3,
     "navPercent": 0.19,
@@ -4811,7 +4981,9 @@
     "intangibleAssets": 1550,
     "totalCurrentAssets": 289.2,
     "isin": "GB00BDD85M81",
-    "revenue": 892.9
+    "revenue": 892.9,
+    "eps": "0.20",
+    "numberOfShares": "1040"
   },
   {
     "navMid": 0.03,
@@ -4867,7 +5039,9 @@
     "intangibleAssets": 5566,
     "totalCurrentAssets": 846.4,
     "isin": "GB00BBG9VN75",
-    "revenue": 820.4
+    "revenue": 820.4,
+    "eps": "-0.03",
+    "numberOfShares": "301.52"
   },
   {
     "navMid": -0.06,
@@ -4876,14 +5050,14 @@
     "news": "https://www.londonstockexchange.com/stock/SGE/xxx/analysis|2022-02-07 Director/PDMR Shareholding",
     "rsi": "31.75",
     "midPrice": null,
-    "dividend": "2.57",
+    "dividend": "2.58",
     "tickerSymbol": "SGE",
     "stockName": "SAGE GRP.|http://www.sage.com/",
     "profit": 285,
     "cash": 553,
     "exDividend": "2022-01-13",
     "netNet": -0.17,
-    "peRatio": "26.29",
+    "peRatio": "26.21",
     "techSum": -1,
     "nvv": 1111,
     "navPercent": 0.15,
@@ -4923,7 +5097,9 @@
     "intangibleAssets": 2067,
     "totalCurrentAssets": 924,
     "isin": "GB00B8C3BL03",
-    "revenue": 1846
+    "revenue": 1846,
+    "eps": "0.26",
+    "numberOfShares": "1020"
   },
   {
     "navMid": 0.01,
@@ -4939,7 +5115,7 @@
     "cash": 96.69,
     "exDividend": "2021-09-30",
     "netNet": 0.01,
-    "peRatio": "36.09",
+    "peRatio": "36.08",
     "techSum": -1,
     "nvv": 123.15,
     "navPercent": 0.02,
@@ -4979,7 +5155,9 @@
     "intangibleAssets": 22.11,
     "totalCurrentAssets": 121.64,
     "isin": "GB00BGDT3G23",
-    "revenue": 205.72
+    "revenue": 205.72,
+    "eps": "0.18",
+    "numberOfShares": "847.20"
   },
   {
     "navMid": 0.05,
@@ -5035,7 +5213,9 @@
     "intangibleAssets": 13357,
     "totalCurrentAssets": 10400,
     "isin": "GB0030913577",
-    "revenue": 21331
+    "revenue": 21331,
+    "eps": "0.10",
+    "numberOfShares": "9920"
   },
   {
     "navMid": 0.24,
@@ -5091,7 +5271,9 @@
     "intangibleAssets": 45616,
     "totalCurrentAssets": 28270,
     "isin": "GB00BH4HKS39",
-    "revenue": 43809
+    "revenue": 43809,
+    "eps": "-0.01",
+    "numberOfShares": "27000"
   },
   {
     "navMid": -0.75,
@@ -5100,14 +5282,14 @@
     "news": "https://www.londonstockexchange.com/stock/BATS/xxx/analysis|2022-02-11 Board Changes",
     "rsi": "71.8",
     "midPrice": null,
-    "dividend": "6.41",
+    "dividend": "6.47",
     "tickerSymbol": "BATS",
     "stockName": "BR.AMER.TOB.|http://www.bat.com/",
     "profit": 6400,
     "cash": 3139,
     "exDividend": "2021-12-23",
     "netNet": -0.84,
-    "peRatio": "12.47",
+    "peRatio": "11.40",
     "techSum": 1,
     "nvv": 62673,
     "navPercent": 0.86,
@@ -5147,7 +5329,9 @@
     "intangibleAssets": 115343,
     "totalCurrentAssets": 13612,
     "isin": "GB0002875804",
-    "revenue": 25776
+    "revenue": 25776,
+    "eps": "2.96",
+    "numberOfShares": "2290"
   },
   {
     "navMid": -0.8,
@@ -5156,14 +5340,14 @@
     "news": "https://www.londonstockexchange.com/stock/IMB/xxx/analysis|2022-02-04 Transaction in Own Shares-Transfer Treasury Shares",
     "rsi": "67.5",
     "midPrice": null,
-    "dividend": "7.64",
+    "dividend": "7.65",
     "tickerSymbol": "IMB",
     "stockName": "IMP.BRANDS|http://www.imperialbrandsplc.com/",
     "profit": 2834,
     "cash": 1287,
     "exDividend": "2022-02-17",
     "netNet": -0.95,
-    "peRatio": "6.09",
+    "peRatio": "6.08",
     "techSum": 1,
     "nvv": 5352,
     "navPercent": 0.33,
@@ -5203,7 +5387,9 @@
     "intangibleAssets": 16674,
     "totalCurrentAssets": 8207,
     "isin": "GB0004544929",
-    "revenue": 32791
+    "revenue": 32791,
+    "eps": "2.99",
+    "numberOfShares": "950.41"
   },
   {
     "navMid": 0,
@@ -5219,7 +5405,7 @@
     "cash": 707,
     "exDividend": "2019-08-22",
     "netNet": -0.3,
-    "peRatio": "72.54",
+    "peRatio": "72.65",
     "techSum": -2,
     "nvv": 3029.2,
     "navPercent": 0.32,
@@ -5259,6 +5445,8 @@
     "intangibleAssets": 5167,
     "totalCurrentAssets": 1395.2,
     "isin": "IM00B5VQMV65",
-    "revenue": 3561.6
+    "revenue": 3561.6,
+    "eps": "0.23",
+    "numberOfShares": "586.55"
   }
 ]

@@ -15,6 +15,7 @@
   { "ticker": "STAN" },
   { "ticker": "CCH" },
   { "ticker": "DGE" },
+  { "ticker": "ADF" },
   { "ticker": "AUTO" },
   { "ticker": "CRDA" },
   { "ticker": "JMAT" },
