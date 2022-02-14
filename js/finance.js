@@ -126,7 +126,7 @@ $(window).on('load', function () {
                 $('#tableftseaimCon').hide();
                 $('#sectorRiseCon').show();
                 $('#sectorRise').bootstrapTable({
-                    data: sdata
+                    'load': sdata
                 });
 
             });
@@ -160,7 +160,7 @@ $(window).on('load', function () {
                 $('#tablesectorsCon').hide();
                 $('#sectorRiseCon').hide();
                 $('#table').bootstrapTable({
-                    data: sdata
+                    'load': sdata
                 });
 
             });
@@ -574,13 +574,11 @@ $(window).on('load', function () {
     async function loopTickers() {
 
             for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
-
                 await waitforme(200);
                 if ($.trim($("#aa" + j).text()) != "") {
                     var curIndex = j;
 
                     var ticker = $.trim($("#aa" + j).text()) + "|" + $("#activebutt").text();
-
                     demo(ticker, curIndex);
 
                 }
@@ -845,29 +843,48 @@ $(window).on('load', function () {
                     $('#tableftse').bootstrapTable('destroy');
 
                     $('#tableftse').bootstrapTable({
-                        data: sdata
+                       data:sdata
                     });
-
-
+                    $(".no-records-found:last").children("td").text(sdata.count+" companies found that match the criteria");
 
                     $(".excludeRst").css("display","");
                     $(".excludeAim").css("display", "");
 
                     $(".excludeRst").on("click", function () {
+                        var tot = sdata.count;
                         if (this.checked) {
-                            //   $(".aim").parent("td").parent("tr").css("display", "none");
+                            $(".excludeRst").prop('checked', true);
+                                tot = tot - sdata.rstCount;
+                            if ($('input.excludeAim').is(':checked')) {
+                                tot = tot - sdata.aimCount;
+                            }
+                            $(".no-records-found:last").children("td").text(tot + " companies found that match the criteria");
                             $(".ftserst").parent("td").parent("tr").hide();
                         } else {
-                            //    $(".aim").parent("td").parent("tr").css("display", "");
+                            $(".excludeRst").prop('checked', false);
+                            if ($('input.excludeAim').is(':checked')) {
+                                tot = tot - sdata.aimCount;
+                            }
+                            $(".no-records-found:last").children("td").text(tot + " companies found that match the criteria");
                             $(".ftserst").parent("td").parent("tr").show();
                         }
                     });
                     $(".excludeAim").on("click", function () {
+                        var tot = sdata.count;
                         if (this.checked) {
-                         //   $(".aim").parent("td").parent("tr").css("display", "none");
+                            $(".excludeAim").prop('checked', true);
+                            var tot = tot - sdata.aimCount;
+                            if ($('input.excludeRst').is(':checked')) {
+                              tot = tot - sdata.rstCount;
+                           };
                             $(".aim").parent("td").parent("tr").hide();
+                            $(".no-records-found:last").children("td").text(tot + " companies found that match the criteria");
                         } else {
-                        //    $(".aim").parent("td").parent("tr").css("display", "");
+                            $(".excludeAim").prop('checked', false);
+                            if ($('input.excludeRst').is(':checked')) {
+                                tot = tot - sdata.rstCount;
+                            }
+                            $(".no-records-found:last").children("td").text(tot + " companies found that match the criteria");
                             $(".aim").parent("td").parent("tr").show();
                         }
                      });
@@ -1009,8 +1026,12 @@ $(window).on('load', function () {
                  
 
                  $('#tableftse').bootstrapTable({
+                     dataTotalField:"count",
+                   dataDataField:"items",
+                     sidePagination: "server",
                      data: sdata
                  });
+                 $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
 
                  var abc = ["a", "b", "c"];
                  for (let i = 0; i < abc.length; ++i) {

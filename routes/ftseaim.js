@@ -63,11 +63,16 @@ router.get('/', (req, res) => {
                 ftseaim[index].netNet = 0;
             }
         }
+        var count = Object.keys(ftseaim).length;
+        var bish = {
+            "count": count,
+            "items": ftseaim
+        };
+
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(
-            ftseaim
-
-        ));
+            bish
+        ))
     }
     //  return next();
 });

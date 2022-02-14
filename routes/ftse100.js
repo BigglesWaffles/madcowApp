@@ -61,9 +61,15 @@ router.get('/', (req, res) => {
             }
         }
 
+        var count = Object.keys(ftse100).length;
+        var bish = {
+            "count": count,
+            "items": ftse100
+        };
+
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(
-            ftse100
+            bish
         ))
     }
     //  return next();

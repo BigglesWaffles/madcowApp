@@ -39,7 +39,7 @@
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
-               <!--    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="isinBut" type="button" class="btn btn-info">ISIN</button>
+                 <!--  <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="isinBut" type="button" class="btn btn-info">ISIN</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppetBut" type="button" class="btn btn-info">PUP SECOND</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet2But" type="button" class="btn btn-info">PUP FIRST</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet0But" type="button" class="btn btn-info">PUP BAL</button>
@@ -58,6 +58,8 @@
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Top NAV (assets - liabilites / mrk cap)</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">sensible PE ratio (under 18)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">pediv pe ratio under 14 and dividend over 2</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Top (assets - intangibles - liabilites / mrk cap)</span></a>
                         <div class="dropdown-divider"></div>
@@ -84,7 +86,7 @@
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">BUY signal from BritishBulls.com (today) and Tradingview.com buy</span></a>
                     </div><br />
 
-               <!--      <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="delayBut" type="button" class="btn btn-info">delayed price</button> 
+                <!--     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="delayBut" type="button" class="btn btn-info">delayed price</button> 
                     -->
                     <div class="btn-group form-select-lg mb-3">
                         <button style="width: 115px; color: black; background-color: lightgrey; border-color: #46b8da; margin-top:1px" id="selectBox" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -148,15 +150,17 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Retailers</span></a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Broadcast</span></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">blockchain</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Finance</span></a>
                         </div>
-                        &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeAim" type="checkbox" id="excludeAim" name="excludeAim" value="excludeAim">
+                  <!--      &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeAim" type="checkbox" id="excludeAim" name="excludeAim" value="excludeAim">
                         <label class="excludeAim" style="background-color: #FFF5EE; font-weight: 200; font-size: 14px;display: none " for="excludeAim"> Exclude AIM shares from search list</label>
                         &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeRst" type="checkbox" id="excludeRst" name="excludeRst" value="excludeRst">
                         <label class="excludeRst" style="background-color:#e0ffdd; font-weight:200;font-size:14px;display: none" for="excludeRst"> Exclude smaller FTSE companies</label>
-                   <!--     &nbsp;&nbsp;<input style="margin-top:10px" class="form-check-input errorsOn" type="checkbox" id="errorsOn" name="errorsOn" value="errorsOn">
+                        &nbsp;&nbsp;<input style="margin-top:10px" class="form-check-input errorsOn" type="checkbox" id="errorsOn" name="errorsOn" value="errorsOn">
                         <label class="excludeRst" style="background-color:#e0ffdd; font-weight:200;font-size:14px;" for="excludeRst"> Set errors on</label> -->
                     </div>
                 </div>
@@ -171,7 +175,10 @@
                    data-toolbar=".toolbar"
                    data-search="true"
                    data-show-columns="true"
-                   data-show-columns-toggle-all="true">
+                     data-total-field="count"
+                   data-data-field="items"
+                     data-side-pagination="server">
+                <!--   data-show-columns-toggle-all="true"> -->
                 <thead>
                     <tr>
                         <th class="stockName" id="dddd" title="" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
@@ -304,15 +311,15 @@
 
             if (value.substring(0, 3) == "aim") {
                 value = value.replace("aim", "");
-                return "<span class='aim' > " + value + " &nbsp;</span>";
+                return "<span class='aim' id='aa" + index + "'> " + value + " &nbsp;</span>";
 
             }
             if (value.substring(0, 7) == "ftserst") {
                 value = value.replace("ftserst", "");
-                return "<span class='ftserst' > " + value + " &nbsp;</span>";
+                return "<span class='ftserst' id='aa" + index + "' > " + value + " &nbsp;</span>";
             }
 
-            return "<span > " + value + " &nbsp;</span>";
+            return "<span id='aa" + index + "' > " + value + " &nbsp;</span>";
 
 /*
             if (value.substring(0, 3) == "aim") {

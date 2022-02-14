@@ -60,10 +60,16 @@ router.get('/', (req, res) => {
                 ftserst[index].netNet = 0;
             }
         }
+        var count = Object.keys(ftserst).length;
+        var bish = {
+            "count": count,
+            "items": ftserst
+        };
+
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(
-            ftserst
-        ));
+            bish
+        ))
     }
     //  return next();
 });

@@ -63,11 +63,16 @@ router.get('/', (req, res) => {
             }
         }
 
+        var count = Object.keys(ftse250).length;
+        var bish = {
+            "count": count,
+            "items": ftse250
+        };
+
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(
-            ftse250
-            //    [{"hello":"world"}]
-        ));
+            bish
+        ))
         //  return next();
     }
 });

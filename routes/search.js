@@ -6,6 +6,8 @@ var path = require('path');
 
 const fs = require('fs');
 
+var a1 = { "aimCount": 0, "rstCount": 0 };
+
 
 
 
@@ -24,7 +26,7 @@ router.get('/:name', (req, res) => {
 
         let company = search[index];
 
-        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch, "ftse100");
+        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch, "ftse100", a1);
 
     }
 
@@ -35,7 +37,7 @@ router.get('/:name', (req, res) => {
 
         let company = search[index];
 
-        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch, "ftse250");
+        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch, "ftse250", a1);
 
     }
 
@@ -46,36 +48,44 @@ router.get('/:name', (req, res) => {
 
         let company = search[index];
 
-        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch,"ftserst");
+        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch,"ftserst", a1);
     }
 
     rawdata = fs.readFileSync('files/ftseaim.json');
     search = JSON.parse(rawdata);
 
+
     for (let index = 0; index < search.length; ++index) {
 
         let company = search[index];
 
-        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch, "aim");
+        ftseSearch = createReturnJSON(req.params.name, company, ftseSearch, "aim", a1);
     }
 
 
     console.log(req.params);
     console.log(req.params.name);
     // app.use('/pthv/:useridname', pthv);
+    console.log("a1" + a1.aimCount+" "+a1.rstCount);
+    var count = Object.keys(ftseSearch).length;
+    var bish = {
+        "aimCount": a1.aimCount,
+        "rstCount":a1.rstCount,
+        "count": count,
+        "items": ftseSearch
+    };
+
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(
-        ftseSearch
-    )
-
-    )
+        bish
+    ) )
     //  return next();
 });
 
 
 module.exports = router;
 
-function createReturnJSON(parm, company,ftseSearch, indexType) {
+function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
     let expression = parm;
     if (parm.toLowerCase().includes("pe ratio")) {
         expression = "peratio";
@@ -110,6 +120,9 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     if (parm.toLowerCase().includes("itsgoingup")) {
         expression = "itsgoingup";
     }
+    if (parm.toLowerCase().includes("pediv")) {
+        expression = "pediv";
+    }
     if (parm.toLowerCase().includes("capturn")) {
         expression = "capturn";
     }
@@ -126,7 +139,7 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
         expression = "netnet";
     }
     if (parm.toLowerCase().includes("transaction in own")) {
-        expression =  "transaction in own";
+        expression = "transaction in own";
     }
     if (parm.toLowerCase().includes("good nav (excluding intangibles) relative to market cap, good pe and gives a dividend")) {
         expression = "good nav and good pe";
@@ -146,217 +159,107 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
     switch (expression) {
         case "strong buy":
             if (company.summary != null && company.summary.toLowerCase() == "strong buy") {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "buy rsi":
             if (company.rsiText != null && company.rsiText != undefined && company.rsiText.toLowerCase.includes("buy")) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "itsgoingup":
             if (company.percentUp > 2.49) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "capturn":
-            if (company.marketCapitalisation > 0 && company.revenue > 0 && company.marketCapitalisation / company.revenue  < 0.3)
-                 {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+            if (company.marketCapitalisation > 0 && company.revenue > 0 && company.marketCapitalisation / company.revenue < 0.3) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "capnavturn":
             if (company.marketCapitalisation > 0 && company.revenue > 0 && company.marketCapitalisation / company.revenue < 0.3 && company.navPercent > 0.9) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "funtech":
-            if (company.summary.toLowerCase().includes("buy")  && 
-                company.peRatio < 18 && company.peRatio > 0 && company.naVPercentIt > 1 && company.dividend > 0) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+            if (company.summary.toLowerCase().includes("buy") &&
+                company.peRatio < 18 && company.peRatio > 0 && company.naVPercentIt > 1 && company.dividend > 2) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "badtech":
             if (company.rsiText.toLowerCase().includes("buy") &&
-                company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 0) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 2) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
+            }
+            break;
+        case "pediv":
+            if (company.peRatio < 14 && company.peRatio > 1 && company.dividend > 2) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "mcdonalds":
             if (company.macdText.toLowerCase().includes("buy") &&
-                company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 0) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 2) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "buy momentum":
             if (company.momentumText != null && company.momentumText != undefined && company.momentumText.toLowerCase() == "buy") {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "rsi momentum buy":
-            if (company.momentumText != null && company.momentumText != undefined && company.momentumText.toLowerCase() == "buy" && 
-                company.rsiText.toLowerCase() == "buy"  ) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+            if (company.momentumText != null && company.momentumText != undefined && company.momentumText.toLowerCase() == "buy" &&
+                company.rsiText.toLowerCase() == "buy") {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "good nav and good pe":
-            if (company.peRatio < 18 && company.peRatio > 0 && company.naVPercentIt > 1 && company.dividend > 0) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+            if (company.peRatio < 18 && company.peRatio > 0 && company.naVPercentIt > 1 && company.dividend > 2) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "netnet":
             if (company.netNet > 0.8) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "peratio":
             if (company.peRatio < 18 && company.peRatio > 0) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "assets - liabilites":
             if (company.navPercent > 1) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "assets - intangibles":
             if (company.naVPercentIt > 1) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "holding":
             if (company.news.toLowerCase().includes(expression)) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "director":
             if (company.news.toLowerCase().includes(expression)) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "trading":
             if (company.news.toLowerCase().includes(expression)) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "transaction in own":
             if (company.news.toLowerCase().includes(expression)
                 || company.news.toLowerCase().includes("buyback")) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "results":
@@ -367,50 +270,38 @@ function createReturnJSON(parm, company,ftseSearch, indexType) {
                 && !company.news.toLowerCase().includes("of placing")
                 && !company.news.toLowerCase().includes("confirmation of")
             ) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "investment bank":
             if (company.sector.toLowerCase().includes("investment bank")
             ) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         case "bank":
             if (company.sector.toLowerCase().includes("bank")
                 && !company.sector.toLowerCase().includes("investment bank")
             ) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
         default:
             if (company.sector.toLowerCase().includes(expression.toLowerCase())) {
-                if (indexType == "aim") {
-                    company.tickerSymbol = "aim" + company.tickerSymbol;
-                }
-                if (indexType == "ftserst") {
-                    company.tickerSymbol = "ftserst" + company.tickerSymbol;
-                }
-                ftseSearch.push(company);
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
     }
     return ftseSearch;
 }
+    function aimRst(company, ftseSearch, a1, indexType) {
+        if (indexType == "aim") {
+            a1.aimCount = a1.aimCount + 1;
+            company.tickerSymbol = "aim" + company.tickerSymbol;
+        }
+        if (indexType == "ftserst") {
+            a1.rstCount = a1.rstCount + 1;
+            company.tickerSymbol = "ftserst" + company.tickerSymbol;
+        }
+        ftseSearch.push(company);
+        return ftseSearch;
+    }
