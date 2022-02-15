@@ -2,10 +2,12 @@ $(window).on('load', function () {
     // code here
 
 
+
+
+
     $('#tableftseCon').bootstrapTable({
         showRefresh: true
     });
-
     //$('#tableftse').bootstrapTable('hideColumn', 'netNet');
 
     $('#tableftse').on('post-body.bs.table', function (e) {
@@ -126,7 +128,7 @@ $(window).on('load', function () {
                 $('#tableftseaimCon').hide();
                 $('#sectorRiseCon').show();
                 $('#sectorRise').bootstrapTable({
-                    'load': sdata
+                    data: sdata
                 });
 
             });
@@ -160,7 +162,7 @@ $(window).on('load', function () {
                 $('#tablesectorsCon').hide();
                 $('#sectorRiseCon').hide();
                 $('#table').bootstrapTable({
-                    'load': sdata
+                    data: sdata
                 });
 
             });
@@ -845,7 +847,10 @@ $(window).on('load', function () {
                     $('#tableftse').bootstrapTable({
                        data:sdata
                     });
-                    $(".no-records-found:last").children("td").text(sdata.count+" companies found that match the criteria");
+                    $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
+
+
+                    $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
 
                     $(".excludeRst").css("display","");
                     $(".excludeAim").css("display", "");
@@ -1026,12 +1031,33 @@ $(window).on('load', function () {
                  
 
                  $('#tableftse').bootstrapTable({
-                     dataTotalField:"count",
-                   dataDataField:"items",
-                     sidePagination: "server",
                      data: sdata
                  });
                  $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
+
+                 $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
+
+                 $(".search-input.search-input").on('keyup', function () {
+                     var searchTerm = $(".search-input").val();
+                     var recordCount = $('#tableftse tr').length;
+
+                     for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+                         if (!$("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerm.toUpperCase())) {
+                             $("#aa" + j).parent("td").parent("tr").hide();
+                             recordCount = recordCount - 1;
+                         } else {
+                             $("#aa" + j).parent("td").parent("tr").show();
+                         }
+                     };
+                     if ((recordCount == 1)) {
+                         $(".no-records-found:last").children("td").text(recordCount + " company found that match the criteria");
+                     } else {
+                         $(".no-records-found:last").children("td").text(recordCount + " companies found that match the criteria");
+                     }
+                    
+                 });
+
+
 
                  var abc = ["a", "b", "c"];
                  for (let i = 0; i < abc.length; ++i) {
