@@ -850,6 +850,27 @@ $(window).on('load', function () {
                     $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
 
 
+                    $(".search-input.search-input").on('keyup', function () {
+                        var searchTerm = $(".search-input").val();
+                        var recordCount = $('#tableftse tr').length;
+
+                        for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+                            if (!$("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerm.toUpperCase())) {
+                                $("#aa" + j).parent("td").parent("tr").hide();
+                                recordCount = recordCount - 1;
+                            } else {
+                                $("#aa" + j).parent("td").parent("tr").show();
+                            }
+                        };
+                        if ((recordCount == 1)) {
+                            $(".no-records-found:last").children("td").text(recordCount + " company found that match the criteria");
+                        } else {
+                            $(".no-records-found:last").children("td").text(recordCount + " companies found that match the criteria");
+                        }
+
+                    });
+
+
                     $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
 
                     $(".excludeRst").css("display","");
