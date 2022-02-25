@@ -42,7 +42,7 @@ router.get('/:name', (req, res) => {
             fileToReadWrite = "files/"+fileName+".json";
             rawdata = fs.readFileSync(fileToReadWrite);
         search = JSON.parse(rawdata);
-    //    search = [{ "tickerSymbol": "SHOE" }, { "tickerSymbol": "TRD" }, { "tickerSymbol": "BT.A" }, { "tickerSymbol": "ADV" }];
+       search = [{ "tickerSymbol": "BA." }];
         var ticker2 = "";
             for (let index = 0; index < search.length; ++index) {
                 try {

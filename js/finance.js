@@ -239,13 +239,13 @@ $(window).on('load', function () {
         var timeout = 0;
     //    $.get("/routes/"+$("#activebutt").text()+"?x=err", {}, function (sdata) {
         $.get("/routes/"+$("#activebutt").text()+"?x=NOPE", {}, function (sdata) {
-            for (let i = 0; i < sdata.length; i++) {
-            
+            for (let i = 0; i < sdata.items.length; i++) {
+            //    alert(JSON.stringify(sdata));
                 timeout = timeout + 4000;
                 console.log(timeout);
 
                     setTimeout(function () {
-                        getProfits(sdata[i].isin, $("#activebutt").text());
+                        getProfits(sdata.items[i].isin, $("#activebutt").text());
 
                 }, timeout);
 
@@ -265,7 +265,7 @@ $(window).on('load', function () {
     });
 
     function getProfits(myIsin, myFile) {
-
+      //  alert("hhhhh");
             $.get("/routes/isin?x=" + myIsin + "&y=" + myFile, {}, function (sdata) {
                 console.log("im in here");
             });
@@ -1004,16 +1004,17 @@ $(window).on('load', function () {
          $("#activebutt").text(exchange);
 
          var routerVal = "";
+
          if (exchange == "ftse100") {
              routerVal = "routes/ftse100"
+             hideExludes();
              $("#indexTitle").text(" current list: FTSE 100");
              $("#indexTitleSort").text('current sort order: ticker' );
-         }
-         if (exchange == "ftse100") {
              $("#FTSE100But").removeClass("focus");
              $("#FTSE100But").removeClass("active");
          }
          if (exchange == "ftse250") {
+             hideExludes();
              routerVal = "routes/ftse250";
              $("#indexTitle").text(" current list: FTSE 250");
              $("#indexTitleSort").text('current sort order: ticker' );
@@ -1024,11 +1025,13 @@ $(window).on('load', function () {
              $("#indexTitleSort").text('current sort order: ticker');
          }
          if (exchange == "ftserst") {
+             hideExludes();
              routerVal = "routes/ftserst";
              $("#indexTitle").text(" current list: FTSE rest");
              $("#indexTitleSort").text('current sort order: ticker' );
          }
          if (exchange == "ftseaim") {
+             hideExludes();
              routerVal = "routes/ftseaim";
              $("#indexTitle").text(" current list: AIM");
              $("#indexTitleSort").text('current sort order: ticker' );
@@ -1154,6 +1157,11 @@ $(window).on('load', function () {
 
     });
 
-
+    function hideExludes() {
+        $(".excludeRst").css("display", "none");
+        $(".excludeAim").css("display", "none");
+        $("#excludeRst").prop("checked", false);
+        $("#excludeAim").prop("checked", false);
+    }
 
 });

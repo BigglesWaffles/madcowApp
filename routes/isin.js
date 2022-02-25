@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
 
 
   //  console.log(query);
-  //  console.log(query.x);
-  //  console.log(query.y);
+    console.log(query.x);
+    console.log(query.y);
   //  console.log(query.z);
 
     let myInputIsin = query.x;
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     let myErrors = [];
    // let myLength = query.z;
 
-   
+    console.log("my file is: " + myFileName);
     var myFile = "files/"+myFileName+".json";
   
 
@@ -170,7 +170,7 @@ router.get('/', (req, res) => {
         axios.get('https://www.fidelity.co.uk/factsheet-data/factsheet/' + myInputIsin + '-beazley-plc-uk/financials')
             .then(response => {
 
-
+                console.log("phew");
                 let myProfit = response.data;
                 let myStart = myProfit.indexOf("application\/json") + 18;
                 myProfit = myProfit.substring(myStart);

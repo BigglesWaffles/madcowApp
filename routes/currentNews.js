@@ -29,6 +29,7 @@ const axios = require('axios');
                     var volume = "";
                     var isin = "";
                     var sedol = "";
+                    var percentUp = "";
 
 
                     if (response.data.datepreviousnews == null) {
@@ -43,7 +44,10 @@ const axios = require('axios');
                     offer = response.data.offer;
                     volume = response.data.volume;
                     isin = response.data.isin;
-                    sedol= response.data.sedol;
+                    sedol = response.data.sedol;
+                    percentUp = response.data.percentualchange;
+
+                    console.log(response.data.percentualchange)
 
                     obj = { "currentnews": "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews };
 
@@ -93,6 +97,7 @@ const axios = require('axios');
                                 search[index].bid = bid;
                                 search[index].ask = offer;
                                 search[index].volume = volume;
+                                search[index].percentUp = roundToTwo(percentUp);
                                 console.log("this is what it thinks it is: " + search[index].marketCapitalisation + " " + "for ticker " + search[index].tickerSymbol);
                                 break;
                             }
@@ -161,4 +166,9 @@ const axios = require('axios');
     });
 
 
-    module.exports = router;
+module.exports = router;
+
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
+

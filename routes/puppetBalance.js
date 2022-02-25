@@ -37,10 +37,10 @@ router.get('/', (req, res) => {
 
         const page = await browser.newPage();
 
-        fileToReadWrite = "files/ftseaim.json";
+        fileToReadWrite = "files/ftse100.json";
         rawdata = fs.readFileSync(fileToReadWrite);
         search = JSON.parse(rawdata);
-     //     search = [{ "tickerSymbol": "TRD", "marketCapitalisation": 100000 }, { "tickerSymbol": "SHOE", "marketCapitalisation": 100000 }];
+    //    search = [{ "tickerSymbol": "BA.", "marketCapitalisation": 100000 }];
 
     //    search.unshift({ "tickerSymbol": "XXX", "marketCapitalisation": 100000 });
         var switch1 = false;
