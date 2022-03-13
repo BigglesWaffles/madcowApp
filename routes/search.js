@@ -157,6 +157,11 @@ function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
         expression = "buy momentum";
     }
     switch (expression) {
+        case "watch1":
+            if (company.watchlist != null && company.watchlist.toLowerCase() == expression) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
+            }
+            break;
         case "strong buy":
             if (company.summary != null && company.summary.toLowerCase() == "strong buy") {
                 ftseSearch = aimRst(company, ftseSearch, a1, indexType);

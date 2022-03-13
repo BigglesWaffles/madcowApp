@@ -21,6 +21,7 @@ var puppet2 = require('./routes/puppet2');
 var puppetBalance = require('./routes/puppetBalance');
 var puppetGoogle = require('./routes/puppetGoogle');
 var currentNews = require('./routes/currentNews');
+var createWatchList = require('./routes/createWatchList');
 var allSectors = require('./routes/allSectors');
 
 var cors = require('cors')
@@ -50,6 +51,7 @@ app.use('/routes/ftse100', ftse100);
 app.use('/routes/ftse250', ftse250);
 app.use('/routes/ftserst', ftserst);
 app.use('/routes/ftseaim', ftseaim);
+app.use('/routes/createWatchList', createWatchList);
 app.use('/routes/currentPercent', current);
 app.use('/routes/buySellOne', buySellOne);
 app.use('/routes/currentNews', currentNews);

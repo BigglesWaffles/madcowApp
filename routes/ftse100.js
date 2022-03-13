@@ -61,6 +61,7 @@ router.get('/', (req, res) => {
             }
         }
 
+
         var count = Object.keys(ftse100).length;
         var bish = {
             "count": count,

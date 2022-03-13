@@ -98,6 +98,34 @@ const axios = require('axios');
                                 search[index].ask = offer;
                                 search[index].volume = volume;
                                 search[index].percentUp = roundToTwo(percentUp);
+
+
+                                if ((search[index].totalAssets - search[index].totalLiabilities) != 0 && search[index].marketCapitalisation != 0) {
+
+                                    search[index].navPercent = (search[index].totalAssets - search[index].totalLiabilities) / search[index].marketCapitalisation;
+                                    search[index].navPercent = roundToTwo(search[index].navPercent);
+
+                                    if (search[index].totalAssets - search[index].totalLiabilities - search[index].intangibleAssets != 0) {
+
+                                        search[index].navPercentIt = (search[index].totalAssets - search[index].totalLiabilities - search[index].intangibleAssets) / search[index].marketCapitalisation;
+                                        search[index].navPercentIt = roundToTwo(search[index].navPercentIt);
+                                    }
+                                    if (search[index].totalCurrentAssets != NaN && search[index].totalCurrentAssets != null && search[index].totalCurrentAssets != 0 && search[index].totalCurrentAssets - search[index].totalLiabilities != 0) {
+                                        search[index].netNet = (search[index].totalCurrentAssets - search[index].totalLiabilities) / search[index].marketCapitalisation;
+                                        search[index].netNet = roundToTwo(search[index].netNet);
+                                    } else {
+                                        search[index].netNet = 0;
+                                    }
+                                }
+                                search[index].nvv = roundToTwo(search[index].nvv);
+                                if (search[index].marketCapitalisation == 0) {
+                                    search[index].navPercentIt = 0;
+                                    search[index].navPercent = 0;
+                                    search[index].netNet = 0;
+                                }
+
+
+
                                 console.log("this is what it thinks it is: " + search[index].marketCapitalisation + " " + "for ticker " + search[index].tickerSymbol);
                                 break;
                             }

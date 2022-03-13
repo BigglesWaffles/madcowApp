@@ -14,7 +14,9 @@ html, body {
     width: 400px !important;
 }
 
-
+.percentUp {
+    cursor: pointer;
+}
 .no-records-found {
     font-weight: 400;
     background-color: lavender;

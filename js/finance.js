@@ -506,6 +506,19 @@ $(window).on('load', function () {
 
     });
 
+    $("#watchBut").on("click", function () {
+
+        $.ajax({
+            url: "/routes/createWatchList/TRD|BT.A|ITV|PSON|MKS|MONY|HIK|SDG|ABDN|ABF|BYG|HSBA|IDG|GSK|INVP|VMUK|STAN",
+            type: "GET",
+            dataType: "json",
+            success: function (sdata) {
+                alert("done");
+            }
+        });
+
+    });
+
     $("#newsBut").on("click", function (event) {
 
         event.preventDefault();
@@ -988,6 +1001,39 @@ $(window).on('load', function () {
                 //    document.location.href = new_url;
                     setToolTip();
 
+
+
+                    $(".percentUp").children("span").on("click", function () {
+
+
+                        $(this).fadeOut("slow", function () {
+                            // Animation complete.
+
+
+                            let fred = ($(this)[0].id).replace("butt", "");
+
+                            let ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
+                            $.post("/routes/currentPercent", {
+                                ticker
+                            }, function (sdata) {
+                                if (sdata.percentUp < 0) {
+                                    $("#butt" + fred).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
+                                }
+                                if (sdata.percentUp == 0) {
+                                    $("#butt" + fred).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
+                                }
+                                if (sdata.percentUp > 0) {
+                                    $("#butt" + fred).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
+                                }
+                            });
+
+
+                        });  //fade
+
+                    });
+
+
+
                 });
 
             }
@@ -1134,6 +1180,35 @@ $(window).on('load', function () {
 
                  });
                  setToolTip();
+
+                 $(".percentUp").children("span").on("click", function () {
+
+
+                     $(this).fadeOut("slow", function () {
+                         // Animation complete.
+
+
+                         let fred = ($(this)[0].id).replace("butt", "");
+
+                         let ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
+                         $.post("/routes/currentPercent", {
+                             ticker
+                         }, function (sdata) {
+                             if (sdata.percentUp < 0) {
+                                 $("#butt" + fred).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
+                             }
+                             if (sdata.percentUp == 0) {
+                                 $("#butt" + fred).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
+                             }
+                             if (sdata.percentUp > 0) {
+                                 $("#butt" + fred).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
+                             }
+                         });
+
+
+                     });  //fade
+
+                 });
 
              });
 

@@ -60,6 +60,8 @@ router.get('/', (req, res) => {
                 ftserst[index].netNet = 0;
             }
         }
+
+
         var count = Object.keys(ftserst).length;
         var bish = {
             "count": count,

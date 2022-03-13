@@ -5,96 +5,190 @@ var app = express();
 var path = require('path');
 const fs = require('fs');
 
+var myJsonString = "";
+
 const axios = require('axios');
 
-
-
-    router.post('/', (req, res) => {
-
-
-        var newTicker = req.body.ticker.trim();
-
-        const myArray = req.body.ticker.split("|");
-
-
-        newTicker = myArray[0];
-      //  newTicker = newTicker.replace(/\./g, "");
-        console.log("SO WHAT IS NEW TICKER " + newTicker);
-
-
-        axios.get('https://www.lse.co.uk/SharePrice.asp?shareprice=' + newTicker)
-            .then(response => {
-
-             //   console.log(Object.keys(response));
-              //  JSON.stringify(response);
-           //     console.log(typeof response.data);
-           //     console.log(response.data.substring(100,400));
-              //  console.log(response.data.explanation);
-
-                var tempLine = response.data.substring(response.data.indexOf("data-field=\"MID_PCT_CHG") + 43, response.data.indexOf("data-field=\"MID_PCT_CHG") + 47);
-                console.log(tempLine);
+router.post('/', (req, res) => {
 
 
 
-                console.log("updating ticker " + myArray[0]);
-                var rawdata = "";
-                var search = "";
-                var fileToReadWrite = "";
-                if (myArray[1] != "search") {
+    const myArray = req.body.ticker.split("|");
+    var obj = { "currentPercent": "error" };
 
-                    if (myArray[1] == "ftseaim") {
-                        fileToReadWrite = 'files/ftseaim.json';
+
+ //   console.log("In correct file ");
+    var rawdata = "";
+
+    var fileToReadWrite = "";
+
+
+  //  console.log("in async");
+
+    fileToReadWrite = "files/tickers";
+    rawdata = fs.readFileSync(fileToReadWrite);
+    var search = "";
+
+    var myPrice = "";
+    var percentUp = "";
+
+    var tempLine = "carrort";
+
+    axios.get('https://www.youinvest.co.uk/market-research/LSE%3A' +  myArray[0])
+        .then(response => {
+
+            myPrice = response.data.substring(response.data.indexOf("Col0PriceDetail"), response.data.length);
+            myPrice = myPrice.substring(myPrice.indexOf("|")+1, myPrice.length);
+            myPrice = myPrice.substring(0, myPrice.indexOf("<span"));
+
+            percentUp = myPrice.trim();
+
+            tempLine = percentUp;
+
+            var rawdata = fs.readFileSync('files/ftse100.json');
+            var search = JSON.parse(rawdata);
+            var found = false;
+            var jsonString = "";
+
+            for (let index = 0; index < search.length; ++index) {
+
+                    if (myArray[0].toUpperCase() == search[index].tickerSymbol.toUpperCase()) {
+                        search[index].percentUp = percentUp;
+                        found = true;
                     }
-                    if (myArray[1] == "ftse100") {
-                        fileToReadWrite = 'files/ftse100.json';
-                    }
-                    if (myArray[1] == "ftse250") {
-                        fileToReadWrite = 'files/ftse250.json';
-                    }
-                    if (myArray[1] == "ftserst") {
-                        fileToReadWrite = 'files/ftserst.json';
-                    }
-                    rawdata = fs.readFileSync(fileToReadWrite);
-                    search = JSON.parse(rawdata);
 
-                    for (let index = 0; index < search.length; ++index) {
 
-                        if (search[index].tickerSymbol == myArray[0]) {
-                            search[index].percentUp = tempLine;
-                            break;
+            }
+
+            if (found) {
+                jsonString = JSON.stringify(search);
+
+                fs.writeFile('files/ftse100.json', jsonString, err => {
+                    if (err) {
+                        console.log('Error writing file', err)
+                    }
+                });
+            }
+
+
+            if (!found) {
+                rawdata = fs.readFileSync('files/ftse250.json');
+                search = JSON.parse(rawdata);
+
+                for (let index = 0; index < search.length; ++index) {
+
+                    if (myArray[0].toUpperCase() == search[index].tickerSymbol.toUpperCase()) {
+                        search[index].percentUp = percentUp;
+                        found = true;
+                    }
+
+                }
+                if (found) {
+                    jsonString = JSON.stringify(search);
+
+                     fs.writeFile('files/ftse250.json', jsonString, err => {
+                        if (err) {
+                        console.log('Error writing file', err)
+                     }
+                    });
+                 }
+
+            }
+
+
+            if (!found) {
+                rawdata = fs.readFileSync('files/ftserst.json');
+                search = JSON.parse(rawdata);
+
+                for (let index = 0; index < search.length; ++index) {
+                    if (myArray[0].toUpperCase() == search[index].tickerSymbol.toUpperCase()) {
+                        search[index].percentUp = percentUp;
+                        found = true;
+                    }
+                }
+
+                if (found) {
+                    jsonString = JSON.stringify(search);
+
+                    fs.writeFile('files/ftserst.json', jsonString, err => {
+                        if (err) {
+                            console.log('Error writing file', err)
                         }
+                    });
+                }
+            }
+            if (!found) {
+                rawdata = fs.readFileSync('files/ftseaim.json');
+                search = JSON.parse(rawdata);
+
+
+                for (let index = 0; index < search.length; ++index) {
+                    if (myArray[0].toUpperCase() == search[index].tickerSymbol.toUpperCase()) {
+                        search[index].percentUp = percentUp;
+                        found = true;
                     }
+                }
 
-                    const jsonString = JSON.stringify(search);
+                if (found) {
+                    jsonString = JSON.stringify(search);
 
-                    fs.writeFile(fileToReadWrite, jsonString, err => {
+                    fs.writeFile('files/ftseaim.json', jsonString, err => {
+                        if (err) {
+                            console.log('Error writing file', err)
+                        }
+                    });
+                }
+            }
+
+            var obj = { "percentUp": tempLine };
+
+
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(
+                obj
+            ))
+
+        })
+        .catch(error => {
+            console.log(error);
+
+            var myFileParsed2 = [];
+
+            try {
+                if (fs.existsSync("files/" + myArray[1] + "CURR-Errs.json")) {
+                    let rawdata2 = fs.readFileSync("files/" + myArray[1] + "CURRL-Errs.json");
+                    myFileParsed2 = JSON.parse(rawdata2);
+                    myFileParsed2.push({ "ticker": myArray[0] });
+
+                    const jsonStringErr = JSON.stringify(myFileParsed2);
+
+                    fs.writeFile("files/" + myArray[1] + "CURR-Errs.json", jsonStringErr, err => {
+                        if (err) {
+                            console.log('Error writing file', err)
+                        }
+                    })
+
+                } else {
+                    myFileParsed2.push({ "ticker": myArray[0] });
+                    const jsonStringErr = JSON.stringify(myFileParsed2);
+
+                    fs.writeFile("files/" + myArray[1] + "BULL-Errs.json", jsonStringErr, err => {
                         if (err) {
                             console.log('Error writing file', err)
                         }
                     })
                 }
+            } catch (err) {
+                console.error(err)
+            }
 
-                var obj = { "percentUp": tempLine };
-
-                console.log(JSON.stringify(obj));
 
 
-                res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify(
-                    obj
-                ))
-
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        });
 
 
 
 
-       // )
-        //  return next();
-    });
+});
 
-
-    module.exports = router;
+module.exports = router;

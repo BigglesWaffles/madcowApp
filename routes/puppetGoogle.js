@@ -42,7 +42,7 @@ router.get('/:name', (req, res) => {
             fileToReadWrite = "files/"+fileName+".json";
             rawdata = fs.readFileSync(fileToReadWrite);
         search = JSON.parse(rawdata);
-       search = [{ "tickerSymbol": "BA." }];
+     //  search = [{ "tickerSymbol": "BA." }];
         var ticker2 = "";
             for (let index = 0; index < search.length; ++index) {
                 try {
@@ -62,7 +62,7 @@ router.get('/:name', (req, res) => {
                     //
                     // ALTERNATIVE SOURCE: https://markets.ft.com/data/equities/tearsheet/summary?s=trd:lse
                     //
-                    await page.goto("https://www.wsj.com/market-data/quotes/uk/"+ticker2);
+                    await page.goto("https://www.wsj.com/market-data/quotes/uk/xlon/"+ticker2);
 
                     await page.waitForTimeout(1000);
 
@@ -88,6 +88,9 @@ router.get('/:name', (req, res) => {
                         } else {
                             dividend = dividend.substring(dividend.indexOf("is Yield") + 6, dividend.length);
                             dividend = dividend.substring(0, dividend.indexOf("%"));
+                        }
+                        if (dividend < 0.1 && dividend != 0) {
+                            dividend = dividend * 100;
                         }
                         search[index].dividend = dividend;
                 //        console.log("dividend is " + dividend);

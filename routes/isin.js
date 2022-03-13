@@ -4,20 +4,21 @@ var router = express.Router();
 var app = express();
 var path = require('path');
 const fs = require('fs');
+const url = require('url')
 
 const axios = require('axios');
 
 router.get('/', (req, res) => {
 
 
-    console.log("In correct file ");
+ //   console.log("In correct file ");
 
     var query = require('url').parse(req.url, true).query;
 
 
   //  console.log(query);
-    console.log(query.x);
-    console.log(query.y);
+ //   console.log(query.x);
+  //  console.log(query.y);
   //  console.log(query.z);
 
     let myInputIsin = query.x;
@@ -25,7 +26,7 @@ router.get('/', (req, res) => {
     let myErrors = [];
    // let myLength = query.z;
 
-    console.log("my file is: " + myFileName);
+ //   console.log("my file is: " + myFileName);
     var myFile = "files/"+myFileName+".json";
   
 
@@ -167,10 +168,28 @@ router.get('/', (req, res) => {
         && myInputIsin != "GB00BNVVH568"
         && myInputIsin != "GB00BYV8MN78"
         && myInputIsin != "GB00BMBVGQ36") {
-        axios.get('https://www.fidelity.co.uk/factsheet-data/factsheet/' + myInputIsin + '-beazley-plc-uk/financials')
+
+
+        let myCo = makeid(10) +"-"+ makeid(5);
+    //    console.log("myCo: " + myCo);
+        axios.get('https://www.fidelity.co.uk/factsheet-data/factsheet/' + myInputIsin + '-' + myCo + '/financials')
             .then(response => {
 
-                console.log("phew");
+
+                //  <h1 class="mb-8 h3 detail__name">BT Group PLC (BT.A)</h1>
+
+                var fidelityName = response.data;
+                fidelityName = fidelityName.substring(fidelityName.indexOf("mb-8 h3 detail__name") + 22, fidelityName.length);
+                console.log(fidelityName.substring(0, 50));
+                if (fidelityName.indexOf(" PLC") > 0) {
+                    fidelityName = fidelityName.substring(0, fidelityName.indexOf(" PLC"));
+                } else {
+                    fidelityName = fidelityName.substring(0, fidelityName.indexOf(" ("));
+                }
+                fidelityName = fidelityName.toLowerCase().replaceAll(".", "").replace(" (", "").replace(")", "").replaceAll(" ", "-").replace("&amp;","");
+
+                console.log("final fidelityName " + fidelityName);
+
                 let myProfit = response.data;
                 let myStart = myProfit.indexOf("application\/json") + 18;
                 myProfit = myProfit.substring(myStart);
@@ -265,6 +284,7 @@ router.get('/', (req, res) => {
                             myFileParsed[p].totalAssets = roundToTwo(totalAssets);
                             myFileParsed[p].totalLiabilities = roundToTwo(totalLiabilities);
                             myFileParsed[p].revenue = roundToTwo(revenue);
+                            myFileParsed[p].fidelityName = fidelityName;
 
 
                             console.log(myInputIsin + " success " + myFinalProfit);
@@ -344,5 +364,16 @@ function roundToTwo(num) {
     return +(Math.round(num + "e+2") + "e-2");
 }
 
+
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}
 
 module.exports = router;

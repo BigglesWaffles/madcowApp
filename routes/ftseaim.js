@@ -63,6 +63,7 @@ router.get('/', (req, res) => {
                 ftseaim[index].netNet = 0;
             }
         }
+
         var count = Object.keys(ftseaim).length;
         var bish = {
             "count": count,
