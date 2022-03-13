@@ -286,6 +286,9 @@
                     title = title + "MACD: " + row.macd + " " + row.macdText.toUpperCase() + "\n";
                     title = title + "momentum: " + row.momentum + " " + row.momentumText.toUpperCase() + "\n";
                     title = title + "RSI: " + row.rsi + " " + row.rsiText.toUpperCase() + "\n";
+                    title = title +  "\n--------------------\n";
+                    title = title + "bid: " + row.bid + "  ask: " + row.ask + "\n";
+
                 } catch (err) {
 
                 }
@@ -414,7 +417,15 @@
             if (billy.length > 25) {
                 billy = billy.substring(0, 26);
             }
-            return "<a target='_blank'  id='news"+index+"' href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br/>", billy].join('') + "</a>";
+
+            var title = "";
+            try {
+                title = title + "bid: " + row.bid + "  ask: " + row.ask + "\n";
+
+            } catch (err) {
+
+            }
+            return "<a target='_blank'  id='news" + index + "' title='" + title +"'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br/>", billy].join('') + "</a>";
         }
 
         function dataFormatter(value, row, index) {
