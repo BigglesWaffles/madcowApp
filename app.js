@@ -71,6 +71,7 @@ app.get('/', function (req, res) {
 
 module.exports = app;
 
+console.log(" process.env.PORT  " + process.env.PORT);
 
 const port = process.env.PORT || 3000;
 
