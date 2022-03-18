@@ -4,6 +4,9 @@ var router = express.Router();
 var app = express();
 var path = require('path');
 
+
+
+
 const fs = require('fs');
 
 
@@ -62,8 +65,12 @@ router.get('/', (req, res) => {
         }
 
 
+        var pjson = require('./../package.json');
+        console.log("version is " + pjson.version);
+
         var count = Object.keys(ftse100).length;
         var bish = {
+            "version": pjson.version,
             "count": count,
             "items": ftse100
         };

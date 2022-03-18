@@ -30,6 +30,12 @@ const https = require('https')
 
 var app = express();
 
+
+var pjson = require('./package.json');
+console.log("version is " + pjson.version);
+
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -79,6 +85,5 @@ app.listen(port,  () => {
  
    console.log('Express server listening on port ' );
 });
-
 
 

@@ -1,10 +1,6 @@
 $(window).on('load', function () {
     // code here
 
-
-
-
-
     $('#tableftseCon').bootstrapTable({
         showRefresh: true
     });
@@ -1105,6 +1101,8 @@ $(window).on('load', function () {
                  });
                  $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
 
+                 timeNow(sdata.version);
+               //  alert(sdata.version);
                  $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
 
                  $(".search-input.search-input").on('keyup', function () {
@@ -1237,6 +1235,18 @@ $(window).on('load', function () {
         $(".excludeAim").css("display", "none");
         $("#excludeRst").prop("checked", false);
         $("#excludeAim").prop("checked", false);
+    }
+
+
+    function timeNow(versionNo) {
+        var d = new Date(),
+            h = (d.getHours() < 10 ? '0' : '') + d.getHours(),
+            m = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes(),
+            y = d.getFullYear(),
+            mon = ('0' + (d.getMonth() + 1)).slice(-2),
+            day = String(d.getDate()).padStart(2, '0');
+        $("#dateTime").text("     " + y + "-" + mon + "-" + day + " time " + h + ":" + m);
+         $("#versionNo").text( "  version: " + versionNo);
     }
 
 });

@@ -21,11 +21,11 @@
 <body style="max-height:95%">
 
     <h1 style="text-align:center;padding-top:30px">Investors Cookbook</h1>
-    <h2 id="indexTitle" style="font-size:20px; text-align:center">
-        current list: FTSE 100
+    <h2 style="font-size:20px; text-align:center">
+        <span id="indexTitle">current list: FTSE 100&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="indexTitleSort">&nbsp;&nbsp;&nbsp;&nbsp;current sort order: ticker</span>
     </h2>
-    <h2 id="indexTitleSort" style="font-size:20px; text-align:center">
-       current sort order: ticker
+    <h2 style="font-size:14px; text-align:center">
+        <span id="dateTime"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="versionNo"></span>
     </h2>
     <div class="container" style="position:relative;width:96%">
         <div class="container" style="width:80%;margin-left:10px !important;">
@@ -94,7 +94,7 @@
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">BUY signal from BritishBulls.com (today) and Tradingview.com buy</span></a>
                     </div><br />
 
-                <!--    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="delayBut" type="button" class="btn btn-info">delayed price</button> 
+                 <!--  <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="delayBut" type="button" class="btn btn-info">delayed price</button> 
                     -->
                     <div class="btn-group form-select-lg mb-3">
                         <button style="width: 115px; color: black; background-color: lightgrey; border-color: #46b8da; margin-top:1px" id="selectBox" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -168,7 +168,7 @@
                         <label class="excludeAim" style="background-color: #FFF5EE; font-weight: 200; font-size: 14px;display: none " for="excludeAim"> Exclude AIM shares from search list</label>
                         &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeRst" type="checkbox" id="excludeRst" name="excludeRst" value="excludeRst">
                         <label class="excludeRst" style="background-color:#e0ffdd; font-weight:200;font-size:14px;display: none" for="excludeRst"> Exclude smaller FTSE companies</label>
-                   <!--     &nbsp;&nbsp;<input style="margin-top:10px" class="form-check-input errorsOn" type="checkbox" id="errorsOn" name="errorsOn" value="errorsOn">
+                      <!--  &nbsp;&nbsp;<input style="margin-top:10px" class="form-check-input errorsOn" type="checkbox" id="errorsOn" name="errorsOn" value="errorsOn">
                         <label class="errorsOn" style="background-color:#e0ffdd; font-weight:200;font-size:14px;" for="excludeRst"> Set errors on</label>  -->
                     </div>
                 </div>
