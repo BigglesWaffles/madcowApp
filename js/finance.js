@@ -1,6 +1,8 @@
 $(window).on('load', function () {
     // code here
 
+ 
+
     $('#tableftseCon').bootstrapTable({
         showRefresh: true
     });
@@ -15,7 +17,7 @@ $(window).on('load', function () {
             return false;
         });
 
-       // $('#tableftse').bootstrapTable('hideColumn', 'sector');
+        // $('#tableftse').bootstrapTable('hideColumn', 'sector');
 
         $(".tableftseCon").parent("div").parent("th").off("click");
         $("#tableftseCon").css("opacity", "1");
@@ -81,18 +83,18 @@ $(window).on('load', function () {
                     }, 1000); // update about every second
 
 
-                  //  sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
+                    //  sortTable2(visibleSmallTable, index, visibleBigTable, $(this).data("field"));
 
                 }
             });
         });
-      //  $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
+        //  $(".tickerSymbol.tableftseCon").parent("div").parent("th").click();
 
     });
 
 
 
-    $(".fixed-table-toolbar").find("button").on("click", function(){
+    $(".fixed-table-toolbar").find("button").on("click", function () {
         $(".loader").css("opacity", "0");
         $("#bigcontainer1").css("opacity", "100%");
         $("#bigcontainer2").css("opacity", "100%");
@@ -136,7 +138,7 @@ $(window).on('load', function () {
         e.stopPropagation();
         return false;
     });
-         
+
     $("#netnet").on("click", function () {
         $("#activebutt").text("search");
         $("#bigcontainer2").css("opacity", "0.4");
@@ -148,7 +150,7 @@ $(window).on('load', function () {
         $("#indexTitle").text("Net Net stocks in order of netnet-ness as a percentage");
         $.get("/routes/netnet", {
         }, function (sdata) {
- 
+
             $(function () {
 
                 $('#tableftseCon').hide();
@@ -182,7 +184,7 @@ $(window).on('load', function () {
 
             if ($.trim($("#aa" + i).text()) != "") {
                 var curIndex = i;
-                var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text()+ "|" + curIndex;
+                var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text() + "|" + curIndex;
                 var tickera = { "ticker": ticker };
                 bigTickers.push(tickera);
             }
@@ -219,7 +221,7 @@ $(window).on('load', function () {
 
     $("#isinBut").on("click", function (event) {
 
-        
+
         event.preventDefault();
         //do something
         $(this).prop('disabled', true);
@@ -230,18 +232,18 @@ $(window).on('load', function () {
             $("#bigcontainer2").css("opacity", "0.4");
             $("#bigcontainer").css("opacity", "0.4");
         }, 100); // up
-        
+
 
         var timeout = 0;
-    //    $.get("/routes/"+$("#activebutt").text()+"?x=err", {}, function (sdata) {
-        $.get("/routes/"+$("#activebutt").text()+"?x=NOPE", {}, function (sdata) {
+        //    $.get("/routes/"+$("#activebutt").text()+"?x=err", {}, function (sdata) {
+        $.get("/routes/" + $("#activebutt").text() + "?x=NOPE", {}, function (sdata) {
             for (let i = 0; i < sdata.items.length; i++) {
-            //    alert(JSON.stringify(sdata));
+                //    alert(JSON.stringify(sdata));
                 timeout = timeout + 4000;
                 console.log(timeout);
 
-                    setTimeout(function () {
-                        getProfits(sdata.items[i].isin, $("#activebutt").text());
+                setTimeout(function () {
+                    getProfits(sdata.items[i].isin, $("#activebutt").text());
 
                 }, timeout);
 
@@ -257,14 +259,14 @@ $(window).on('load', function () {
             $("#bigcontainer").css("opacity", "1");
             $("#puppetBut").prop('disabled', false);
         }, 20000); // up
-        
+
     });
 
     function getProfits(myIsin, myFile) {
-      //  alert("hhhhh");
-            $.get("/routes/isin?x=" + myIsin + "&y=" + myFile, {}, function (sdata) {
-                console.log("im in here");
-            });
+        //  alert("hhhhh");
+        $.get("/routes/isin?x=" + myIsin + "&y=" + myFile, {}, function (sdata) {
+            console.log("im in here");
+        });
 
     }
 
@@ -283,21 +285,21 @@ $(window).on('load', function () {
 
 
 
-                $.get("/routes/puppet", {}, function (sdata) {
+        $.get("/routes/puppet", {}, function (sdata) {
 
-                    console.log("im in here");
-
-
-                    setTimeout(function () {
-                        $(".loader").css("opacity", "0");
-                        $("#bigcontainer1").css("opacity", "1");
-                        $("#bigcontainer2").css("opacity", "1");
-                        $("#bigcontainer").css("opacity", "1");
-                        $("#puppetBut").prop('disabled', false);
-                    }, 20000); // up
+            console.log("im in here");
 
 
-                });
+            setTimeout(function () {
+                $(".loader").css("opacity", "0");
+                $("#bigcontainer1").css("opacity", "1");
+                $("#bigcontainer2").css("opacity", "1");
+                $("#bigcontainer").css("opacity", "1");
+                $("#puppetBut").prop('disabled', false);
+            }, 20000); // up
+
+
+        });
 
     });
 
@@ -352,7 +354,7 @@ $(window).on('load', function () {
 
 
 
-        $.get("/routes/puppetGoogle/"+$("#activebutt").text(), {}, function (sdata) {
+        $.get("/routes/puppetGoogle/" + $("#activebutt").text(), {}, function (sdata) {
 
             console.log("im in here");
 
@@ -388,7 +390,7 @@ $(window).on('load', function () {
 
         $.get("/routes/puppet2", {}, function (sdata) {
 
-                    console.log("im in here");
+            console.log("im in here");
 
             setTimeout(function () {
                 $(".loader").css("opacity", "0");
@@ -399,7 +401,7 @@ $(window).on('load', function () {
             }, 20000); // up
 
 
-                });
+        });
 
 
 
@@ -442,7 +444,7 @@ $(window).on('load', function () {
                         sdata.shift();
 
                         $.post("/routes/buySellOne", {
-                            localTicker 
+                            localTicker
                         }, function (sdata) {
 
                             console.log("im in here");
@@ -464,7 +466,7 @@ $(window).on('load', function () {
             var bigTickers = [];
             var timer = 0;
             $('#tableftse tr').each(function (i, row) {
-                
+
                 if ($.trim($("#aa" + i).text()) != "") {
                     var curIndex = i;
                     var ticker = $.trim($("#aa" + i).text()) + "|" + $("#activebutt").text();
@@ -485,17 +487,17 @@ $(window).on('load', function () {
                             console.log("im in here");
                         });
                     }, timer, bigTickers);
-                 }
+                }
             });
-   
 
-        setTimeout(function () {
-            $(".loader").css("opacity", "0");
-            $("#bigcontainer1").css("opacity", "1");
-            $("#bigcontainer2").css("opacity", "1");
-            $("#bigcontainer").css("opacity", "1");
-            $("#techieBut").prop('disabled', false);
-        }, 20000); // up
+
+            setTimeout(function () {
+                $(".loader").css("opacity", "0");
+                $("#bigcontainer1").css("opacity", "1");
+                $("#bigcontainer2").css("opacity", "1");
+                $("#bigcontainer").css("opacity", "1");
+                $("#techieBut").prop('disabled', false);
+            }, 20000); // up
 
 
         }
@@ -528,9 +530,9 @@ $(window).on('load', function () {
             $("#bigcontainer").css("opacity", "0.4");
         }, 100); // up
 
-         //Fix errors  - MAKE FALSE WHEN YOU DONT WANT TO PROCESS
+        //Fix errors  - MAKE FALSE WHEN YOU DONT WANT TO PROCESS
         var errorsFound = "false";
-                ///// END OF FIX
+        ///// END OF FIX
 
         if ($(".errorsOn")[0].checked) {
             errorsFound = "true";
@@ -543,7 +545,7 @@ $(window).on('load', function () {
 
                     timeout = timeout + 4000;
                     console.log(timeout);
-                  
+
 
                     setTimeout(function () {
                         var localTicker = sdata[0].ticker;
@@ -568,7 +570,7 @@ $(window).on('load', function () {
             $("#newsBut").prop('disabled', false);
         }, 20000); // up
 
-;
+        ;
 
     });
 
@@ -584,20 +586,20 @@ $(window).on('load', function () {
 
     async function loopTickers() {
 
-            for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
-                await waitforme(200);
-                if ($.trim($("#aa" + j).text()) != "") {
-                    var curIndex = j;
+        for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+            await waitforme(200);
+            if ($.trim($("#aa" + j).text()) != "") {
+                var curIndex = j;
 
-                    var ticker = $.trim($("#aa" + j).text()) + "|" + $("#activebutt").text();
-                    demo(ticker, curIndex);
+                var ticker = $.trim($("#aa" + j).text()) + "|" + $("#activebutt").text();
+                demo(ticker, curIndex);
 
-                }
-            };
+            }
+        };
         console.log("Loop execution finished!)");
     }
 
-  
+
     async function demo(ticker, curIndex, errorFix) {
         console.log("demo getting called");
 
@@ -626,34 +628,34 @@ $(window).on('load', function () {
                 i
                 $("#news" + curIndex).parent().html("<a target='_blank'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br />", billy].join('') + "</a>");
             }
-            
+
         });
     }
 
     $("#FTSE100But").on("click", function () {
         getAllData("ftse100");
     });
-//    $(".FTSE100But").on("click", function () {
- //       getAllData("ftse100");
- //   });
+    //    $(".FTSE100But").on("click", function () {
+    //       getAllData("ftse100");
+    //   });
     $("#FTSE250But").on("click", function () {
         getAllData("ftse250");
     });
-//    $(".FTSE250But").on("click", function () {
- //       getAllData("ftse250");
-//    });
+    //    $(".FTSE250But").on("click", function () {
+    //       getAllData("ftse250");
+    //    });
     $("#FTSEzzzBut").on("click", function () {
         getAllData("ftserst");
     });
- //   $(".FTSEzzzBut").on("click", function () {
- //       getAllData("ftserst");
- //   });
+    //   $(".FTSEzzzBut").on("click", function () {
+    //       getAllData("ftserst");
+    //   });
     $("#FTSEaimBut").on("click", function () {
         getAllData("ftseaim");
     });
- //   $(".FTSEaimBut").on("click", function () {
- //       getAllData("ftseaim");
- //   });
+    //   $(".FTSEaimBut").on("click", function () {
+    //       getAllData("ftseaim");
+    //   });
     $(".netnetBut").on("click", function () {
         getAllData("netnet");
     });
@@ -662,9 +664,9 @@ $(window).on('load', function () {
 
     function sortTable2(xx, sortCol, tablename, colname) {
         $(".loader").css("opacity", "1");
-    //    $("#bigcontainer1").css("opacity", "0");
-     //   $("#bigcontainer2").css("opacity", "0");
-    //    $("#bigcontainer").css("opacity", "0");
+        //    $("#bigcontainer1").css("opacity", "0");
+        //   $("#bigcontainer2").css("opacity", "0");
+        //    $("#bigcontainer").css("opacity", "0");
 
 
         var rows = $('#' + xx + ' tbody  tr').get();
@@ -688,7 +690,7 @@ $(window).on('load', function () {
             $(a).children('td').eq(sortCol).css("background-color", "lavender");
             $(b).children('td').eq(sortCol).css("background-color", "lavender");
 
-            if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname == "tickerSymbol" || colname=="news") {
+            if (colname == "stockName" || colname == "sector" || colname == "bullAdvice" || colname == "tickerSymbol" || colname == "news") {
 
                 var A = $(a).children('td').eq(sortCol).text().toUpperCase();
                 var B = $(b).children('td').eq(sortCol).text().toUpperCase();
@@ -731,7 +733,7 @@ $(window).on('load', function () {
             var x = parseFloat(AA).toFixed(2);
             var y = parseFloat(BB).toFixed(2);
 
-            if (colname == "peRatio") { 
+            if (colname == "peRatio") {
                 if (x < 0) {
                     x = (x * -1) * 1000;
                 }
@@ -751,7 +753,7 @@ $(window).on('load', function () {
                 return 1 / y - 1 / x || 0;
 
             else {
-                if (sortCol == 0 ) {
+                if (sortCol == 0) {
                     return x - y;
                 }
                 return y - x;
@@ -799,7 +801,7 @@ $(window).on('load', function () {
         hash = hash.replace("%20", " ");
         if (hash.length > 1) {
             getSectorData(hash);
-        } 
+        }
     }
     window.addEventListener("hashchange", funcRef, false);
 
@@ -815,17 +817,17 @@ $(window).on('load', function () {
 
 
     function setToolTip() {
-     //   $("th.navPercentIt").children('div.th-inner').attr("class", "tooltip");
-    //    $("th.navPercentIt").children('div.th-inner').attr("data-toggle", "tooltip");
+        //   $("th.navPercentIt").children('div.th-inner').attr("class", "tooltip");
+        //    $("th.navPercentIt").children('div.th-inner').attr("data-toggle", "tooltip");
         $("th.naVPercentIt").attr("title", " A-I-L/M = Assets - Intangibles - Liabilities / Mrk Cap ");
         $("th.navPercent").attr("title", " A-L/M = Assets - Liabilities / Mrk Cap ");
-     //   $("th.rsi").children('div.th-inner').attr("data-toggle", "tooltip");
-     //   $("th.rsi").children('div.th-inner').attr("title", "Relative Strength Indicator. A low number indicates that stock is oversold and high is overbought. This indicator in conjunction with others is interesting");
-      //  $("th.peRatio").children('div.th-inner').attr("data-toggle", "tooltip");
-      //  $("th.peRatio").children('div.th-inner').attr("title", "Price Earnings ratio. A low pe means that the company makes a lot of money but the market is currently not putting enough value on that profit. So interesting stocks");
+        //   $("th.rsi").children('div.th-inner').attr("data-toggle", "tooltip");
+        //   $("th.rsi").children('div.th-inner').attr("title", "Relative Strength Indicator. A low number indicates that stock is oversold and high is overbought. This indicator in conjunction with others is interesting");
+        //  $("th.peRatio").children('div.th-inner').attr("data-toggle", "tooltip");
+        //  $("th.peRatio").children('div.th-inner').attr("title", "Price Earnings ratio. A low pe means that the company makes a lot of money but the market is currently not putting enough value on that profit. So interesting stocks");
 
         $('[data-toggle="tooltip"]').tooltip();
-     }
+    }
 
     function getSectorData(sector) {
 
@@ -836,10 +838,10 @@ $(window).on('load', function () {
         $("#activebutt").text("search");
 
         $('#tableftse').bootstrapTable('destroy');
-        $("#indexTitle").text(" Share selection criteria (across all indexes): " + sector.replaceAll("%20"," "));
+        $("#indexTitle").text(" Share selection criteria (across all indexes): " + sector.replaceAll("%20", " "));
         sector = sector.replace("/", "%2F");
         $.ajax({
-            url: "/routes/search/"+sector,
+            url: "/routes/search/" + sector,
             type: "GET",
             //  data: { "search": sector },
             dataType: "json",
@@ -854,7 +856,7 @@ $(window).on('load', function () {
                     $('#tableftse').bootstrapTable('destroy');
 
                     $('#tableftse').bootstrapTable({
-                       data:sdata
+                        data: sdata
                     });
                     $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
 
@@ -882,14 +884,14 @@ $(window).on('load', function () {
 
                     $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
 
-                    $(".excludeRst").css("display","");
+                    $(".excludeRst").css("display", "");
                     $(".excludeAim").css("display", "");
 
                     $(".excludeRst").on("click", function () {
                         var tot = sdata.count;
                         if (this.checked) {
                             $(".excludeRst").prop('checked', true);
-                                tot = tot - sdata.rstCount;
+                            tot = tot - sdata.rstCount;
                             if ($('input.excludeAim').is(':checked')) {
                                 tot = tot - sdata.aimCount;
                             }
@@ -910,8 +912,8 @@ $(window).on('load', function () {
                             $(".excludeAim").prop('checked', true);
                             var tot = tot - sdata.aimCount;
                             if ($('input.excludeRst').is(':checked')) {
-                              tot = tot - sdata.rstCount;
-                           };
+                                tot = tot - sdata.rstCount;
+                            };
                             $(".aim").parent("td").parent("tr").hide();
                             $(".no-records-found:last").children("td").text(tot + " companies found that match the criteria");
                         } else {
@@ -922,7 +924,7 @@ $(window).on('load', function () {
                             $(".no-records-found:last").children("td").text(tot + " companies found that match the criteria");
                             $(".aim").parent("td").parent("tr").show();
                         }
-                     });
+                    });
 
                     var abc = ["a", "b", "c"];
                     for (let i = 0; i < abc.length; ++i) {
@@ -972,7 +974,7 @@ $(window).on('load', function () {
                     setTimeout(function () {
                         sortTable2("tableftse", columnSelected, "#tableftseCon", columnSelectedText);
                     }, 500); // update about every second
-                  //  sortTable2("tableftse", columnSelected, "#tableftseCon", "tickerSymbol");
+                    //  sortTable2("tableftse", columnSelected, "#tableftseCon", "tickerSymbol");
 
 
                     $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
@@ -991,10 +993,10 @@ $(window).on('load', function () {
 
                     });
 
-              //      var url_ob = new URL(document.URL);
-               //     url_ob.hash = '#blockchain';
-                //    var new_url = url_ob.href;
-                //    document.location.href = new_url;
+                    //      var url_ob = new URL(document.URL);
+                    //     url_ob.hash = '#blockchain';
+                    //    var new_url = url_ob.href;
+                    //    document.location.href = new_url;
                     setToolTip();
 
 
@@ -1036,181 +1038,185 @@ $(window).on('load', function () {
         });
     }
 
-     function getAllData(exchange) {
+    function getAllData(exchange) {
 
-         $(".marginleft").css("bottom", "-70px");
-         $(".loader").css("opacity", "1");
-         $("#bigcontainer1").css("opacity", "0.4");
-         $("#bigcontainer2").css("opacity", "0.4");
-         $("#bigcontainer").css("opacity", "0.4");
-         $("#activebutt").text(exchange);
+        $(".marginleft").css("bottom", "-70px");
+        $(".loader").css("opacity", "1");
+        $("#bigcontainer1").css("opacity", "0.4");
+        $("#bigcontainer2").css("opacity", "0.4");
+        $("#bigcontainer").css("opacity", "0.4");
+        $("#activebutt").text(exchange);
 
-         var routerVal = "";
+        var routerVal = "";
 
-         if (exchange == "ftse100") {
-             routerVal = "routes/ftse100"
-             hideExludes();
-             $("#indexTitle").text(" current list: FTSE 100");
-             $("#indexTitleSort").text('current sort order: ticker' );
-             $("#FTSE100But").removeClass("focus");
-             $("#FTSE100But").removeClass("active");
-         }
-         if (exchange == "ftse250") {
-             hideExludes();
-             routerVal = "routes/ftse250";
-             $("#indexTitle").text(" current list: FTSE 250");
-             $("#indexTitleSort").text('current sort order: ticker' );
-         }
-         if (exchange == "netnet") {
-             routerVal = "routes/netnet";
-             $("#indexTitle").text(" current list: Netnet stocks");
-             $("#indexTitleSort").text('current sort order: ticker');
-         }
-         if (exchange == "ftserst") {
-             hideExludes();
-             routerVal = "routes/ftserst";
-             $("#indexTitle").text(" current list: FTSE rest");
-             $("#indexTitleSort").text('current sort order: ticker' );
-         }
-         if (exchange == "ftseaim") {
-             hideExludes();
-             routerVal = "routes/ftseaim";
-             $("#indexTitle").text(" current list: AIM");
-             $("#indexTitleSort").text('current sort order: ticker' );
-         }
+        if (exchange == "ftse100") {
+            routerVal = "routes/ftse100"
+            hideExludes();
+            $("#indexTitle").text(" current list: FTSE 100");
+            $("#indexTitleSort").text('current sort order: ticker');
+            $("#FTSE100But").removeClass("focus");
+            $("#FTSE100But").removeClass("active");
+        }
+        if (exchange == "ftse250") {
+            hideExludes();
+            routerVal = "routes/ftse250";
+            $("#indexTitle").text(" current list: FTSE 250");
+            $("#indexTitleSort").text('current sort order: ticker');
+        }
+        if (exchange == "netnet") {
+            routerVal = "routes/netnet";
+            $("#indexTitle").text(" current list: Netnet stocks");
+            $("#indexTitleSort").text('current sort order: ticker');
+        }
+        if (exchange == "ftserst") {
+            hideExludes();
+            routerVal = "routes/ftserst";
+            $("#indexTitle").text(" current list: FTSE rest");
+            $("#indexTitleSort").text('current sort order: ticker');
+        }
+        if (exchange == "ftseaim") {
+            hideExludes();
+            routerVal = "routes/ftseaim";
+            $("#indexTitle").text(" current list: AIM");
+            $("#indexTitleSort").text('current sort order: ticker');
+        }
 
-         $('#tableftse').bootstrapTable('destroy');
-      //   alert("stop");
+        $('#tableftse').bootstrapTable('destroy');
+        //   alert("stop");
 
-         $.get(routerVal, {
-         }, function (sdata) {
-             $(function () {
-                 $('#tableftseCon').show();
-                 $('#tableoversoldCon').hide();
-                 $('#tablenetnetCon').hide();
-              /*   $('#tableftse250Con').hide();
-                 $('#tablesectorsCon').hide();
-                 $('#tableftsezzzCon').hide();
-                 $('#tableftseaimCon').hide();*/
-                 $('#sectorRiseCon').hide();
-                 $("#netnetBut").hide();
-                 
-
-                 $('#tableftse').bootstrapTable({
-                     data: sdata
-                 });
-                 $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
-
-                 timeNow(sdata.version);
-               //  alert(sdata.version);
-                 $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
-
-                 $(".search-input.search-input").on('keyup', function () {
-                     var searchTerm = $(".search-input").val();
-                     var recordCount = $('#tableftse tr').length;
-
-                     for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
-                         if (!$("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerm.toUpperCase())) {
-                             $("#aa" + j).parent("td").parent("tr").hide();
-                             recordCount = recordCount - 1;
-                         } else {
-                             $("#aa" + j).parent("td").parent("tr").show();
-                         }
-                     };
-                     if ((recordCount == 1)) {
-                         $(".no-records-found:last").children("td").text(recordCount + " company found that match the criteria");
-                     } else {
-                         $(".no-records-found:last").children("td").text(recordCount + " companies found that match the criteria");
-                     }
-                    
-                 });
+        $.get(routerVal, {
+        }, function (sdata) {
+            $(function () {
+                $('#tableftseCon').show();
+                $('#tableoversoldCon').hide();
+                $('#tablenetnetCon').hide();
+                /*   $('#tableftse250Con').hide();
+                   $('#tablesectorsCon').hide();
+                   $('#tableftsezzzCon').hide();
+                   $('#tableftseaimCon').hide();*/
+                $('#sectorRiseCon').hide();
+                $("#netnetBut").hide();
 
 
+                $('#tableftse').bootstrapTable({
+                    data: sdata
+                });
+                $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
 
-                 var abc = ["a", "b", "c"];
-                 for (let i = 0; i < abc.length; ++i) {
-                     $(".image" + abc[i]).mouseover(function () {
-                         $(".image" + abc[i]).css("cursor", "pointer");
-                         $(".image" + abc[i] + "BIG").css("cursor", "pointer");
-                     });
-                     $(".image" + abc[i]).on("click", function (event) {
-                         var indexVal = event.target.id;
-                         if (indexVal.includes("image" + abc[i] + "BIG")) {
-                             indexVal = indexVal.replace("image" + abc[i] + "BIG", "");
-                             $('#image' + abc[i] + indexVal).show();
-                             $('#' + event.target.id).hide();
-                             $('#' + event.target.id).blur();
-                             $('#image' + abc[i] + indexVal).focus();
-                         } else {
-                             indexVal = indexVal.replace("image" + abc[i], "");
-                             $('#image' + abc[i] + 'BIG' + indexVal).show();
-                             $('#' + event.target.id).hide();
-                             $('#' + event.target.id).blur();
-                             $('#image' + abc[i] + 'BIG' + indexVal).focus();
-                         }
-                     });
-                 }
-
-                 $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
-                 $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
-                 let defaultCol = 1;
-                 let defaultName = "tickerSymbol"
-                 if (exchange == "netnet") {
-                     defaultCol = 21;
-                     defaultName = "netNet";
-                 }
-                 sortTable2("tableftse",defaultCol, "#tableftseCon", defaultName);
+                timeNow(sdata.version);
 
 
-                 $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
-                     $(this).mouseenter(function () {
-                         let smallTest = $(this).attr("class");
-                         if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-                             $(this).addClass("makedarker");
-                         }
-                     })
-                     $(this).mouseleave(function () {
-                         let smallTest = $(this).attr("class");
-                         if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
-                             $(this).removeClass("makedarker");
-                         }
-                     })
+                //  alert(sdata.version);
+                $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
 
-                 });
-                 setToolTip();
+                $(".search-input.search-input").on('keyup', function () {
+                    var searchTerm = $(".search-input").val();
+                    var recordCount = $('#tableftse tr').length;
 
-                 $(".percentUp").children("span").on("click", function () {
+                    for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+                        if (!$("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerm.toUpperCase())) {
+                            $("#aa" + j).parent("td").parent("tr").hide();
+                            recordCount = recordCount - 1;
+                        } else {
+                            $("#aa" + j).parent("td").parent("tr").show();
+                        }
+                    };
+                    if ((recordCount == 1)) {
+                        $(".no-records-found:last").children("td").text(recordCount + " company found that match the criteria");
+                    } else {
+                        $(".no-records-found:last").children("td").text(recordCount + " companies found that match the criteria");
+                    }
 
-
-                     $(this).fadeOut("slow", function () {
-                         // Animation complete.
-
-
-                         let fred = ($(this)[0].id).replace("butt", "");
-
-                         let ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
-                         $.post("/routes/currentPercent", {
-                             ticker
-                         }, function (sdata) {
-                             if (sdata.percentUp < 0) {
-                                 $("#butt" + fred).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
-                             }
-                             if (sdata.percentUp == 0) {
-                                 $("#butt" + fred).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
-                             }
-                             if (sdata.percentUp > 0) {
-                                 $("#butt" + fred).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
-                             }
-                         });
+                });
 
 
-                     });  //fade
 
-                 });
+                var abc = ["a", "b", "c"];
+                for (let i = 0; i < abc.length; ++i) {
+                    $(".image" + abc[i]).mouseover(function () {
+                        $(".image" + abc[i]).css("cursor", "pointer");
+                        $(".image" + abc[i] + "BIG").css("cursor", "pointer");
+                    });
+                    $(".image" + abc[i]).on("click", function (event) {
+                        var indexVal = event.target.id;
+                        if (indexVal.includes("image" + abc[i] + "BIG")) {
+                            indexVal = indexVal.replace("image" + abc[i] + "BIG", "");
+                            $('#image' + abc[i] + indexVal).show();
+                            $('#' + event.target.id).hide();
+                            $('#' + event.target.id).blur();
+                            $('#image' + abc[i] + indexVal).focus();
+                        } else {
+                            indexVal = indexVal.replace("image" + abc[i], "");
+                            $('#image' + abc[i] + 'BIG' + indexVal).show();
+                            $('#' + event.target.id).hide();
+                            $('#' + event.target.id).blur();
+                            $('#image' + abc[i] + 'BIG' + indexVal).focus();
+                        }
+                    });
+                }
 
-             });
+                $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
+                $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
+                let defaultCol = 1;
+                let defaultName = "tickerSymbol"
+                if (exchange == "netnet") {
+                    defaultCol = 21;
+                    defaultName = "netNet";
+                }
+                sortTable2("tableftse", defaultCol, "#tableftseCon", defaultName);
 
-         });
+
+                $("#tableftseCon").find("table > thead > tr > th").each(function (index) {
+                    $(this).mouseenter(function () {
+                        let smallTest = $(this).attr("class");
+                        if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                            $(this).addClass("makedarker");
+                        }
+                    })
+                    $(this).mouseleave(function () {
+                        let smallTest = $(this).attr("class");
+                        if (smallTest != "day" && smallTest != "week" && smallTest != "years") {
+                            $(this).removeClass("makedarker");
+                        }
+                    })
+
+                });
+                setToolTip();
+
+                $(".percentUp").children("span").on("click", function () {
+
+
+                    $(this).fadeOut("slow", function () {
+                        // Animation complete.
+
+
+                        let fred = ($(this)[0].id).replace("butt", "");
+
+                        let ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
+                        $.post("/routes/currentPercent", {
+                            ticker
+                        }, function (sdata) {
+                            if (sdata.percentUp < 0) {
+                                $("#butt" + fred).parent().html("<span style='color:red' > &nbsp; <img src='/images/arrow_down_red.svg''>  &nbsp; " + sdata.percentUp + "%</span>");
+                            }
+                            if (sdata.percentUp == 0) {
+                                $("#butt" + fred).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
+                            }
+                            if (sdata.percentUp > 0) {
+                                $("#butt" + fred).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
+                            }
+                        });
+
+
+                    });  //fade
+
+                });
+                $("input[data-field='netNet']").click();
+                $("input[data-field='eps']").click();
+
+            });
+
+        });
 
     }
 
@@ -1246,7 +1252,8 @@ $(window).on('load', function () {
             mon = ('0' + (d.getMonth() + 1)).slice(-2),
             day = String(d.getDate()).padStart(2, '0');
         $("#dateTime").text("     " + y + "-" + mon + "-" + day + " time " + h + ":" + m);
-         $("#versionNo").text( "  version: " + versionNo);
+        $("#versionNo").text("  version: " + versionNo);
     }
+
 
 });

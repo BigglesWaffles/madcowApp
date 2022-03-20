@@ -67,8 +67,6 @@
   { "ticker": "SN." },
   { "ticker": "ADM" },
   { "ticker": "BP." },
-  { "ticker": "RDSA" },
-  { "ticker": "RDSB" },
   { "ticker": "SBRY" },
   { "ticker": "OCDO" },
   { "ticker": "TSCO" },
@@ -93,5 +91,6 @@
   { "ticker": "VOD" },
   { "ticker": "BATS" },
   { "ticker": "IMB" },
-  { "ticker": "ENT" }
+  { "ticker": "ENT" },
+  { "ticker": "SHEL"}
 ]

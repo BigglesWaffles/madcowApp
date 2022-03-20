@@ -99,6 +99,9 @@ function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
     if (parm.toLowerCase().includes("holding")) {
         expression = "holding";
     }
+    if (parm.toLowerCase().includes("good eps")) {
+        expression = "eps";
+    }
     if (parm.toLowerCase().includes("trading")) {
         expression = "trading";
     }
@@ -157,6 +160,11 @@ function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
         expression = "buy momentum";
     }
     switch (expression) {
+        case "eps":
+            if (company.eps >= 1) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
+            }
+            break;
         case "watch1":
             if (company.watchlist != null && company.watchlist.toLowerCase() == expression) {
                 ftseSearch = aimRst(company, ftseSearch, a1, indexType);

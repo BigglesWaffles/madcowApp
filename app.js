@@ -24,6 +24,8 @@ var currentNews = require('./routes/currentNews');
 var createWatchList = require('./routes/createWatchList');
 var allSectors = require('./routes/allSectors');
 
+
+
 var cors = require('cors')
 
 const https = require('https')
@@ -69,6 +71,14 @@ app.use('/routes/puppetGoogle', puppetGoogle);
 app.use('/routes/allSectors', allSectors);
 
 
+
+
+
+
+
+
+
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -86,4 +96,39 @@ app.listen(port,  () => {
    console.log('Express server listening on port ' );
 });
 
+console.log("calling resetAtMidnight")
+resetAtMidnight();
 
+
+const batch = require("./js/batchNews.js");
+
+function resetAtMidnight() {
+    var now = new Date();
+    var night = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+      //  now.getDate(),
+        now.getDate() + 1, // the next day, ...
+        07, 35, 01 // ...at 00:00:00 hours
+    );
+
+    var msToMidnight = night.getTime() - now.getTime();
+    var day = night.getDay();
+
+  //  const batch = require("./js/batchNews.js");
+
+    setTimeout(function () {
+        console.log("day is: "+day);
+        console.log("starting .......")
+        if (day != 6) {
+                batch.getNewsData("ftse100",1000);   // <-- This is the function being called at 7:35.
+                batch.getNewsData("ftse250",300000);
+                batch.getNewsData("ftserst",600000);
+                batch.getNewsData("ftseaim",1200000);
+        }
+        if (day == 0) {
+            console.log("sunday");
+        }
+       // resetAtMidnight();    //      Then, reset again next midnight.
+    }, msToMidnight, day);
+}
