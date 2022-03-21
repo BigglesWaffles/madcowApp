@@ -77,7 +77,7 @@ async function getNewsData(indexVal, timeOut) {
                 for (index2 = 0; index2 < search2.length; ++index2) {
 
                     if (search2[index2].tickerSymbol == search[index].ticker) {
-                        search2[index2].news = "https://www.londonstockexchange.com/stock/" + search2[index2].ticker + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews;
+                        search2[index2].news = "https://www.londonstockexchange.com/stock/" + search2[index2].tickerSymbol + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews;
                         search2[index2].marketCapitalisation = marketcapitalization;
                         if (search2[index2].marketCapitalisation != null && search2[index2].marketCapitalisation > 0) {
                             search2[index2].marketCapitalisation = parseFloat((search2[index2].marketCapitalisation / 1000000) || "").toFixed(2);
