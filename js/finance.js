@@ -926,29 +926,31 @@ $(window).on('load', function () {
                         }
                     });
 
-                    var abc = ["a", "b", "c"];
-                    for (let i = 0; i < abc.length; ++i) {
-                        $(".image" + abc[i]).mouseover(function () {
-                            $(".image" + abc[i]).css("cursor", "pointer");
-                            $(".image" + abc[i] + "BIG").css("cursor", "pointer");
+
+
+
+                        $(".imageb").mouseover(function () {
+                    
+                            $(".imageb").css("cursor", "pointer");
+                            $(".imagebBIG").css("cursor", "pointer");
                         });
-                        $(".image" + abc[i]).on("click", function (event) {
+                        $(".imageb").on("click", function (event) {
                             var indexVal = event.target.id;
-                            if (indexVal.includes("image" + abc[i] + "BIG")) {
-                                indexVal = indexVal.replace("image" + abc[i] + "BIG", "");
-                                $('#image' + abc[i] + indexVal).show();
+                            if (indexVal.includes("imagebBIG")) {
+                                indexVal = indexVal.replace("imagebBIG", "");
+                                $('#imageb' + indexVal).show();
                                 $('#' + event.target.id).hide();
                                 $('#' + event.target.id).blur();
-                                $('#image' + abc[i] + indexVal).focus();
+                                $('#imageb' + indexVal).focus();
                             } else {
-                                indexVal = indexVal.replace("image" + abc[i], "");
-                                $('#image' + abc[i] + 'BIG' + indexVal).show();
+                                indexVal = indexVal.replace("imageb", "");
+                                $('#imagebBIG' + indexVal).show();
                                 $('#' + event.target.id).hide();
                                 $('#' + event.target.id).blur();
-                                $('#image' + abc[i] + 'BIG' + indexVal).focus();
+                                $('#imagebBIG' + indexVal).focus();
                             }
                         });
-                    }
+                    
                     var columnSelected = 1;
                     var columnSelectedText = "tickerSymbol";
                     if (sector.toLowerCase().includes("pe ratio")) {
@@ -1129,31 +1131,25 @@ $(window).on('load', function () {
 
                 });
 
+                 $("input[data-field='netNet']").click();
+                $("input[data-field='eps']").click();
 
 
-                var abc = ["a", "b", "c"];
-                for (let i = 0; i < abc.length; ++i) {
-                    $(".image" + abc[i]).mouseover(function () {
-                        $(".image" + abc[i]).css("cursor", "pointer");
-                        $(".image" + abc[i] + "BIG").css("cursor", "pointer");
-                    });
-                    $(".image" + abc[i]).on("click", function (event) {
-                        var indexVal = event.target.id;
-                        if (indexVal.includes("image" + abc[i] + "BIG")) {
-                            indexVal = indexVal.replace("image" + abc[i] + "BIG", "");
-                            $('#image' + abc[i] + indexVal).show();
-                            $('#' + event.target.id).hide();
-                            $('#' + event.target.id).blur();
-                            $('#image' + abc[i] + indexVal).focus();
-                        } else {
-                            indexVal = indexVal.replace("image" + abc[i], "");
-                            $('#image' + abc[i] + 'BIG' + indexVal).show();
-                            $('#' + event.target.id).hide();
-                            $('#' + event.target.id).blur();
-                            $('#image' + abc[i] + 'BIG' + indexVal).focus();
-                        }
-                    });
-                }
+
+                $(".sector").on("click", function (event) {
+
+                    if ($(this).children("span").children(".imageb[style*='display: none;']").length == 1) {
+                        $(this).children("span").children(".imageb").show();
+                        $(this).children("span").children(".imagebBIG").hide();
+                        $(this).children("span").children(".imagebBIG").blur();
+                        $(this).children("span").children(".imageb").focus();
+                    } else {
+                        $(this).children("span").children(".imagebBIG").show();
+                        $(this).children("span").children(".imageb").hide();
+                        $(this).children("span").children(".imageb").blur();
+                        $(this).children("span").children(".imagebBIG").focus();
+                    }
+                });
 
                 $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
                 $("div.fixed-table-container.fixed-height").css("border-top", "1px solid #ddd");
@@ -1211,8 +1207,8 @@ $(window).on('load', function () {
                     });  //fade
 
                 });
-                $("input[data-field='netNet']").click();
-                $("input[data-field='eps']").click();
+           //     $("input[data-field='netNet']").click();
+           //     $("input[data-field='eps']").click();
 
             });
 

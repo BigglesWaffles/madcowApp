@@ -17,6 +17,10 @@ html, body {
 .percentUp {
     cursor: pointer;
 }
+
+.sector {
+    cursor: pointer;
+}
 .no-records-found {
     font-weight: 400;
     background-color: lavender;

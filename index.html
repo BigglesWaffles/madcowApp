@@ -203,9 +203,6 @@
                             <th class="dividend" data-field="dividend"><span class="dividend tableftseCon ">Dividend</span></th>
                             <th class="exDividend" data-field="exDividend"><span class="exDividend tableftseCon ">Ex Dividend</span></th>
                             <th class="bullAdvice" data-field="bullAdvice" data-formatter="techFormatter"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
-                            <!--  <th class="day" data-field="day" data-formatter="dayFormatter">Day</th>
-    <th class="week" data-field="week" data-formatter="weekFormatter">Week</th>
-    <th class="years" data-field="years" data-formatter="yearsFormatter">Years</th> -->
                             <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
                             <th class="revenue" data-field="revenue"><span class="revenue tableftseCon ">Turnover</span></th>
 
@@ -318,27 +315,6 @@
                 value = "-------------";
             }
             return "<a class='donothing' target='_blank' title='Day Summary: " + title +"' href='javascript:void(0)'>" + value + "</a>";
-        }
-
-        function dayFormatter(value, row, index) {
-            return "<span> " +
-                "<img class='imagea' id='imagea" + index + "' width='40px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1D&SUBSAMPLINGGRANULARITY=60&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
-                "<img class='imagea' id='imageaBIG" + index + "' style='display:none' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1D&SUBSAMPLINGGRANULARITY=60&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
-                " &nbsp;</span>";
-        }
-
-        function weekFormatter(value, row, index) {
-            return "<span> " +
-                "<img class='imageb' id='imageb" + index + "' width='40px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
-                "<img class='imageb' id='imagebBIG" + index + "' style='display:none'  src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + value + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
-                " &nbsp;</span>";
-        }
-
-        function yearsFormatter(value, row, index) {
-            return "<span> " +
-                "<img class='imagec' id='imagec" + index + "' width='40px' height='40px' src='http://uk.advfn.com/p.php?pid=legacydaily&epic=L^" + value + "&type=4&size=3&period=4&ind_type1=1&ind1_1=&ind2_1=&ind_type2=4&ind1_2=14&ind2_2=&ind_type3=8&ind1_3=&ind2_3=&olx_1=3&ma_type1=1&o_1maday1=14&o_2maday1=&o_colour1=4&olx_2=3&ma_type2=1&o_1maday2=28&o_2maday2=&o_colour2=5&olx_3=3&ma_type3=1&o_1maday3=50&o_2maday3=&o_colour3=2&olx_4=3&ma_type4=1&o_1maday4=100&o_2maday4=&o_colour4=3&olx_5=3&ma_type5=1&o_1maday5=200&o_2maday5=&o_colour5=1&scheme=&delay_indices=1'>" +
-                "<img class='imagec' id='imagecBIG" + index + "' style='display:none'  src='http://uk.advfn.com/p.php?pid=legacydaily&epic=L^" + value + "&type=4&size=3&period=4&ind_type1=1&ind1_1=&ind2_1=&ind_type2=4&ind1_2=14&ind2_2=&ind_type3=8&ind1_3=&ind2_3=&olx_1=3&ma_type1=1&o_1maday1=14&o_2maday1=&o_colour1=4&olx_2=3&ma_type2=1&o_1maday2=28&o_2maday2=&o_colour2=5&olx_3=3&ma_type3=1&o_1maday3=50&o_2maday3=&o_colour3=2&olx_4=3&ma_type4=1&o_1maday4=100&o_2maday4=&o_colour4=3&olx_5=3&ma_type5=1&o_1maday5=200&o_2maday5=&o_colour5=1&scheme=&delay_indices=1'>" +
-                " &nbsp;</span>";
         }
 
         function tickerFormatter(value, row, index) {
@@ -459,7 +435,7 @@
 
              return "<span> " + value + "<br/>" +
                 "<img class='imageb' id='imageb" + index + "' width='40px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
-                "<img class='imageb' id='imagebBIG" + index + "' style='display:none'  src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
+                "<img class='imagebBIG' id='imagebBIG" + index + "' style='display: none;'  src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
                 " &nbsp;</span>";
            
             
