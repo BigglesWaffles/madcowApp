@@ -98,7 +98,7 @@ app.listen(port,  () => {
 
 console.log("calling resetAtMidnight")
 
-//resetAtMidnight();
+resetAtMidnight();
 
 
 const batch = require("./js/batchNews.js");
@@ -108,9 +108,9 @@ function resetAtMidnight() {
     var night = new Date(
         now.getFullYear(),
         now.getMonth(),
-      //  now.getDate(),
+        //now.getDate(),
         now.getDate() + 1, // the next day, ...
-        07, 35, 01 // ...at 00:00:00 hours
+        07, 36, 01 // ...at 00:00:00 hours
     );
 
     var msToMidnight = night.getTime() - now.getTime();
@@ -124,8 +124,8 @@ function resetAtMidnight() {
         if (day != 6 && day != 0) {
                 batch.getNewsData("ftse100",1000);   // <-- This is the function being called at 7:35.
                 batch.getNewsData("ftse250",300000);
-                batch.getNewsData("ftserst",600000);
-                batch.getNewsData("ftseaim",1200000);
+                batch.getNewsData("ftserst",900000);
+                batch.getNewsData("ftseaim",1500000);
         }
         if (day == 0) {
             console.log("sunday");

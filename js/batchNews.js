@@ -35,7 +35,7 @@ async function getNewsData(indexVal, timeOut) {
     
     for (let index = 0; index < search.length; ++index) {
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
 
         axios.get('https://api.londonstockexchange.com/api/gw/lse/instruments/alldata/' + search[index].ticker)
 
