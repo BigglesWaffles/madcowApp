@@ -6,8 +6,8 @@ var path = require('path');
 const fs = require('fs');
 
 
-//const puppeteer = require('puppeteer');
-const puppeteer = "";
+const puppeteer = require('puppeteer');
+//const puppeteer = "";
 
 var myJsonString = "";
 
@@ -42,7 +42,7 @@ router.get('/:name', (req, res) => {
             fileToReadWrite = "files/"+fileName+".json";
             rawdata = fs.readFileSync(fileToReadWrite);
         search = JSON.parse(rawdata);
-     //  search = [{ "tickerSymbol": "BA." }];
+    //    search = [{ "tickerSymbol": "BA." }, { "tickerSymbol": "IAG" }];
         var ticker2 = "";
             for (let index = 0; index < search.length; ++index) {
                 try {
@@ -66,10 +66,13 @@ router.get('/:name', (req, res) => {
 
                     await page.waitForTimeout(1000);
 
-                    let t1 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[1] ');
+                //                         /html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[1] / div[2] / div / div[2] / div[1] / ul / li[1] / div / span
+                
+                    let t1 = await page.$x('//html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[2] / div / div[2] / div[1] / ul / li[1] ');
                     if (typeof t1 === 'object') {
-
+                      //  console.log(JSON.stringify(t1));
                         peRatio = await page.evaluate(el => el.textContent, t1[0]);
+                   //     console.log(peRatio);
                         if (peRatio.includes("N/A")) {
                             peRatio = "0";
                         } else {
@@ -78,9 +81,9 @@ router.get('/:name', (req, res) => {
 
                         }
                         search[index].peRatio = peRatio;
-              //          console.log("peRatio " + peRatio);
-                    }
-                    let t2 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[6] ');
+                      // console.log("peRatio " + peRatio);
+                    }                        //html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[2] / div / div[2] / div[1] / ul / li[1]
+                    let t2 = await page.$x('//html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[2] / div / div[2] / div[1] / ul / li[6] ');
                     if (typeof t2 === 'object') {
                         dividend = await page.evaluate(el => el.textContent, t2[0]);
                         if (dividend.includes("not currently paying")) {
@@ -92,11 +95,14 @@ router.get('/:name', (req, res) => {
                         if (dividend < 0.1 && dividend != 0) {
                             dividend = dividend * 100;
                         }
+                        if (dividend == 7.000000000000001) {
+                            dividend = "7.00";
+                        }
                         search[index].dividend = dividend;
                 //        console.log("dividend is " + dividend);
                     }
                     // 08/12/21  2022-12-08
-                    let t3 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[8] ');
+                    let t3 = await page.$x('//html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[2] / div / div[2] / div[1] / ul / li[8] ');
                                  //            /html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div / div[1] / div[1] / div[2] / div / div[2] / div[1] / ul / li[8]
                     if (typeof t3 === 'object') {
                         exDividend = await page.evaluate(el => el.textContent, t3[0]);
@@ -107,10 +113,10 @@ router.get('/:name', (req, res) => {
                             exDividend = "20" + exDividend.substring(22, 25) + "-" + exDividend.substring(16, 18) + "-" + exDividend.substring(19, 21);
                         }
                         search[index].exDividend = exDividend;
-              //          console.log("exDividend is " + exDividend);
+                 //      console.log("exDividend is " + exDividend);
                     }
 
-                    let t4 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[2]');
+                    let t4 = await page.$x('//html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[2] / div / div[2] / div[1] / ul / li[2]');
                     if (typeof t4 === 'object') {
                         eps = await page.evaluate(el => el.textContent, t4[0]);
                         eps = eps.replace("EPS (TTM)", "");
@@ -126,7 +132,7 @@ router.get('/:name', (req, res) => {
                  //       console.log("eps is " + eps + " length: "+eps.length);
                     }
 
-                    let t5 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[4]');
+                    let t5 = await page.$x('//html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[2] / div / div[2] / div[1] / ul / li[4]');
                     if (typeof t5 === 'object') {
                         numberOfShares = await page.evaluate(el => el.textContent, t5[0]);
                         numberOfShares = numberOfShares.replace("Shares Outstanding", "");
@@ -137,7 +143,7 @@ router.get('/:name', (req, res) => {
                             if (numberOfShares.includes(" B")) {
                                 numberOfShares = numberOfShares.replace(" B", "0").replace("\.", "");;
                             } else {
-                                let t6 = await page.$x('//html/body / div[1] / div / div / div / div[2] / div / div / div[2] / div[1] / div[2] / div / div[2] / div[1] / ul / li[5]');
+                                let t6 = await page.$x('//html/body / div[1] / div / div / div / div[3] / div / div / div[2] / div / div[1] / div[2] / div / div[2] / div[1]/ ul / li[5]');
                                 if (typeof t6 === 'object') {
                                     numberOfShares = await page.evaluate(el => el.textContent, t6[0]);
                                     numberOfShares = numberOfShares.replace("Public Float", "");

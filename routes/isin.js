@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
 
     let myInputIsin = query.x;
     let myFileName = query.y;
+    let myCo = query.z;
     let myErrors = [];
    // let myLength = query.z;
 
@@ -114,7 +115,7 @@ router.get('/', (req, res) => {
     Promise.all(endpoints.map((endpoint) =>
     */
 
-
+ 
 
     if (myInputIsin != "GB00BD8HBD32"
         && myInputIsin != "GB0002318888"
@@ -168,9 +169,10 @@ router.get('/', (req, res) => {
         && myInputIsin != "GB00BNVVH568"
         && myInputIsin != "GB00BYV8MN78"
         && myInputIsin != "GB00BMBVGQ36") {
-
-
-        let myCo = makeid(10) +"-"+ makeid(5);
+        
+       // IMPORTANT  UNCOMMENT if want to mage again.
+        //let myCo = makeid(10) +"-"+ makeid(5);
+        // END IMPORTANT
     //    console.log("myCo: " + myCo);
         axios.get('https://www.fidelity.co.uk/factsheet-data/factsheet/' + myInputIsin + '-' + myCo + '/financials')
             .then(response => {
@@ -186,7 +188,10 @@ router.get('/', (req, res) => {
                 } else {
                     fidelityName = fidelityName.substring(0, fidelityName.indexOf(" ("));
                 }
-                fidelityName = fidelityName.toLowerCase().replaceAll(".", "").replace(" (", "").replace(")", "").replaceAll(" ", "-").replace("&amp;","");
+                fidelityName = fidelityName.toLowerCase().replaceAll(".", "").replace(" (", "").replace(")", "").replaceAll(" ", "-").replace("&amp;", "");
+                if (fidelityName.indexOf("<") > 0) {
+                    fidelityName = fidelityName.substring(0, fidelityName.indexOf("<"));
+                }
 
                 console.log("final fidelityName " + fidelityName);
 
@@ -283,6 +288,12 @@ router.get('/', (req, res) => {
                             myFileParsed[p].totalCurrentAssets = roundToTwo(totalCurrentAssets);
                             myFileParsed[p].totalAssets = roundToTwo(totalAssets);
                             myFileParsed[p].totalLiabilities = roundToTwo(totalLiabilities);
+                            console.log("myFinalProfit " + myFinalProfit);
+                            console.log("nvv " + nvv);
+                            console.log("totalAssets " + totalAssets);
+                            console.log("totalLiabilities " + totalLiabilities);
+               
+
                             myFileParsed[p].revenue = roundToTwo(revenue);
                             myFileParsed[p].fidelityName = fidelityName;
 

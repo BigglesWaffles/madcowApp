@@ -31,10 +31,10 @@ const axios = require('axios');
 
                 for (let i = 0; i < splitted.length; i++) {
                     if (j == 1) {
-                        if (splitted[i].includes("SELL")) {
-                            buySell = "SELL";
-                        } else {
+                        if (splitted[i].includes("BUY")) {
                             buySell = "BUY";
+                        } else {
+                            buySell = "SELL";
                         }
 
                         splitted[i] = splitted[i].substring(splitted[i].indexOf(";\">") + 3, splitted[i].length -1);

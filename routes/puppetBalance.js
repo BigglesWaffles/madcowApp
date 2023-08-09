@@ -6,8 +6,8 @@ var path = require('path');
 const fs = require('fs');
 
 
-//const puppeteer = require('puppeteer');
-const puppeteer = "";
+const puppeteer = require('puppeteer');
+//const puppeteer = "";
 
 
 var myJsonString = "";
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 
         const page = await browser.newPage();
 
-        fileToReadWrite = "files/ftse100.json";
+        fileToReadWrite = "files/ftseaim.json";
         rawdata = fs.readFileSync(fileToReadWrite);
         search = JSON.parse(rawdata);
     //    search = [{ "tickerSymbol": "BA.", "marketCapitalisation": 100000 }];
@@ -202,7 +202,7 @@ router.get('/', (req, res) => {
                     maxNum = 0;
                 } 
                 maxNum = maxNum + 1;
-                if (maxNum < 3) {
+                if (maxNum < 2) {
                     index = index - 1;
                 }
                 console.log(e);

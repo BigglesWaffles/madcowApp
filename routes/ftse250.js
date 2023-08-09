@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 
     var query = require('url').parse(req.url, true).query;
 
+    console.log("JOHN HAWTHORNE WAS HERE");
     let myInputIsin = query.x;
     if (myInputIsin == "err" || myInputIsin == "errNews" || myInputIsin == "errBull") {
         let rawdata = "";

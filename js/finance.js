@@ -240,7 +240,10 @@ $(window).on('load', function () {
             for (let i = 0; i < sdata.items.length; i++) {
                 //    alert(JSON.stringify(sdata));
                 timeout = timeout + 4000;
-                console.log(timeout);
+  
+
+              //  $.trim($("#aa" + i).text())
+
 
                 setTimeout(function () {
                     getProfits(sdata.items[i].isin, $("#activebutt").text());
@@ -263,10 +266,11 @@ $(window).on('load', function () {
     });
 
     function getProfits(myIsin, myFile) {
-        //  alert("hhhhh");
-        $.get("/routes/isin?x=" + myIsin + "&y=" + myFile, {}, function (sdata) {
-            console.log("im in here");
-        });
+
+            $.get("/routes/isin?x=" + myIsin + "&y=" + myFile, {}, function (sdata) {
+              
+            });
+       
 
     }
 
@@ -930,8 +934,10 @@ $(window).on('load', function () {
 
 
                         $(".imageb").mouseover(function () {
-                    
+                            alert("HI");
                             $(".imageb").css("cursor", "pointer");
+                            $(".imageb").attr("height", "auto");
+                            $(".imageb").attr("width", "auto");
                             $(".imagebBIG").css("cursor", "pointer");
                         });
                         $(".imageb").on("click", function (event) {
