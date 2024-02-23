@@ -14,6 +14,8 @@ const axios = require('axios');
        
 
         const myArray = req.body.ticker.split("|");
+        console.log("myArray0: " + myArray[0]);
+        console.log("myArray0: " + myArray[1]);
     
         var obj = { "currentnews": "error" };
 

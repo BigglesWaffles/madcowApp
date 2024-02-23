@@ -4,7 +4,184 @@ var router = express.Router();
 var app = express();
 var path = require('path');
 const fs = require('fs');
+const url = require('url');
 
+const axios = require('axios');
+
+
+    router.get('/:name', (req, res) => {
+
+
+        var rawdata = "";
+        var search = "";
+        var fileToReadWrite = "";
+        var maxNum = parseInt("0");
+        var saveTicker = "";
+
+//router.post('/', (req, res) => {
+
+
+
+  //  const page = await browser.newPage();
+
+    var fileName = req.params.name;
+    console.log("john " + req.params.name);
+
+    fileToReadWrite = "files/" + fileName + ".json";
+    rawdata = fs.readFileSync(fileToReadWrite);
+    search = JSON.parse(rawdata);
+    //    search = [{ "tickerSymbol": "BA." }, { "tickerSymbol": "IAG" }];
+    var ticker2 = "";
+    for (let index = 0; index < search.length; ++index) {
+        try {
+            var technical = new Object();
+          //  console.log(search[index].tickerSymbol);
+            technical.ticker = search[index].tickerSymbol;
+            ticker2 = technical.ticker;
+
+            var peRatio = "";
+            var dividend = "";
+            var exDividend = "";
+
+            var eps = "0";
+            var numberOfShares = "";
+           
+  
+
+        //    if (ticker2 != "BT.A" && ticker2 != "TRD") {
+        //        continue;
+        //    }
+
+            var obj = { "currentnews": "error" };
+        //    console.log(search[index].tickerSymbol);
+       //     console.log("URL https://markets.ft.com/data/equities/tearsheet/summary?s=" + ticker2 + ":lse");
+
+            axios.get("https://markets.ft.com/data/equities/tearsheet/summary?s="+ticker2+":lse")
+
+                .then(response => {
+
+                    numberOfShares = "";
+                    eps = "";
+                    peRatio = "";
+                    dividend = "";
+                    exDividend = "0";
+
+                    var bigblob = response.data;
+
+                    search[index].numberOfShares = "0";
+
+                    numberOfShares = bigblob.substring(bigblob.indexOf("Shares outstanding") + 27, bigblob.indexOf("Shares outstanding") + 50);
+                    numberOfShares = numberOfShares.substring(0, numberOfShares.indexOf("<"));
+
+                    numberOfShares = numberOfShares.replace("bn", 0);
+                    numberOfShares = numberOfShares.replace("m", "");
+                    search[index].numberOfShares = numberOfShares;
+
+                    console.log(search[index].tickerSymbol);
+
+                    console.log(numberOfShares);
+
+
+                    eps = bigblob.substring(bigblob.indexOf("EPS ") + 52, bigblob.indexOf("EPS ") + 68);
+                    eps = eps.substring(0, eps.indexOf("<"));
+                    eps = eps.replace(" ", "");
+                  //  if (eps.indexOf("-") >= 0) {
+                   //     eps = eps.replace("-", "");
+                  //      eps = eps + "-";
+                  //  }
+                    search[index].eps = eps;
+                    console.log(eps);
+
+                    peRatio = bigblob.substring(bigblob.indexOf("P/E ") + 52, bigblob.indexOf("P/E ") + 66);
+                    peRatio = peRatio.substring(0, peRatio.indexOf("<"));
+                    if (peRatio == "--") {
+                        peRatio = "0";
+                    }
+                    search[index].peRatio = peRatio;
+                    console.log(peRatio);
+
+                    if (bigblob.indexOf("Annual div yield ") < 0) {
+                        dividend = 0;
+                    } else {
+                        dividend = bigblob.substring(bigblob.indexOf("Annual div yield ") + 65, bigblob.indexOf("Annual div yield ") + 80);
+                        dividend = dividend.substring(0, dividend.indexOf("<"));
+                        dividend = dividend.replace("%", "");
+                        if (dividend == "--") {
+                            dividend = "0";
+                        }
+                        search[index].dividend = dividend;
+                        console.log(dividend);
+
+                        search[index].exDividend = "2024-01-01";
+
+
+                        const jsonString = JSON.stringify(search);
+
+                        fs.writeFile(fileToReadWrite, jsonString, err => {
+                            if (err) {
+                                console.log('Error writing file', err)
+                            }
+                        })
+                       // break;
+
+                      //  exDividend = bigblob.substring(bigblob.indexOf("Div ex-date") + 41, bigblob.indexOf("Div ex-date") + 52);
+                        //console.log(exDividend);
+
+                      //  exDividend = "20" + exDividend.substring(22, 25) + "-" + exDividend.substring(16, 18) + "-" + exDividend.substring(19, 21);
+                    }
+
+
+                });
+
+
+        } catch (error) {
+            console.log("failing ticker: " + search[index].tickerSymbol);
+            console.log(error);
+            if (saveTicker == search[index].tickerSymbol) {
+                maxNum = maxNum + 1;
+            } else {
+                maxNum = 0;
+                saveTicker = search[index].tickerSymbol;
+            }
+            if (maxNum < 3) {
+                console.log("maxNum " + maxNum);
+                index = index - 1;
+            } else {
+                console.log("Failed maxNum " + maxNum);
+                search[index].exDividend = "-";
+                search[index].dividend = "0";
+                search[index].peRatio = "0";
+                search[index].numberOfShares = "0";
+            }
+
+
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(
+                obj
+            ));
+            console.log(error);
+
+        }
+    }
+
+
+
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(
+                obj
+            ));
+           
+        });
+
+
+
+
+
+
+
+
+
+/*
 
 const puppeteer = require('puppeteer');
 //const puppeteer = "";
@@ -28,10 +205,14 @@ router.get('/:name', (req, res) => {
    
     (async () => {
 
+
+            const proxyServer = '192.168.0.4:3000';
+
        
             console.log("in async");
         const browser = await puppeteer.launch({
-           headless: false
+            headless: false 
+         //   args: [`--proxy-server=${proxyServer}`]
         });
      //   const browser = await puppeteer.launch();
             const page = await browser.newPage();
@@ -205,5 +386,9 @@ router.get('/:name', (req, res) => {
                 ))
             
     });
+    */
+module.exports = router;
 
-    module.exports = router;
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
