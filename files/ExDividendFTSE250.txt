@@ -1,0 +1,390 @@
+<table class="table table-striped">
+<thead>
+<tr>
+<th><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse250&amp;fm=&amp;sc=e&amp;st=0">EPIC </a></th>
+<th><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse250&amp;fm=&amp;sc=n&amp;st=0">Name </a></th>
+<th>Market</th>
+<th class="text-right">Share Price</th>
+<th class="text-right">Dividend</th>
+<th class="text-right">Type</th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse250&amp;fm=&amp;sc=y&amp;st=0">Div Impact </a></th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse250&amp;fm=&amp;sc=dd&amp;st=0">Declaration<br> Date </a></th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse250&amp;fm=&amp;sc=xd&amp;st=1">Ex-Dividend<br> Date ▲</a></th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse250&amp;fm=&amp;sc=pd&amp;st=0">Payment<br> Date </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEC</td>
+<td>Diversified Energy Company</td>
+<td>FTSE 250</td>
+<td class="ar">952.5p</td>
+<td class="ar">$0.875</td>
+<td class="text-right">Q3</td>
+<td class="ar">7.25%</td>
+<td class="ar">15-Nov<a href="https://www.londonstockexchange.com/news-article/DEC/third-quarter-dividend-announcement/16210020" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 15-Nov DEC Dividend Announcement" title="View 15-Nov DEC Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">28-Mar</td>
+</tr>
+<tr>
+<td>ASHM</td>
+<td>Ashmore Group</td>
+<td>FTSE 250</td>
+<td class="ar">215.4p</td>
+<td class="ar">4.8p</td>
+<td class="text-right">Interim</td>
+<td class="ar">2.23%</td>
+<td class="ar">07-Feb<a href="https://www.londonstockexchange.com/news-article/ASHM/half-year-report/16321175" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 07-Feb ASHM Dividend Announcement" title="View 07-Feb ASHM Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">02-Apr</td>
+</tr>
+<tr>
+<td>SAIN</td>
+<td>Scottish American Investment Company</td>
+<td>FTSE 250</td>
+<td class="ar">506p</td>
+<td class="ar">3.8p</td>
+<td class="text-right">Final</td>
+<td class="ar">0.75%</td>
+<td class="ar">15-Feb<a href="https://www.londonstockexchange.com/news-article/SAIN/saints-annual-results-to-31-dec-2023/16333407" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 15-Feb SAIN Dividend Announcement" title="View 15-Feb SAIN Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">11-Apr</td>
+</tr>
+<tr>
+<td>JLEN</td>
+<td>JLEN Environmental Assets Group</td>
+<td>FTSE 250</td>
+<td class="ar">100.2p</td>
+<td class="ar">1.9p</td>
+<td class="text-right">Q3</td>
+<td class="ar">1.90%</td>
+<td class="ar">16-Feb<a href="https://www.londonstockexchange.com/news-article/JLEN/net-asset-value-and-dividend/16335573" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 16-Feb JLEN Dividend Announcement" title="View 16-Feb JLEN Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">22-Mar</td>
+</tr>
+<tr>
+<td>NAS</td>
+<td>North Atlantic Smaller Companies Inv Tst</td>
+<td>FTSE 250</td>
+<td class="ar">3750p</td>
+<td class="ar">68.5p</td>
+<td class="text-right">Interim</td>
+<td class="ar">1.83%</td>
+<td class="ar">19-Feb<a href="https://www.londonstockexchange.com/news-article/NAS/dividend-declaration/16337594" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 19-Feb NAS Dividend Announcement" title="View 19-Feb NAS Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">28-Mar</td>
+</tr>
+<tr>
+<td>PLUS</td>
+<td>Plus500</td>
+<td>FTSE 250</td>
+<td class="ar">1835p</td>
+<td class="ar">$0.9462</td>
+<td class="text-right">Final<br>Special</td>
+<td class="ar">4.07%</td>
+<td class="ar">20-Feb<a href="https://www.londonstockexchange.com/news-article/PLUS/fy-2023-preliminary-results/16339761" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 20-Feb PLUS Dividend Announcement" title="View 20-Feb PLUS Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">11-Jul</td>
+</tr>
+<tr>
+<td>ATST</td>
+<td>Alliance Trust</td>
+<td>FTSE 250</td>
+<td class="ar">1188p</td>
+<td class="ar">6.34p</td>
+<td class="text-right">Q4</td>
+<td class="ar">0.53%</td>
+<td class="ar">20-Feb<a href="https://www.londonstockexchange.com/news-article/ATST/alliance-trust-plc-dividend-declaration/16339665" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 20-Feb ATST Dividend Announcement" title="View 20-Feb ATST Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">28-Mar</td>
+</tr>
+<tr>
+<td>HICL</td>
+<td>HICL Infrastructure</td>
+<td>FTSE 250</td>
+<td class="ar">122.4p</td>
+<td class="ar">2.06p</td>
+<td class="text-right">Q3</td>
+<td class="ar">1.68%</td>
+<td class="ar">21-Feb<a href="https://www.londonstockexchange.com/news-article/HICL/third-quarterly-interim-dividend/16343093" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 21-Feb HICL Dividend Announcement" title="View 21-Feb HICL Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">28-Mar</td>
+</tr>
+<tr>
+<td>HL.</td>
+<td>Hargreaves Lansdown</td>
+<td>FTSE 250</td>
+<td class="ar">749p</td>
+<td class="ar">13.2p</td>
+<td class="text-right">Interim</td>
+<td class="ar">1.76%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/HL./half-year-report/16343498" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb HL. Dividend Announcement" title="View 22-Feb HL. Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">28-Mar</td>
+</tr>
+<tr>
+<td>LMP</td>
+<td>LondonMetric Property</td>
+<td>FTSE 250</td>
+<td class="ar">188.4p</td>
+<td class="ar">2.4p</td>
+<td class="text-right">Q3</td>
+<td class="ar">1.27%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/LMP/dividend-declaration/16343535" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb LMP Dividend Announcement" title="View 22-Feb LMP Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">08-Apr</td>
+</tr>
+<tr>
+<td>HAS</td>
+<td>Hays</td>
+<td>FTSE 250</td>
+<td class="ar">95p</td>
+<td class="ar">0.95p</td>
+<td class="text-right">Interim</td>
+<td class="ar">1.00%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/HAS/half-year-report/16343485" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb HAS Dividend Announcement" title="View 22-Feb HAS Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">09-Apr</td>
+</tr>
+<tr>
+<td>GNS</td>
+<td>Genus</td>
+<td>FTSE 250</td>
+<td class="ar">1959p</td>
+<td class="ar">10.3p</td>
+<td class="text-right">Interim</td>
+<td class="ar">0.53%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/GNS/interim-results/16343480" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb GNS Dividend Announcement" title="View 22-Feb GNS Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">28-Mar</td>
+</tr>
+<tr>
+<td>SAFE</td>
+<td>Safestore Holdings</td>
+<td>FTSE 250</td>
+<td class="ar">761.5p</td>
+<td class="ar">20.2p</td>
+<td class="text-right">Final</td>
+<td class="ar">2.65%</td>
+<td class="ar">17-Jan<a href="https://www.londonstockexchange.com/news-article/SAFE/final-results/16291671" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 17-Jan SAFE Dividend Announcement" title="View 17-Jan SAFE Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">09-Apr</td>
+</tr>
+<tr>
+<td>RSW</td>
+<td>Renishaw</td>
+<td>FTSE 250</td>
+<td class="ar">4298p</td>
+<td class="ar">16.8p</td>
+<td class="text-right">Interim</td>
+<td class="ar">0.39%</td>
+<td class="ar">06-Feb<a href="https://www.londonstockexchange.com/news-article/RSW/half-year-report/16319207" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 06-Feb RSW Dividend Announcement" title="View 06-Feb RSW Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">09-Apr</td>
+</tr>
+<tr>
+<td>PZC</td>
+<td>PZ Cussons</td>
+<td>FTSE 250</td>
+<td class="ar">100.2p</td>
+<td class="ar">1.5p</td>
+<td class="text-right">Interim</td>
+<td class="ar">1.50%</td>
+<td class="ar">07-Feb<a href="https://www.londonstockexchange.com/news-article/PZC/2024-interim-results/16321211" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 07-Feb PZC Dividend Announcement" title="View 07-Feb PZC Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">04-Apr</td>
+</tr>
+<tr>
+<td>TMPL</td>
+<td>Temple Bar Investment Trust</td>
+<td>FTSE 250</td>
+<td class="ar">234.5p</td>
+<td class="ar">2.5p</td>
+<td class="text-right">Q4</td>
+<td class="ar">1.07%</td>
+<td class="ar">13-Feb<a href="https://www.londonstockexchange.com/news-article/TMPL/fourth-interim-dividend/16330909" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 13-Feb TMPL Dividend Announcement" title="View 13-Feb TMPL Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">02-Apr</td>
+</tr>
+<tr>
+<td>ENOG</td>
+<td>Energean</td>
+<td>FTSE 250</td>
+<td class="ar">979p</td>
+<td class="ar">$0.3</td>
+<td class="text-right">Q4</td>
+<td class="ar">2.42%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/ENOG/4q-2023-dividend-declaration/16343530" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb ENOG Dividend Announcement" title="View 22-Feb ENOG Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">29-Mar</td>
+</tr>
+<tr>
+<td>PNL</td>
+<td>Personal Assets Trust</td>
+<td>FTSE 250</td>
+<td class="ar">473p</td>
+<td class="ar">1.4p</td>
+<td class="text-right">Q4</td>
+<td class="ar">0.30%</td>
+<td class="ar">23-Feb<a href="https://www.londonstockexchange.com/news-article/PNL/dividend-declaration/16347235" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 23-Feb PNL Dividend Announcement" title="View 23-Feb PNL Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">16-Apr</td>
+</tr>
+<tr>
+<td>SEIT</td>
+<td>SDCL Energy Efficiency Income Trust</td>
+<td>FTSE 250</td>
+<td class="ar">63.4p</td>
+<td class="ar">1.56p</td>
+<td class="text-right">Q3</td>
+<td class="ar">2.46%</td>
+<td class="ar">23-Feb<a href="https://www.londonstockexchange.com/news-article/SEIT/interim-dividend-declaration/16347497" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 23-Feb SEIT Dividend Announcement" title="View 23-Feb SEIT Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">28-Mar</td>
+</tr>
+<tr>
+<td>DNLM</td>
+<td>Dunelm Group</td>
+<td>FTSE 250</td>
+<td class="ar">1159p</td>
+<td class="ar">51p</td>
+<td class="text-right">Interim<br>Special</td>
+<td class="ar">4.40%</td>
+<td class="ar">14-Feb<a href="https://www.londonstockexchange.com/news-article/DNLM/record-date-for-dividend-correction/16333159" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 14-Feb DNLM Dividend Announcement" title="View 14-Feb DNLM Dividend Announcement"></a></td>
+<td class="ar">14-Mar</td>
+<td class="ar">09-Apr</td>
+</tr>
+<tr>
+<td>JMG</td>
+<td>JPMorgan Emerging Markets Invest Trust</td>
+<td>FTSE 250</td>
+<td class="ar">104.4p</td>
+<td class="ar">0.6p</td>
+<td class="text-right">Interim</td>
+<td class="ar">0.57%</td>
+<td class="ar">23-Feb<a href="https://www.londonstockexchange.com/news-article/JMG/dividend-declaration/16345733" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 23-Feb JMG Dividend Announcement" title="View 23-Feb JMG Dividend Announcement"></a></td>
+<td class="ar">14-Mar</td>
+<td class="ar">26-Apr</td>
+</tr>
+<tr>
+<td>CHG</td>
+<td>Chemring Group</td>
+<td>FTSE 250</td>
+<td class="ar">353p</td>
+<td class="ar">4.6p</td>
+<td class="text-right">Final</td>
+<td class="ar">1.30%</td>
+<td class="ar">12-Dec<a href="https://www.londonstockexchange.com/news-article/CHG/results-for-the-year-ended-31-october-2023/16247544" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 12-Dec CHG Dividend Announcement" title="View 12-Dec CHG Dividend Announcement"></a></td>
+<td class="ar">21-Mar</td>
+<td class="ar">12-Apr</td>
+</tr>
+<tr>
+<td>CRST</td>
+<td>Crest Nicholson Holdings</td>
+<td>FTSE 250</td>
+<td class="ar">210.4p</td>
+<td class="ar">11.5p</td>
+<td class="text-right">Final</td>
+<td class="ar">5.47%</td>
+<td class="ar">23-Jan<a href="https://www.londonstockexchange.com/news-article/CRST/final-results/16299495" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 23-Jan CRST Dividend Announcement" title="View 23-Jan CRST Dividend Announcement"></a></td>
+<td class="ar">21-Mar</td>
+<td class="ar">23-Apr</td>
+</tr>
+<tr>
+<td>MONY</td>
+<td>Moneysupermarket.com Group</td>
+<td>FTSE 250</td>
+<td class="ar">247.2p</td>
+<td class="ar">8.9p</td>
+<td class="text-right">Final</td>
+<td class="ar">3.60%</td>
+<td class="ar">19-Feb<a href="https://www.londonstockexchange.com/news-article/MONY/preliminary-results/16337530" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 19-Feb MONY Dividend Announcement" title="View 19-Feb MONY Dividend Announcement"></a></td>
+<td class="ar">28-Mar</td>
+<td class="ar">10-May</td>
+</tr>
+<tr>
+<td>JUP</td>
+<td>Jupiter Fund Management</td>
+<td>FTSE 250</td>
+<td class="ar">89.35p</td>
+<td class="ar">3.4p</td>
+<td class="text-right">Final</td>
+<td class="ar">3.81%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/JUP/annual-financial-report/16343497" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb JUP Dividend Announcement" title="View 22-Feb JUP Dividend Announcement"></a></td>
+<td class="ar">18-Apr</td>
+<td class="ar">20-May</td>
+</tr>
+<tr>
+<td>MEGP</td>
+<td>ME Group International</td>
+<td>FTSE 250</td>
+<td class="ar">153p</td>
+<td class="ar">4.42p</td>
+<td class="text-right">Final</td>
+<td class="ar">2.89%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/MEGP/preliminary-results/16343511" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb MEGP Dividend Announcement" title="View 22-Feb MEGP Dividend Announcement"></a></td>
+<td class="ar">25-Apr</td>
+<td class="ar">23-May</td>
+</tr>
+<tr>
+<td>MGNS</td>
+<td>Morgan Sindall Group</td>
+<td>FTSE 250</td>
+<td class="ar">2240p</td>
+<td class="ar">78p</td>
+<td class="text-right">Final</td>
+<td class="ar">3.48%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/MGNS/results-for-the-full-year-ended-31-december-2023/16343409" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb MGNS Dividend Announcement" title="View 22-Feb MGNS Dividend Announcement"></a></td>
+<td class="ar">25-Apr</td>
+<td class="ar">16-May</td>
+</tr>
+<tr>
+<td>BNKR</td>
+<td>Bankers Investment Trust</td>
+<td>FTSE 250</td>
+<td class="ar">107.2p</td>
+<td class="ar">0.672p</td>
+<td class="text-right">Q1</td>
+<td class="ar">0.63%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/BNKR/dividend-declaration/16345316" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 22-Feb BNKR Dividend Announcement" title="View 22-Feb BNKR Dividend Announcement"></a></td>
+<td class="ar">25-Apr</td>
+<td class="ar">31-May</td>
+</tr>
+<tr>
+<td>STEM</td>
+<td>SThree</td>
+<td>FTSE 250</td>
+<td class="ar">409.5p</td>
+<td class="ar">11.6p</td>
+<td class="text-right">Final</td>
+<td class="ar">2.83%</td>
+<td class="ar">30-Jan<a href="https://www.londonstockexchange.com/news-article/STEM/fy23-final-results/16309000" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 30-Jan STEM Dividend Announcement" title="View 30-Jan STEM Dividend Announcement"></a></td>
+<td class="ar">09-May</td>
+<td class="ar">07-Jun</td>
+</tr>
+<tr>
+<td>MUT</td>
+<td>Murray Income Trust</td>
+<td>FTSE 250</td>
+<td class="ar">822p</td>
+<td class="ar">9.5p</td>
+<td class="text-right">Q3</td>
+<td class="ar">1.16%</td>
+<td class="ar">09-Nov<a href="https://www.londonstockexchange.com/news-article/MUT/announcement-of-interim-dividends/16202164" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 09-Nov MUT Dividend Announcement" title="View 09-Nov MUT Dividend Announcement"></a></td>
+<td class="ar">16-May</td>
+<td class="ar">13-Jun</td>
+</tr>
+<tr>
+<td>TBCG</td>
+<td>TBC Bank Group</td>
+<td>FTSE 250</td>
+<td class="ar">3055p</td>
+<td class="ar">GEL4.67</td>
+<td class="text-right">Final</td>
+<td class="ar">4.55%</td>
+<td class="ar">16-Feb<a href="https://www.londonstockexchange.com/news-article/TBCG/declaration-of-final-dividend/16335581" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 250_files/news.png" alt="View 16-Feb TBCG Dividend Announcement" title="View 16-Feb TBCG Dividend Announcement"></a></td>
+<td class="ar">13-Jun</td>
+<td class="ar">19-Jul</td>
+</tr>
+</tbody>
+</table>

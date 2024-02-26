@@ -1,0 +1,343 @@
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse100&amp;fm=&amp;sc=e&amp;st=0">EPIC </a></th>
+<th><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse100&amp;fm=&amp;sc=n&amp;st=0">Name </a></th>
+<th>Market</th>
+<th class="text-right">Share Price</th>
+<th class="text-right">Dividend</th>
+<th class="text-right">Type</th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse100&amp;fm=&amp;sc=y&amp;st=0">Div Impact </a></th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse100&amp;fm=&amp;sc=dd&amp;st=0">Declaration<br> Date </a></th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse100&amp;fm=&amp;sc=xd&amp;st=1">Ex-Dividend<br> Date ▲</a></th>
+<th class="text-right"><a href="https://www.dividenddata.co.uk/exdividenddate.py?m=ftse100&amp;fm=&amp;sc=pd&amp;st=0">Payment<br> Date </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DGE</td>
+<td>Diageo</td>
+<td>FTSE 100</td>
+<td class="ar">2986p</td>
+<td class="ar">$0.405</td>
+<td class="text-right">Interim</td>
+<td class="ar">1.07%</td>
+<td class="ar">30-Jan<a href="https://www.londonstockexchange.com/news-article/DGE/interim-results/16309027" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 30-Jan DGE Dividend Announcement" title="View 30-Jan DGE Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">17-Apr</td>
+</tr>
+<tr>
+<td>BARC</td>
+<td>Barclays</td>
+<td>FTSE 100</td>
+<td class="ar">163.74p</td>
+<td class="ar">5.3p</td>
+<td class="text-right">Final</td>
+<td class="ar">3.24%</td>
+<td class="ar">20-Feb<a href="https://www.londonstockexchange.com/news-article/BARC/results-announcement/16339615" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 20-Feb BARC Dividend Announcement" title="View 20-Feb BARC Dividend Announcement"></a></td>
+<td class="ar">29-Feb</td>
+<td class="ar">03-Apr</td>
+</tr>
+<tr>
+<td>HSBA</td>
+<td>HSBC Holdings</td>
+<td>FTSE 100</td>
+<td class="ar">597.2p</td>
+<td class="ar">$0.31</td>
+<td class="text-right">Q4</td>
+<td class="ar">4.09%</td>
+<td class="ar">21-Feb<a href="https://www.londonstockexchange.com/news-article/HSBA/hsbc-holdings-2023-results/16341358" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 21-Feb HSBA Dividend Announcement" title="View 21-Feb HSBA Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">25-Apr</td>
+</tr>
+<tr>
+<td>RIO</td>
+<td>Rio Tinto</td>
+<td>FTSE 100</td>
+<td class="ar">5197p</td>
+<td class="ar">203.77p</td>
+<td class="text-right">Final</td>
+<td class="ar">3.92%</td>
+<td class="ar">21-Feb<a href="https://www.londonstockexchange.com/news-article/RIO/final-results/16341540" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 21-Feb RIO Dividend Announcement" title="View 21-Feb RIO Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">18-Apr</td>
+</tr>
+<tr>
+<td>STAN</td>
+<td>Standard Chartered</td>
+<td>FTSE 100</td>
+<td class="ar">635p</td>
+<td class="ar">$0.21</td>
+<td class="text-right">Final</td>
+<td class="ar">2.61%</td>
+<td class="ar">23-Feb<a href="https://www.londonstockexchange.com/news-article/STAN/scplc-final-results-2023/16345728" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 23-Feb STAN Dividend Announcement" title="View 23-Feb STAN Dividend Announcement"></a></td>
+<td class="ar">07-Mar</td>
+<td class="ar">17-May</td>
+</tr>
+<tr>
+<td>NWG</td>
+<td>NatWest Group</td>
+<td>FTSE 100</td>
+<td class="ar">231.5p</td>
+<td class="ar">11.5p</td>
+<td class="text-right">Final</td>
+<td class="ar">4.97%</td>
+<td class="ar">16-Feb<a href="https://www.londonstockexchange.com/news-article/NWG/final-results-nwg-plc/16335655" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 16-Feb NWG Dividend Announcement" title="View 16-Feb NWG Dividend Announcement"></a></td>
+<td class="ar">14-Mar</td>
+<td class="ar">29-Apr</td>
+</tr>
+<tr>
+<td>SGRO</td>
+<td>SEGRO</td>
+<td>FTSE 100</td>
+<td class="ar">864.2p</td>
+<td class="ar">19.1p</td>
+<td class="text-right">Final</td>
+<td class="ar">2.21%</td>
+<td class="ar">16-Feb<a href="https://www.londonstockexchange.com/news-article/SGRO/results-for-the-year-ended-31-december-2023/16335602" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 16-Feb SGRO Dividend Announcement" title="View 16-Feb SGRO Dividend Announcement"></a></td>
+<td class="ar">14-Mar</td>
+<td class="ar">03-May</td>
+</tr>
+<tr>
+<td>AAL</td>
+<td>Anglo American</td>
+<td>FTSE 100</td>
+<td class="ar">1786p</td>
+<td class="ar">$0.41</td>
+<td class="text-right">Final</td>
+<td class="ar">1.81%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/AAL/anglo-american-year-end-financial-report-2023/16343492" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 22-Feb AAL Dividend Announcement" title="View 22-Feb AAL Dividend Announcement"></a></td>
+<td class="ar">14-Mar</td>
+<td class="ar">03-May</td>
+</tr>
+<tr>
+<td>BATS</td>
+<td>British American Tobacco</td>
+<td>FTSE 100</td>
+<td class="ar">2388p</td>
+<td class="ar">58.8795p</td>
+<td class="text-right">Q1</td>
+<td class="ar">2.47%</td>
+<td class="ar">08-Feb<a href="https://www.londonstockexchange.com/news-article/BATS/final-results/16323144" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 08-Feb BATS Dividend Announcement" title="View 08-Feb BATS Dividend Announcement"></a></td>
+<td class="ar">21-Mar</td>
+<td class="ar">02-May</td>
+</tr>
+<tr>
+<td>HIK</td>
+<td>Hikma Pharmaceuticals</td>
+<td>FTSE 100</td>
+<td class="ar">2074p</td>
+<td class="ar">$0.47</td>
+<td class="text-right">Final</td>
+<td class="ar">1.79%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/HIK/final-results/16343513" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 22-Feb HIK Dividend Announcement" title="View 22-Feb HIK Dividend Announcement"></a></td>
+<td class="ar">21-Mar</td>
+<td class="ar">03-May</td>
+</tr>
+<tr>
+<td>IHG</td>
+<td>InterContinental Hotels Group</td>
+<td>FTSE 100</td>
+<td class="ar">8752p</td>
+<td class="ar">$1.04</td>
+<td class="text-right">Final</td>
+<td class="ar">0.94%</td>
+<td class="ar">20-Feb<a href="https://www.londonstockexchange.com/news-article/IHG/final-results/16339622" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 20-Feb IHG Dividend Announcement" title="View 20-Feb IHG Dividend Announcement"></a></td>
+<td class="ar">04-Apr</td>
+<td class="ar">14-May</td>
+</tr>
+<tr>
+<td>MNDI</td>
+<td>Mondi</td>
+<td>FTSE 100</td>
+<td class="ar">1425.5p</td>
+<td class="ar">€0.4667</td>
+<td class="text-right">Final</td>
+<td class="ar">2.80%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/MNDI/final-results/16343709" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 22-Feb MNDI Dividend Announcement" title="View 22-Feb MNDI Dividend Announcement"></a></td>
+<td class="ar">04-Apr</td>
+<td class="ar">14-May</td>
+</tr>
+<tr>
+<td>BDEV</td>
+<td>Barratt Developments</td>
+<td>FTSE 100</td>
+<td class="ar">478.5p</td>
+<td class="ar">4.4p</td>
+<td class="text-right">Interim</td>
+<td class="ar">0.92%</td>
+<td class="ar">07-Feb<a href="https://www.londonstockexchange.com/news-article/BDEV/barratt-developments-plc-fy24-interim-results/16321213" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 07-Feb BDEV Dividend Announcement" title="View 07-Feb BDEV Dividend Announcement"></a></td>
+<td class="ar">11-Apr</td>
+<td class="ar">17-May</td>
+</tr>
+<tr>
+<td>SKG</td>
+<td>Smurfit Kappa Group</td>
+<td>FTSE 100</td>
+<td class="ar">3248p</td>
+<td class="ar">€1.184</td>
+<td class="text-right">Final</td>
+<td class="ar">3.11%</td>
+<td class="ar">07-Feb<a href="https://www.londonstockexchange.com/news-article/SKG/final-results/16321266" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 07-Feb SKG Dividend Announcement" title="View 07-Feb SKG Dividend Announcement"></a></td>
+<td class="ar">11-Apr</td>
+<td class="ar">10-May</td>
+</tr>
+<tr>
+<td>LLOY</td>
+<td>Lloyds Banking Group</td>
+<td>FTSE 100</td>
+<td class="ar">45.5p</td>
+<td class="ar">1.84p</td>
+<td class="text-right">Final</td>
+<td class="ar">4.04%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/LLOY/2023-full-year-results/16343508" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 22-Feb LLOY Dividend Announcement" title="View 22-Feb LLOY Dividend Announcement"></a></td>
+<td class="ar">11-Apr</td>
+<td class="ar">21-May</td>
+</tr>
+<tr>
+<td>ANTO</td>
+<td>Antofagasta</td>
+<td>FTSE 100</td>
+<td class="ar">1796.5p</td>
+<td class="ar">$0.243</td>
+<td class="text-right">Final</td>
+<td class="ar">1.07%</td>
+<td class="ar">20-Feb<a href="https://www.londonstockexchange.com/news-article/ANTO/full-year-results-for-the-year-ended-31-12-2023/16339603" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 20-Feb ANTO Dividend Announcement" title="View 20-Feb ANTO Dividend Announcement"></a></td>
+<td class="ar">18-Apr</td>
+<td class="ar">10-May</td>
+</tr>
+<tr>
+<td>BA.</td>
+<td>BAE Systems</td>
+<td>FTSE 100</td>
+<td class="ar">1240.5p</td>
+<td class="ar">18.5p</td>
+<td class="text-right">Final</td>
+<td class="ar">1.49%</td>
+<td class="ar">21-Feb<a href="https://www.londonstockexchange.com/news-article/BA./final-results/16341489" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 21-Feb BA. Dividend Announcement" title="View 21-Feb BA. Dividend Announcement"></a></td>
+<td class="ar">18-Apr</td>
+<td class="ar">03-Jun</td>
+</tr>
+<tr>
+<td>REL</td>
+<td>RELX</td>
+<td>FTSE 100</td>
+<td class="ar">3500p</td>
+<td class="ar">41.8p</td>
+<td class="text-right">Final</td>
+<td class="ar">1.19%</td>
+<td class="ar">15-Feb<a href="https://www.londonstockexchange.com/news-article/REL/relx-2023-results/16333416" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 15-Feb REL Dividend Announcement" title="View 15-Feb REL Dividend Announcement"></a></td>
+<td class="ar">02-May</td>
+<td class="ar">13-Jun</td>
+</tr>
+<tr>
+<td>GLEN</td>
+<td>Glencore</td>
+<td>FTSE 100</td>
+<td class="ar">375.8p</td>
+<td class="ar">$0.065</td>
+<td class="text-right">Interim 1</td>
+<td class="ar">1.36%</td>
+<td class="ar">21-Feb<a href="https://www.londonstockexchange.com/news-article/GLEN/2024-distribution-timetable/16342822" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 21-Feb GLEN Dividend Announcement" title="View 21-Feb GLEN Dividend Announcement"></a></td>
+<td class="ar">02-May</td>
+<td class="ar">05-Jun</td>
+</tr>
+<tr>
+<td>PSH</td>
+<td>Pershing Square Holdings</td>
+<td>FTSE 100</td>
+<td class="ar">3860p</td>
+<td class="ar">$0.1456</td>
+<td class="text-right">Q2</td>
+<td class="ar">0.30%</td>
+<td class="ar">12-Jan<a href="https://www.londonstockexchange.com/news-article/PSH/pershing-square-holdings-ltd-announces-2024-dividend-schedule/16286125" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 12-Jan PSH Dividend Announcement" title="View 12-Jan PSH Dividend Announcement"></a></td>
+<td class="ar">16-May</td>
+<td class="ar">14-Jun</td>
+</tr>
+<tr>
+<td>CNA</td>
+<td>Centrica</td>
+<td>FTSE 100</td>
+<td class="ar">127.65p</td>
+<td class="ar">2.67p</td>
+<td class="text-right">Final</td>
+<td class="ar">2.09%</td>
+<td class="ar">15-Feb<a href="https://www.londonstockexchange.com/news-article/CNA/final-results/16333425" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 15-Feb CNA Dividend Announcement" title="View 15-Feb CNA Dividend Announcement"></a></td>
+<td class="ar">30-May</td>
+<td class="ar">11-Jul</td>
+</tr>
+<tr>
+<td>WPP</td>
+<td>WPP</td>
+<td>FTSE 100</td>
+<td class="ar">730p</td>
+<td class="ar">24.4p</td>
+<td class="text-right">Final</td>
+<td class="ar">3.34%</td>
+<td class="ar">22-Feb<a href="https://www.londonstockexchange.com/news-article/WPP/2023-preliminary-results/16343520" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 22-Feb WPP Dividend Announcement" title="View 22-Feb WPP Dividend Announcement"></a></td>
+<td class="ar">06-Jun</td>
+<td class="ar">05-Jul</td>
+</tr>
+<tr>
+<td>BATS</td>
+<td>British American Tobacco</td>
+<td>FTSE 100</td>
+<td class="ar">2388p</td>
+<td class="ar">58.8795p</td>
+<td class="text-right">Q2</td>
+<td class="ar">2.47%</td>
+<td class="ar">08-Feb<a href="https://www.londonstockexchange.com/news-article/BATS/final-results/16323144" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 08-Feb BATS Dividend Announcement" title="View 08-Feb BATS Dividend Announcement"></a></td>
+<td class="ar">27-Jun</td>
+<td class="ar">02-Aug</td>
+</tr>
+<tr>
+<td>PSH</td>
+<td>Pershing Square Holdings</td>
+<td>FTSE 100</td>
+<td class="ar">3860p</td>
+<td class="ar">$0.1456</td>
+<td class="text-right">Q3</td>
+<td class="ar">0.30%</td>
+<td class="ar">12-Jan<a href="https://www.londonstockexchange.com/news-article/PSH/pershing-square-holdings-ltd-announces-2024-dividend-schedule/16286125" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 12-Jan PSH Dividend Announcement" title="View 12-Jan PSH Dividend Announcement"></a></td>
+<td class="ar">15-Aug</td>
+<td class="ar">13-Sep</td>
+</tr>
+<tr>
+<td>GLEN</td>
+<td>Glencore</td>
+<td>FTSE 100</td>
+<td class="ar">375.8p</td>
+<td class="ar">$0.065</td>
+<td class="text-right">Interim 2</td>
+<td class="ar">1.36%</td>
+<td class="ar">21-Feb<a href="https://www.londonstockexchange.com/news-article/GLEN/2024-distribution-timetable/16342822" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 21-Feb GLEN Dividend Announcement" title="View 21-Feb GLEN Dividend Announcement"></a></td>
+<td class="ar">29-Aug</td>
+<td class="ar">20-Sep</td>
+</tr>
+<tr>
+<td>BATS</td>
+<td>British American Tobacco</td>
+<td>FTSE 100</td>
+<td class="ar">2388p</td>
+<td class="ar">58.8795p</td>
+<td class="text-right">Q3</td>
+<td class="ar">2.47%</td>
+<td class="ar">08-Feb<a href="https://www.londonstockexchange.com/news-article/BATS/final-results/16323144" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 08-Feb BATS Dividend Announcement" title="View 08-Feb BATS Dividend Announcement"></a></td>
+<td class="ar">26-Sep</td>
+<td class="ar">01-Nov</td>
+</tr>
+<tr>
+<td>PSH</td>
+<td>Pershing Square Holdings</td>
+<td>FTSE 100</td>
+<td class="ar">3860p</td>
+<td class="ar">$0.1456</td>
+<td class="text-right">Q4</td>
+<td class="ar">0.30%</td>
+<td class="ar">12-Jan<a href="https://www.londonstockexchange.com/news-article/PSH/pershing-square-holdings-ltd-announces-2024-dividend-schedule/16286125" target="_blank"><img class="pd_6" src="./Ex-Dividend Dates - FTSE 100_files/news.png" alt="View 12-Jan PSH Dividend Announcement" title="View 12-Jan PSH Dividend Announcement"></a></td>
+<td class="ar">14-Nov</td>
+<td class="ar">13-Dec</td>
+</tr>
+</tbody>
+</table>

@@ -8,21 +8,23 @@ const url = require('url');
 
 const axios = require('axios');
 
-
-    router.get('/:name', (req, res) => {
-
-
-        var rawdata = "";
-        var search = "";
-        var fileToReadWrite = "";
-        var maxNum = parseInt("0");
-        var saveTicker = "";
-
-//router.post('/', (req, res) => {
+var https = require("https");
 
 
+router.get('/:name', (req, res) => {
 
-  //  const page = await browser.newPage();
+
+    var rawdata = "";
+    var search = "";
+    var fileToReadWrite = "";
+    var maxNum = parseInt("0");
+    var saveTicker = "";
+
+    //router.post('/', (req, res) => {
+
+
+
+    //  const page = await browser.newPage();
 
     var fileName = req.params.name;
     console.log("john " + req.params.name);
@@ -30,12 +32,46 @@ const axios = require('axios');
     fileToReadWrite = "files/" + fileName + ".json";
     rawdata = fs.readFileSync(fileToReadWrite);
     search = JSON.parse(rawdata);
+    var search2 = search;
+    var searchString = "";
+    var specialData = "";
+    var occurrence = "";
+
+ 
+    var myFile = "";
+    if (fileName.indexOf("100") >= 0) {
+        myFile = "ExDividendFTSE100.txt";
+    } else {
+        myFile = "ExDividendFTSE250.txt";
+    }
+    fs.readFile('files/'+myFile, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return 0;
+        }
+    //    console.log(data);
+
+
+        specialData = data;
+
+       
+        return 0;
+
+    });
+   
+  //  console.log(ftse100Raw);
+
+    
     //    search = [{ "tickerSymbol": "BA." }, { "tickerSymbol": "IAG" }];
     var ticker2 = "";
+
+   // search = "";
+   
+    console.log("are we here");
     for (let index = 0; index < search.length; ++index) {
         try {
             var technical = new Object();
-          //  console.log(search[index].tickerSymbol);
+           //   console.log(search[index].tickerSymbol);
             technical.ticker = search[index].tickerSymbol;
             ticker2 = technical.ticker;
 
@@ -45,18 +81,16 @@ const axios = require('axios');
 
             var eps = "0";
             var numberOfShares = "";
-           
-  
 
-        //    if (ticker2 != "BT.A" && ticker2 != "TRD") {
-        //        continue;
-        //    }
+
+
+          //  if (ticker2 != "BA." && ticker2 != "DGE" && ticker2 !="BARC") {
+         //       continue;
+         //   }
 
             var obj = { "currentnews": "error" };
-        //    console.log(search[index].tickerSymbol);
-       //     console.log("URL https://markets.ft.com/data/equities/tearsheet/summary?s=" + ticker2 + ":lse");
 
-            axios.get("https://markets.ft.com/data/equities/tearsheet/summary?s="+ticker2+":lse")
+            axios.get("https://markets.ft.com/data/equities/tearsheet/summary?s=" + ticker2 + ":lse")
 
                 .then(response => {
 
@@ -85,12 +119,9 @@ const axios = require('axios');
                     eps = bigblob.substring(bigblob.indexOf("EPS ") + 52, bigblob.indexOf("EPS ") + 68);
                     eps = eps.substring(0, eps.indexOf("<"));
                     eps = eps.replace(" ", "");
-                  //  if (eps.indexOf("-") >= 0) {
-                   //     eps = eps.replace("-", "");
-                  //      eps = eps + "-";
-                  //  }
+
                     search[index].eps = eps;
-                    console.log(eps);
+                  //  console.log(eps);
 
                     peRatio = bigblob.substring(bigblob.indexOf("P/E ") + 52, bigblob.indexOf("P/E ") + 66);
                     peRatio = peRatio.substring(0, peRatio.indexOf("<"));
@@ -98,7 +129,7 @@ const axios = require('axios');
                         peRatio = "0";
                     }
                     search[index].peRatio = peRatio;
-                    console.log(peRatio);
+                   // console.log(peRatio);
 
                     if (bigblob.indexOf("Annual div yield ") < 0) {
                         dividend = 0;
@@ -110,10 +141,75 @@ const axios = require('axios');
                             dividend = "0";
                         }
                         search[index].dividend = dividend;
-                        console.log(dividend);
+                     //   console.log(dividend);
 
-                        search[index].exDividend = "2024-01-01";
+                        var myI = "";
 
+                        searchString = "<td>";
+                        occurrence = 1;
+                        console.log("ticker before go in " + search[index].tickerSymbol);
+                        var diviDate = GFG_Fun(search[index].tickerSymbol, specialData, searchString, occurrence);
+                        if (diviDate != "") {
+                            console.log("MY DIVIDEND DATE " + diviDate);
+                            search[index].exDividend = diviDate;
+                        }
+
+                        if (bigblob.indexOf("<th>Div ex-date</th><td><span class=") < 0 && bigblob.indexOf("<th>Next div ex-date</th><td><span class=") < 0) {
+
+                          //  search[index].exDividend = "2024-01-01";
+                        } else {
+
+
+
+                            if (bigblob.indexOf("<th>Next div ex-date</th><td><span class=") >= 0) {
+                                exDividend = bigblob.substring(bigblob.indexOf("<th>Next div ex-date</th><td><span class=") + 50, bigblob.indexOf("<th>Next div ex-date</th><td><span class=") + 61);
+                                //  console.log(exDividend + " " + exDividend.substring(0, 3) + " NEXT " + exDividend.substring(4, 6) + " NEXT " + exDividend.substring(7, 12));
+
+
+                                const mths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                var arrayLength = mths.length;
+                                for (var i = 0; i < arrayLength; i++) {
+
+                                    if (mths[i] == exDividend.substring(0, 3)) {
+                                        if ((i + 1) < 10) {
+                                            exDividend = exDividend.substring(7, 12) + "-0" + (i + 1) + "-" + exDividend.substring(4, 6);
+                                        } else {
+                                            exDividend = exDividend.substring(7, 12) + "-" + (i + 1) + "-" + exDividend.substring(4, 6);
+                                        }
+                                        //  console.log(exDividend);
+                                    }
+
+                                }
+                            } else {
+
+                                exDividend = bigblob.substring(bigblob.indexOf("<th>Div ex-date</th><td><span class=") + 45, bigblob.indexOf("<th>Div ex-date</th><td><span class=") + 56);
+                                //  console.log(exDividend + " " + exDividend.substring(0, 3) + " NEXT " + exDividend.substring(4, 6) + " NEXT " + exDividend.substring(7, 12));
+
+
+                                const mths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                var arrayLength = mths.length;
+                                for (var i = 0; i < arrayLength; i++) {
+
+                                    if (mths[i] == exDividend.substring(0, 3)) {
+                                        if ((i + 1) < 10) {
+                                            exDividend = exDividend.substring(7, 12) + "-0" + (i + 1) + "-" + exDividend.substring(4, 6);
+                                        } else {
+                                            exDividend = exDividend.substring(7, 12) + "-" + (i + 1) + "-" + exDividend.substring(4, 6);
+                                        }
+                                        //  console.log(exDividend);
+                                    }
+
+                                }
+
+                            }
+
+                            search[index].exDividend = exDividend;
+
+
+                        }
+
+
+                     //   console.log("ticker " + ticker2);
 
                         const jsonString = JSON.stringify(search);
 
@@ -122,12 +218,6 @@ const axios = require('axios');
                                 console.log('Error writing file', err)
                             }
                         })
-                       // break;
-
-                      //  exDividend = bigblob.substring(bigblob.indexOf("Div ex-date") + 41, bigblob.indexOf("Div ex-date") + 52);
-                        //console.log(exDividend);
-
-                      //  exDividend = "20" + exDividend.substring(22, 25) + "-" + exDividend.substring(16, 18) + "-" + exDividend.substring(19, 21);
                     }
 
 
@@ -163,22 +253,110 @@ const axios = require('axios');
 
         }
     }
+    
 
+    console.log("do we get here");
 
+    var obj = { "currentnews": "error" };
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(
+        obj
+    ));
 
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(
-                obj
-            ));
+});
+
+    
            
-        });
+//     });
 
 
 
 
 
 
+// Function to get index of occurrence
+function getPos(str, subStr, i) {
+    //     return str.split(subStr, i).join(subStr).length;
 
+    var fred = str.split(subStr, i).join(subStr).length;
+    //   console.log(fred);
+    // console.log( str.substring(fred + 4, fred + 8));
+    return fred;
+    // return str.substring(fred+15, fred+21);
+}
+
+
+function GFG_Fun(ticker, specialData, searchString, occurrence) {
+    var DDD = "";
+    let data2 = specialData;
+
+    var john = 0;
+    var testEoF = true;
+
+    while (testEoF) {
+
+        john = getPos(
+            data2,
+            searchString,
+            occurrence
+        );
+
+
+        let localTicker = data2.substring(john + 4, john + 8);
+        localTicker = localTicker.replace("<", "");
+        // console.log("!"+localTicker+"!   ticker "+ticker);
+        if (ticker == localTicker) {
+            console.log("ticker " + ticker);
+
+            john = getPos(
+                data2,
+                "<td class=",
+                6
+            );
+
+            const mths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var arrayLength = mths.length;
+
+            for (var i = 0; i < arrayLength; i++) {
+
+                //console.log(data2.substring(john + 15, john + 21).substring(3, data2.substring(john + 15, john + 21).length));
+
+                if (mths[i] == data2.substring(john + 15, john + 21).substring(3, data2.substring(john + 15, john + 21).length)) {
+                    if ((i + 1) < 10) {
+                        DDD = "2024" + "-0" + (i + 1) + "-" + data2.substring(john + 15, john + 21).substring(0, 2);
+                        break;
+                    } else {
+                        DDD = "2024" + "-" + (i + 1) + "-" + data2.substring(john + 15, john + 21).substring(0, 2);
+                        break;
+                    }
+                    //  console.log(exDividend);
+                }
+
+            }
+
+            console.log(DDD);
+
+            testEoF = false;
+            break;
+        } else {
+            if (john + 8 >= data2.length) {
+                DDD = "";
+                testEoF = false;
+                //  console.log("end of file");
+                break;
+            } else {
+                data2 = data2.substring(john + 8, data2.length);
+                occurrence = 3;
+                // testEoF = false;
+                //  break
+            }
+        }
+
+
+    }
+    return DDD;
+
+}
 
 
 /*
