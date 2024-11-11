@@ -343,6 +343,41 @@ $(window).on('load', function () {
     });
 
 
+    $("#historyBut").on("click", function (event) {
+
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
+
+
+
+        $.get("/routes/history/" + $("#activebutt").text(), {}, function (sdata) {
+
+            console.log("im in here");
+
+            setTimeout(function () {
+                $(".loader").css("opacity", "0");
+                $("#bigcontainer1").css("opacity", "1");
+                $("#bigcontainer2").css("opacity", "1");
+                $("#bigcontainer").css("opacity", "1");
+                $("#puppet0But").prop('disabled', false);
+            }, 20000); // up
+
+
+        });
+
+
+
+    });
+
+
     $("#googleBut").on("click", function (event) {
 
         event.preventDefault();
@@ -934,7 +969,6 @@ $(window).on('load', function () {
 
 
                         $(".imageb").mouseover(function () {
-                            alert("HI");
                             $(".imageb").css("cursor", "pointer");
                             $(".imageb").attr("height", "auto");
                             $(".imageb").attr("width", "auto");
@@ -1139,6 +1173,11 @@ $(window).on('load', function () {
 
                  $("input[data-field='netNet']").click();
                 $("input[data-field='eps']").click();
+                $("input[data-field='day2']").click();
+                $("input[data-field='day3']").click();
+                $("input[data-field='day5']").click();
+                $("input[data-field='day10']").click();
+                $("input[data-field='day21']").click();
 
 
 

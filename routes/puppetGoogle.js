@@ -84,9 +84,9 @@ router.get('/:name', (req, res) => {
 
 
 
-          //  if (ticker2 != "BA." && ticker2 != "DGE" && ticker2 !="BARC") {
-         //       continue;
-         //   }
+        //   if (ticker2 != "BYIT" ) {
+       //        continue;
+        //    }
 
             var obj = { "currentnews": "error" };
 
@@ -165,7 +165,6 @@ router.get('/:name', (req, res) => {
                                 exDividend = bigblob.substring(bigblob.indexOf("<th>Next div ex-date</th><td><span class=") + 50, bigblob.indexOf("<th>Next div ex-date</th><td><span class=") + 61);
                                 //  console.log(exDividend + " " + exDividend.substring(0, 3) + " NEXT " + exDividend.substring(4, 6) + " NEXT " + exDividend.substring(7, 12));
 
-
                                 const mths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                 var arrayLength = mths.length;
                                 for (var i = 0; i < arrayLength; i++) {
@@ -178,7 +177,7 @@ router.get('/:name', (req, res) => {
                                         }
                                         //  console.log(exDividend);
                                     }
-
+         
                                 }
                             } else {
 

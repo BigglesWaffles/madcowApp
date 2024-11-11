@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var routes = require('./routes/ftseTest');
 var isin = require('./routes/isin');
+var history = require('./routes/history');
 var ftse100 = require('./routes/ftse100');
 var ftse250 = require('./routes/ftse250');
 var ftserst = require('./routes/ftserst');
@@ -52,6 +53,7 @@ app.use(express.static(path.join(__dirname, 'routes')));
 
 
 
+app.use('/routes/history', history);
 app.use('/routes/ftseTest', routes);
 app.use('/routes/isin', isin);
 app.use('/routes/search', search);

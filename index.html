@@ -46,17 +46,18 @@
                     <button style="width: 115px;" id="FTSE250But" type="button" class="btn btn-info">FTSE 250</button>
                     <button style="width: 115px;" id="FTSEzzzBut" type="button" class="btn btn-info">FTSE RST</button>
                     <button style="width: 115px;" id="FTSEaimBut" type="button" class="btn btn-info">AIM</button>
-                   <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="watchBut" type="button" class="btn btn-info">Watch</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="historyBut" type="button" class="btn btn-info">History</button>
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="watchBut" type="button" class="btn btn-info">Watch</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="isinBut" type="button" class="btn btn-info">ISIN</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppetBut" type="button" class="btn btn-info">PUP SECOND</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet2But" type="button" class="btn btn-info">PUP FIRST</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="puppet0But" type="button" class="btn btn-info">PUP BAL</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="techieBut" type="button" class="btn btn-info">update techie</button>
                     <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="googleBut" type="button" class="btn btn-info">Google</button>
-                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="newsBut" type="button" class="btn btn-info">Current News</button> 
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="newsBut" type="button" class="btn btn-info">Current News</button>
                     <button style="width: 150px; color: black; background-color: lightgrey; border-color: #46b8da; margin-top:1px" id="selectBox1" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pre-done Recipes
-                    </button>  
+                    </button>
                     <div style="width:70rem;margin-left:80px" class="dropdown-menu form-select-lg mb-3">
                         <div style="border-width:0.1rem; background:lightgrey; font-size:large;padding-left:0;text-align:center;border-color:grey; border-top-style:solid" class="dropdown-divider">Recipes</div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem">Good NAV (excluding intangibles) relative to market cap, good PE and gives a dividend</span></a>
@@ -95,9 +96,9 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">BUY signal from BritishBulls.com (today) and Tradingview.com buy</span></a>
                     </div><br />
-                
-                   <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="delayBut" type="button" class="btn btn-info">delayed price</button> 
-                    
+
+                    <button style="width: 115px; color: black; background-color: lightgrey; margin-top:1px" id="delayBut" type="button" class="btn btn-info">delayed price</button>
+
                     <div class="btn-group form-select-lg mb-3">
                         <button style="width: 115px; color: black; background-color: lightgrey; border-color: #46b8da; margin-top:1px" id="selectBox" type="button" class="btn button-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Shares
@@ -166,14 +167,16 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">blockchain</span></a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Construction</span></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Finance</span></a>
                         </div>
                         &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeAim" type="checkbox" id="excludeAim" name="excludeAim" value="excludeAim">
                         <label class="excludeAim" style="background-color: #FFF5EE; font-weight: 200; font-size: 14px;display: none " for="excludeAim"> Exclude AIM shares from search list</label>
                         &nbsp;&nbsp;<input style="display:none;margin-top:10px" class="form-check-input excludeRst" type="checkbox" id="excludeRst" name="excludeRst" value="excludeRst">
                         <label class="excludeRst" style="background-color:#e0ffdd; font-weight:200;font-size:14px;display: none" for="excludeRst"> Exclude smaller FTSE companies</label>
-                       &nbsp;&nbsp;<input style="margin-top:10px" class="form-check-input errorsOn" type="checkbox" id="errorsOn" name="errorsOn" value="errorsOn">
-                        <label class="errorsOn" style="background-color:#e0ffdd; font-weight:200;font-size:14px;" for="excludeRst"> Set errors on</label>  
+                        &nbsp;&nbsp;<input style="margin-top:10px" class="form-check-input errorsOn" type="checkbox" id="errorsOn" name="errorsOn" value="errorsOn">
+                        <label class="errorsOn" style="background-color:#e0ffdd; font-weight:200;font-size:14px;" for="excludeRst"> Set errors on</label>
                     </div>
                 </div>
             </div>
@@ -218,6 +221,11 @@
                             <!--   <th class="naVPercentIt" id="naVPercentIt" data-field="naVPercentIt"><span class="naVPercentIt tableftseCon ">A-I-L/M</span></th> -->
                             <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
                             <th class="eps" id="eps" data-field="eps"><span class="epst tableftseCon ">eps</span></th>
+                            <th class="day5" id="day5" data-field="day5"><span class="day5t tableftseCon ">day5</span></th>
+                            <th class="day21" id="day21" data-field="day21"><span class="day21t tableftseCon ">day21</span></th>
+                            <th class="day2" id="day2" data-field="day2"><span class="day2t tableftseCon ">day2</span></th>
+                            <th class="day3" id="day3" data-field="day3"><span class="day3t tableftseCon ">day3</span></th>
+                            <th class="day10" id="day10" data-field="day10"><span class="day10t tableftseCon ">day10</span></th>
                         </tr>
                     </thead>
                 </table>
@@ -436,7 +444,7 @@
             }
 
              return "<span> " + value + "<br/>" +
-                "<img class='imageb' id='imageb" + index + "' height='50px' width='150px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
+                "<img class='imageb' id='imageb" + index + "' height='180px' width='400px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
                 "<img class='imagebBIG' id='imagebBIG" + index + "' style='display: none;'  src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=3M&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
                 " &nbsp;</span>";
            
