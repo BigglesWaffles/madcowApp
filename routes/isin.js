@@ -205,13 +205,24 @@ router.get('/', (req, res) => {
            //     console.log(myProfit.props.pageProps.initialState.fund
            //         .financials.yearData[0]);
 
+
+
                 var revenue = "0";
                 var totalAssets = "0";
                 var totalCurrentAssets = "0";
                 var totalLiabilities = "0";
                 var navPercent = "0";
                 var netNet = 0;
+                var cash = 0;
                 var nvv = "0"; /* nav */
+
+                cash = myProfit.props.pageProps.initialState.fund
+                    .financials.yearData[0].cashPeriodEnd;
+
+                if (cash != null && cash != "" && cash != 0) {
+                    cash = cash / 1000000;
+                    cash = roundToTwo(cash);
+                } else { cash = 0; }
 
                 revenue = myProfit.props.pageProps.initialState.fund
                     .financials.yearData[0].revenue;
@@ -288,6 +299,7 @@ router.get('/', (req, res) => {
                             myFileParsed[p].totalCurrentAssets = roundToTwo(totalCurrentAssets);
                             myFileParsed[p].totalAssets = roundToTwo(totalAssets);
                             myFileParsed[p].totalLiabilities = roundToTwo(totalLiabilities);
+                            myFileParsed[p].cash = roundToTwo(cash);
                             console.log("myFinalProfit " + myFinalProfit);
                             console.log("nvv " + nvv);
                             console.log("totalAssets " + totalAssets);

@@ -77,7 +77,12 @@ const axios = require('axios');
                         for (let index = 0; index < search.length; ++index) {
 
                             if (search[index].tickerSymbol == myArray[0]) {
-                                search[index].news = "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews;
+                                var localNews = null;
+                                localNews = "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews;
+                                if (response.data.subjectnews != null) { 
+                                    search[index].news = localNews;
+                                    console.log("this should only be news: "+response.data.subjectnews);
+                                 }
                                 search[index].marketCapitalisation = marketcapitalization;
                                 if (search[index].marketCapitalisation != null && search[index].marketCapitalisation > 0) {
                                     search[index].marketCapitalisation = parseFloat((search[index].marketCapitalisation / 1000000) || "").toFixed(2);;
