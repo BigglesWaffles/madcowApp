@@ -159,9 +159,30 @@ function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
     if (parm.toLowerCase().includes("buy momentum")) {
         expression = "buy momentum";
     }
+    if (parm.toLowerCase().includes("my shares")) {
+        expression = "my shares";
+    }
+    if (parm.toLowerCase().includes("tickers")) {
+        expression = "tickers";
+    }
     switch (expression) {
         case "eps":
             if (company.eps >= 1) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
+            }
+            break;
+        case "tickers":
+            var newParm = parm.replaceAll("tickers", "");
+            var myTickers2 = new Set(newParm.toUpperCase().split(" "));
+
+            if (myTickers2.has(company.tickerSymbol)) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
+            }
+            break;
+        case "my shares":
+            const myTickers = new Set(["CURY","SDR",  "ITV", "BT.A", "LGEN", "ABDN", "PHNX", "MNG",  "SBTX", "PSON", "TRD","AV."]);
+
+            if (myTickers.has(company.tickerSymbol) ) {
                 ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;

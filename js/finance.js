@@ -32,7 +32,7 @@ $(window).on('load', function () {
                     this.style.background = '#F5F5F5'
                 });
             });
-
+        
         $(".tableftseCon").parent("div").parent("th").on("click", function (e) {
             e.stopImmediatePropagation();
 
@@ -221,6 +221,42 @@ $(window).on('load', function () {
 
     $("#isinBut").on("click", function (event) {
 
+        event.preventDefault();
+        //do something
+        $(this).prop('disabled', true);
+
+        setTimeout(function () {
+            $(".loader").css("opacity", "1");
+            $("#bigcontainer1").css("opacity", "0.4");
+            $("#bigcontainer2").css("opacity", "0.4");
+            $("#bigcontainer").css("opacity", "0.4");
+        }, 100); // up
+
+
+
+        $.get("/routes/isin/" + $("#activebutt").text(), {}, function (sdata) {
+
+
+            console.log("im in here");
+
+            setTimeout(function () {
+                $(".loader").css("opacity", "0");
+                $("#bigcontainer1").css("opacity", "1");
+                $("#bigcontainer2").css("opacity", "1");
+                $("#bigcontainer").css("opacity", "1");
+                $("#puppet0But").prop('disabled', false);
+            }, 20000); // up
+
+
+        });
+
+
+
+    });
+
+    /*
+    $("#isinBut").on("click", function (event) {
+
 
         event.preventDefault();
         //do something
@@ -273,7 +309,7 @@ $(window).on('load', function () {
        
 
     }
-
+    */
     $("#puppetBut").on("click", function (event) {
 
         event.preventDefault();
@@ -875,6 +911,11 @@ $(window).on('load', function () {
         $("#bigcontainer2").css("opacity", "0.4");
         $("#bigcontainer").css("opacity", "0.4");
         $("#activebutt").text("search");
+        var searchValues = "";
+        if (sector == "tickers") {
+            sector = sector + $(".search-input").val().trim();
+            searchValues = $(".search-input").val();
+        }
 
         $('#tableftse').bootstrapTable('destroy');
         $("#indexTitle").text(" Share selection criteria (across all indexes): " + sector.replaceAll("%20", " "));
@@ -894,24 +935,32 @@ $(window).on('load', function () {
 
                     $('#tableftse').bootstrapTable('destroy');
 
+
                     $('#tableftse').bootstrapTable({
                         data: sdata
                     });
                     $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
 
-
+                    $(".search-input").val(searchValues);
                     $(".search-input.search-input").on('keyup', function () {
                         var searchTerm = $(".search-input").val();
-                        var recordCount = $('#tableftse tr').length;
+                        var recordCount =0;
 
                         for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
-                            if (!$("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerm.toUpperCase())) {
-                                $("#aa" + j).parent("td").parent("tr").hide();
-                                recordCount = recordCount - 1;
-                            } else {
-                                $("#aa" + j).parent("td").parent("tr").show();
-                            }
+                            $("#aa" + j).parent("td").parent("tr").hide();
                         };
+                        for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+                            for (var jj = 0; jj < searchTerm.split(" ").length; jj++) {
+                                var searchTerms = searchTerm.split(" ");
+                                // alert("searchTerms length " + searchTerms.length);
+                                if ($("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerms[jj].toUpperCase())) {
+                                    $("#aa" + j).parent("td").parent("tr").show();
+                                    recordCount = recordCount + 1;
+                                }
+                            };
+                        };
+
+
                         if ((recordCount == 1)) {
                             $(".no-records-found:last").children("td").text(recordCount + " company found that match the criteria");
                         } else {
@@ -922,7 +971,7 @@ $(window).on('load', function () {
 
 
                     $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
-
+                   
                     $(".excludeRst").css("display", "");
                     $(".excludeAim").css("display", "");
 
@@ -1043,6 +1092,16 @@ $(window).on('load', function () {
 
 
 
+                    $("input[data-field='netNet']").click();
+                    $("input[data-field='eps']").click();
+                    $("input[data-field='day2']").click();
+                    $("input[data-field='day3']").click();
+                    $("input[data-field='day5']").click();
+                    $("input[data-field='day10']").click();
+                    $("input[data-field='day21']").click();
+                    $("input[data-field='sector']").click();
+                    console.log("after setting clicks");
+
                     $(".percentUp").children("span").on("click", function () {
 
 
@@ -1075,6 +1134,12 @@ $(window).on('load', function () {
 
 
                 });
+                let newPath = '?param1=search/#';  // Ensure it starts with a single "/"
+                let currentPath = window.location.pathname.replace(/\/$/, ''); // Remove trailing slash if present
+
+                let finalUrl = currentPath + newPath;
+                history.pushState(null, '', finalUrl);
+            //   alert('New URL:', window.location.href);
 
             }
         });
@@ -1150,18 +1215,24 @@ $(window).on('load', function () {
 
                 //  alert(sdata.version);
                 $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
-
+               
                 $(".search-input.search-input").on('keyup', function () {
                     var searchTerm = $(".search-input").val();
-                    var recordCount = $('#tableftse tr').length;
+                    var recordCount = 0;
+              //      alert("SEARCH INPUT2: " + searchTerm);
 
                     for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
-                        if (!$("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerm.toUpperCase())) {
-                            $("#aa" + j).parent("td").parent("tr").hide();
-                            recordCount = recordCount - 1;
-                        } else {
-                            $("#aa" + j).parent("td").parent("tr").show();
-                        }
+                        $("#aa" + j).parent("td").parent("tr").hide();
+                    };
+                    for (var j = 0, l = $('#tableftse tr').length; j < l; j++) {
+                        for (var jj = 0; jj < searchTerm.split(" ").length; jj++) {
+                            var searchTerms = searchTerm.split(" ");
+                           // alert("searchTerms length " + searchTerms.length);
+                            if ($("#aa" + j).parent("td").parent("tr").text().toUpperCase().includes(searchTerms[jj].toUpperCase())) {
+                                $("#aa" + j).parent("td").parent("tr").show();
+                                recordCount = recordCount + 1;
+                            }
+                        };
                     };
                     if ((recordCount == 1)) {
                         $(".no-records-found:last").children("td").text(recordCount + " company found that match the criteria");
@@ -1178,6 +1249,7 @@ $(window).on('load', function () {
                 $("input[data-field='day5']").click();
                 $("input[data-field='day10']").click();
                 $("input[data-field='day21']").click();
+                $("input[data-field='sector']").click();
 
 
 
