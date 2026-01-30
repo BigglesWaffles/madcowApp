@@ -1,10 +1,28 @@
 $(window).on('load', function () {
     // code here
 
- 
+    $("#downloadBtn").on("click", function () {
+        alert("j");
+        alert($("#myJsonBlob").text());
+
+
+        const blob = new Blob([$("#myJsonBlob").text()], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "data.csv";
+        a.click();
+
+        URL.revokeObjectURL(url);
+
+
+        var obj = JSON.parse($("#myJsonBlob").text());
+    });
 
     $('#tableftseCon').bootstrapTable({
         showRefresh: true
+
     });
     //$('#tableftse').bootstrapTable('hideColumn', 'netNet');
 
@@ -32,7 +50,7 @@ $(window).on('load', function () {
                     this.style.background = '#F5F5F5'
                 });
             });
-        
+
         $(".tableftseCon").parent("div").parent("th").on("click", function (e) {
             e.stopImmediatePropagation();
 
@@ -197,6 +215,9 @@ $(window).on('load', function () {
                     let ticker = bigTickers[0].ticker;
                     let curIndex = ticker.split("|")[2];
                     bigTickers.shift();
+
+                    // alert("ha ha");
+
                     $.post("/routes/currentPercent", {
                         ticker
                     }, function (sdata) {
@@ -586,7 +607,6 @@ $(window).on('load', function () {
             type: "GET",
             dataType: "json",
             success: function (sdata) {
-                alert("done");
             }
         });
 
@@ -677,6 +697,7 @@ $(window).on('load', function () {
 
     async function demo(ticker, curIndex, errorFix) {
         console.log("demo getting called");
+        console.log(ticker + "  " + curIndex);
 
         $.post("/routes/currentNews", {
             ticker
@@ -700,7 +721,53 @@ $(window).on('load', function () {
                 if (billy.length > 25) {
                     billy = billy.substring(0, 26);
                 }
-                i
+                if (ticker == "TRD|ftserst") {
+                    //    alert(sdata.percentUp);
+                }
+                /*
+                var string1 = "" + value + "";
+                var image = "<img src='/images/arrow_up_green.svg'>";
+                if (string1.substring(0, 1) == "-") {
+                    return "<img src='/images/arrow_down_red.svg'> <span style='color:red' > " + value + "%</span>";
+                }
+                if (string1 == "0") {
+                    return "&nbsp;&nbsp;&nbsp;&nbsp;" + value + "%";
+                }
+                return "<img src='/images/arrow_up_green.svg'> <span style='color:green' > " + value + "%</span>";
+                */
+                //    $("#butt" + curIndex).child().html("<img src='/images/arrow_down_red.svg'> <span style='color:red' > " + sdata.percentUp + "% ");
+
+                console.log("curIndex " + curIndex);
+                $("#butt" + curIndex + " span ").css("display", "block");
+
+                if ($("#butt" + curIndex + " span ").length) {
+                    // It exists
+                    console.log("Element found!");
+                } else {
+                    // It doesn't exist
+                    console.log("Element NOT found.");
+                }
+
+
+                if (sdata.percentUp < 0) {
+                    $("#butt" + curIndex).css('display', 'block');
+                    $("#butt" + curIndex).attr("style", "color: red;");
+                    $("#butt" + curIndex).html('<img src="/images/arrow_down_red.svg" alt="desc"> ' + sdata.percentUp + '% ');
+                    $("#butt" + curIndex).css('display', 'block');
+                    $("#butt" + curIndex).attr("style", "display: block;color: red;");
+                }
+                if (sdata.percentUp == 0) {
+                    $("#butt" + curIndex).parent().html("<span> &nbsp;  &nbsp;  &nbsp; &nbsp; " + sdata.percentUp + "%</span>");
+                }
+                if (sdata.percentUp > 0) {
+                    $("#butt" + curIndex).css('display', 'block');
+                    $("#butt" + curIndex).attr("style", "color: green;");
+                    $("#butt" + curIndex).html('<img src="/images/arrow_up_green.svg" alt="desc"> ' + sdata.percentUp + '% ');
+                    $("#butt" + curIndex).css('display', 'block');
+                    $("#butt" + curIndex).attr("style", "display: block;color: green;");
+                }
+
+
                 $("#news" + curIndex).parent().html("<a target='_blank'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br />", billy].join('') + "</a>");
             }
 
@@ -770,6 +837,13 @@ $(window).on('load', function () {
                 var A = $(a).children('td').eq(sortCol).text().toUpperCase();
                 var B = $(b).children('td').eq(sortCol).text().toUpperCase();
 
+
+                if (A == null || A == "" || A == " ") {
+                    A = 0;
+                }
+                if (B == null || B == "" || B == " ") {
+                    B = 0;
+                }
                 if (colname != "bullAdvice" && colname != "news") {
                     if (A < B) {
                         return -1;
@@ -804,7 +878,15 @@ $(window).on('load', function () {
             var BB = BB.replace(",", "");
             var AA = AA.replace(",", "");
 
+            AA = AA.replace(/[\x00-\x1F\x7F-\x9F]/g, '0');
+            BB = BB.replace(/[\x00-\x1F\x7F-\x9F]/g, '0');
 
+            if (AA == null || AA == "" || AA == " ") {
+                AA = 0;
+            }
+            if (BB == null || BB == "" || BB == " ") {
+                BB = 0;
+            }
             var x = parseFloat(AA).toFixed(2);
             var y = parseFloat(BB).toFixed(2);
 
@@ -904,6 +986,7 @@ $(window).on('load', function () {
         $('[data-toggle="tooltip"]').tooltip();
     }
 
+
     function getSectorData(sector) {
 
         $(".loader").css("opacity", "1");
@@ -927,11 +1010,39 @@ $(window).on('load', function () {
             dataType: "json",
             success: function (sdata) {
                 $(function () {
+
+
+                    const headers = Object.keys(sdata.items[0]);
+
+                    // Convert to CSV rows
+                    const csvRows = [];
+
+                    // Add header row
+                    csvRows.push(headers.join(","));
+
+                    // Add data rows
+                    sdata.items.forEach(obj => {
+                        const row = headers.map(header => JSON.stringify(obj[header] ?? ""));
+                        csvRows.push(row.join(","));
+                    });
+
+                    const csvString = csvRows.join("\n");
+                    $("#myJsonBlob").text(csvString);
+
+                   // alert(csvString);
+
+
+
+
+
+
                     $('#tableftseCon').show();
                     $('#tableoversoldCon').hide();
                     $('#tablenetnetCon').hide();
                     $('#sectorRiseCon').hide();
                     $("#netnetBut").hide();
+
+                   
 
                     $('#tableftse').bootstrapTable('destroy');
 
@@ -1055,7 +1166,7 @@ $(window).on('load', function () {
                         columnSelectedText = "navPercent";
                     }
                     if (sector.toLowerCase().includes("netnet")) {
-                        columnSelected = 20;
+                        columnSelected = 21;
                         columnSelectedText = "netNet";
                     }
                     $("div.bootstrap-table.bootstrap3").children("div.fixed-table-container").css("border", "none");
@@ -1094,11 +1205,6 @@ $(window).on('load', function () {
 
                     $("input[data-field='netNet']").click();
                     $("input[data-field='eps']").click();
-                    $("input[data-field='day2']").click();
-                    $("input[data-field='day3']").click();
-                    $("input[data-field='day5']").click();
-                    $("input[data-field='day10']").click();
-                    $("input[data-field='day21']").click();
                     $("input[data-field='sector']").click();
                     console.log("after setting clicks");
 
@@ -1109,10 +1215,22 @@ $(window).on('load', function () {
                             // Animation complete.
 
 
-                            let fred = ($(this)[0].id).replace("butt", "");
+                            let ticker = "";
 
-                            let ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
-                            $.post("/routes/currentPercent", {
+                            let fred2 = ($(this)[0].id).replace("butt", "");
+                            let fred = fred2.replace("butt", "");
+                            let ftseType = $("#aa" + fred).attr('class');
+                            if (!ftseType) {
+                                ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
+                            } else {
+                                ticker = $("#aa" + fred).text().trim() + "|" + ftseType;
+                            }
+                            demo(ticker, fred);
+
+              
+                            /*
+
+                           $.post("/routes/currentPercent", {
                                 ticker
                             }, function (sdata) {
                                 if (sdata.percentUp < 0) {
@@ -1125,7 +1243,7 @@ $(window).on('load', function () {
                                     $("#butt" + fred).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
                                 }
                             });
-
+                            */
 
                         });  //fade
 
@@ -1205,14 +1323,64 @@ $(window).on('load', function () {
                 $("#netnetBut").hide();
 
 
-                $('#tableftse').bootstrapTable({
-                    data: sdata
+                $('#tableftse').on('post-body.bs.table', function () {
+                    alert("hi2");
                 });
+
+                $('#tableftse').bootstrapTable({
+                    data: sdata,
+                    onPostBody: function () {
+                      //  alert($("th.stockName").width());
+                    //    $("#john1").width() = $("th.stockName").width();
+
+                        let width = $("th.stockName").outerWidth() // Get rendered width (including padding/border)
+                        $("#john1").outerWidth(width);
+                        width = $("th.tickerSymbol").outerWidth();
+                        $("#john2").outerWidth(width);
+                        width = $("th.news").outerWidth();
+                        $("#john4").outerWidth(width);
+                        width = $("th.peRatio").outerWidth();
+                        $("#john5").outerWidth(width);
+                        width = $("th.dividend").outerWidth();
+                        $("#john6").outerWidth(width);
+                        width = $("th.exDividend").outerWidth();
+                        $("#john7").outerWidth(width);
+                        width = $("th.bullAdvice").outerWidth();
+                        $("#john8").outerWidth(width);
+                        width = $("th.profit").outerWidth();
+                        $("#john9").outerWidth(width);
+                        width = $("th.revenue").outerWidth();
+                        $("#john10").outerWidth(width);
+                        width = $("th.marketCapitalisation").outerWidth();
+                        $("#john11").outerWidth(width);
+                        width = $("th.percentUp").outerWidth();
+                        $("#john12").outerWidth(width);
+                        width = $("th.totalAssets").outerWidth();
+                        $("#john13").outerWidth(width);
+                        width = $("th.totalLiabiities").outerWidth();
+                        $("#john14").outerWidth(width);
+                        width = $("th.cash").outerWidth();
+                        $("#john15").outerWidth(width);
+                        width = $("th.nvv").outerWidth();
+                        $("#john16").outerWidth(width);
+                        width = $("th.navPercent").outerWidth();
+                        $("#john17").outerWidth(width);
+                        width = $("th.cashPerCent").outerWidth();
+                        $("#john18").outerWidth(width);
+                       
+
+
+                    }
+                }).on('post-body.bs.table', function () {
+                    alert("hi");
+                });
+
                 $(".no-records-found:last").children("td").text(sdata.count + " companies found that match the criteria");
 
                 timeNow(sdata.version);
 
 
+          
                 //  alert(sdata.version);
                 $(".search-input.search-input").attr("placeholder", "Search for: Name, Ticker, Sector, News or Date");
                
@@ -1244,13 +1412,8 @@ $(window).on('load', function () {
 
                  $("input[data-field='netNet']").click();
                 $("input[data-field='eps']").click();
-                $("input[data-field='day2']").click();
-                $("input[data-field='day3']").click();
-                $("input[data-field='day5']").click();
-                $("input[data-field='day10']").click();
-                $("input[data-field='day21']").click();
                 $("input[data-field='sector']").click();
-
+                
 
 
                 $(".sector").on("click", function (event) {
@@ -1301,12 +1464,22 @@ $(window).on('load', function () {
 
                     $(this).fadeOut("slow", function () {
                         // Animation complete.
+                        let ticker = "";
 
+                        let fred1 = $(this)[0].id;
+                         let fred = fred1.replace("butt", "");
 
-                        let fred = ($(this)[0].id).replace("butt", "");
+                        let ftseType = $("#aa" + fred).attr('class');
+                        if (!ftseType) {
+                            ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
+                        } else {
+                            ticker = $("#aa" + fred).text().trim() + "|" +ftseType;
+                        }
+                        demo(ticker, fred);
 
-                        let ticker = $("#aa" + fred).text().trim() + "|" + $("#activebutt").text();
-                        $.post("/routes/currentPercent", {
+                    //    return;
+
+                     /*   $.post("/routes/currentPercent", {
                             ticker
                         }, function (sdata) {
                             if (sdata.percentUp < 0) {
@@ -1319,13 +1492,15 @@ $(window).on('load', function () {
                                 $("#butt" + fred).parent().html("<span  style='color:green'>  &nbsp; <img src='/images/arrow_up_green.svg'>  &nbsp; " + sdata.percentUp + "%</span>");
                             }
                         });
-
-
+                        */
                     });  //fade
+
+
 
                 });
            //     $("input[data-field='netNet']").click();
-           //     $("input[data-field='eps']").click();
+                //     $("input[data-field='eps']").click();
+
 
             });
 

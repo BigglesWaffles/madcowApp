@@ -126,6 +126,9 @@ function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
     if (parm.toLowerCase().includes("pediv")) {
         expression = "pediv";
     }
+    if (parm.toLowerCase().includes("gooddiv")) {
+        expression = "gooddiv";
+    }
     if (parm.toLowerCase().includes("capturn")) {
         expression = "capturn";
     }
@@ -233,6 +236,11 @@ function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
                 ftseSearch = aimRst(company, ftseSearch, a1, indexType);
             }
             break;
+        case "gooddiv":
+            if (company.dividend > 4) {
+                ftseSearch = aimRst(company, ftseSearch, a1, indexType);
+            }
+            break;
         case "mcdonalds":
             if (company.macdText.toLowerCase().includes("buy") &&
                 company.peRatio < 18 && company.peRatio > 0 && company.navPercent > 1 && company.dividend > 2) {
@@ -335,6 +343,14 @@ function createReturnJSON(parm, company, ftseSearch, indexType, a1) {
         if (indexType == "ftserst") {
             a1.rstCount = a1.rstCount + 1;
             company.tickerSymbol = "ftserst" + company.tickerSymbol;
+        }
+        if (indexType == "ftse250") {
+         //   a1.aimCount = a1.aimCount + 1;
+            company.tickerSymbol = "ftse250" + company.tickerSymbol;
+        }
+        if (indexType == "ftse100") {
+         //   a1.rstCount = a1.rstCount + 1;
+            company.tickerSymbol = "ftse100" + company.tickerSymbol;
         }
         ftseSearch.push(company);
         return ftseSearch;

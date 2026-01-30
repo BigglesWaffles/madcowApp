@@ -37,9 +37,13 @@ const axios = require('axios');
                     if (response.data.datepreviousnews == null) {
                         if (response.data.presentnews == true) {
                             dateBit = new Date().toJSON().slice(0, 10);
+                            console.log("NEWS11 " + response.data.subjectnews);
+                            console.log("NEW: " + dateBit);
                         }
                     } else {
                         dateBit = response.data.datepreviousnews;
+                        console.log("NEWS11 " + response.data.subjectnews);
+                        console.log("OLD: "+dateBit);
                     }
                     marketcapitalization = response.data.marketcapitalization;
                     bid = response.data.bid;
@@ -51,7 +55,7 @@ const axios = require('axios');
 
                     console.log(response.data.percentualchange)
 
-                    obj = { "currentnews": "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews };
+                    obj = { "percentUp": response.data.percentualchange, "currentnews": "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews };
 
 
                     var rawdata = "";
@@ -76,7 +80,9 @@ const axios = require('axios');
                         console.log(myArray[0]);
                         for (let index = 0; index < search.length; ++index) {
 
+                          // search[index].cashPerCent = 0;
                             if (search[index].tickerSymbol == myArray[0]) {
+                                search[index].cashPerCent = 0;
                                 var localNews = null;
                                 localNews = "https://www.londonstockexchange.com/stock/" + myArray[0] + "/xxx/analysis|" + dateBit.substring(0, 10) + " " + response.data.subjectnews;
                                 if (response.data.subjectnews != null) { 
@@ -87,7 +93,12 @@ const axios = require('axios');
                                 if (search[index].marketCapitalisation != null && search[index].marketCapitalisation > 0) {
                                     search[index].marketCapitalisation = parseFloat((search[index].marketCapitalisation / 1000000) || "").toFixed(2);;
 
-
+                                    if (search[index].cash != null && search[index].cash > 0) {
+                                        search[index].cashPerCent = search[index].cash / search[index].marketCapitalisation * 100;
+                                        search[index].cashPerCent = parseFloat(search[index].cashPerCent).toFixed(2);;
+                                    } else {
+                                        search[index].cashPerCent = 0;
+                                    }
 
                                     /*    totalAssets
                                         totalLiabilities
@@ -96,6 +107,8 @@ const axios = require('axios');
                                         navPercent
                                         navPercentIt*/
 
+                                } else {
+                                     search[index].cashPerCent = 0;
                                 }
 
 
@@ -203,7 +216,6 @@ const axios = require('axios');
                     console.log(error);
                 });
     });
-
 
 module.exports = router;
 

@@ -20,23 +20,23 @@
 </head>
 <body style="max-height:95%">
 
-    <h1 style="text-align:center;padding-top:30px">Investors Cookbook</h1>
+    <h1 style="text-align:center;padding-top:30px">Investors Cookbook <button id="downloadBtn">Download JSON</button></h1>
     <h2 style="font-size:20px; text-align:center">
         <span id="indexTitle">current list: FTSE 100&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="indexTitleSort">&nbsp;&nbsp;&nbsp;&nbsp;current sort order: ticker</span>
     </h2>
-    <h2  style="font-size:14px; text-align:center">
-       <span id="dateTime"></span><span id="versionNo"></span>
+    <h2 style="font-size:14px; text-align:center">
+        <span id="dateTime"></span><span id="versionNo"></span>
     </h2>
     <div class="container" style="position:relative;width:96%">
         <div class="container" style="width:80%;margin-left:10px !important;">
-         <!--   <p style="position:relative;top:-20px;width:400px">
-                The Investors Cookbook is written using Node.js (back-end) and Jquery (front-end).
-                It has no database, instead it use JSON files to contain the static and semi-dynamic
-                data.  Unless you are dealing with millions or tens of thousands of rows
-                you are better off creating a super light weight JSON application that can
-                be deployed anywhere without any configuration required. The data comes from local
-                batch processes that use APIs and screen scrapes to generate updates to JSON.
-            </p> -->
+            <!--   <p style="position:relative;top:-20px;width:400px">
+                   The Investors Cookbook is written using Node.js (back-end) and Jquery (front-end).
+                   It has no database, instead it use JSON files to contain the static and semi-dynamic
+                   data.  Unless you are dealing with millions or tens of thousands of rows
+                   you are better off creating a super light weight JSON application that can
+                   be deployed anywhere without any configuration required. The data comes from local
+                   batch processes that use APIs and screen scrapes to generate updates to JSON.
+               </p> -->
             <div class="row">
                 <div class="col-xs-12" style="z-index:90">
                     <!-- <button style="width:115px; color:black;background-color:lightgrey" id="netnet" type="button" class="btn btn-info">Net net stocks</button> -->
@@ -73,6 +73,8 @@
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">sensible PE ratio (under 18)</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">pediv pe ratio under 14 and dividend over 2</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">gooddiv dividend over 4</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item searchBut" href="#"><span style="font-size: 1.60rem; color: dimgrey; padding-left: 1rem ">Top (assets - intangibles - liabilites / mrk cap)</span></a>
                         <div class="dropdown-divider"></div>
@@ -188,7 +190,32 @@
             </div>
         </div>
 
-        <div style="width: 100%; position: absolute;" id="bigcontainer" class="container">
+        <div style="width: 1800px;" id="bigcontainer" class="container">
+            <table style="float: left;">
+                <thead class="stickyclass" style="width:92%">
+                    <tr>
+                        <th style="text-align: center;" id="john1"><span class="tableftseCon">Name</span></th>
+                        <th style="text-align: center;" id="john2"><span class="tableftseCon">Ticker</span></th>
+                        <th style="text-align: center;" id="john4"><span class="tableftseCon">News</span></th>
+                        <th style="text-align: center;" id="john5"><span class="tableftseCon ">PE</span></thid="john1">
+                        <th style="text-align: center;" id="john6"><span class="tableftseCon ">Dividend</span></th>
+                        <th style="text-align: center;" id="john7"><span class="tableftseCon ">Ex Dividend</span></th>
+                        <th style="text-align: center;" id="john8"><span class="tableftseCon ">Bull Date</span></th>
+                        <th style="text-align: center;" id="john9"><span class="tableftseCon ">Profit</span></th>
+                        <th style="text-align: center;" id="john10"><span class="tableftseCon ">Turnover</span></th>
+                        <th style="text-align: center;" id="john11"><span class="tableftseCon ">Mrk Cap</span></th>
+                        <th style="text-align: center;" id="john12"><span class="tableftseCon ">Price Today</span></th>
+                        <th style="text-align: center;" id="john13"><span class="tableftseCon ">Assets</span></th>
+                        <th style="text-align: center;" id="john14"><span class="tableftseCon ">Liabilities</span></th>
+                        <th style="text-align: center;" id="john15"><span class="tableftseCon ">Cash</span></th>
+                        <th style="text-align: center;" id="john16"><span class="tableftseCon ">NAV</span></th>
+                        <th style="text-align: center;" id="john17"><span class="tableftseCon ">A-L/M</span></th>
+                        <th style="text-align: center;" id="john18"><span class="tableftseCon ">Cash/M</span></th>
+                    </tr>
+                </thead>
+            </table>
+
+
 
 
             <div id="tableftseCon" style="width:1800px;opacity:0; border:none!important;" class="container">
@@ -202,7 +229,7 @@
                        data-data-field="items"
                        data-side-pagination="server"
                        data-show-columns-toggle-all="true">
-                    <thead>
+                    <thead class="test321">
                         <tr>
                             <th class="stockName" id="dddd" title="" data-field="stockName" data-formatter="stockFormatter"><span class="stockName tableftseCon">Name</span></th>
                             <th class="tickerSymbol" data-field="tickerSymbol" data-formatter="tickerFormatter"><span class="tickerSymbol tableftseCon">Ticker</span></th>
@@ -216,22 +243,17 @@
                             <th class="bullAdvice" data-field="bullAdvice" data-formatter="techFormatter"><span class="bullAdvice tableftseCon ">Bull Date</span></th>
                             <th class="profit" data-field="profit"><span class="profit tableftseCon ">Profit</span></th>
                             <th class="revenue" data-field="revenue"><span class="revenue tableftseCon ">Turnover</span></th>
-
-                            <th class="hmarketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
+                            <th class="marketCapitalisation" data-field="marketCapitalisation"><span class="marketCapitalisation tableftseCon ">Mrk Cap</span></th>
                             <th class="percentUp" id="percentup" data-field="percentUp" data-formatter="todaysFormatter"><span class="percentUp tableftseCon ">Price Today</span></th>
                             <th class="totalAssets" id="totalAssets" data-field="totalAssets"><span class="totalAssets tableftseCon ">Assets</span></th>
                             <th class="totalLiabiities" id="totalLiabilities" data-field="totalLiabilities"><span class="totalLiabilities tableftseCon ">Liabilities</span></th>
                             <th class="cash" id="cash" data-field="cash"><span class="cash tableftseCon ">Cash</span></th>
                             <th class="nvv" id="nvv" data-field="nvv"><span class="nvv tableftseCon ">NAV</span></th>
                             <th class="navPercent" id="navPercent" data-field="navPercent"><span class="navPercent tableftseCon ">A-L/M</span></th>
+                            <th class="cashPerCent" id="cashPerCent" data-field="cashPerCent"><span class="cashPerCent tableftseCon ">Cash/M</span></th>
                             <!--   <th class="naVPercentIt" id="naVPercentIt" data-field="naVPercentIt"><span class="naVPercentIt tableftseCon ">A-I-L/M</span></th> -->
                             <th class="netNet" id="netNet" data-field="netNet"><span class="netNet tableftseCon ">netnet</span></th>
                             <th class="eps" id="eps" data-field="eps"><span class="epst tableftseCon ">eps</span></th>
-                            <th class="day5" id="day5" data-field="day5"><span class="day5t tableftseCon ">day5</span></th>
-                            <th class="day21" id="day21" data-field="day21"><span class="day21t tableftseCon ">day21</span></th>
-                            <th class="day2" id="day2" data-field="day2"><span class="day2t tableftseCon ">day2</span></th>
-                            <th class="day3" id="day3" data-field="day3"><span class="day3t tableftseCon ">day3</span></th>
-                            <th class="day10" id="day10" data-field="day10"><span class="day10t tableftseCon ">day10</span></th>
                         </tr>
                     </thead>
                 </table>
@@ -315,26 +337,26 @@
 
         function techFormatter(value, row, index) {
             var title = "";
-                try {
-                    title = row.summary.toUpperCase() + "\n--------------------\n";
-                    title = title + "MACD: " + row.macd + " " + row.macdText.toUpperCase() + "\n";
-                    title = title + "momentum: " + row.momentum + " " + row.momentumText.toUpperCase() + "\n";
-                    title = title + "RSI: " + row.rsi + " " + row.rsiText.toUpperCase() + "\n";
-                    title = title +  "\n--------------------\n";
-                    title = title + "bid: " + row.bid + "  ask: " + row.ask + "\n";
+            try {
+                title = row.summary.toUpperCase() + "\n--------------------\n";
+                title = title + "MACD: " + row.macd + " " + row.macdText.toUpperCase() + "\n";
+                title = title + "momentum: " + row.momentum + " " + row.momentumText.toUpperCase() + "\n";
+                title = title + "RSI: " + row.rsi + " " + row.rsiText.toUpperCase() + "\n";
+                title = title + "\n--------------------\n";
+                title = title + "bid: " + row.bid + "  ask: " + row.ask + "\n";
 
-                } catch (err) {
+            } catch (err) {
 
-                }
-          
-            if (value == null || value =="") {
+            }
+
+            if (value == null || value == "") {
                 value = "-------------";
             }
-            return "<a class='donothing' target='_blank' title='Day Summary: " + title +"' href='javascript:void(0)'>" + value + "</a>";
+            return "<a class='donothing' target='_blank' title='Day Summary: " + title + "' href='javascript:void(0)'>" + value + "</a>";
         }
 
         function tickerFormatter(value, row, index) {
-
+            //  console.log(value);
             if (value.substring(0, 3) == "aim") {
                 value = value.replace("aim", "");
                 return "<span class='aim' id='aa" + index + "'> " + value + " &nbsp;</span>";
@@ -344,19 +366,27 @@
                 value = value.replace("ftserst", "");
                 return "<span class='ftserst' id='aa" + index + "' > " + value + " &nbsp;</span>";
             }
-
+            if (value.substring(0, 7) == "ftse250") {
+                value = value.replace("ftse250", "");
+                return "<span class='ftse250' id='aa" + index + "' > " + value + " &nbsp;</span>";
+            }
+            if (value.substring(0, 7) == "ftse100") {
+                value = value.replace("ftse100", "");
+                return "<span class='ftse100' id='aa" + index + "' > " + value + " &nbsp;</span>";
+            }
+            //  alert(value);e.e
             return "<span id='aa" + index + "' > " + value + " &nbsp;</span>";
 
-/*
-            if (value.substring(0, 3) == "aim") {
-                value = value.replace("aim", "");
-                return "<span class='aim' id='aa" + index + "'> " + value + "</span>";
-            }
-            if (value.substring(0, 7) == "ftserst") {
-                value = value.replace("ftserst", "");
-                return "<span class='ftserst' id='aa" + index + "'> " + value + "</span>";
-            }
-            return "<span id='aa" + index + "'> " + value + "</span>";*/
+            /*
+                        if (value.substring(0, 3) == "aim") {
+                            value = value.replace("aim", "");
+                            return "<span class='aim' id='aa" + index + "'> " + value + "</span>";
+                        }
+                        if (value.substring(0, 7) == "ftserst") {
+                            value = value.replace("ftserst", "");
+                            return "<span class='ftserst' id='aa" + index + "'> " + value + "</span>";
+                        }
+                        return "<span id='aa" + index + "'> " + value + "</span>";*/
         }
 
         function upOrDownFormatter(value) {
@@ -385,7 +415,7 @@
             return "<img src='/images/arrow_up_green.svg'> <span style='color:green' > " + value + "%</span>";
         }
 
-        
+
         function todaysFormatter(value, row, index) {
             if (value == null) {
                 return "<span id='butt" + index + "' >  &nbsp;  &nbsp;  &nbsp; &nbsp; " + 0 + "%</span>";
@@ -438,7 +468,7 @@
             } catch (err) {
 
             }
-            return "<a target='_blank'  id='news" + index + "' title='" + title +"'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br/>", billy].join('') + "</a>";
+            return "<a target='_blank'  id='news" + index + "' title='" + title + "'  href='" + myArray[0] + "'>" + [bishbashbosh.slice(0, position2), "<br/>", billy].join('') + "</a>";
         }
 
         function dataFormatter(value, row, index) {
@@ -449,17 +479,18 @@
                 value = value.substring(0, 20) + "....";
             }
 
-             return "<span> " + value + "<br/>" +
+            return "<span> " + value + "<br/>" +
                 "<img class='imageb' id='imageb" + index + "' height='180px' width='400px' src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=1W&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
                 "<img class='imagebBIG' id='imagebBIG" + index + "' style='display: none;'  src='https://chart.hl.co.uk/charts/chart.jsproto_large.chart?ID_SEDOL=" + row.sedol + "&WIDTH=585&HEIGHT=269&TIME_SPAN=3M&SUBSAMPLINGGRANULARITY=900&XAXISCLOSECOL=0&LINE_WIDTH=1&MOUNTAIN_COLOR1=a5b9d8&MOUNTAIN_COLOR2=c1cfe5&MOUNTAIN_COLOR3=c1cfe5&MOUNTAIN_COLOR4=ffffff&ID_NOTATION_COLOR1=25456b'>" +
                 " &nbsp;</span>";
-           
-            
-      }
+
+
+        }
 
 
 
     </script>
     <div id="activebutt" style="display:none"></div>
+    <div id="myJsonBlob" style="display:none"></div>
 </body>
 </html>

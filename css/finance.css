@@ -103,6 +103,21 @@ ul.ui-autocomplete {
     margin: 5px;
 }
 
+.stickyclass {
+    position: fixed !important;
+    display:block;
+    width:100%;
+    top: 0 !important;
+    background: #f8f8f8 !important;
+    z-index: 100 !important;
+    padding: 8px;
+    line-height: 24px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .hidden {
     display: none;
     visibility: hidden;
